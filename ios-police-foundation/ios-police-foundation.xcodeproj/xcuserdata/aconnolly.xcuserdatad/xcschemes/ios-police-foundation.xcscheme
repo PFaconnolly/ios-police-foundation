@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B09D4D12190C2A7A00C5046B"
-               BuildableName = "ios-police-foundation-app.app"
-               BlueprintName = "ios-police-foundation-app"
-               ReferencedContainer = "container:ios-police-foundation-app.xcodeproj">
+               BlueprintIdentifier = "B0E75E13190C3249003BE9EF"
+               BuildableName = "ios-police-foundation.app"
+               BlueprintName = "ios-police-foundation"
+               ReferencedContainer = "container:ios-police-foundation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B09D4D32190C2A7A00C5046B"
-               BuildableName = "ios-police-foundation-appTests.xctest"
-               BlueprintName = "ios-police-foundation-appTests"
-               ReferencedContainer = "container:ios-police-foundation-app.xcodeproj">
+               BlueprintIdentifier = "B0E75E33190C3249003BE9EF"
+               BuildableName = "ios-police-foundationTests.xctest"
+               BlueprintName = "ios-police-foundationTests"
+               ReferencedContainer = "container:ios-police-foundation.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B09D4D12190C2A7A00C5046B"
-            BuildableName = "ios-police-foundation-app.app"
-            BlueprintName = "ios-police-foundation-app"
-            ReferencedContainer = "container:ios-police-foundation-app.xcodeproj">
+            BlueprintIdentifier = "B0E75E13190C3249003BE9EF"
+            BuildableName = "ios-police-foundation.app"
+            BlueprintName = "ios-police-foundation"
+            ReferencedContainer = "container:ios-police-foundation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +61,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B09D4D12190C2A7A00C5046B"
-            BuildableName = "ios-police-foundation-app.app"
-            BlueprintName = "ios-police-foundation-app"
-            ReferencedContainer = "container:ios-police-foundation-app.xcodeproj">
+            BlueprintIdentifier = "B0E75E13190C3249003BE9EF"
+            BuildableName = "ios-police-foundation.app"
+            BlueprintName = "ios-police-foundation"
+            ReferencedContainer = "container:ios-police-foundation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +79,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B09D4D12190C2A7A00C5046B"
-            BuildableName = "ios-police-foundation-app.app"
-            BlueprintName = "ios-police-foundation-app"
-            ReferencedContainer = "container:ios-police-foundation-app.xcodeproj">
+            BlueprintIdentifier = "B0E75E13190C3249003BE9EF"
+            BuildableName = "ios-police-foundation.app"
+            BlueprintName = "ios-police-foundation"
+            ReferencedContainer = "container:ios-police-foundation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

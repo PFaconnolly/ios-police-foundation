@@ -1,6 +1,6 @@
 //
-//  ios_police_foundation_appTests.m
-//  ios-police-foundation-appTests
+//  ios_police_foundationTests.m
+//  ios-police-foundationTests
 //
 //  Created by Aaron Connolly on 4/26/14.
 //  Copyright (c) 2014 Police Foundation. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface ios_police_foundation_appTests : XCTestCase
+@interface ios_police_foundationTests : XCTestCase
 
 @end
 
-@implementation ios_police_foundation_appTests
+@implementation ios_police_foundationTests
 
 - (void)setUp
 {

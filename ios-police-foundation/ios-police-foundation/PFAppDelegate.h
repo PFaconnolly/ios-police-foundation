@@ -1,6 +1,6 @@
 //
 //  PFAppDelegate.h
-//  ios-police-foundation-app
+//  ios-police-foundation
 //
 //  Created by Aaron Connolly on 4/26/14.
 //  Copyright (c) 2014 Police Foundation. All rights reserved.

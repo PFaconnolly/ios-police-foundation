@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:ios-police-foundation-app.xcodeproj">
+      location = "self:ios-police-foundation.xcodeproj">
    </FileRef>
 </Workspace>

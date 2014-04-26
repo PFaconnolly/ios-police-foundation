@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ios-police-foundation-app.xcscheme</key>
+		<key>ios-police-foundation.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B09D4D12190C2A7A00C5046B</key>
+		<key>B0E75E13190C3249003BE9EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B09D4D32190C2A7A00C5046B</key>
+		<key>B0E75E33190C3249003BE9EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
