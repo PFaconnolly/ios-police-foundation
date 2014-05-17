@@ -8,6 +8,8 @@
 
 #import "PFAppDelegate.h"
 #import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation PFAppDelegate
 
@@ -15,8 +17,8 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Google Analytics
     
     // Optional: automatically send uncaught exceptions to Google Analytics.
@@ -26,12 +28,24 @@
     //[GAI sharedInstance].dispatchInterval = 20;
     
     // Optional: set Logger to VERBOSE for debug information.
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    /*[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     // Initialize tracker. Replace with your tracking ID.
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-34908763-4"];
+    
+
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"System Action"   // Event category (required)
+                                                          action:@"App Launched"    // Event action (required)
+                                                           label:nil                // Event label
+                                                           value:nil] build]];      // Event value*/
 
     
+    // Crashlytics
+    [Crashlytics startWithAPIKey:@"4cc4ce965b769396e57af58ca8f2142491f099cd"];
+    
+    // Force crash:
+    //NSString * test = @"12";
+    //NSString * __unused subString = [test stringByReplacingCharactersInRange:NSMakeRange(0, 4) withString:@"1234"];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
