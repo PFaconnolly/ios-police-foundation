@@ -583,7 +583,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
 				INFOPLIST_FILE = "ios-police-foundation/ios-police-foundation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios-police-foundation/Resources/GoogleAnalytics",
@@ -606,7 +606,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
 				INFOPLIST_FILE = "ios-police-foundation/ios-police-foundation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios-police-foundation/Resources/GoogleAnalytics",

@@ -36,6 +36,7 @@ static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
                        successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
                        failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock {
     NSString * url = [BASE_URL stringByAppendingString:@"sites/<id>/categories/"];
+    url = [url stringByReplacingOccurrencesOfString:@"<id>" withString:HOST_API_ID];
     url = [url pfStringByAppendingQueryStringParameters:parameters];
     [self getRequestWithUrl:url parameters:nil successBlock:successBlock failureBlock:failureBlock];
 }
