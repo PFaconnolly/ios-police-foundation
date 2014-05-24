@@ -10,6 +10,7 @@
 		13119462C3184FFC9CC9F111 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98428B0463124CB6AB2BC5C8 /* libPods.a */; };
 		B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */; };
 		B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */; };
+		B006F73F1931423500374295 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F73D1931423500374295 /* EXTScope.m */; };
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
@@ -55,6 +56,9 @@
 		B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		B0055A2B1928457A00FDFE1D /* NSString+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PFExtensions.h"; path = "Categories/NSString+PFExtensions.h"; sourceTree = "<group>"; };
 		B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PFExtensions.m"; path = "Categories/NSString+PFExtensions.m"; sourceTree = "<group>"; };
+		B006F73C1931423500374295 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
+		B006F73D1931423500374295 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
+		B006F73E1931423500374295 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
 		B095EF33192943AA008C3FF0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Resources/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		B095EF34192943AA008C3FF0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Resources/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		B095EF35192943AA008C3FF0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Resources/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
@@ -103,13 +107,13 @@
 				B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */,
 				B0D63A59190CC64100103C02 /* libsqlite3.dylib in Frameworks */,
 				B0D63A57190CC55400103C02 /* libz.dylib in Frameworks */,
+				13119462C3184FFC9CC9F111 /* libPods.a in Frameworks */,
 				B0D63A55190CC54A00103C02 /* SystemConfiguration.framework in Frameworks */,
 				B0D63A53190CC53400103C02 /* AdSupport.framework in Frameworks */,
 				B0E75E1A190C3249003BE9EF /* CoreGraphics.framework in Frameworks */,
 				B0E75E1E190C3249003BE9EF /* CoreData.framework in Frameworks */,
 				B0E75E1C190C3249003BE9EF /* UIKit.framework in Frameworks */,
 				B0E75E18190C3249003BE9EF /* Foundation.framework in Frameworks */,
-				13119462C3184FFC9CC9F111 /* libPods.a in Frameworks */,
 				B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +151,17 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
+		B006F73B1931423500374295 /* extobjc */ = {
+			isa = PBXGroup;
+			children = (
+				B006F73C1931423500374295 /* EXTScope.h */,
+				B006F73D1931423500374295 /* EXTScope.m */,
+				B006F73E1931423500374295 /* metamacros.h */,
+			);
+			name = extobjc;
+			path = Resources/extobjc;
+			sourceTree = "<group>";
+		};
 		B095EF3C192944E2008C3FF0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +194,7 @@
 		B0D63A48190CC47100103C02 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B006F73B1931423500374295 /* extobjc */,
 				B0D63A49190CC4B500103C02 /* GoogleAnalytics */,
 			);
 			name = Resources;
@@ -450,6 +466,7 @@
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
+				B006F73F1931423500374295 /* EXTScope.m in Sources */,
 				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
 				B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */,
