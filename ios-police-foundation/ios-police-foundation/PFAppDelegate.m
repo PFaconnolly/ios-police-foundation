@@ -12,6 +12,10 @@
 #import <Crashlytics/Crashlytics.h>
 #import "PFCategoriesViewController.h"
 
+@interface PFAppDelegate()
+
+@end
+
 @implementation PFAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -52,9 +56,14 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    // set up tab view controller
     PFCategoriesViewController * categoriesViewController = [[PFCategoriesViewController alloc] initWithNibName:@"PFCategoriesViewController" bundle:nil];
+    UINavigationController * categoriesNavigationController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
     
-    self.window.rootViewController = categoriesViewController;
+    UITabBarController * tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:@[categoriesNavigationController]];
+
+    self.window.rootViewController = tabBarController;
     
     return YES;
 }

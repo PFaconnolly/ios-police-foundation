@@ -10,6 +10,9 @@
 
 @interface PFAppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) NSString * selectedCategorySlug;
+@property (strong, nonatomic) NSString * selectedTagSlug;
+
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

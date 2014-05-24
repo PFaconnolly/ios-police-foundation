@@ -11,5 +11,5 @@
 @interface NSString (PFExtensions)
 
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters;
-
+- (NSString *) pfURLEncodedString;
 @end

@@ -38,8 +38,15 @@
     return self.items[(NSUInteger) indexPath.row];
 }
 
+- (void)reloadItems:(NSArray *)items {
+    self.items = items;
+}
 
 #pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.items.count;
