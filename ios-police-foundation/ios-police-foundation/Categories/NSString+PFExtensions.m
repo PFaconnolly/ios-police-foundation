@@ -11,6 +11,7 @@
 @implementation NSString (PFExtensions)
 
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters {
+    
     if ( parameters ) {
         __block NSString * queryParameters = [NSString string];
         [parameters enumerateKeysAndObjectsUsingBlock:^(NSString * key, NSString * obj, BOOL __unused *stop) {
