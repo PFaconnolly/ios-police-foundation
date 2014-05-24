@@ -47,12 +47,12 @@
         cell.textLabel.text = [category objectForKey:@"name"];
         cell.detailTextLabel.text = [category objectForKey:@"description"];
     };
-    
+
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getCategoriesWithParameters:nil
                                                                   successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                       NSDictionary * __unused response = (NSDictionary *)responseObject;
-                                                                      
+
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                       
