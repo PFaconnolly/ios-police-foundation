@@ -16,6 +16,8 @@ typedef void (^TableViewCellConfigureBlock)(id cell, id item);
      cellIdentifier:(NSString *)aCellIdentifier
  configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
 
+- (void)reloadItems:(NSArray *)items;
+
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

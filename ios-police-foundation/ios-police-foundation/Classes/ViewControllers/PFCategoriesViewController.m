@@ -7,138 +7,85 @@
 //
 
 #import "PFCategoriesViewController.h"
+#import "PFAppDelegate.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFCategoryTableViewCell.h"
 #import "PFArrayDataSource.h"
+#import "PFTagsViewController.h"
 
 @interface PFCategoriesViewController ()
 
-@property (nonatomic, strong) PFArrayDataSource *categoriesArrayDataSource;
+@property (strong, nonatomic) NSArray * categories;
+@property (strong, nonatomic) PFArrayDataSource *categoriesArrayDataSource;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation PFCategoriesViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"Categories";
+    [self setupTableView];
+    [self fetchCategories];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupTableView
-{
+- (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFCategoryTableViewCell * cell, NSDictionary * category) {
         cell.textLabel.text = [category objectForKey:@"name"];
-        cell.detailTextLabel.text = [category objectForKey:@"description"];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@) %@", [category objectForKey:@"post_count"], [category objectForKey:@"description"]];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
-
-    // Fetch categories from blog ...
-    [[PFHTTPRequestOperationManager sharedManager] getCategoriesWithParameters:nil
-                                                                  successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                      NSDictionary * __unused response = (NSDictionary *)responseObject;
-
-                                                                  }
-                                                                  failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                      
-                                                                  }];
     
-    NSArray * categories = nil;
-    self.categoriesArrayDataSource = [[PFArrayDataSource alloc] initWithItems:categories
+    self.categories = [NSArray array];
+    self.categoriesArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
                                                                cellIdentifier:@"Cell"
                                                            configureCellBlock:configureCellBlock];
-    
     self.tableView.dataSource = self.categoriesArrayDataSource;
+    [self.tableView reloadData];
+    
     [self.tableView registerNib:[PFCategoryTableViewCell nib] forCellReuseIdentifier:@"Cell"];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (void)fetchCategories {
     
-    // Configure the cell...
+    @weakify(self)
+    // Fetch categories from blog ...
+    [[PFHTTPRequestOperationManager sharedManager] getCategoriesWithParameters:nil
+                                                                  successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                                      @strongify(self)
+                                                                      NSDictionary * response = (NSDictionary *)responseObject;
+                                                                      self->_categories = [response objectForKey:@"categories"];
+                                                                      [self->_categoriesArrayDataSource reloadItems:self->_categories];
+                                                                      [self->_tableView reloadData];
+                                                                  }
+                                                                  failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                      NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
+                                                                      [exception raise];
+                                                                  }];
+}
+
+#pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return cell;
+    // set the selected category
+    NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
+    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
+    
+    PFTagsViewController * tagsViewController = [[PFTagsViewController alloc] initWithNibName:@"PFTagsViewController" bundle:nil];
+    [self.navigationController pushViewController:tagsViewController animated:YES];
 }
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
+

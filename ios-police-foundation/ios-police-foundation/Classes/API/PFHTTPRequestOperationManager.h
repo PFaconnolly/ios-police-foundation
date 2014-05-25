@@ -16,6 +16,10 @@
                             successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
                             failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
 
+- (void)getTagsWithParameters:(NSDictionary *)parameters
+                 successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+                 failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
+
 - (void)getPostsWithParameters:(NSDictionary *)parameters
                   successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
                   failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;

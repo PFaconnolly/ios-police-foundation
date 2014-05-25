@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFCategoriesViewController : UITableViewController
+@interface PFCategoriesViewController : UIViewController <UITableViewDelegate>
+
 
 @end

@@ -36,6 +36,16 @@ static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
                        successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
                        failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock {
     NSString * url = [BASE_URL stringByAppendingString:@"sites/<id>/categories/"];
+    url = [url stringByReplacingOccurrencesOfString:@"<id>" withString:HOST_API_ID];
+    url = [url pfStringByAppendingQueryStringParameters:parameters];
+    [self getRequestWithUrl:url parameters:nil successBlock:successBlock failureBlock:failureBlock];
+}
+
+- (void)getTagsWithParameters:(NSDictionary *)parameters
+                       successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+                       failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock {
+    NSString * url = [BASE_URL stringByAppendingString:@"sites/<id>/tags/"];
+    url = [url stringByReplacingOccurrencesOfString:@"<id>" withString:HOST_API_ID];
     url = [url pfStringByAppendingQueryStringParameters:parameters];
     [self getRequestWithUrl:url parameters:nil successBlock:successBlock failureBlock:failureBlock];
 }
@@ -66,6 +76,7 @@ static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
                parameters:(id)parameters
              successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
              failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock {
+    // Don't forget to URL encode
     [self GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock(operation, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
