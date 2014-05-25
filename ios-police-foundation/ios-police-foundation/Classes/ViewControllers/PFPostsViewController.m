@@ -11,6 +11,7 @@
 #import "PFHTTPRequestOperationManager.h"
 #import "PFArrayDataSource.h"
 #import "PFPostTableViewCell.h"
+#import "PFPostDetailsViewController.h"
 
 @interface PFPostsViewController ()
 
@@ -26,7 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+        
     self.title = @"Posts";
     [self setupTableView];
     [self fetchPosts];
@@ -85,6 +86,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 50.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:indexPath];
+    PFPostDetailsViewController * postDetailsViewController = [[PFPostDetailsViewController alloc] initWithNibName:@"PFPostDetailsViewController" bundle:nil];
+    postDetailsViewController.postID = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
+    [self.navigationController pushViewController:postDetailsViewController animated:YES];
 }
 
 @end

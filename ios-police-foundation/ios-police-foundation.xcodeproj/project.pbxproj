@@ -19,6 +19,8 @@
 		B006F74E19315B0900374295 /* PFPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F74C19315B0900374295 /* PFPostsViewController.xib */; };
 		B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F75019315B3000374295 /* PFPostTableViewCell.m */; };
 		B006F75319315B3000374295 /* PFPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F75119315B3000374295 /* PFPostTableViewCell.xib */; };
+		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
+		B006F7581931694900374295 /* PFPostDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F7561931694900374295 /* PFPostDetailsViewController.xib */; };
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
@@ -79,6 +81,9 @@
 		B006F74F19315B3000374295 /* PFPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostTableViewCell.h; path = Classes/Cells/PFPostTableViewCell.h; sourceTree = "<group>"; };
 		B006F75019315B3000374295 /* PFPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostTableViewCell.m; path = Classes/Cells/PFPostTableViewCell.m; sourceTree = "<group>"; };
 		B006F75119315B3000374295 /* PFPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostTableViewCell.xib; path = Classes/Cells/PFPostTableViewCell.xib; sourceTree = "<group>"; };
+		B006F7541931694900374295 /* PFPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostDetailsViewController.h; path = Classes/ViewControllers/PFPostDetailsViewController.h; sourceTree = "<group>"; };
+		B006F7551931694900374295 /* PFPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostDetailsViewController.m; path = Classes/ViewControllers/PFPostDetailsViewController.m; sourceTree = "<group>"; };
+		B006F7561931694900374295 /* PFPostDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostDetailsViewController.xib; path = Classes/ViewControllers/PFPostDetailsViewController.xib; sourceTree = "<group>"; };
 		B095EF33192943AA008C3FF0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Resources/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		B095EF34192943AA008C3FF0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Resources/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		B095EF35192943AA008C3FF0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Resources/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
@@ -188,6 +193,9 @@
 				B095EF3D1929452F008C3FF0 /* PFCategoriesViewController.h */,
 				B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */,
 				B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */,
+				B006F7541931694900374295 /* PFPostDetailsViewController.h */,
+				B006F7551931694900374295 /* PFPostDetailsViewController.m */,
+				B006F7561931694900374295 /* PFPostDetailsViewController.xib */,
 				B006F74A19315B0900374295 /* PFPostsViewController.h */,
 				B006F74B19315B0900374295 /* PFPostsViewController.m */,
 				B006F74C19315B0900374295 /* PFPostsViewController.xib */,
@@ -430,6 +438,7 @@
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
 				B095EF5019294D7B008C3FF0 /* PFCategoriesViewController.xib in Resources */,
 				B006F744193152E400374295 /* PFTagsViewController.xib in Resources */,
+				B006F7581931694900374295 /* PFPostDetailsViewController.xib in Resources */,
 				B006F7491931552E00374295 /* PFTagTableViewCell.xib in Resources */,
 				B095EF4E19294D5C008C3FF0 /* PFCategoryTableViewCell.xib in Resources */,
 				B006F74E19315B0900374295 /* PFPostsViewController.xib in Resources */,
@@ -502,6 +511,7 @@
 				B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */,
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
+				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
 				B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */,
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
