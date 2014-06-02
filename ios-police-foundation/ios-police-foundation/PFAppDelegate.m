@@ -11,6 +11,8 @@
 #import "GAIDictionaryBuilder.h"
 #import <Crashlytics/Crashlytics.h>
 #import "PFCategoriesViewController.h"
+#import "PFAboutViewController.h"
+#import "PFNewsViewController.h"
 
 @interface PFAppDelegate()
 
@@ -60,8 +62,17 @@
     PFCategoriesViewController * categoriesViewController = [[PFCategoriesViewController alloc] initWithNibName:@"PFCategoriesViewController" bundle:nil];
     UINavigationController * categoriesNavigationController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
     
+    // about
+    PFAboutViewController * aboutViewController = [[PFAboutViewController alloc] initWithNibName:@"PFAboutViewController" bundle:nil];
+    UINavigationController * aboutNavigationController = [[UINavigationController alloc] initWithRootViewController:aboutViewController];
+    
+    // news
+    PFNewsViewController * newsViewController = [[PFNewsViewController alloc] initWithNibName:@"PFNewsViewController" bundle:nil];
+    UINavigationController * newsNavigationController = [[UINavigationController alloc] initWithRootViewController:newsViewController];
+    
+    
     UITabBarController * tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[categoriesNavigationController]];
+    [tabBarController setViewControllers:@[categoriesNavigationController, newsNavigationController, aboutNavigationController]];
 
     self.window.rootViewController = tabBarController;
     
