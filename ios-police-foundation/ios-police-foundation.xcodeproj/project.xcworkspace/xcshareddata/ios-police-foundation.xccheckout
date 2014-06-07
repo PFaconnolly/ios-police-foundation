@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2D422C94-DAE4-40F3-92F2-9D250DF31BD6</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ios-police-foundation</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7F167717-781E-4D23-AB38-A80CFA716046</key>
+		<string>https://github.com/PFaconnolly/ios-police-foundation.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios-police-foundation/ios-police-foundation.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7F167717-781E-4D23-AB38-A80CFA716046</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/PFaconnolly/ios-police-foundation.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7F167717-781E-4D23-AB38-A80CFA716046</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7F167717-781E-4D23-AB38-A80CFA716046</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios-police-foundation</string>
+		</dict>
+	</array>
+</dict>
+</plist>
