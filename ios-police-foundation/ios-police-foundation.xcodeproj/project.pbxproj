@@ -21,16 +21,15 @@
 		B006F75319315B3000374295 /* PFPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F75119315B3000374295 /* PFPostTableViewCell.xib */; };
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
 		B006F7581931694900374295 /* PFPostDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F7561931694900374295 /* PFPostDetailsViewController.xib */; };
+		B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344C19439B5300735CB5 /* Storyboard.storyboard */; };
+		B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
-		B087DC75193CC95100BD2BB8 /* PFAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B087DC73193CC95100BD2BB8 /* PFAboutViewController.xib */; };
 		B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */; };
-		B087DC7A193CCA2200BD2BB8 /* PFNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B087DC78193CCA2200BD2BB8 /* PFNewsViewController.xib */; };
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
 		B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF49192949EC008C3FF0 /* PFCategoryTableViewCell.m */; };
 		B095EF4E19294D5C008C3FF0 /* PFCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B095EF4D19294D5C008C3FF0 /* PFCategoryTableViewCell.xib */; };
-		B095EF5019294D7B008C3FF0 /* PFCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */; };
 		B0D63A53190CC53400103C02 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A52190CC53400103C02 /* AdSupport.framework */; };
 		B0D63A55190CC54A00103C02 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A54190CC54A00103C02 /* SystemConfiguration.framework */; };
 		B0D63A57190CC55400103C02 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A56190CC55400103C02 /* libz.dylib */; };
@@ -88,12 +87,12 @@
 		B006F7541931694900374295 /* PFPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostDetailsViewController.h; path = Classes/ViewControllers/PFPostDetailsViewController.h; sourceTree = "<group>"; };
 		B006F7551931694900374295 /* PFPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostDetailsViewController.m; path = Classes/ViewControllers/PFPostDetailsViewController.m; sourceTree = "<group>"; };
 		B006F7561931694900374295 /* PFPostDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostDetailsViewController.xib; path = Classes/ViewControllers/PFPostDetailsViewController.xib; sourceTree = "<group>"; };
+		B085344C19439B5300735CB5 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Storyboard/Storyboard.storyboard; sourceTree = "<group>"; };
+		B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Classes/ViewControllers/PFAboutViewController.h; sourceTree = "<group>"; };
 		B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAboutViewController.m; path = Classes/ViewControllers/PFAboutViewController.m; sourceTree = "<group>"; };
-		B087DC73193CC95100BD2BB8 /* PFAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFAboutViewController.xib; path = Classes/ViewControllers/PFAboutViewController.xib; sourceTree = "<group>"; };
 		B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNewsViewController.h; path = Classes/ViewControllers/PFNewsViewController.h; sourceTree = "<group>"; };
 		B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNewsViewController.m; path = Classes/ViewControllers/PFNewsViewController.m; sourceTree = "<group>"; };
-		B087DC78193CCA2200BD2BB8 /* PFNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFNewsViewController.xib; path = Classes/ViewControllers/PFNewsViewController.xib; sourceTree = "<group>"; };
 		B095EF33192943AA008C3FF0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Resources/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		B095EF34192943AA008C3FF0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Resources/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		B095EF35192943AA008C3FF0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Resources/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 		B095EF48192949EC008C3FF0 /* PFCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategoryTableViewCell.h; path = Classes/Cells/PFCategoryTableViewCell.h; sourceTree = "<group>"; };
 		B095EF49192949EC008C3FF0 /* PFCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoryTableViewCell.m; path = Classes/Cells/PFCategoryTableViewCell.m; sourceTree = "<group>"; };
 		B095EF4D19294D5C008C3FF0 /* PFCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFCategoryTableViewCell.xib; path = Classes/Cells/PFCategoryTableViewCell.xib; sourceTree = "<group>"; };
-		B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFCategoriesViewController.xib; path = Classes/ViewControllers/PFCategoriesViewController.xib; sourceTree = "<group>"; };
 		B0D63A52190CC53400103C02 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B0D63A54190CC54A00103C02 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B0D63A56190CC55400103C02 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -197,18 +195,24 @@
 			path = Resources/extobjc;
 			sourceTree = "<group>";
 		};
+		B085344B19439B2700735CB5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B085344C19439B5300735CB5 /* Storyboard.storyboard */,
+				B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		B095EF3C192944E2008C3FF0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */,
 				B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */,
-				B087DC73193CC95100BD2BB8 /* PFAboutViewController.xib */,
 				B095EF3D1929452F008C3FF0 /* PFCategoriesViewController.h */,
 				B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */,
-				B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */,
 				B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */,
 				B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */,
-				B087DC78193CCA2200BD2BB8 /* PFNewsViewController.xib */,
 				B006F7541931694900374295 /* PFPostDetailsViewController.h */,
 				B006F7551931694900374295 /* PFPostDetailsViewController.m */,
 				B006F7561931694900374295 /* PFPostDetailsViewController.xib */,
@@ -336,6 +340,7 @@
 				B0DC38771928401D004D563C /* Classes */,
 				B0055A2A1928455D00FDFE1D /* Categories */,
 				B0DC387819284027004D563C /* Model */,
+				B085344B19439B2700735CB5 /* Storyboards */,
 				B0D63A48190CC47100103C02 /* Resources */,
 				B0E75E20190C3249003BE9EF /* Supporting Files */,
 			);
@@ -422,6 +427,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Police Foundation";
 				TargetAttributes = {
+					B0E75E13190C3249003BE9EF = {
+						DevelopmentTeam = XJ493G3J38;
+					};
 					B0E75E33190C3249003BE9EF = {
 						TestTargetID = B0E75E13190C3249003BE9EF;
 					};
@@ -451,11 +459,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E75E24190C3249003BE9EF /* InfoPlist.strings in Resources */,
-				B087DC7A193CCA2200BD2BB8 /* PFNewsViewController.xib in Resources */,
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
-				B095EF5019294D7B008C3FF0 /* PFCategoriesViewController.xib in Resources */,
 				B006F744193152E400374295 /* PFTagsViewController.xib in Resources */,
-				B087DC75193CC95100BD2BB8 /* PFAboutViewController.xib in Resources */,
+				B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */,
+				B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */,
 				B006F7581931694900374295 /* PFPostDetailsViewController.xib in Resources */,
 				B006F7491931552E00374295 /* PFTagTableViewCell.xib in Resources */,
 				B095EF4E19294D5C008C3FF0 /* PFCategoryTableViewCell.xib in Resources */,
@@ -663,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Connolly (75QGWBCG5G)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -686,6 +694,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Police Foundation (XJ493G3J38)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

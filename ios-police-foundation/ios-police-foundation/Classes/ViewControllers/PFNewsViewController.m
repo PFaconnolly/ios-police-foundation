@@ -8,7 +8,7 @@
 
 #import "PFNewsViewController.h"
 
-@interface PFNewsViewController ()
+@interface PFNewsViewController () <UITableViewDelegate>
 
 @end
 
@@ -19,7 +19,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"News";
     }
     return self;
 }
@@ -35,5 +34,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // set the selected category
+    /*NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
+    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
+    
+    PFTagsViewController * tagsViewController = [[PFTagsViewController alloc] initWithNibName:@"PFTagsViewController" bundle:nil];
+    [self.navigationController pushViewController:tagsViewController animated:YES];*/
+}
+
 
 @end

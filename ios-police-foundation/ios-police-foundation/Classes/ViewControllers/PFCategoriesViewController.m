@@ -26,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Categories";
     [self setupTableView];
     [self fetchCategories];
 }
@@ -69,6 +68,10 @@
                                                                       NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                       [exception raise];
                                                                   }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
 }
 
 #pragma mark - UITableViewDelegate methods
