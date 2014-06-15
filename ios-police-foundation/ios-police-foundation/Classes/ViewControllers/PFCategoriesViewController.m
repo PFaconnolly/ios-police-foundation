@@ -28,10 +28,17 @@
     self.title = @"Categories";
     [self setupTableView];
     [self fetchCategories];
+    
+    UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
+    self.navigationItem.rightBarButtonItem = refreshButton;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+- (void)refreshButtonTapped:(id)sender {
+    [self fetchCategories];
 }
 
 #pragma mark - Private methods

@@ -27,14 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Post";
-
-    if ( [self respondsToSelector:@selector(edgesForExtendedLayout)] ) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-    }
-    
-    
-    
-    
 }
 
 #pragma mark - UISplitViewControllerDelegate methods
