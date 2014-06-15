@@ -10,6 +10,10 @@
 
 @interface NSString (PFExtensions)
 
++ (NSString *) pfFullDateStringFromDate:(NSDate *)date;
++ (NSString *) pfShortDateStringFromDate:(NSDate *)date;
+
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters;
 - (NSString *) pfURLEncodedString;
+
 @end

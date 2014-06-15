@@ -10,6 +10,25 @@
 
 @implementation NSString (PFExtensions)
 
++ (NSString *) pfFullDateStringFromDate:(NSDate *)date {
+    NSDateFormatter * displayDateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [displayDateFormatter setLocale:enUSPOSIXLocale];
+    [displayDateFormatter setDateStyle:NSDateFormatterFullStyle];
+    [displayDateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    return [displayDateFormatter stringFromDate:date];
+}
+
++ (NSString *) pfShortDateStringFromDate:(NSDate *)date {
+    NSDateFormatter * displayDateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [displayDateFormatter setLocale:enUSPOSIXLocale];
+    [displayDateFormatter setDateStyle:NSDateFormatterShortStyle];
+    [displayDateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    return [displayDateFormatter stringFromDate:date];
+}
+
+
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters {
     
     if ( parameters ) {

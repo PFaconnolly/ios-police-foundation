@@ -25,16 +25,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = @"Categories";
     [self setupTableView];
     [self fetchCategories];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
+
+#pragma mark - Private methods
 
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFCategoryTableViewCell * cell, NSDictionary * category) {
@@ -79,12 +79,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // set the selected category
+    // set the selected category on app delegate
     NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
     ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
     
-    PFTagsViewController * tagsViewController = [[PFTagsViewController alloc] initWithNibName:@"PFTagsViewController" bundle:nil];
-    [self.navigationController pushViewController:tagsViewController animated:YES];
+    [self performSegueWithIdentifier:@"categoriesToTagsSegue" sender:self];
 }
 
 @end

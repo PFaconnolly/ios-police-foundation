@@ -54,27 +54,12 @@
     //NSString * test = @"12";
     //NSString * __unused subString = [test stringByReplacingCharactersInRange:NSMakeRange(0, 4) withString:@"1234"];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    // set up tab view controller
-    PFCategoriesViewController * categoriesViewController = [[PFCategoriesViewController alloc] initWithNibName:@"PFCategoriesViewController" bundle:nil];
-    UINavigationController * categoriesNavigationController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
-    
-    // about
-    PFAboutViewController * aboutViewController = [[PFAboutViewController alloc] initWithNibName:@"PFAboutViewController" bundle:nil];
-    UINavigationController * aboutNavigationController = [[UINavigationController alloc] initWithRootViewController:aboutViewController];
-    
-    // news
-    PFNewsViewController * newsViewController = [[PFNewsViewController alloc] initWithNibName:@"PFNewsViewController" bundle:nil];
-    UINavigationController * newsNavigationController = [[UINavigationController alloc] initWithRootViewController:newsViewController];
-    
-    
-    UITabBarController * tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[categoriesNavigationController, newsNavigationController, aboutNavigationController]];
-
-    self.window.rootViewController = tabBarController;
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        UISplitViewController * splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController * navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+        self.detailsViewController = (id)navigationController.topViewController;
+    }
     
     return YES;
 }

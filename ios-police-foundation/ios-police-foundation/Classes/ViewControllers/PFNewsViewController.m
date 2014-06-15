@@ -8,32 +8,34 @@
 
 #import "PFNewsViewController.h"
 
-@interface PFNewsViewController ()
+@interface PFNewsViewController () <UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation PFNewsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        self.title = @"News";
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.title = @"News";
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50.0f;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // set the selected category
+    /*NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
+    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
+    
+    PFTagsViewController * tagsViewController = [[PFTagsViewController alloc] initWithNibName:@"PFTagsViewController" bundle:nil];
+    [self.navigationController pushViewController:tagsViewController animated:YES];*/
+}
+
 
 @end
