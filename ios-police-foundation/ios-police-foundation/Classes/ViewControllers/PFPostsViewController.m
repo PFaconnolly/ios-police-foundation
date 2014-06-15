@@ -12,6 +12,8 @@
 #import "PFArrayDataSource.h"
 #import "PFPostTableViewCell.h"
 #import "PFPostDetailsViewController.h"
+#import "NSDate+PFExtensions.h"
+#import "NSString+PFExtensions.h"
 
 @interface PFPostsViewController ()
 
@@ -23,26 +25,26 @@
 
 @implementation PFPostsViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-        
     self.title = @"Posts";
     [self setupTableView];
     [self fetchPosts];
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        self.postSelectionDelegate = ((PFAppDelegate *)[UIApplication sharedApplication].delegate).detailsViewController;
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * category) {
         cell.textLabel.text = [category objectForKey:@"title"];
-        cell.detailTextLabel.text = [category objectForKey:@"date"];
+        NSDate * date = [NSDate pfDateFromIso8601String:[category objectForKey:@"date"]];
+        cell.detailTextLabel.text = [NSString pfShortDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
@@ -89,10 +91,28 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:indexPath];
-    PFPostDetailsViewController * postDetailsViewController = [[PFPostDetailsViewController alloc] initWithNibName:@"PFPostDetailsViewController" bundle:nil];
-    postDetailsViewController.postID = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
-    [self.navigationController pushViewController:postDetailsViewController animated:YES];
+    NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
+        
+        [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
+        
+    } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        
+        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithId:) ] ) {
+            [self.postSelectionDelegate selectPostWithId:postId];
+        }
+    }
+}
+
+#pragma mark - Segue methods
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
+    ((PFPostDetailsViewController *)segue.destinationViewController).postId = postId;
 }
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFPostSelectionDelegate.h"
 
-@interface PFPostDetailsViewController : UIViewController
+@interface PFPostDetailsViewController : UIViewController <PFPostSelectionDelegate>
 
-@property (strong, nonatomic) NSString * postID;
+@property (strong, nonatomic) NSString * postId;
+
+- (void)selectPostWithId:(NSString *)postId;
 
 @end

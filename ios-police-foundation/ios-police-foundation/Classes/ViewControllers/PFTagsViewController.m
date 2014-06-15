@@ -11,7 +11,6 @@
 #import "PFArrayDataSource.h"
 #import "PFTagTableViewCell.h"
 #import "PFHTTPRequestOperationManager.h"
-#import "PFPostsViewController.h"
 
 @interface PFTagsViewController ()
 
@@ -23,30 +22,18 @@
 
 @implementation PFTagsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     self.title = @"Tags";
     [self setupTableView];
     [self fetchCategories];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
+
+#pragma mark - Private methods
 
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFTagTableViewCell * cell, NSDictionary * category) {
@@ -90,13 +77,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // set the selected tag
+    
+    // set the selected tag on app delegate
     NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
     ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = [tag objectForKey:@"slug"];
     
-    // push to posts view controller
-    PFPostsViewController * postsViewController = [[PFPostsViewController alloc] initWithNibName:@"PFPostsViewController" bundle:nil];
-    [self.navigationController pushViewController:postsViewController animated:YES];
+    // segue to posts view controller
+    [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
 }
 
 @end
