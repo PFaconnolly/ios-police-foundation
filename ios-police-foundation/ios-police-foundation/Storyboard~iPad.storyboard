@@ -9,6 +9,7 @@
         <scene sceneID="c9g-QY-P9a">
             <objects>
                 <navigationController definesPresentationContext="YES" id="J72-yN-Mho" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MoP-0v-N1K">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -61,16 +62,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="fjq-ur-d8R" secondAttribute="centerX" id="7Ti-Yo-LBn"/>
                             <constraint firstItem="fjq-ur-d8R" firstAttribute="top" secondItem="QHY-3F-sr4" secondAttribute="bottom" id="DgW-eR-yCF"/>
                             <constraint firstAttribute="trailing" secondItem="P1N-4z-7OH" secondAttribute="trailing" constant="20" id="NSO-xQ-DDY"/>
                             <constraint firstItem="P1N-4z-7OH" firstAttribute="top" secondItem="QHY-3F-sr4" secondAttribute="bottom" constant="96" id="U5k-Qf-4Md"/>
                             <constraint firstItem="P1N-4z-7OH" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="WVJ-7b-i7C"/>
                             <constraint firstItem="MjT-US-Pq8" firstAttribute="top" secondItem="P1N-4z-7OH" secondAttribute="bottom" constant="20" id="ahQ-Dq-7Pk"/>
                             <constraint firstItem="P1N-4z-7OH" firstAttribute="top" secondItem="xBg-kk-BmF" secondAttribute="bottom" constant="8" id="hav-Gc-AY6"/>
-                            <constraint firstAttribute="centerX" secondItem="xBg-kk-BmF" secondAttribute="centerX" id="nbb-9P-rcc"/>
                             <constraint firstItem="xBg-kk-BmF" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="uUN-QO-WJA"/>
-                            <constraint firstItem="fjq-ur-d8R" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="ud9-tu-sUh"/>
-                            <constraint firstAttribute="trailing" secondItem="fjq-ur-d8R" secondAttribute="trailing" constant="20" id="xer-mW-MRV"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -240,6 +239,7 @@
             <objects>
                 <splitViewController id="eiP-VD-bgd" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <segue destination="wp5-7N-roL" kind="relationship" relationship="masterViewController" id="QZD-Zf-hk4"/>
                         <segue destination="J72-yN-Mho" kind="relationship" relationship="detailViewController" id="bi6-HU-CFp"/>
@@ -252,7 +252,8 @@
         <!--Navigation Controller-->
         <scene sceneID="Dds-LY-JJM">
             <objects>
-                <navigationController definesPresentationContext="YES" id="wp5-7N-roL" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="wp5-7N-roL" customClass="PFNavigationController" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0QS-63-OU3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -10,4 +10,7 @@
 
 @interface PFAboutViewController : UIViewController
 
+// This class is used as the navigation controller class in Storyboard~iPad and is
+// needed so that the appearance proxy can be targeted from app delegate
+
 @end

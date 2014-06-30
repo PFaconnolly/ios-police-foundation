@@ -13,6 +13,7 @@
 #import "PFCategoriesViewController.h"
 #import "PFAboutViewController.h"
 #import "PFNewsViewController.h"
+#import "PFNavigationController.h"
 
 @interface PFAppDelegate()
 
@@ -107,9 +108,7 @@
     
     UIColor * tintColor = [UIColor colorWithRed:184/255.0 green:233/255.0 blue:134/255.0 alpha:1.0];
     UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
-    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/250.0 blue:120/250.0 alpha:0.8];
-    
-    // status bar
+    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/250.0 blue:112/250.0 alpha:0.8];
     
     // tab bar
     [[UITabBar appearance] setTintColor:tintColor];
@@ -122,7 +121,7 @@
                                                            UITextAttributeTextShadowColor: darkBlueColor,
                                                            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
     
-    [[UINavigationBar appearanceWhenContainedIn:([UISplitViewController class]), nil] setBarTintColor:darkBlueColor];
+    [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
 }
 
 - (void)setLogger {
