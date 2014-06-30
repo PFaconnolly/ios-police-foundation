@@ -10,7 +10,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="w0W-9v-FGl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Categories" id="3dk-XB-0uI"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tDg-bh-7Dq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="tDg-bh-7Dq">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -194,8 +194,9 @@
         <scene sceneID="SGh-OB-1Sf">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="ck7-uA-GYI" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="GzC-UT-qiw">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="GzC-UT-qiw">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -215,7 +216,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="SM5-tr-mpi" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="About" id="dbc-31-n3q"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xbf-XO-1jR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xbf-XO-1jR">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -251,7 +252,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="7Xg-x6-90T" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" id="bzc-FC-A3l"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="o6R-pA-cbl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="o6R-pA-cbl">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

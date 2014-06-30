@@ -41,6 +41,7 @@
     [self fetchCategories];
 }
 
+
 #pragma mark - Private methods
 
 - (void)setupTableView {

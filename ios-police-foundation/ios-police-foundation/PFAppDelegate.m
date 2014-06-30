@@ -106,12 +106,22 @@
     
     UIColor * tintColor = [UIColor colorWithRed:184/255.0 green:233/255.0 blue:134/255.0 alpha:1.0];
     UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
+    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/250.0 blue:120/250.0 alpha:0.8];
     
+    // status bar
+    
+    // tab bar
     [[UITabBar appearance] setTintColor:tintColor];
     [[UITabBar appearance] setBarTintColor:barBackgroundColor];
     
+    // navigation bar
     [[UINavigationBar appearance] setTintColor:tintColor];
     [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
+                                                           UITextAttributeTextShadowColor: darkBlueColor,
+                                                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
+    
+    [[UINavigationBar appearanceWhenContainedIn:([UISplitViewController class]), nil] setBarTintColor:darkBlueColor];
 }
 
 #pragma mark - Core Data stack
