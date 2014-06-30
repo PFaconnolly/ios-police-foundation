@@ -13,6 +13,8 @@
 #import "PFArrayDataSource.h"
 #import "PFTagsViewController.h"
 
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface PFCategoriesViewController ()
 
 @property (strong, nonatomic) NSArray * categories;
@@ -31,6 +33,8 @@
     
     UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
     self.navigationItem.rightBarButtonItem = refreshButton;
+    
+    DDLogVerbose(@"categories superview: %@", self.view.superview);
 }
 
 - (void)viewDidAppear:(BOOL)animated {

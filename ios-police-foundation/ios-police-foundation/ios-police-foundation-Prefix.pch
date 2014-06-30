@@ -15,4 +15,6 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "EXTScope.h"
+    #import "DDLog.h"
+    #import "DDTTYLogger.h"
 #endif

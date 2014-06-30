@@ -27,6 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self setAppearance];
+    [self setLogger];
     
     // Google Analytics
     
@@ -122,6 +123,10 @@
                                                            UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
     
     [[UINavigationBar appearanceWhenContainedIn:([UISplitViewController class]), nil] setBarTintColor:darkBlueColor];
+}
+
+- (void)setLogger {
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 }
 
 #pragma mark - Core Data stack
