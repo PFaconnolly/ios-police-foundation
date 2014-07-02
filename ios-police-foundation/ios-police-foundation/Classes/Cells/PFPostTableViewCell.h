@@ -10,6 +10,9 @@
 
 @interface PFPostTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+
 + (UINib *)nib;
 
 @end

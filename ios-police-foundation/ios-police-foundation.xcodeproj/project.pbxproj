@@ -52,6 +52,7 @@
 		B0E75E41190C3249003BE9EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E75E3F190C3249003BE9EF /* InfoPlist.strings */; };
 		B0E75E43190C3249003BE9EF /* ios_police_foundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */; };
 		B0EA74751961E074005FF71D /* UISplitViewController+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */; };
+		B0ED272419636E9900CFC573 /* UITabBarController+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */; };
 		B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F35E071927D01F00C05D03 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,8 @@
 		B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_police_foundationTests.m; sourceTree = "<group>"; };
 		B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISplitViewController+PFExtensions.h"; path = "Categories/UISplitViewController+PFExtensions.h"; sourceTree = "<group>"; };
 		B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISplitViewController+PFExtensions.m"; path = "Categories/UISplitViewController+PFExtensions.m"; sourceTree = "<group>"; };
+		B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarController+PFExtensions.h"; path = "Categories/UITabBarController+PFExtensions.h"; sourceTree = "<group>"; };
+		B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarController+PFExtensions.m"; path = "Categories/UITabBarController+PFExtensions.m"; sourceTree = "<group>"; };
 		B0F35E071927D01F00C05D03 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +202,8 @@
 				B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */,
 				B061B0981962783900EB9561 /* CGRectExtensions.h */,
 				B061B0991962783900EB9561 /* CGRectExtensions.m */,
+				B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */,
+				B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -580,6 +585,7 @@
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
 				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
+				B0ED272419636E9900CFC573 /* UITabBarController+PFExtensions.m in Sources */,
 				B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */,
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
 				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,
