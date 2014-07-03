@@ -110,18 +110,26 @@
     UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
     UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/250.0 blue:112/250.0 alpha:0.8];
     
-    // tab bar
-    [[UITabBar appearance] setTintColor:tintColor];
-    [[UITabBar appearance] setBarTintColor:barBackgroundColor];
+    // tab bar tint color
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [[UITabBar appearance] setTintColor:tintColor];
+        [[UITabBar appearance] setBarTintColor:barBackgroundColor];
+    } else {
+        [[UITabBar appearance] setTintColor:barBackgroundColor];
+    }
     
-    // navigation bar
-    [[UINavigationBar appearance] setTintColor:tintColor];
-    [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
-                                                           UITextAttributeTextShadowColor: darkBlueColor,
-                                                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
     
-    [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
+    // navigation bar tint color
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [[UINavigationBar appearance] setTintColor:tintColor];
+        [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
+        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
+                                                               UITextAttributeTextShadowColor: darkBlueColor,
+                                                               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
+        [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
+    } else {
+        [[UINavigationBar appearance] setTintColor:barBackgroundColor];
+    }
 }
 
 - (void)setLogger {
