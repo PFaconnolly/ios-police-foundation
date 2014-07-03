@@ -108,7 +108,7 @@
     
     UIColor * tintColor = [UIColor colorWithRed:184/255.0 green:233/255.0 blue:134/255.0 alpha:1.0];
     UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
-    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/250.0 blue:112/250.0 alpha:0.8];
+    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/255.0 blue:112/255.0 alpha:0.8];
     
     // tab bar tint color
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {

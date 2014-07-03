@@ -14,12 +14,14 @@
 #import "PFPostDetailsViewController.h"
 #import "NSDate+PFExtensions.h"
 #import "NSString+PFExtensions.h"
+#import "PFBarberPoleView.h"
 
 @interface PFPostsViewController ()
 
 @property (strong, nonatomic) NSArray * posts;
 @property (strong, nonatomic) PFArrayDataSource * postsArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -28,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Posts";
+    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
+
     [self setupTableView];
     [self fetchPosts];
     
@@ -61,6 +65,8 @@
 
 - (void)fetchPosts {
     
+    [self.view addSubview:self.barberPoleView];
+
     @weakify(self)
     
     NSString * category = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
@@ -78,10 +84,13 @@
                                                                      [self->_postsArrayDataSource reloadItems:self->_posts];
                                                                      [self->_tableView reloadData];
                                                                  }
+                                                                 [self.barberPoleView removeFromSuperview];
+
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                  NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                  [exception raise];
+                                                                 [self.barberPoleView removeFromSuperview];
                                                              }];
 }
 

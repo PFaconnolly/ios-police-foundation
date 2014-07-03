@@ -11,12 +11,14 @@
 #import "PFArrayDataSource.h"
 #import "PFTagTableViewCell.h"
 #import "PFHTTPRequestOperationManager.h"
+#import "PFBarberPoleView.h"
 
 @interface PFTagsViewController ()
 
 @property (strong, nonatomic) NSArray * tags;
 @property (strong, nonatomic) PFArrayDataSource *tagsArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -25,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Tags";
+    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
+
     [self setupTableView];
     [self fetchCategories];
 }
@@ -54,6 +58,8 @@
 
 - (void)fetchCategories {
     
+    [self.view addSubview:self.barberPoleView];
+
     @weakify(self)
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getTagsWithParameters:nil
@@ -63,10 +69,13 @@
                                                                 self->_tags = [response objectForKey:@"tags"];
                                                                 [self->_tagsArrayDataSource reloadItems:self->_tags];
                                                                 [self->_tableView reloadData];
+                                                                
+                                                                [self.barberPoleView removeFromSuperview];
                                                             }
                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                 NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                 [exception raise];
+                                                                [self.barberPoleView removeFromSuperview];
                                                             }];
 }
 

@@ -12,6 +12,7 @@
 #import "PFCategoryTableViewCell.h"
 #import "PFArrayDataSource.h"
 #import "PFTagsViewController.h"
+#import "PFBarberPoleView.h"
 
 //static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) NSArray * categories;
 @property (strong, nonatomic) PFArrayDataSource *categoriesArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -28,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Categories";
+    
+    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
+    
     [self setupTableView];
     [self fetchCategories];
     
@@ -65,6 +70,8 @@
 
 - (void)fetchCategories {
     
+    [self.view addSubview:self.barberPoleView];
+    
     @weakify(self)
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getCategoriesWithParameters:nil
@@ -74,10 +81,14 @@
                                                                       self->_categories = [response objectForKey:@"categories"];
                                                                       [self->_categoriesArrayDataSource reloadItems:self->_categories];
                                                                       [self->_tableView reloadData];
+                                                                      
+                                                                      [self.barberPoleView removeFromSuperview];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                       NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                       [exception raise];
+                                                                      
+                                                                      [self.barberPoleView removeFromSuperview];
                                                                   }];
 }
 
