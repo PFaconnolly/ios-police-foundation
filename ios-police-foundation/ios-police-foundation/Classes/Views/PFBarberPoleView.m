@@ -34,6 +34,10 @@ static void construct(PFBarberPoleView * instance);
 - (id)initWithFrame:(CGRect)frame {
     if ( (self = [super initWithFrame:frame]) ) {
 		construct(self);
+        self.stripeColor = [UIColor colorWithRed:140/255.0 green:181/255.0 blue:227/255.0 alpha:0.8];
+        self.backgroundColor = [UIColor colorWithRed:0/255.0 green:121/255.0 blue:255/255.0 alpha:0.8];
+        self.stripeWidth = 10.0f;
+        self.stripeGap = 10.0f;
     }
     return self;
 }
