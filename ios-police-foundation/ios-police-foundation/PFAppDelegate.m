@@ -13,6 +13,7 @@
 #import "PFCategoriesViewController.h"
 #import "PFAboutViewController.h"
 #import "PFNewsViewController.h"
+#import "PFNavigationController.h"
 
 @interface PFAppDelegate()
 
@@ -25,6 +26,9 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self setAppearance];
+    [self setLogger];
     
     // Google Analytics
     
@@ -100,12 +104,43 @@
     }
 }
 
+- (void)setAppearance {
+    
+    UIColor * tintColor = [UIColor colorWithRed:184/255.0 green:233/255.0 blue:134/255.0 alpha:1.0];
+    UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
+    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/250.0 blue:112/250.0 alpha:0.8];
+    
+    // tab bar tint color
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [[UITabBar appearance] setTintColor:tintColor];
+        [[UITabBar appearance] setBarTintColor:barBackgroundColor];
+    } else {
+        [[UITabBar appearance] setTintColor:barBackgroundColor];
+    }
+    
+    
+    // navigation bar tint color
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
+        [[UINavigationBar appearance] setTintColor:tintColor];
+        [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
+        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
+                                                               UITextAttributeTextShadowColor: darkBlueColor,
+                                                               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
+        [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
+    } else {
+        [[UINavigationBar appearance] setTintColor:barBackgroundColor];
+    }
+}
+
+- (void)setLogger {
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+}
+
 #pragma mark - Core Data stack
 
 // Returns the managed object context for the application.
 // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     if (_managedObjectContext != nil) {
         return _managedObjectContext;
     }
@@ -120,8 +155,7 @@
 
 // Returns the managed object model for the application.
 // If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
+- (NSManagedObjectModel *)managedObjectModel {
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
@@ -132,8 +166,7 @@
 
 // Returns the persistent store coordinator for the application.
 // If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
     if (_persistentStoreCoordinator != nil) {
         return _persistentStoreCoordinator;
     }
@@ -176,8 +209,7 @@
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory
-{
+- (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 

@@ -15,7 +15,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * dateLabel;
-@property (strong, nonatomic) IBOutlet UIWebView *contentWebView;
+@property (strong, nonatomic) IBOutlet UITextView *contentView;
+
 
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
@@ -77,10 +78,10 @@
                                                                      
                                                                      NSDate * date = [NSDate pfDateFromIso8601String:[response objectForKey:@"date"]];
                                                                      
-                                                                     self.dateLabel.text = [NSString pfFullDateStringFromDate:date];
+                                                                     self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
                                                                      
-                                                                     [self.contentWebView loadHTMLString:[response objectForKey:@"content"] baseURL:nil];
-                                                                 }
+                                                                     NSString * content = [[response objectForKey:@"content"] pfStringByStrippingHTML];
+                                                                     [self.contentView setText:content];                                                                 }
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                  NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];

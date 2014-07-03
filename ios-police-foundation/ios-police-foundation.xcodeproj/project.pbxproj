@@ -20,6 +20,9 @@
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
 		B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A5E194CEAE000590D37 /* PFMasterMenuViewController.m */; };
 		B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */; };
+		B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0921961EDC300EB9561 /* PFNavigationController.m */; };
+		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
+		B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0991962783900EB9561 /* CGRectExtensions.m */; };
 		B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344C19439B5300735CB5 /* Storyboard.storyboard */; };
 		B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
@@ -48,6 +51,8 @@
 		B0E75E39190C3249003BE9EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E1D190C3249003BE9EF /* CoreData.framework */; };
 		B0E75E41190C3249003BE9EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E75E3F190C3249003BE9EF /* InfoPlist.strings */; };
 		B0E75E43190C3249003BE9EF /* ios_police_foundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */; };
+		B0EA74751961E074005FF71D /* UISplitViewController+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */; };
+		B0ED272419636E9900CFC573 /* UITabBarController+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */; };
 		B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F35E071927D01F00C05D03 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +93,12 @@
 		B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostSelectionDelegate.h; path = Classes/Protocols/PFPostSelectionDelegate.h; sourceTree = "<group>"; };
 		B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PFExtensions.h"; path = "Categories/NSDate+PFExtensions.h"; sourceTree = "<group>"; };
 		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
+		B061B0911961EDC300EB9561 /* PFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNavigationController.h; path = Classes/ViewControllers/PFNavigationController.h; sourceTree = "<group>"; };
+		B061B0921961EDC300EB9561 /* PFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNavigationController.m; path = Classes/ViewControllers/PFNavigationController.m; sourceTree = "<group>"; };
+		B061B0951962748200EB9561 /* PFBarberPoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBarberPoleView.h; path = Classes/Views/PFBarberPoleView.h; sourceTree = "<group>"; };
+		B061B0961962748200EB9561 /* PFBarberPoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBarberPoleView.m; path = Classes/Views/PFBarberPoleView.m; sourceTree = "<group>"; };
+		B061B0981962783900EB9561 /* CGRectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGRectExtensions.h; path = Categories/CGRectExtensions.h; sourceTree = "<group>"; };
+		B061B0991962783900EB9561 /* CGRectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGRectExtensions.m; path = Categories/CGRectExtensions.m; sourceTree = "<group>"; };
 		B085344C19439B5300735CB5 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Storyboard/Storyboard.storyboard; sourceTree = "<group>"; };
 		B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Classes/ViewControllers/PFAboutViewController.h; sourceTree = "<group>"; };
@@ -130,6 +141,10 @@
 		B0E75E3E190C3249003BE9EF /* ios-police-foundationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-police-foundationTests-Info.plist"; sourceTree = "<group>"; };
 		B0E75E40190C3249003BE9EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_police_foundationTests.m; sourceTree = "<group>"; };
+		B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISplitViewController+PFExtensions.h"; path = "Categories/UISplitViewController+PFExtensions.h"; sourceTree = "<group>"; };
+		B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISplitViewController+PFExtensions.m"; path = "Categories/UISplitViewController+PFExtensions.m"; sourceTree = "<group>"; };
+		B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarController+PFExtensions.h"; path = "Categories/UITabBarController+PFExtensions.h"; sourceTree = "<group>"; };
+		B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarController+PFExtensions.m"; path = "Categories/UITabBarController+PFExtensions.m"; sourceTree = "<group>"; };
 		B0F35E071927D01F00C05D03 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +198,12 @@
 				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
 				B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */,
 				B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */,
+				B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */,
+				B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */,
+				B061B0981962783900EB9561 /* CGRectExtensions.h */,
+				B061B0991962783900EB9561 /* CGRectExtensions.m */,
+				B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */,
+				B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -204,6 +225,15 @@
 				B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		B061B0941962746000EB9561 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B061B0951962748200EB9561 /* PFBarberPoleView.h */,
+				B061B0961962748200EB9561 /* PFBarberPoleView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		B085344B19439B2700735CB5 /* Storyboards */ = {
@@ -232,6 +262,8 @@
 				B006F74B19315B0900374295 /* PFPostsViewController.m */,
 				B006F740193152E400374295 /* PFTagsViewController.h */,
 				B006F741193152E400374295 /* PFTagsViewController.m */,
+				B061B0911961EDC300EB9561 /* PFNavigationController.h */,
+				B061B0921961EDC300EB9561 /* PFNavigationController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +324,7 @@
 				B095EF40192945B5008C3FF0 /* DataSources */,
 				B00A7A63194D00AE00590D37 /* Protocols */,
 				B095EF3C192944E2008C3FF0 /* ViewControllers */,
+				B061B0941962746000EB9561 /* Views */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -546,15 +579,20 @@
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
 				B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */,
+				B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */,
 				B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */,
 				B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */,
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
+				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
+				B0ED272419636E9900CFC573 /* UITabBarController+PFExtensions.m in Sources */,
 				B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */,
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
 				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,
 				B006F743193152E400374295 /* PFTagsViewController.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
+				B0EA74751961E074005FF71D /* UISplitViewController+PFExtensions.m in Sources */,
+				B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */,
 				B006F7481931552E00374295 /* PFTagTableViewCell.m in Sources */,
 				B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */,
 				B0E75E2D190C3249003BE9EF /* ios_police_foundation.xcdatamodeld in Sources */,

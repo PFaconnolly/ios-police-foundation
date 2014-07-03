@@ -19,6 +19,14 @@
     return [displayDateFormatter stringFromDate:date];
 }
 
++ (NSString *) pfMediumDateStringFromDate:(NSDate *)date {
+    NSDateFormatter * displayDateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [displayDateFormatter setLocale:enUSPOSIXLocale];
+    [displayDateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    return [displayDateFormatter stringFromDate:date];
+}
+
 + (NSString *) pfShortDateStringFromDate:(NSDate *)date {
     NSDateFormatter * displayDateFormatter = [[NSDateFormatter alloc] init];
     NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
@@ -71,6 +79,14 @@
         }
     }
     return output;
+}
+
+- (NSString *) pfStringByStrippingHTML {
+    NSRange r;
+    NSString * s = [self copy];
+    while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        s = [s stringByReplacingCharactersInRange:r withString:@""];
+    return s;
 }
 
 @end

@@ -13,6 +13,8 @@
 #import "PFArrayDataSource.h"
 #import "PFTagsViewController.h"
 
+//static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface PFCategoriesViewController ()
 
 @property (strong, nonatomic) NSArray * categories;
@@ -41,12 +43,12 @@
     [self fetchCategories];
 }
 
+
 #pragma mark - Private methods
 
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFCategoryTableViewCell * cell, NSDictionary * category) {
-        cell.textLabel.text = [category objectForKey:@"name"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@) %@", [category objectForKey:@"post_count"], [category objectForKey:@"description"]];
+        [cell setCategory:category];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
@@ -54,6 +56,7 @@
     self.categoriesArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
                                                                cellIdentifier:@"Cell"
                                                            configureCellBlock:configureCellBlock];
+    self.tableView.rowHeight = 70;
     self.tableView.dataSource = self.categoriesArrayDataSource;
     [self.tableView reloadData];
     
@@ -78,11 +81,8 @@
                                                                   }];
 }
 
-#pragma mark - UITableViewDelegate methods
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
-}
+#pragma mark - UITableViewDelegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

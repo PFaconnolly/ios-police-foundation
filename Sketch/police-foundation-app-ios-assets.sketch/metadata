@@ -11,12 +11,13 @@
 	<key>fonts</key>
 	<array>
 		<string>HelveticaNeue</string>
+		<string>Didot-Bold</string>
 		<string>HelveticaNeue-Bold</string>
 		<string>HelveticaNeue-Medium</string>
 		<string>Verdana</string>
 	</array>
 	<key>length</key>
-	<integer>1612531</integer>
+	<integer>1657994</integer>
 	<key>version</key>
 	<integer>37</integer>
 </dict>

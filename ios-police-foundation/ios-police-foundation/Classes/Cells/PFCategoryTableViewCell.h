@@ -10,6 +10,12 @@
 
 @interface PFCategoryTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *categoryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *postCountLabel;
+
 + (UINib *)nib;
+
+- (void)setCategory:(NSDictionary *)category;
 
 @end

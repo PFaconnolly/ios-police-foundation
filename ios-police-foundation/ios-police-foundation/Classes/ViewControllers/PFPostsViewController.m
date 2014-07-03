@@ -42,9 +42,9 @@
 
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * category) {
-        cell.textLabel.text = [category objectForKey:@"title"];
+        cell.titleLabel.text = [category objectForKey:@"title"];
         NSDate * date = [NSDate pfDateFromIso8601String:[category objectForKey:@"date"]];
-        cell.detailTextLabel.text = [NSString pfShortDateStringFromDate:date];
+        cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
@@ -56,6 +56,7 @@
     [self.tableView reloadData];
     
     [self.tableView registerNib:[PFPostTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    self.tableView.rowHeight = 70;
 }
 
 - (void)fetchPosts {
@@ -85,10 +86,6 @@
 }
 
 #pragma mark - UITableViewDelegate methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
