@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// This is a shell custom class that is used to identify a navigation controller
+// for use with calls to the apperance proxy method -appearanceWhenContainedIn:
+
 @interface PFNavigationController : UINavigationController
 
 @end
