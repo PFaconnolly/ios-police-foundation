@@ -19,7 +19,6 @@
 @property (strong, nonatomic) IBOutlet UITextView *contentView;
 @property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
-
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
 
@@ -49,6 +48,13 @@
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.popController = nil;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+          popoverController:(UIPopoverController *)pc
+  willPresentViewController:(UIViewController *)aViewController {
+    pc.popoverContentSize = CGSizeMake(320, 1024);
+    // iOS 7 has a weird 4 pixel width difference when presenting the view controller in a popover. set the view's frame here 
 }
 
 #pragma mark - PFPostSelectionDelegate methods

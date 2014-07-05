@@ -21,6 +21,11 @@
     self.title = @"Menu";
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
 #pragma mark - UITableViewDataSource methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -40,9 +45,16 @@
     }
     
     switch( indexPath.row ) {
-        case 0: cell.textLabel.text = @"Categories"; break;
-        case 1: cell.textLabel.text = @"News"; break;
-        case 2: cell.textLabel.text = @"About"; break;
+        case 0:
+            cell.textLabel.text = @"Categories";
+            cell.imageView.image = [UIImage imageNamed:@"Star Icon"];
+            break;
+        case 1:
+            cell.textLabel.text = @"News";
+            break;
+        case 2:
+            cell.textLabel.text = @"About";
+            break;
     }
     
     return cell;
