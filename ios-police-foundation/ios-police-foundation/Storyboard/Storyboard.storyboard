@@ -136,10 +136,10 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
-                                <rect key="frame" x="20" y="30" width="280" height="49"/>
+                                <rect key="frame" x="20" y="30" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="67h-xK-zlO"/>
+                                    <constraint firstAttribute="height" constant="50" id="67h-xK-zlO"/>
                                     <constraint firstAttribute="width" constant="280" id="aqy-DI-wFY"/>
                                 </constraints>
                                 <attributedString key="attributedText">
@@ -154,18 +154,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrJ-bt-ry6" userLabel="Date - Label">
-                                <rect key="frame" x="20" y="87" width="136" height="21"/>
+                                <rect key="frame" x="20" y="88" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="136" id="Iap-u5-J19"/>
                                     <constraint firstAttribute="height" constant="21" id="b4M-bE-TL7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZJ-Bm-jMj" userLabel="Separator View">
-                                <rect key="frame" x="20" y="125" width="280" height="1"/>
+                                <rect key="frame" x="20" y="126" width="280" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87135283801020402" green="0.87135283801020402" blue="0.87135283801020402" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -174,7 +174,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYq-eD-a7A">
-                                <rect key="frame" x="20" y="131" width="280" height="365"/>
+                                <rect key="frame" x="20" y="132" width="280" height="364"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -280,7 +280,7 @@
         <scene sceneID="way-I2-lOz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="7Xg-x6-90T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" image="Clock Tab Icon" id="bzc-FC-A3l"/>
+                    <tabBarItem key="tabBarItem" title="News" image="News Tab Icon" id="bzc-FC-A3l"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="o6R-pA-cbl">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -315,7 +315,7 @@
     </scenes>
     <resources>
         <image name="About Tab Icon" width="20" height="20"/>
-        <image name="Clock Tab Icon" width="21" height="21"/>
+        <image name="News Tab Icon" width="20" height="20"/>
         <image name="Star Tab Icon" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

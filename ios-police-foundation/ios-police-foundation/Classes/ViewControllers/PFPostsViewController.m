@@ -40,10 +40,6 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-}
-
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * category) {
         cell.titleLabel.text = [category objectForKey:@"title"];
@@ -111,6 +107,8 @@
             [self.postSelectionDelegate selectPostWithId:postId];
         }
     }
+    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 #pragma mark - Segue methods
