@@ -280,7 +280,7 @@
         <scene sceneID="way-I2-lOz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="7Xg-x6-90T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" image="Clock Tab Icon" id="bzc-FC-A3l"/>
+                    <tabBarItem key="tabBarItem" title="News" image="News Tab Icon" id="bzc-FC-A3l"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="o6R-pA-cbl">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -315,7 +315,7 @@
     </scenes>
     <resources>
         <image name="About Tab Icon" width="20" height="20"/>
-        <image name="Clock Tab Icon" width="21" height="21"/>
+        <image name="News Tab Icon" width="20" height="20"/>
         <image name="Star Tab Icon" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
