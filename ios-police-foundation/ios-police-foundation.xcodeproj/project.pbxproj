@@ -23,6 +23,7 @@
 		B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0921961EDC300EB9561 /* PFNavigationController.m */; };
 		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
 		B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0991962783900EB9561 /* CGRectExtensions.m */; };
+		B07880AF1971A02600EA1151 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07880AE1971A02600EA1151 /* MessageUI.framework */; };
 		B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344C19439B5300735CB5 /* Storyboard.storyboard */; };
 		B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
@@ -99,6 +100,7 @@
 		B061B0961962748200EB9561 /* PFBarberPoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBarberPoleView.m; path = Classes/Views/PFBarberPoleView.m; sourceTree = "<group>"; };
 		B061B0981962783900EB9561 /* CGRectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGRectExtensions.h; path = Categories/CGRectExtensions.h; sourceTree = "<group>"; };
 		B061B0991962783900EB9561 /* CGRectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGRectExtensions.m; path = Categories/CGRectExtensions.m; sourceTree = "<group>"; };
+		B07880AE1971A02600EA1151 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B085344C19439B5300735CB5 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Storyboard/Storyboard.storyboard; sourceTree = "<group>"; };
 		B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Classes/ViewControllers/PFAboutViewController.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07880AF1971A02600EA1151 /* MessageUI.framework in Frameworks */,
 				B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */,
 				B0D63A59190CC64100103C02 /* libsqlite3.dylib in Frameworks */,
 				B0D63A57190CC55400103C02 /* libz.dylib in Frameworks */,
@@ -360,6 +363,7 @@
 		B0E75E16190C3249003BE9EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B07880AE1971A02600EA1151 /* MessageUI.framework */,
 				B0D63A58190CC64100103C02 /* libsqlite3.dylib */,
 				B0D63A56190CC55400103C02 /* libz.dylib */,
 				B0F35E071927D01F00C05D03 /* Crashlytics.framework */,
