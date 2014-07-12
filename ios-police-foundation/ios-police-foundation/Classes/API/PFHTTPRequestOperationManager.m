@@ -12,7 +12,13 @@
 static NSString * BASE_URL = @"https://public-api.wordpress.com/rest/v1/";
 static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
 
+static NSString * errorDomain = @"com.policefoundation.pffhttprequestoperationmanager";
+
 @implementation PFHTTPRequestOperationManager
+
++ (NSError *)error {
+    return [NSError errorWithDomain:errorDomain code:0 userInfo:nil];
+}
 
 + (id)sharedManager {
     static PFHTTPRequestOperationManager * instance = nil;
@@ -70,7 +76,35 @@ static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
     [self getRequestWithUrl:url parameters:nil successBlock:successBlock failureBlock:failureBlock];
 }
 
-#pragma mark - Custom methods 
+- (void)getLastestPostWithParameters:(NSDictionary *)parameters
+                        successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+                        failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock {
+
+    // fetch all posts, then fetch the post details for only the first post
+    [self getPostsWithParameters:parameters successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
+            NSDictionary * response = (NSDictionary *)responseObject;
+            NSArray * posts = [response objectForKey:@"posts"];
+            
+            NSDictionary * firstPost = posts.firstObject;
+            if ( firstPost == nil ) {
+                failureBlock(operation, [PFHTTPRequestOperationManager error]);
+            }
+            
+            NSString * postId = [NSString stringWithFormat:@"%@", [firstPost objectForKey:@"ID"]];
+            if ( postId == nil ) {
+                failureBlock(operation, [PFHTTPRequestOperationManager error]);
+            }
+            
+            // fetch post details for the first post id found
+            [self getPostWithId:postId parameters:nil successBlock:successBlock failureBlock:failureBlock];
+        }
+        
+    } failureBlock:failureBlock];
+}
+
+#pragma mark - Custom methods
 
 - (void)getRequestWithUrl:(NSString *)url
                parameters:(id)parameters
