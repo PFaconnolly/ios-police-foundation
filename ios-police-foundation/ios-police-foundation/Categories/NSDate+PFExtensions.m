@@ -18,4 +18,12 @@
     return [iso8601DateFormatter dateFromString:dateString];
 }
 
++ (NSDate *)pfDateFromRfc822String:(NSString *)dateString {
+    NSDateFormatter * rfc822DateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
+    [rfc822DateFormatter setLocale:enUSPOSIXLocale];
+    [rfc822DateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss Z:00"];
+    return [rfc822DateFormatter dateFromString:dateString];
+}
+
 @end

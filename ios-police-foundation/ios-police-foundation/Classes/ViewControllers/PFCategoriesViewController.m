@@ -14,7 +14,7 @@
 #import "PFTagsViewController.h"
 #import "PFBarberPoleView.h"
 
-//static const int ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFCategoriesViewController ()
 
