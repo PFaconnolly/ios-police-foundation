@@ -116,7 +116,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
     NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
-    ((PFPostDetailsViewController *)segue.destinationViewController).postId = postId;
+    ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
 
 @end

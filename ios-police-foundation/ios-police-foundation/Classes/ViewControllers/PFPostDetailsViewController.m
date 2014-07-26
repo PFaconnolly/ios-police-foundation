@@ -36,13 +36,32 @@
     if ( ! hasLaunchedApp ) {
         [[PFHTTPRequestOperationManager sharedManager] getLastestPostWithParameters:nil
                                                                        successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                           [self processPost:responseObject];
+                                                                           [self processWordPressPost:responseObject];
                                                                        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                            NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                            [exception raise];
                                                                            [self.barberPoleView removeFromSuperview];
                                                                        }];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ( self.rssPost ) {
+        NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:@"pubDate"]];
+        NSString * content = [[self.rssPost objectForKey:@"description"] pfStringByStrippingHTML];
+        
+        self.titleLabel.text = [self.rssPost objectForKey:@"title"];
+        self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+        
+        [self.contentView setText:content];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.rssPost = nil;
 }
 
 #pragma mark - UISplitViewControllerDelegate methods
@@ -73,28 +92,33 @@
 #pragma mark - PFPostSelectionDelegate methods
 
 - (void)selectPostWithId:(NSString *)postId {
-    self.postId = postId;
+    self.wordPressPostId = postId;
 }
 
 #pragma mark - Setters
 
-- (void)setPostId:(NSString *)postId {
-    _postId = postId;
-    [self fetchPost];
+- (void)setWordPressPostId:(NSString *)wordPressPostId {
+    _wordPressPostId = wordPressPostId;
+    [self fetchWordPressPost];
 }
+
+- (void)setRssPost:(NSDictionary *)rssPost {
+    _rssPost = rssPost;
+}
+
 
 #pragma mark - Private methods
 
-- (void)fetchPost {
+- (void)fetchWordPressPost {
     
     [self.view addSubview:self.barberPoleView];
     
     // Fetch posts from blog ...
-    [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.postId
+    [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.wordPressPostId
                                                       parameters:nil
                                                     successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                         
-                                                        [self processPost:responseObject];
+                                                        [self processWordPressPost:responseObject];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                         NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
@@ -103,7 +127,7 @@
                                                     }];
 }
 
-- (void)processPost:(id)responseObject {
+- (void)processWordPressPost:(id)responseObject {
     if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
         NSDictionary * response = (NSDictionary *)responseObject;
         self.titleLabel.text = [response objectForKey:@"title"];
@@ -116,7 +140,6 @@
         [self.contentView setText:content];
     }
     [self.barberPoleView removeFromSuperview];
-
 }
 
 @end

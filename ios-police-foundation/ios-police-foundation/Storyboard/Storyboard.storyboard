@@ -404,6 +404,7 @@ The president of the foundation speaks out on issues important to policing and s
                     <navigationItem key="navigationItem" id="XgF-GO-bpK"/>
                     <connections>
                         <outlet property="tableView" destination="HZM-Zt-b8g" id="8YN-L5-xSZ"/>
+                        <segue destination="jbD-fJ-dga" kind="push" identifier="newsToPostDetailsSegue" id="OUY-gf-PlR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cL-7H-Vx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -421,4 +422,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="OUY-gf-PlR"/>
+    </inferredMetricsTieBreakers>
 </document>

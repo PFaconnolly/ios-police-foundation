@@ -13,6 +13,7 @@
 #import "NSDate+PFExtensions.h"
 #import "PFPostTableViewCell.h"
 #import "PFRSSHTTPRequestOperationManager.h"
+#import "PFPostDetailsViewController.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -121,16 +122,7 @@ didStartElement:(NSString *)elementName
         [self.rssPosts addObject:self.rssPost];
         return;
     }
-   
-//    if ( [elementName isEqualToString:@"pubDate"] ) {
-//        // strip out new lines
-//        NSString * __unused noReturns =
-//        NSString * __unused noNewlines = [self.currentFoundCharacters stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-//        NSString * __unused done = [self.currentFoundCharacters stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-//        
-//        DDLogVerbose(@"self.currentFoundCharacters: %@", self.currentFoundCharacters);
-//    }
-    
+
     // set new 'found characters' strings on dictionary
     if ( [elementName isEqualToString:@"title"] ||
         [elementName isEqualToString:@"link"] ||
@@ -141,8 +133,7 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    // ignore new lines and returns by character and character set
-
+    // ignore new lines, returns
     if ( ! [string isEqualToString:@"\r"] &&
         ! [string isEqualToString:@"\n"] &&
         [string rangeOfCharacterFromSet:[NSCharacterSet newlineCharacterSet]].location == NSNotFound ) {
@@ -162,13 +153,27 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:indexPath];
     
-    // set the selected category
-    /*NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
+                                           
+        [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
+        
+    } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        
+//        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithId:) ] ) {
+//            [self.postSelectionDelegate selectPostWithId:postId];
+//        }
+    }
     
-    PFTagsViewController * tagsViewController = [[PFTagsViewController alloc] initWithNibName:@"PFTagsViewController" bundle:nil];
-    [self.navigationController pushViewController:tagsViewController animated:YES];*/
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+}
+
+#pragma mark - Segue methods
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    ((PFPostDetailsViewController *)segue.destinationViewController).rssPost = rssPost;
 }
 
 
