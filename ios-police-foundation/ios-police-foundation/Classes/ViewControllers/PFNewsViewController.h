@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFPostSelectionDelegate.h"
 
 @interface PFNewsViewController : UIViewController
+
+@property (nonatomic, weak) id<PFPostSelectionDelegate> postSelectionDelegate;
 
 @end

@@ -14,6 +14,7 @@
 #import "PFPostTableViewCell.h"
 #import "PFRSSHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
+#import "PFAppDelegate.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -40,6 +41,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
     
     [self fetchRssPosts];
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        self.postSelectionDelegate = ((PFAppDelegate *)[UIApplication sharedApplication].delegate).detailsViewController;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -153,7 +158,6 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:indexPath];
     
     if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
                                            
@@ -161,9 +165,11 @@ didStartElement:(NSString *)elementName
         
     } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
         
-//        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithId:) ] ) {
-//            [self.postSelectionDelegate selectPostWithId:postId];
-//        }
+        NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:indexPath];
+
+        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithRssPost:) ] ) {
+            [self.postSelectionDelegate selectPostWithRssPost:rssPost];
+        }
     }
     
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];

@@ -49,13 +49,7 @@
     [super viewWillAppear:animated];
     
     if ( self.rssPost ) {
-        NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:@"pubDate"]];
-        NSString * content = [[self.rssPost objectForKey:@"description"] pfStringByStrippingHTML];
-        
-        self.titleLabel.text = [self.rssPost objectForKey:@"title"];
-        self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
-        
-        [self.contentView setText:content];
+        [self refreshRssPost];
     }
 }
 
@@ -95,6 +89,11 @@
     self.wordPressPostId = postId;
 }
 
+- (void)selectPostWithRssPost:(NSDictionary *)rssPost {
+    self.rssPost = rssPost;
+    
+}
+
 #pragma mark - Setters
 
 - (void)setWordPressPostId:(NSString *)wordPressPostId {
@@ -104,6 +103,7 @@
 
 - (void)setRssPost:(NSDictionary *)rssPost {
     _rssPost = rssPost;
+    [self refreshRssPost];
 }
 
 
@@ -140,6 +140,16 @@
         [self.contentView setText:content];
     }
     [self.barberPoleView removeFromSuperview];
+}
+
+- (void)refreshRssPost {
+    NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:@"pubDate"]];
+    NSString * content = [[self.rssPost objectForKey:@"description"] pfStringByStrippingHTML];
+    
+    self.titleLabel.text = [self.rssPost objectForKey:@"title"];
+    self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    
+    [self.contentView setText:content];
 }
 
 @end
