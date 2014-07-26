@@ -11,5 +11,6 @@
 @interface NSDate (PFExtensions)
 
 + (NSDate *)pfDateFromIso8601String:(NSString *)dateString;
++ (NSDate *)pfDateFromRfc822String:(NSString *)dateString;
 
 @end

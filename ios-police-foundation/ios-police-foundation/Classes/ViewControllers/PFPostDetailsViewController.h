@@ -11,7 +11,9 @@
 
 @interface PFPostDetailsViewController : UIViewController <PFPostSelectionDelegate>
 
-@property (strong, nonatomic) NSString * postId;
+@property (strong, nonatomic) NSDictionary * rssPost;
+
+@property (strong, nonatomic) NSString * wordPressPostId;
 
 - (void)selectPostWithId:(NSString *)postId;
 

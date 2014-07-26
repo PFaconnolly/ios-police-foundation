@@ -20,6 +20,7 @@
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
 		B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A5E194CEAE000590D37 /* PFMasterMenuViewController.m */; };
 		B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */; };
+		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
 		B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0921961EDC300EB9561 /* PFNavigationController.m */; };
 		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
 		B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0991962783900EB9561 /* CGRectExtensions.m */; };
@@ -97,6 +98,8 @@
 		B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostSelectionDelegate.h; path = Classes/Protocols/PFPostSelectionDelegate.h; sourceTree = "<group>"; };
 		B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PFExtensions.h"; path = "Categories/NSDate+PFExtensions.h"; sourceTree = "<group>"; };
 		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
+		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRSSHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		B061B0911961EDC300EB9561 /* PFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNavigationController.h; path = Classes/ViewControllers/PFNavigationController.h; sourceTree = "<group>"; };
 		B061B0921961EDC300EB9561 /* PFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNavigationController.m; path = Classes/ViewControllers/PFNavigationController.m; sourceTree = "<group>"; };
 		B061B0951962748200EB9561 /* PFBarberPoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBarberPoleView.h; path = Classes/Views/PFBarberPoleView.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 			children = (
 				B0055A1F192840D400FDFE1D /* PFHTTPRequestOperationManager.h */,
 				B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */,
+				B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */,
+				B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */,
 			);
 			name = API;
 			path = Classes/API;
@@ -603,6 +608,7 @@
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
+				B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */,
 				B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */,
 				B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */,
 				B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */,

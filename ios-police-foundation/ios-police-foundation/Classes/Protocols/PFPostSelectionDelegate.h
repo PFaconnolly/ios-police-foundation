@@ -10,7 +10,8 @@
 
 @protocol PFPostSelectionDelegate <NSObject>
 
-@required
-- (void)selectPostWithId:(NSString*)postId;
+@optional
+- (void)selectPostWithId:(NSString *)postId;
+- (void)selectPostWithRssPost:(NSDictionary *)rssPost;
 
 @end
