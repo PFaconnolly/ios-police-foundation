@@ -17,7 +17,7 @@
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {    
         [self.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tab, NSUInteger idx, BOOL *stop) {
             tab.image = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
-            tab.selectedImage = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
+            tab.selectedImage = [tab.selectedImage imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
         }];
     }
 }

@@ -16,7 +16,7 @@
 #import "PFPostDetailsViewController.h"
 #import "PFAppDelegate.h"
 
-static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @interface PFNewsViewController () <UITableViewDelegate, NSXMLParserDelegate>
 
