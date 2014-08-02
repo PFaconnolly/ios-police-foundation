@@ -55,6 +55,7 @@
             break;
         case 2:
             cell.textLabel.text = @"About";
+            cell.imageView.image = [UIImage imageNamed:@"About Icon"];
             break;
     }
     

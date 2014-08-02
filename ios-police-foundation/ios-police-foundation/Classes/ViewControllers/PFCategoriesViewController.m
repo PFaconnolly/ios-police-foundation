@@ -31,7 +31,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidLoad];
     self.title = @"Categories";
     
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
+    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame),
+                                                                             CGRectGetMinY(self.tableView.frame),
+                                                                             CGRectGetWidth(self.view.frame),
+                                                                             20)];
     
     [self setupTableView];
     [self fetchCategories];

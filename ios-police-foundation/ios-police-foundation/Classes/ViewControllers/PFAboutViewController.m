@@ -24,7 +24,7 @@
     self.title = @"About";
     
     if ( [MFMailComposeViewController canSendMail] ) {
-        self.contactButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MailIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(contactButtonTapped:)];
+        self.contactButton = [[UIBarButtonItem alloc] initWithTitle:@"Contact Us" style:UIBarButtonItemStylePlain target:self action:@selector(contactButtonTapped:)];
         self.navigationItem.rightBarButtonItem = self.contactButton;
     }
 }

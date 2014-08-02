@@ -12,6 +12,8 @@
 #import "NSDate+PFExtensions.h"
 #import "PFBarberPoleView.h"
 
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
+
 @interface PFPostDetailsViewController () <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
@@ -30,10 +32,17 @@
     [super viewDidLoad];
     self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
     self.title = @"Post";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    BOOL hasLaunchedApp = [[NSUserDefaults standardUserDefaults] boolForKey:kPFUserDefaultsHasLaunchedAppKey];
-    
-    if ( ! hasLaunchedApp ) {
+    if ( self.rssPost ) {
+        [self refreshRssPost];
+    } else if ( self.wordPressPostId ) {
+        [self fetchWordPressPost];
+    } else {
+        // fetch the latest post
         [[PFHTTPRequestOperationManager sharedManager] getLastestPostWithParameters:nil
                                                                        successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                            [self processWordPressPost:responseObject];
@@ -42,21 +51,15 @@
                                                                            [exception raise];
                                                                            [self.barberPoleView removeFromSuperview];
                                                                        }];
+        
     }
-}
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if ( self.rssPost ) {
-        [self refreshRssPost];
-    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.rssPost = nil;
-}
+} 
 
 #pragma mark - UISplitViewControllerDelegate methods
 

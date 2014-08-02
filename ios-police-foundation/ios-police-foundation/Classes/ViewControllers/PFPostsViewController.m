@@ -30,8 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Posts";
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
-
+    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame),
+                                                                             CGRectGetMinY(self.tableView.frame),
+                                                                             CGRectGetWidth(self.view.frame),
+                                                                             20)];
     [self setupTableView];
     [self fetchPosts];
     

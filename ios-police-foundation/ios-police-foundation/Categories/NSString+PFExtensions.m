@@ -84,6 +84,8 @@
 - (NSString *) pfStringByStrippingHTML {
     NSRange r;
     NSString * s = [self copy];
+    s = [s stringByReplacingOccurrencesOfString:@"</p>" withString:@"\n\n\r\n"];
+    s = [s stringByReplacingOccurrencesOfString:@"<br/>" withString:@"\r\n\r\n"];
     while ((r = [s rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         s = [s stringByReplacingCharactersInRange:r withString:@""];
     return s;
