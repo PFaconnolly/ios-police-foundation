@@ -139,7 +139,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
         
         self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
         
-        NSString * content = [[response objectForKey:@"content"] pfStringByStrippingHTML];
+        NSString * content = [[response objectForKey:@"content"] pfStringByConvertingHTMLToPlainText];
         [self.contentView setText:content];
     }
     [self.barberPoleView removeFromSuperview];
@@ -147,7 +147,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)refreshRssPost {
     NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:@"pubDate"]];
-    NSString * content = [[self.rssPost objectForKey:@"description"] pfStringByStrippingHTML];
+    NSString * content = [[self.rssPost objectForKey:@"description"] pfStringByConvertingHTMLToPlainText];
     
     self.titleLabel.text = [self.rssPost objectForKey:@"title"];
     self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
