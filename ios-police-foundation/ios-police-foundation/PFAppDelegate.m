@@ -118,6 +118,8 @@
         [[UITabBar appearance] setTintColor:barBackgroundColor];
     }
     
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     
     // navigation bar tint color
     if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
@@ -129,6 +131,26 @@
         [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
     } else {
         [[UINavigationBar appearance] setTintColor:barBackgroundColor];
+    }
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
+        if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
+            UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
+            
+            NSArray * array = @[@{ @"image" : @"Star Tab Icon", @"selectedImage" : @"Star Tab Icon Selected" },
+                                @{ @"image" : @"News Tab Icon", @"selectedImage" : @"News Tab Icon Selected" },
+                                @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" }];
+            
+            [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tabBarItem, NSUInteger __unused index, BOOL * __unused stop) {
+                if ( [tabBarItem respondsToSelector:@selector(setImage:)] &&
+                    [tabBarItem respondsToSelector:@selector(setSelectedImage:)]) {
+                    
+                    NSDictionary * assetName = array[index];
+                    tabBarItem.image = [UIImage imageNamed:assetName[@"image"]];
+                    tabBarItem.selectedImage = [UIImage imageNamed:assetName[@"selectedImage"]];
+                }
+            }];
+        }
     }
 }
 

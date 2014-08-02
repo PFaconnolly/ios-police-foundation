@@ -413,7 +413,7 @@ The president of the foundation speaks out on issues important to policing and s
         </scene>
     </scenes>
     <resources>
-        <image name="About Tab Icon" width="20" height="20"/>
+        <image name="About Tab Icon" width="25" height="25"/>
         <image name="News Tab Icon" width="20" height="20"/>
         <image name="Star Tab Icon" width="20" height="20"/>
     </resources>
