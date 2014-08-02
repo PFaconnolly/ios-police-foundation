@@ -28,6 +28,7 @@
 		B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */; };
 		B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */; };
 		B07880AF1971A02600EA1151 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07880AE1971A02600EA1151 /* MessageUI.framework */; };
+		B083DF17198DA10F009933F5 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B083DF16198DA10F009933F5 /* GTMNSString+HTML.m */; };
 		B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344C19439B5300735CB5 /* Storyboard.storyboard */; };
 		B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
@@ -111,6 +112,8 @@
 		B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeViewController.xib; path = XIBs/PFWelcomeViewController.xib; sourceTree = "<group>"; };
 		B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFWelcomeViewController~iPad.xib"; path = "XIBs/PFWelcomeViewController~iPad.xib"; sourceTree = "<group>"; };
 		B07880AE1971A02600EA1151 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		B083DF15198DA10F009933F5 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		B083DF16198DA10F009933F5 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		B085344C19439B5300735CB5 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Storyboard/Storyboard.storyboard; sourceTree = "<group>"; };
 		B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Classes/ViewControllers/PFAboutViewController.h; sourceTree = "<group>"; };
@@ -209,14 +212,16 @@
 		B0055A2A1928455D00FDFE1D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				B0055A2B1928457A00FDFE1D /* NSString+PFExtensions.h */,
-				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
-				B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */,
-				B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */,
-				B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */,
-				B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */,
 				B061B0981962783900EB9561 /* CGRectExtensions.h */,
 				B061B0991962783900EB9561 /* CGRectExtensions.m */,
+				B083DF15198DA10F009933F5 /* GTMNSString+HTML.h */,
+				B083DF16198DA10F009933F5 /* GTMNSString+HTML.m */,
+				B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */,
+				B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */,
+				B0055A2B1928457A00FDFE1D /* NSString+PFExtensions.h */,
+				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
+				B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */,
+				B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */,
 				B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */,
 				B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */,
 			);
@@ -629,6 +634,7 @@
 				B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */,
 				B0E75E2D190C3249003BE9EF /* ios_police_foundation.xcdatamodeld in Sources */,
 				B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */,
+				B083DF17198DA10F009933F5 /* GTMNSString+HTML.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

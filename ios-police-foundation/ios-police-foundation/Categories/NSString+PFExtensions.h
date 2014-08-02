@@ -16,6 +16,6 @@
 
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters;
 - (NSString *) pfURLEncodedString;
-- (NSString *) pfStringByStrippingHTML;
+- (NSString *) pfStringByConvertingHTMLToPlainText;
 
 @end
