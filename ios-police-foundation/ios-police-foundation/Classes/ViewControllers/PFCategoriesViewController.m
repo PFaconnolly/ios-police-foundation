@@ -21,7 +21,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (strong, nonatomic) NSArray * categories;
 @property (strong, nonatomic) PFArrayDataSource *categoriesArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -31,10 +30,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidLoad];
     self.title = @"Categories";
     
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame),
-                                                                             CGRectGetMinY(self.tableView.frame),
-                                                                             CGRectGetWidth(self.view.frame),
-                                                                             20)];
+
     
     [self setupTableView];
     [self fetchCategories];
@@ -74,7 +70,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)fetchCategories {
     
-    [self.view addSubview:self.barberPoleView];
+    [self showBarberPole];
     
     @weakify(self)
     // Fetch categories from blog ...
@@ -86,13 +82,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                       [self->_categoriesArrayDataSource reloadItems:self->_categories];
                                                                       [self->_tableView reloadData];
                                                                       
-                                                                      [self.barberPoleView removeFromSuperview];
+                                                                      [self hideBarberPole];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                       NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                       [exception raise];
-                                                                      
-                                                                      [self.barberPoleView removeFromSuperview];
+
+                                                                      [self hideBarberPole];
                                                                   }];
 }
 

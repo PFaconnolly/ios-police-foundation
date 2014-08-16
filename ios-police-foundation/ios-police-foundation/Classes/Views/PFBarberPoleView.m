@@ -22,11 +22,7 @@ static void construct(PFBarberPoleView * instance);
 #pragma mark Class Methods
 
 + (void)initialize {
-//    id appearance = [self appearance];
-//    [(TCBarberPoleView *)appearance setBackgroundColor:[TCStyle colorForKeyPath:@"BackgroundColor" withClass:self]];
-//    [appearance setStripeWidth:[TCStyle floatForKeyPath:@"StripeWidth" withClass:self]];
-//    [appearance setStripeGap:[TCStyle floatForKeyPath:@"StripeGap" withClass:self]];
-//    [appearance setStripeColor:[TCStyle colorForKeyPath:@"StripeColor" withClass:self]];
+
 }
 
 #pragma mark Initialization Methods

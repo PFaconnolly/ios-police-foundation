@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFViewController.h"
 
-@interface PFCategoriesViewController : UIViewController <UITableViewDelegate>
-
+@interface PFCategoriesViewController : PFViewController <UITableViewDelegate>
 
 @end
