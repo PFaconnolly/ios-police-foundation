@@ -10,4 +10,7 @@
 
 @interface PFViewController : UIViewController
 
+- (void)showBarberPole;
+- (void)hideBarberPole;
+
 @end
