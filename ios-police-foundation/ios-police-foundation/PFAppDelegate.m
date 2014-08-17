@@ -111,27 +111,25 @@
     UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/255.0 blue:112/255.0 alpha:0.8];
     
     // tab bar tint color
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
-        [[UITabBar appearance] setTintColor:tintColor];
-        [[UITabBar appearance] setBarTintColor:barBackgroundColor];
-    } else {
-        [[UITabBar appearance] setTintColor:barBackgroundColor];
-    }
-    
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [[UITabBar appearance] setTintColor:tintColor];
+    [[UITabBar appearance] setBarTintColor:barBackgroundColor];
+
+    // tab bar items
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
     // navigation bar
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0") ) {
-        [[UINavigationBar appearance] setTintColor:tintColor];
-        [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
-        [[UINavigationBar appearance] setTitleTextAttributes:@{UITextAttributeTextColor: [UIColor whiteColor],
-                                                               UITextAttributeTextShadowColor: darkBlueColor,
-                                                               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0, 1)]}];
-        [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
-    } else {
-        [[UINavigationBar appearance] setTintColor:barBackgroundColor];
-    }
+    [[UINavigationBar appearance] setTintColor:tintColor];
+    [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
+    
+    NSShadow *shadow = [NSShadow new];
+    [shadow setShadowColor: darkBlueColor];
+    [shadow setShadowOffset: CGSizeMake(0, 1)];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                           NSShadowAttributeName: shadow}];
+    [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
+    
     
     if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
         if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
