@@ -152,20 +152,7 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
-                                           
-        [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
-        
-    } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        
-        NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:indexPath];
-
-        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithRssPost:) ] ) {
-            [self.postSelectionDelegate selectPostWithRssPost:rssPost];
-        }
-    }
-    
+    [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
