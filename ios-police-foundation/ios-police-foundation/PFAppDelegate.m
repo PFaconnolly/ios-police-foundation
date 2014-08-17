@@ -13,7 +13,6 @@
 #import "PFCategoriesViewController.h"
 #import "PFAboutViewController.h"
 #import "PFNewsViewController.h"
-#import "PFNavigationController.h"
 
 @interface PFAppDelegate()
 
@@ -58,13 +57,6 @@
     //NSString * test = @"12";
     //NSString * __unused subString = [test stringByReplacingCharactersInRange:NSMakeRange(0, 4) withString:@"1234"];
     
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        UISplitViewController * splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController * navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-        self.detailsViewController = (id)navigationController.topViewController;
-    }
-    
     return YES;
 }
 
@@ -106,6 +98,8 @@
 
 - (void)setAppearance {
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
     UIColor * tintColor = [UIColor colorWithRed:184/255.0 green:233/255.0 blue:134/255.0 alpha:1.0];
     UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
     UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/255.0 blue:112/255.0 alpha:0.8];
@@ -128,27 +122,23 @@
     
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
                                                            NSShadowAttributeName: shadow}];
-    [[UINavigationBar appearanceWhenContainedIn:[PFNavigationController class], nil] setBarTintColor:darkBlueColor];
     
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
-        if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
-            UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
-            
-            NSArray * array = @[@{ @"image" : @"Bulb Tab Icon", @"selectedImage" : @"Bulb Tab Icon Selected" },
-                                @{ @"image" : @"News Tab Icon", @"selectedImage" : @"News Tab Icon Selected" },
-                                @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" }];
-            
-            [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tabBarItem, NSUInteger __unused index, BOOL * __unused stop) {
-                if ( [tabBarItem respondsToSelector:@selector(setImage:)] &&
-                    [tabBarItem respondsToSelector:@selector(setSelectedImage:)]) {
-                    
-                    NSDictionary * assetName = array[index];
-                    tabBarItem.image = [UIImage imageNamed:assetName[@"image"]];
-                    tabBarItem.selectedImage = [UIImage imageNamed:assetName[@"selectedImage"]];
-                }
-            }];
-        }
+    if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
+        UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
+        
+        NSArray * array = @[@{ @"image" : @"Bulb Tab Icon", @"selectedImage" : @"Bulb Tab Icon Selected" },
+                            @{ @"image" : @"News Tab Icon", @"selectedImage" : @"News Tab Icon Selected" },
+                            @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" }];
+        
+        [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tabBarItem, NSUInteger __unused index, BOOL * __unused stop) {
+            if ( [tabBarItem respondsToSelector:@selector(setImage:)] &&
+                [tabBarItem respondsToSelector:@selector(setSelectedImage:)]) {
+                
+                NSDictionary * assetName = array[index];
+                tabBarItem.image = [UIImage imageNamed:assetName[@"image"]];
+                tabBarItem.selectedImage = [UIImage imageNamed:assetName[@"selectedImage"]];
+            }
+        }];
     }
 }
 

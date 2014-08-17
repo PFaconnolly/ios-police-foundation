@@ -45,7 +45,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self fetchCategories];
 }
 
-
 #pragma mark - Private methods
 
 - (void)setupTableView {
