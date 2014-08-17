@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFViewController.h"
 #import "PFPostSelectionDelegate.h"
 
-@interface PFPostDetailsViewController : UIViewController <PFPostSelectionDelegate>
+@interface PFPostDetailsViewController : PFViewController <PFPostSelectionDelegate>
 
 @property (strong, nonatomic) NSDictionary * rssPost;
 

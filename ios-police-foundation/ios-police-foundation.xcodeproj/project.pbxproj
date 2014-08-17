@@ -20,6 +20,7 @@
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
 		B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A5E194CEAE000590D37 /* PFMasterMenuViewController.m */; };
 		B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */; };
+		B02E702319A01BD9002A6CE1 /* PFFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B02E702219A01BD9002A6CE1 /* PFFileDownloadManager.m */; };
 		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
 		B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0921961EDC300EB9561 /* PFNavigationController.m */; };
 		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
@@ -100,6 +101,8 @@
 		B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostSelectionDelegate.h; path = Classes/Protocols/PFPostSelectionDelegate.h; sourceTree = "<group>"; };
 		B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PFExtensions.h"; path = "Categories/NSDate+PFExtensions.h"; sourceTree = "<group>"; };
 		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
+		B02E702119A01BD9002A6CE1 /* PFFileDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFFileDownloadManager.h; path = Classes/Managers/PFFileDownloadManager.h; sourceTree = "<group>"; };
+		B02E702219A01BD9002A6CE1 /* PFFileDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFFileDownloadManager.m; path = Classes/Managers/PFFileDownloadManager.m; sourceTree = "<group>"; };
 		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRSSHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		B061B0911961EDC300EB9561 /* PFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNavigationController.h; path = Classes/ViewControllers/PFNavigationController.h; sourceTree = "<group>"; };
@@ -250,6 +253,15 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		B02E702019A01BC8002A6CE1 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B02E702119A01BD9002A6CE1 /* PFFileDownloadManager.h */,
+				B02E702219A01BD9002A6CE1 /* PFFileDownloadManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		B061B0941962746000EB9561 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +367,7 @@
 		B0DC38771928401D004D563C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B02E702019A01BC8002A6CE1 /* Managers */,
 				B0055A1E192840D400FDFE1D /* API */,
 				B095EF47192949CD008C3FF0 /* Cells */,
 				B095EF40192945B5008C3FF0 /* DataSources */,
@@ -629,6 +642,7 @@
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
 				B0ED272419636E9900CFC573 /* UITabBarController+PFExtensions.m in Sources */,
 				B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */,
+				B02E702319A01BD9002A6CE1 /* PFFileDownloadManager.m in Sources */,
 				B0674F0D1971B5C80074C22E /* PFWelcomeViewController.m in Sources */,
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
 				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,

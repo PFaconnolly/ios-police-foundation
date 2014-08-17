@@ -21,7 +21,6 @@
 @property (strong, nonatomic) NSArray * posts;
 @property (strong, nonatomic) PFArrayDataSource * postsArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -30,10 +29,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Posts";
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame),
-                                                                             CGRectGetMinY(self.tableView.frame),
-                                                                             CGRectGetWidth(self.view.frame),
-                                                                             20)];
     [self setupTableView];
     [self fetchPosts];
     
@@ -62,8 +57,8 @@
 }
 
 - (void)fetchPosts {
-    
-    [self.view addSubview:self.barberPoleView];
+
+    [self showBarberPole];
 
     @weakify(self)
     
@@ -82,13 +77,13 @@
                                                                      [self->_postsArrayDataSource reloadItems:self->_posts];
                                                                      [self->_tableView reloadData];
                                                                  }
-                                                                 [self.barberPoleView removeFromSuperview];
 
+                                                                 [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                  NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                  [exception raise];
-                                                                 [self.barberPoleView removeFromSuperview];
+                                                                 [self hideBarberPole];
                                                              }];
 }
 

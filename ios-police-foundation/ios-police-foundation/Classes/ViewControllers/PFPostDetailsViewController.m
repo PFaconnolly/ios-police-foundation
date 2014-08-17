@@ -11,6 +11,12 @@
 #import "NSString+PFExtensions.h"
 #import "NSDate+PFExtensions.h"
 #import "PFBarberPoleView.h"
+#import "PFFileDownloadManager.h"
+
+static NSString * ATTACHMENT_ID_KEY = @"ID";
+static NSString * ATTACHMENT_URL_KEY = @"URL";
+static NSString * ATTACHMENT_GUID_KEY = @"guid";
+static NSString * ATTACHMENT_WIDTH_KEY = @"mime-type";
 
 static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
@@ -19,7 +25,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *contentView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
+
+@property (strong, nonatomic) UIBarButtonItem * attachmentBarButtonItem;
 
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
@@ -30,8 +37,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
     self.title = @"Post";
+    
+    self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"File" style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
+    self.navigationItem.rightBarButtonItem = self.attachmentBarButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,11 +58,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                                        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                            NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                                            [exception raise];
-                                                                           [self.barberPoleView removeFromSuperview];
+                                                                           [self hideBarberPole];
                                                                        }];
         
     }
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -112,9 +120,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 #pragma mark - Private methods
 
+- (void)attachmentButtonTapped:(id)sender {
+    
+}
+
 - (void)fetchWordPressPost {
     
-    [self.view addSubview:self.barberPoleView];
+    [self showBarberPole];
     
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.wordPressPostId
@@ -126,7 +138,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                         NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
                                                         [exception raise];
-                                                        [self.barberPoleView removeFromSuperview];
+                                                        [self hideBarberPole];
                                                     }];
 }
 
@@ -141,8 +153,14 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
         
         NSString * content = [[response objectForKey:@"content"] pfStringByConvertingHTMLToPlainText];
         [self.contentView setText:content];
+        
+        // process attachments
+        NSDictionary * attachments = (NSDictionary *)[response objectForKey:@"attachments"];
+        if ( attachments && attachments.allKeys.count > 0 ) {
+            [self processAttachments:[response objectForKey:@"attachments"]];
+        }
     }
-    [self.barberPoleView removeFromSuperview];
+    [self hideBarberPole];
 }
 
 - (void)refreshRssPost {
@@ -153,6 +171,16 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
     
     [self.contentView setText:content];
+}
+
+- (void)processAttachments:(NSDictionary *)attachments {
+    
+    for( id key in attachments.allKeys ) {
+        NSDictionary * attachment = attachments[key];
+        NSString * URLString = [attachment objectForKey:@"URL"];
+        NSString * fileName = [attachment objectForKey:@"name"];
+        NSLog(@"name: %@ - url: %@", fileName, URLString);
+    }
 }
 
 @end
