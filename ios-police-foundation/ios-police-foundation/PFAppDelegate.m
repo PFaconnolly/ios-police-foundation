@@ -137,7 +137,7 @@
         if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
             UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
             
-            NSArray * array = @[@{ @"image" : @"Star Tab Icon", @"selectedImage" : @"Star Tab Icon Selected" },
+            NSArray * array = @[@{ @"image" : @"Bulb Tab Icon", @"selectedImage" : @"Bulb Tab Icon Selected" },
                                 @{ @"image" : @"News Tab Icon", @"selectedImage" : @"News Tab Icon Selected" },
                                 @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" }];
             

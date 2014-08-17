@@ -5,11 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Categories-->
+        <!--Navigation Controller - Research-->
         <scene sceneID="vRV-1Q-dP6">
             <objects>
                 <navigationController definesPresentationContext="YES" id="w0W-9v-FGl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Categories" image="Star Tab Icon" id="3dk-XB-0uI"/>
+                    <tabBarItem key="tabBarItem" title="Research" image="Bulb Tab Icon" id="3dk-XB-0uI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="tDg-bh-7Dq">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -454,8 +454,8 @@ The president of the foundation speaks out on issues important to policing and s
     </scenes>
     <resources>
         <image name="About Tab Icon" width="25" height="25"/>
+        <image name="Bulb Tab Icon" width="20" height="20"/>
         <image name="News Tab Icon" width="20" height="20"/>
-        <image name="Star Tab Icon" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
