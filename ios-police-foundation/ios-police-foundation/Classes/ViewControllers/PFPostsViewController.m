@@ -86,8 +86,7 @@
 
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                 NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                 [exception raise];
+                                                                 [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                  [self.barberPoleView removeFromSuperview];
                                                              }];
 }
@@ -95,21 +94,7 @@
 #pragma mark - UITableViewDelegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:indexPath];
-    NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
-        
-        [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
-        
-    } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        
-        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithId:) ] ) {
-            [self.postSelectionDelegate selectPostWithId:postId];
-        }
-    }
-    
+    [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 

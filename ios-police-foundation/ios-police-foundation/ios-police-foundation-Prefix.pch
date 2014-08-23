@@ -17,6 +17,7 @@
     #import "EXTScope.h"
     #import "DDLog.h"
     #import "DDTTYLogger.h"
+    #import "UIAlertView+PFExtensions.h"
 #endif
 
 /*

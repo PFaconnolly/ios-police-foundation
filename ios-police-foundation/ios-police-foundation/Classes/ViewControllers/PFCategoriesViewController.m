@@ -28,10 +28,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Categories";
-    
-
-    
+    self.title = @"Research";
     [self setupTableView];
     [self fetchCategories];
     
@@ -47,7 +44,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)refreshButtonTapped:(id)sender {
     [self fetchCategories];
 }
-
 
 #pragma mark - Private methods
 
@@ -85,9 +81,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                       [self hideBarberPole];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                      NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                      [exception raise];
-
+                                                                      [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                       [self hideBarberPole];
                                                                   }];
 }

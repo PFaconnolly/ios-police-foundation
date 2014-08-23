@@ -10,6 +10,9 @@
 
 @interface PFTagTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *tagLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+
 + (UINib *)nib;
 
 @end

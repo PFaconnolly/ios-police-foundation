@@ -19,7 +19,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *contentView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
@@ -30,8 +29,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
     self.title = @"Post";
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        self.contentView.font = [UIFont fontWithName:@"Georgia" size:24.0f];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -47,9 +49,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                                        successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                            [self processWordPressPost:responseObject];
                                                                        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                           NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                           [exception raise];
-                                                                           [self.barberPoleView removeFromSuperview];
+                                                                           [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                           [self hideBarberPole];
                                                                        }];
         
     }
@@ -114,7 +115,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)fetchWordPressPost {
     
-    [self.view addSubview:self.barberPoleView];
+    [self showBarberPole];
     
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.wordPressPostId
@@ -124,9 +125,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                         [self processWordPressPost:responseObject];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                        NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                        [exception raise];
-                                                        [self.barberPoleView removeFromSuperview];
+                                                        [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                        [self hideBarberPole];
                                                     }];
 }
 
@@ -142,7 +142,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
         NSString * content = [[response objectForKey:@"content"] pfStringByConvertingHTMLToPlainText];
         [self.contentView setText:content];
     }
-    [self.barberPoleView removeFromSuperview];
+    [self hideBarberPole];
 }
 
 - (void)refreshRssPost {

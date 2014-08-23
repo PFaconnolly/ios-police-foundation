@@ -18,10 +18,8 @@
 		B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F75019315B3000374295 /* PFPostTableViewCell.m */; };
 		B006F75319315B3000374295 /* PFPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F75119315B3000374295 /* PFPostTableViewCell.xib */; };
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
-		B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A5E194CEAE000590D37 /* PFMasterMenuViewController.m */; };
 		B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */; };
 		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
-		B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0921961EDC300EB9561 /* PFNavigationController.m */; };
 		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
 		B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0991962783900EB9561 /* CGRectExtensions.m */; };
 		B0674F0D1971B5C80074C22E /* PFWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0674F0C1971B5C80074C22E /* PFWelcomeViewController.m */; };
@@ -33,6 +31,8 @@
 		B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
 		B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */; };
+		B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */; };
+		B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */; };
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
@@ -58,7 +58,6 @@
 		B0E75E39190C3249003BE9EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E1D190C3249003BE9EF /* CoreData.framework */; };
 		B0E75E41190C3249003BE9EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E75E3F190C3249003BE9EF /* InfoPlist.strings */; };
 		B0E75E43190C3249003BE9EF /* ios_police_foundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */; };
-		B0EA74751961E074005FF71D /* UISplitViewController+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */; };
 		B0ED272419636E9900CFC573 /* UITabBarController+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */; };
 		B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F35E071927D01F00C05D03 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
@@ -95,15 +94,11 @@
 		B006F75119315B3000374295 /* PFPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostTableViewCell.xib; path = Classes/Cells/PFPostTableViewCell.xib; sourceTree = "<group>"; };
 		B006F7541931694900374295 /* PFPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostDetailsViewController.h; path = Classes/ViewControllers/PFPostDetailsViewController.h; sourceTree = "<group>"; };
 		B006F7551931694900374295 /* PFPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostDetailsViewController.m; path = Classes/ViewControllers/PFPostDetailsViewController.m; sourceTree = "<group>"; };
-		B00A7A5D194CEAE000590D37 /* PFMasterMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMasterMenuViewController.h; path = Classes/ViewControllers/PFMasterMenuViewController.h; sourceTree = "<group>"; };
-		B00A7A5E194CEAE000590D37 /* PFMasterMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMasterMenuViewController.m; path = Classes/ViewControllers/PFMasterMenuViewController.m; sourceTree = "<group>"; };
 		B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostSelectionDelegate.h; path = Classes/Protocols/PFPostSelectionDelegate.h; sourceTree = "<group>"; };
 		B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PFExtensions.h"; path = "Categories/NSDate+PFExtensions.h"; sourceTree = "<group>"; };
 		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
 		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRSSHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		B061B0911961EDC300EB9561 /* PFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNavigationController.h; path = Classes/ViewControllers/PFNavigationController.h; sourceTree = "<group>"; };
-		B061B0921961EDC300EB9561 /* PFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNavigationController.m; path = Classes/ViewControllers/PFNavigationController.m; sourceTree = "<group>"; };
 		B061B0951962748200EB9561 /* PFBarberPoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBarberPoleView.h; path = Classes/Views/PFBarberPoleView.h; sourceTree = "<group>"; };
 		B061B0961962748200EB9561 /* PFBarberPoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBarberPoleView.m; path = Classes/Views/PFBarberPoleView.m; sourceTree = "<group>"; };
 		B061B0981962783900EB9561 /* CGRectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGRectExtensions.h; path = Categories/CGRectExtensions.h; sourceTree = "<group>"; };
@@ -121,6 +116,10 @@
 		B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAboutViewController.m; path = Classes/ViewControllers/PFAboutViewController.m; sourceTree = "<group>"; };
 		B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNewsViewController.h; path = Classes/ViewControllers/PFNewsViewController.h; sourceTree = "<group>"; };
 		B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNewsViewController.m; path = Classes/ViewControllers/PFNewsViewController.m; sourceTree = "<group>"; };
+		B08ABC2419A90E4800B9B5BD /* PFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTabBarController.h; path = Classes/ViewControllers/PFTabBarController.h; sourceTree = "<group>"; };
+		B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTabBarController.m; path = Classes/ViewControllers/PFTabBarController.m; sourceTree = "<group>"; };
+		B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+PFExtensions.h"; path = "Categories/UIAlertView+PFExtensions.h"; sourceTree = "<group>"; };
+		B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+PFExtensions.m"; path = "Categories/UIAlertView+PFExtensions.m"; sourceTree = "<group>"; };
 		B095EF33192943AA008C3FF0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Resources/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		B095EF34192943AA008C3FF0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Resources/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		B095EF35192943AA008C3FF0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Resources/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
@@ -159,8 +158,6 @@
 		B0E75E3E190C3249003BE9EF /* ios-police-foundationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-police-foundationTests-Info.plist"; sourceTree = "<group>"; };
 		B0E75E40190C3249003BE9EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_police_foundationTests.m; sourceTree = "<group>"; };
-		B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISplitViewController+PFExtensions.h"; path = "Categories/UISplitViewController+PFExtensions.h"; sourceTree = "<group>"; };
-		B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISplitViewController+PFExtensions.m"; path = "Categories/UISplitViewController+PFExtensions.m"; sourceTree = "<group>"; };
 		B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarController+PFExtensions.h"; path = "Categories/UITabBarController+PFExtensions.h"; sourceTree = "<group>"; };
 		B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarController+PFExtensions.m"; path = "Categories/UITabBarController+PFExtensions.m"; sourceTree = "<group>"; };
 		B0F35E071927D01F00C05D03 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
@@ -223,10 +220,10 @@
 				B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */,
 				B0055A2B1928457A00FDFE1D /* NSString+PFExtensions.h */,
 				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
-				B0EA74731961E074005FF71D /* UISplitViewController+PFExtensions.h */,
-				B0EA74741961E074005FF71D /* UISplitViewController+PFExtensions.m */,
 				B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */,
 				B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */,
+				B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */,
+				B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -284,22 +281,20 @@
 				B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */,
 				B095EF3D1929452F008C3FF0 /* PFCategoriesViewController.h */,
 				B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */,
-				B00A7A5D194CEAE000590D37 /* PFMasterMenuViewController.h */,
-				B00A7A5E194CEAE000590D37 /* PFMasterMenuViewController.m */,
-				B061B0911961EDC300EB9561 /* PFNavigationController.h */,
-				B061B0921961EDC300EB9561 /* PFNavigationController.m */,
 				B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */,
 				B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */,
 				B006F7541931694900374295 /* PFPostDetailsViewController.h */,
 				B006F7551931694900374295 /* PFPostDetailsViewController.m */,
 				B006F74A19315B0900374295 /* PFPostsViewController.h */,
 				B006F74B19315B0900374295 /* PFPostsViewController.m */,
+				B08ABC2419A90E4800B9B5BD /* PFTabBarController.h */,
+				B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */,
 				B006F740193152E400374295 /* PFTagsViewController.h */,
 				B006F741193152E400374295 /* PFTagsViewController.m */,
-				B0674F0B1971B5C80074C22E /* PFWelcomeViewController.h */,
-				B0674F0C1971B5C80074C22E /* PFWelcomeViewController.m */,
 				B0C1D0B4198F3E38008AB1B1 /* PFViewController.h */,
 				B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */,
+				B0674F0B1971B5C80074C22E /* PFWelcomeViewController.h */,
+				B0674F0C1971B5C80074C22E /* PFWelcomeViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -619,8 +614,6 @@
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
 				B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */,
-				B00A7A5F194CEAE000590D37 /* PFMasterMenuViewController.m in Sources */,
-				B061B0931961EDC300EB9561 /* PFNavigationController.m in Sources */,
 				B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */,
 				B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */,
 				B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */,
@@ -633,10 +626,11 @@
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
 				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,
 				B006F743193152E400374295 /* PFTagsViewController.m in Sources */,
+				B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
-				B0EA74751961E074005FF71D /* UISplitViewController+PFExtensions.m in Sources */,
 				B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */,
 				B006F7481931552E00374295 /* PFTagTableViewCell.m in Sources */,
+				B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */,
 				B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */,
 				B0E75E2D190C3249003BE9EF /* ios_police_foundation.xcdatamodeld in Sources */,
 				B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */,
@@ -770,7 +764,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
 				INFOPLIST_FILE = "ios-police-foundation/ios-police-foundation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios-police-foundation/Resources/GoogleAnalytics",
@@ -795,7 +789,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
 				INFOPLIST_FILE = "ios-police-foundation/ios-police-foundation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios-police-foundation/Resources/GoogleAnalytics",

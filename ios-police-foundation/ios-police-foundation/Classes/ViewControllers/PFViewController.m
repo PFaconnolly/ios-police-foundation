@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0,
-                                                                             60,
+                                                                             0,
                                                                              CGRectGetWidth(self.view.frame),
                                                                              20)];
 }

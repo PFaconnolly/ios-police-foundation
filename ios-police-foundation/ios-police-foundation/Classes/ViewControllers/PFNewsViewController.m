@@ -24,7 +24,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 @property (strong, nonatomic) NSMutableDictionary * rssPost;
 @property (strong, nonatomic) PFArrayDataSource * rssPostsArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 // nasty xml parsing
 @property (strong, nonatomic) NSString * currentElementName;
@@ -37,8 +36,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"News";
-    
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
     
     [self fetchRssPosts];
     
@@ -71,25 +68,21 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 }
 
 - (void)fetchRssPosts {
-    
-    [self.view addSubview:self.barberPoleView];
-    
     @weakify(self)
     
+    [self showBarberPole];
+
     // Fetch posts from RSS feed ...
     [[PFRSSHTTPRequestOperationManager sharedManager] getRssPostsWithParameters:nil
                                                                    successBlock:^(AFHTTPRequestOperation *operation, NSXMLParser * xmlParser) {
                                                                        @strongify(self)
-                                                                       
                                                                        xmlParser.delegate = self;
                                                                        [xmlParser parse];
-                                                                       
-                                                                       [self.barberPoleView removeFromSuperview];
+                                                                       [self hideBarberPole];
                                                                    }
                                                                    failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                       NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                       [exception raise];
-                                                                       [self.barberPoleView removeFromSuperview];
+                                                                       [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                       [self hideBarberPole];
                                                                    }];
 }
 
@@ -158,20 +151,7 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
-                                           
-        [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
-        
-    } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        
-        NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:indexPath];
-
-        if ( [self.postSelectionDelegate respondsToSelector:@selector(selectPostWithRssPost:) ] ) {
-            [self.postSelectionDelegate selectPostWithRssPost:rssPost];
-        }
-    }
-    
+    [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 

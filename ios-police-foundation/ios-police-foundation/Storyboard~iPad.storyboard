@@ -1,25 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="eiP-VD-bgd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="qgF-ad-Z9X">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="rfu-r7-MjZ">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="qgF-ad-Z9X" customClass="PFTabBarController" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="UcF-gc-LYr">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wp5-7N-roL" kind="relationship" relationship="viewControllers" id="0um-pI-Sb7"/>
+                        <segue destination="Hts-Zz-QSC" kind="relationship" relationship="viewControllers" id="LKg-9O-glt"/>
+                        <segue destination="J72-yN-Mho" kind="relationship" relationship="viewControllers" id="8cd-IP-qjs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4K-fk-fXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1418" y="-203"/>
+        </scene>
+        <!--Navigation Controller - Item-->
         <scene sceneID="c9g-QY-P9a">
             <objects>
                 <navigationController definesPresentationContext="YES" id="J72-yN-Mho" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="About Tab Icon" id="qTv-Pi-JTv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MoP-0v-N1K">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="MoP-0v-N1K">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="VFZ-es-P2e" kind="relationship" relationship="rootViewController" id="Jli-5x-lh1"/>
+                        <segue destination="mwZ-o1-HpK" kind="relationship" relationship="rootViewController" id="k1W-Kp-YoK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1e-F6-T22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416" y="567"/>
+            <point key="canvasLocation" x="-123" y="1121"/>
         </scene>
         <!--Post Details View Controller-->
         <scene sceneID="guw-Ng-8gF">
@@ -29,15 +51,15 @@
                         <viewControllerLayoutGuide type="top" id="QHY-3F-sr4"/>
                         <viewControllerLayoutGuide type="bottom" id="MjT-US-Pq8"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                    <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY" userLabel="Main View">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
                                 <rect key="frame" x="20" y="30" width="728" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="wHA-gd-5Ku"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="wHA-gd-5Ku"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Title">
@@ -66,11 +88,10 @@
                                 <color key="backgroundColor" red="0.87135283799999996" green="0.87135283799999996" blue="0.87135283799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="PGV-r7-WNx"/>
-                                    <constraint firstAttribute="width" constant="728" id="u0v-VM-Ach"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ThH-wx-adS" userLabel="contentView">
-                                <rect key="frame" x="15" y="145" width="738" height="859"/>
+                                <rect key="frame" x="15" y="145" width="738" height="810"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
@@ -78,7 +99,7 @@
                                         <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <attributes>
                                             <color key="NSColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="18" name="Georgia"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
@@ -115,7 +136,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxt-dT-RXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1437" y="1318"/>
+            <point key="canvasLocation" x="4555" y="-1630"/>
+        </scene>
+        <!--Navigation Controller - News-->
+        <scene sceneID="9NJ-KQ-h7U">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Hts-Zz-QSC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="News Tab Icon" id="qjN-ur-9Yx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SCv-12-svn">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nar-Uc-qH1" kind="relationship" relationship="rootViewController" id="zcA-ld-JAG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SfJ-dn-MNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123" y="-203"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="ccw-0L-UjS">
@@ -126,11 +163,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Qur-85-uZu"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sfi-RU-GyK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-hD-gA3">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-hD-gA3">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -139,15 +176,22 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qur-85-uZu" firstAttribute="top" secondItem="yxP-hD-gA3" secondAttribute="bottom" id="I2O-gh-2TO"/>
+                            <constraint firstAttribute="trailing" secondItem="yxP-hD-gA3" secondAttribute="trailing" id="PBm-Dq-mlb"/>
+                            <constraint firstItem="yxP-hD-gA3" firstAttribute="top" secondItem="AKe-FP-duE" secondAttribute="bottom" id="fTs-V0-xBW"/>
+                            <constraint firstItem="yxP-hD-gA3" firstAttribute="leading" secondItem="sfi-RU-GyK" secondAttribute="leading" id="ij6-r5-ALa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uu1-Mc-rf7"/>
                     <connections>
                         <outlet property="tableView" destination="yxP-hD-gA3" id="8f4-hh-aSH"/>
+                        <segue destination="VFZ-es-P2e" kind="push" identifier="newsToPostDetailsSegue" id="xlO-AR-rZP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouo-BD-pkC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="-762"/>
+            <point key="canvasLocation" x="1053" y="-203"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="ZZ3-Kn-J3X">
@@ -158,11 +202,11 @@
                         <viewControllerLayoutGuide type="bottom" id="scY-8Q-zuW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LbG-Y2-ggC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-MN-Y6I">
-                                <rect key="frame" x="10" y="0.0" width="300" height="852"/>
+                                <rect key="frame" x="10" y="0.0" width="748" height="911"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
@@ -251,14 +295,14 @@ The president of the foundation speaks out on issues important to policing and s
                             <constraint firstItem="scY-8Q-zuW" firstAttribute="top" secondItem="w8h-MN-Y6I" secondAttribute="bottom" id="28a-cA-nch"/>
                             <constraint firstItem="w8h-MN-Y6I" firstAttribute="leading" secondItem="LbG-Y2-ggC" secondAttribute="leading" constant="10" id="YL0-07-opj"/>
                             <constraint firstAttribute="trailing" secondItem="w8h-MN-Y6I" secondAttribute="trailing" constant="10" id="rrf-yr-HKY"/>
-                            <constraint firstItem="w8h-MN-Y6I" firstAttribute="top" secondItem="uOX-HV-vZF" secondAttribute="bottom" constant="-64" id="zMS-mZ-gZR"/>
+                            <constraint firstItem="w8h-MN-Y6I" firstAttribute="top" secondItem="uOX-HV-vZF" secondAttribute="bottom" id="zMS-mZ-gZR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IiF-S3-Ggj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naN-us-baJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="225"/>
+            <point key="canvasLocation" x="1053" y="1121"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="WMZ-nZ-tTD">
@@ -269,11 +313,11 @@ The president of the foundation speaks out on issues important to policing and s
                         <viewControllerLayoutGuide type="bottom" id="mfK-SW-PVG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yv8-am-nOx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-QW-0Kf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-QW-0Kf">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -283,6 +327,13 @@ The president of the foundation speaks out on issues important to policing and s
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bnj-QW-0Kf" firstAttribute="leading" secondItem="yv8-am-nOx" secondAttribute="leading" id="Ijf-Ns-OD7"/>
+                            <constraint firstItem="bnj-QW-0Kf" firstAttribute="top" secondItem="Uui-Z0-eju" secondAttribute="bottom" id="JnE-k0-2F8"/>
+                            <constraint firstAttribute="trailing" secondItem="bnj-QW-0Kf" secondAttribute="trailing" id="QLY-ga-yK0"/>
+                            <constraint firstItem="bnj-QW-0Kf" firstAttribute="top" secondItem="Uui-Z0-eju" secondAttribute="bottom" id="a4O-cq-1LN"/>
+                            <constraint firstItem="mfK-SW-PVG" firstAttribute="top" secondItem="bnj-QW-0Kf" secondAttribute="bottom" id="oVT-MU-RtS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tco-tW-14M"/>
                     <connections>
@@ -292,7 +343,7 @@ The president of the foundation speaks out on issues important to policing and s
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMl-zv-lUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1790" y="-1762"/>
+            <point key="canvasLocation" x="1053" y="-1630"/>
         </scene>
         <!--Tags View Controller-->
         <scene sceneID="4ce-Qx-W4F">
@@ -303,11 +354,11 @@ The president of the foundation speaks out on issues important to policing and s
                         <viewControllerLayoutGuide type="bottom" id="XDD-wJ-63F"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dzt-3U-h6N">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9gZ-nx-Ph5">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9gZ-nx-Ph5">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -317,6 +368,12 @@ The president of the foundation speaks out on issues important to policing and s
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9gZ-nx-Ph5" secondAttribute="trailing" id="6nT-HA-MuS"/>
+                            <constraint firstItem="XDD-wJ-63F" firstAttribute="top" secondItem="9gZ-nx-Ph5" secondAttribute="bottom" id="Hc6-0q-UH5"/>
+                            <constraint firstItem="9gZ-nx-Ph5" firstAttribute="top" secondItem="PfF-WZ-ojS" secondAttribute="bottom" id="gnq-5y-99Z"/>
+                            <constraint firstItem="9gZ-nx-Ph5" firstAttribute="leading" secondItem="Dzt-3U-h6N" secondAttribute="leading" id="tNt-06-10A"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jer-Do-Cpo"/>
                     <connections>
@@ -326,7 +383,7 @@ The president of the foundation speaks out on issues important to policing and s
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYy-c6-sNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2280" y="-1762"/>
+            <point key="canvasLocation" x="2270" y="-1630"/>
         </scene>
         <!--Posts View Controller-->
         <scene sceneID="5b0-as-ZKp">
@@ -337,11 +394,11 @@ The president of the foundation speaks out on issues important to policing and s
                         <viewControllerLayoutGuide type="bottom" id="FE2-Ew-d3h"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gz4-1B-mlC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FBl-2g-c5n">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FBl-2g-c5n">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -351,87 +408,51 @@ The president of the foundation speaks out on issues important to policing and s
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FBl-2g-c5n" secondAttribute="trailing" id="7bz-qs-2yy"/>
+                            <constraint firstItem="FE2-Ew-d3h" firstAttribute="top" secondItem="FBl-2g-c5n" secondAttribute="bottom" id="SAs-1W-UD8"/>
+                            <constraint firstItem="FBl-2g-c5n" firstAttribute="leading" secondItem="gz4-1B-mlC" secondAttribute="leading" id="bXr-Wo-ycd"/>
+                            <constraint firstItem="FBl-2g-c5n" firstAttribute="top" secondItem="Ua8-aT-fjc" secondAttribute="bottom" id="eAQ-U0-0m4"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B2U-e8-LTW"/>
                     <connections>
                         <outlet property="tableView" destination="FBl-2g-c5n" id="YLc-Ri-M06"/>
+                        <segue destination="VFZ-es-P2e" kind="push" identifier="postsToPostDetailsSegue" id="zkW-SQ-Aao"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcS-2z-J3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2780" y="-1762"/>
+            <point key="canvasLocation" x="3458" y="-1630"/>
         </scene>
-        <!--Split View Controller-->
-        <scene sceneID="Ubk-Hs-HLl">
-            <objects>
-                <splitViewController id="eiP-VD-bgd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <connections>
-                        <segue destination="wp5-7N-roL" kind="relationship" relationship="masterViewController" id="QZD-Zf-hk4"/>
-                        <segue destination="J72-yN-Mho" kind="relationship" relationship="detailViewController" id="bi6-HU-CFp"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1m7-M6-awa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-919" y="-208"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Research-->
         <scene sceneID="Dds-LY-JJM">
             <objects>
-                <navigationController definesPresentationContext="YES" id="wp5-7N-roL" customClass="PFNavigationController" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0QS-63-OU3">
+                <navigationController definesPresentationContext="YES" id="wp5-7N-roL" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Research" image="Bulb Tab Icon" id="GI9-Gm-7CK"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0QS-63-OU3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="c8B-et-Vl9" kind="relationship" relationship="rootViewController" id="ZAN-VW-aiG"/>
+                        <segue destination="Rro-np-V3z" kind="relationship" relationship="rootViewController" id="muQ-Wz-18A"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5kY-if-QCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="647" y="-762"/>
-        </scene>
-        <!--Master Menu View Controller-->
-        <scene sceneID="z7c-CF-8Px">
-            <objects>
-                <viewController id="c8B-et-Vl9" customClass="PFMasterMenuViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="9QW-X6-auo"/>
-                        <viewControllerLayoutGuide type="bottom" id="fau-po-p9e"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LdZ-Bd-jHu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8SQ-nk-yoj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="852"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="c8B-et-Vl9" id="j3W-SV-hZw"/>
-                                    <outlet property="delegate" destination="c8B-et-Vl9" id="yQQ-uA-mKk"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="uaN-zq-7fL"/>
-                    <connections>
-                        <outlet property="tableView" destination="8SQ-nk-yoj" id="nHj-l4-1Dr"/>
-                        <segue destination="Rro-np-V3z" kind="push" identifier="segueToCategories" id="fGl-MK-wgA"/>
-                        <segue destination="nar-Uc-qH1" kind="push" identifier="segueToNews" id="8ox-bf-fZn"/>
-                        <segue destination="mwZ-o1-HpK" kind="push" identifier="segueToAbout" id="7GW-sZ-Luu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E08-mx-C1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1197" y="-762"/>
+            <point key="canvasLocation" x="-123" y="-1630"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="About Tab Icon" width="25" height="25"/>
+        <image name="Bulb Tab Icon" width="20" height="20"/>
+        <image name="News Tab Icon" width="20" height="20"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="xlO-AR-rZP"/>
+    </inferredMetricsTieBreakers>
 </document>
