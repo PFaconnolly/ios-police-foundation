@@ -193,7 +193,7 @@ Tap </string>
         <image name="Welcome About Tab Icon Selected" width="100" height="102"/>
         <image name="Welcome Bulb Tab Icon" width="62" height="98"/>
         <image name="Welcome Bulb Tab Icon Selected" width="62" height="98"/>
-        <image name="Welcome News Tab Icon" width="80" height="84"/>
+        <image name="Welcome News Tab Icon" width="84" height="84"/>
         <image name="Welcome News Tab Icon Selected" width="80" height="80"/>
         <image name="Welcome Tap Hint" width="104" height="116"/>
         <image name="Welcome iPad Background" width="636" height="848"/>
