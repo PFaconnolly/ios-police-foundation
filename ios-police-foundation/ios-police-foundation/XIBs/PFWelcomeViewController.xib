@@ -121,6 +121,7 @@ Tap </string>
                     <state key="normal" image="Bulb Tab Icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="highlighted" image="Bulb Tab Icon Selected"/>
                     <connections>
                         <action selector="researchButtonTapped:" destination="-1" eventType="touchUpInside" id="GSQ-GS-P8v"/>
                     </connections>
@@ -131,6 +132,7 @@ Tap </string>
                     <state key="normal" image="News Tab Icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="highlighted" image="News Tab Icon Selected"/>
                     <connections>
                         <action selector="newsButtonTapped:" destination="-1" eventType="touchUpInside" id="JMj-Q0-Op7"/>
                     </connections>
@@ -141,6 +143,7 @@ Tap </string>
                     <state key="normal" image="About Tab Icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="highlighted" image="About Tab Icon Selected"/>
                     <connections>
                         <action selector="aboutButtonTapped:" destination="-1" eventType="touchUpInside" id="Cz9-Mq-MWh"/>
                     </connections>
@@ -149,21 +152,21 @@ Tap </string>
                     <rect key="frame" x="79" y="415" width="55" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BQ-i7-jKM">
                     <rect key="frame" x="144" y="415" width="33" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU1-KA-IK6">
                     <rect key="frame" x="200" y="415" width="39" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLj-d1-caV">
@@ -198,8 +201,11 @@ Tap </string>
     </objects>
     <resources>
         <image name="About Tab Icon" width="25" height="25"/>
+        <image name="About Tab Icon Selected" width="25" height="25"/>
         <image name="Bulb Tab Icon" width="20" height="20"/>
+        <image name="Bulb Tab Icon Selected" width="20" height="20"/>
         <image name="News Tab Icon" width="20" height="20"/>
+        <image name="News Tab Icon Selected" width="20" height="20"/>
         <image name="PF Logo" width="26" height="43"/>
         <image name="Welcome Tap Hint" width="104" height="116"/>
         <image name="Welcome iPhone Background" width="466" height="850"/>
