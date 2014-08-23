@@ -30,6 +30,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Post";
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        self.contentView.font = [UIFont fontWithName:@"Georgia" size:24.0f];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,8 +49,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                                        successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                            [self processWordPressPost:responseObject];
                                                                        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                           NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                           [exception raise];
+                                                                           [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                            [self hideBarberPole];
                                                                        }];
         
@@ -122,8 +125,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                         [self processWordPressPost:responseObject];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                        NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                        [exception raise];
+                                                        [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
                                                         [self hideBarberPole];
                                                     }];
 }

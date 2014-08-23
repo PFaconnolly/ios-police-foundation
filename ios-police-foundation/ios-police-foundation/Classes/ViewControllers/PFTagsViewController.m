@@ -18,7 +18,6 @@
 @property (strong, nonatomic) NSArray * tags;
 @property (strong, nonatomic) PFArrayDataSource *tagsArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -27,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Tags";
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0, 60, CGRectGetWidth(self.view.frame), 20)];
 
     [self setupTableView];
     [self fetchCategories];
@@ -42,8 +40,8 @@
 
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFTagTableViewCell * cell, NSDictionary * category) {
-        cell.textLabel.text = [category objectForKey:@"name"];
-        cell.detailTextLabel.text = [category objectForKey:@"description"];
+        cell.tagLabel.text = [category objectForKey:@"name"];
+        cell.descriptionLabel.text = [category objectForKey:@"description"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
@@ -59,8 +57,8 @@
 
 - (void)fetchCategories {
     
-    [self.view addSubview:self.barberPoleView];
-
+    [self showBarberPole];
+    
     @weakify(self)
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getTagsWithParameters:nil
@@ -71,19 +69,18 @@
                                                                 [self->_tagsArrayDataSource reloadItems:self->_tags];
                                                                 [self->_tableView reloadData];
                                                                 
-                                                                [self.barberPoleView removeFromSuperview];
+                                                                [self hideBarberPole];
                                                             }
                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                [exception raise];
-                                                                [self.barberPoleView removeFromSuperview];
+                                                                [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                [self hideBarberPole];
                                                             }];
 }
 
 #pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
+    return 70.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

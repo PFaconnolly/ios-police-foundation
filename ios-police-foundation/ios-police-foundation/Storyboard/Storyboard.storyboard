@@ -145,7 +145,7 @@
                                 <rect key="frame" x="20" y="30" width="280" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="67h-xK-zlO"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="67h-xK-zlO"/>
                                     <constraint firstAttribute="width" constant="280" id="aqy-DI-wFY"/>
                                 </constraints>
                                 <attributedString key="attributedText">
@@ -191,7 +191,8 @@
                                         <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <attributes>
                                             <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="16" name="Georgia"/>
+                                            <font key="NSOriginalFont" size="16" name="Georgia"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.25"/>
                                         </attributes>
                                     </fragment>

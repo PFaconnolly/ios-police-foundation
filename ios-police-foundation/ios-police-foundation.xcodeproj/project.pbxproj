@@ -32,6 +32,7 @@
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
 		B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */; };
 		B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */; };
+		B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */; };
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
@@ -117,6 +118,8 @@
 		B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNewsViewController.m; path = Classes/ViewControllers/PFNewsViewController.m; sourceTree = "<group>"; };
 		B08ABC2419A90E4800B9B5BD /* PFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTabBarController.h; path = Classes/ViewControllers/PFTabBarController.h; sourceTree = "<group>"; };
 		B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTabBarController.m; path = Classes/ViewControllers/PFTabBarController.m; sourceTree = "<group>"; };
+		B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+PFExtensions.h"; path = "Categories/UIAlertView+PFExtensions.h"; sourceTree = "<group>"; };
+		B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+PFExtensions.m"; path = "Categories/UIAlertView+PFExtensions.m"; sourceTree = "<group>"; };
 		B095EF33192943AA008C3FF0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Resources/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		B095EF34192943AA008C3FF0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Resources/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		B095EF35192943AA008C3FF0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Resources/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
 				B0ED272219636E9900CFC573 /* UITabBarController+PFExtensions.h */,
 				B0ED272319636E9900CFC573 /* UITabBarController+PFExtensions.m */,
+				B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */,
+				B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -621,6 +626,7 @@
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
 				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,
 				B006F743193152E400374295 /* PFTagsViewController.m in Sources */,
+				B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
 				B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */,
 				B006F7481931552E00374295 /* PFTagTableViewCell.m in Sources */,

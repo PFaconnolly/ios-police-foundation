@@ -86,8 +86,7 @@
 
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                 NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                 [exception raise];
+                                                                 [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                  [self.barberPoleView removeFromSuperview];
                                                              }];
 }
