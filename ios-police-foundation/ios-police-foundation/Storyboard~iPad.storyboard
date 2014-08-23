@@ -8,8 +8,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="rfu-r7-MjZ">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="qgF-ad-Z9X" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                <tabBarController definesPresentationContext="YES" id="qgF-ad-Z9X" customClass="PFTabBarController" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="UcF-gc-LYr">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -28,7 +28,6 @@
         <!--Navigation Controller - Item-->
         <scene sceneID="c9g-QY-P9a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R1e-F6-T22" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="J72-yN-Mho" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="qTv-Pi-JTv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -39,6 +38,7 @@
                         <segue destination="mwZ-o1-HpK" kind="relationship" relationship="rootViewController" id="k1W-Kp-YoK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R1e-F6-T22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-123" y="1121"/>
         </scene>
@@ -403,7 +403,6 @@ The president of the foundation speaks out on issues important to policing and s
         <!--Navigation Controller - Research-->
         <scene sceneID="Dds-LY-JJM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5kY-if-QCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="wp5-7N-roL" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Research" image="Bulb Tab Icon" id="GI9-Gm-7CK"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -414,6 +413,7 @@ The president of the foundation speaks out on issues important to policing and s
                         <segue destination="Rro-np-V3z" kind="relationship" relationship="rootViewController" id="muQ-Wz-18A"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kY-if-QCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-123" y="-1630"/>
         </scene>

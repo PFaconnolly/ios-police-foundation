@@ -228,7 +228,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="SGh-OB-1Sf">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="ck7-uA-GYI" sceneMemberID="viewController">
+                <tabBarController definesPresentationContext="YES" id="ck7-uA-GYI" customClass="PFTabBarController" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="GzC-UT-qiw">

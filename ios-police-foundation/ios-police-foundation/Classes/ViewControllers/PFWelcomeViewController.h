@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    PFScreen_Research = 0,
+    PFScreen_News,
+    PFScreen_About
+} PFScreens;
+
+@protocol PFWelcomeSelectorDelegate <NSObject>
+
+- (void)startWithScreen:(PFScreens)screen;
+
+@end
+
 @interface PFWelcomeViewController : UIViewController
+
+- (id)initWithDelegate:(id<PFWelcomeSelectorDelegate>)delegate;
 
 @end
