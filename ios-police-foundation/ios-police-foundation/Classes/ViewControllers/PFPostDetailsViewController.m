@@ -49,7 +49,7 @@ static NSString * RSS_POST_TITLE_KEY = @"title";
     [super viewDidLoad];
     self.title = @"Post";
     
-    self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"File" style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
+    self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Paperclip Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
     
     if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
         self.contentView.font = [UIFont fontWithName:@"Georgia" size:24.0f];
@@ -73,6 +73,8 @@ static NSString * RSS_POST_TITLE_KEY = @"title";
                                                                            [self hideBarberPole];
                                                                        }];
     }
+    
+    self.screenName = @"Post Details Screen";
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

@@ -15,13 +15,28 @@
 #import "NSDate+PFExtensions.h"
 #import "NSString+PFExtensions.h"
 #import "PFBarberPoleView.h"
+#import "PFAnalyticsManager.h"
+
+// posts response keys
+static NSString * WP_POSTS_API_RESPONSE_POSTS_KEY = @"posts";
+static NSString * WP_SEARCH_POSTS_API_CATEGORY_KEY = @"category";
+static NSString * WP_SEARCH_POSTS_API_TAG_KEY = @"tag";
+static NSString * WP_SEARCH_POSTS_API_FIELDS_KEY = @"fields";
+
+// post keys
+static NSString * WP_POST_ID_KEY = @"ID";
+static NSString * WP_POST_TITLE_KEY = @"title";
+static NSString * WP_POST_DATE_KEY = @"date";
+static NSString * WP_POST_CATEGORY_KEY = @"category";
+static NSString * WP_POST_TAG_KEY = @"tag";
+static NSString * WP_POST_FIELDS_KEY = @"fields";
+static NSString * WP_POST_URL_KEY = @"URL";
 
 @interface PFPostsViewController ()
 
 @property (strong, nonatomic) NSArray * posts;
 @property (strong, nonatomic) PFArrayDataSource * postsArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView * tableView;
-@property (strong, nonatomic) PFBarberPoleView * barberPoleView;
 
 @end
 
@@ -30,10 +45,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Posts";
-    self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.view.frame),
-                                                                             CGRectGetMinY(self.tableView.frame),
-                                                                             CGRectGetWidth(self.view.frame),
-                                                                             20)];
+
     [self setupTableView];
     [self fetchPosts];
     
@@ -42,10 +54,17 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    self.screenName = @"WordPress Post List Screen";
+}
+
 - (void)setupTableView {
     TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * category) {
-        cell.titleLabel.text = [category objectForKey:@"title"];
-        NSDate * date = [NSDate pfDateFromIso8601String:[category objectForKey:@"date"]];
+        cell.titleLabel.text = [category objectForKey:WP_POST_TITLE_KEY];
+        NSDate * date = [NSDate pfDateFromIso8601String:[category objectForKey:WP_POST_DATE_KEY]];
         cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
@@ -63,14 +82,15 @@
 
 - (void)fetchPosts {
     
-    [self.view addSubview:self.barberPoleView];
-
+    [self showBarberPole];
+    
     @weakify(self)
     
     NSString * category = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
     NSString * tag = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug;
-    NSArray * fields = [NSArray arrayWithObject:@"ID, title, date"];
-    NSDictionary * parameters = [NSDictionary dictionaryWithObjects:@[category, tag, fields] forKeys:@[@"category", @"tag", @"fields"]];
+    NSString * fields = [@[WP_POST_ID_KEY, WP_POST_TITLE_KEY, WP_POST_DATE_KEY, WP_POST_URL_KEY] componentsJoinedByString:@","];    // ID, title, date, URL
+    NSDictionary * parameters = [NSDictionary dictionaryWithObjects:@[category, tag, fields]
+                                                            forKeys:@[WP_SEARCH_POSTS_API_CATEGORY_KEY, WP_SEARCH_POSTS_API_TAG_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
     
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostsWithParameters:parameters
@@ -78,16 +98,16 @@
                                                                  @strongify(self)
                                                                  if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
                                                                      NSDictionary * response = (NSDictionary *)responseObject;
-                                                                     self->_posts = [response objectForKey:@"posts"];
+                                                                     self->_posts = [response objectForKey:WP_POSTS_API_RESPONSE_POSTS_KEY];
                                                                      [self->_postsArrayDataSource reloadItems:self->_posts];
                                                                      [self->_tableView reloadData];
                                                                  }
-                                                                 [self.barberPoleView removeFromSuperview];
 
+                                                                 [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                                  [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
-                                                                 [self.barberPoleView removeFromSuperview];
+                                                                 [self hideBarberPole];
                                                              }];
 }
 
@@ -96,13 +116,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    // track selected post
+    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
+    
+    // track selected post
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
 }
 
 #pragma mark - Segue methods
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
-    NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:@"ID"]];
+    NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
     ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
 

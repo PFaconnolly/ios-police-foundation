@@ -12,6 +12,14 @@
 #import "PFTagTableViewCell.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFBarberPoleView.h"
+#import "PFAnalyticsManager.h"
+
+// categories response keys
+static NSString * WP_TAGS_KEY = @"tags";
+
+// category keys
+static NSString * WP_TAG_NAME_KEY = @"name";
+static NSString * WP_TAG_SLUG_KEY = @"slug";
 
 @interface PFTagsViewController ()
 
@@ -34,6 +42,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    self.screenName = @"WordPress Tags Screen";
 }
 
 #pragma mark - Private methods
@@ -65,7 +75,7 @@
                                                             successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                 @strongify(self)
                                                                 NSDictionary * response = (NSDictionary *)responseObject;
-                                                                self->_tags = [response objectForKey:@"tags"];
+                                                                self->_tags = [response objectForKey:WP_TAGS_KEY];
                                                                 [self->_tagsArrayDataSource reloadItems:self->_tags];
                                                                 [self->_tableView reloadData];
                                                                 
@@ -85,11 +95,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    // set the selected tag on app delegate
     NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = [tag objectForKey:@"slug"];
+    NSString * selectedTagSlug = [tag objectForKey:WP_TAG_SLUG_KEY];
     
-    // segue to posts view controller
+    // track selected category & tag
+    NSString * selectedCategorySlug = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
+    NSString * categoryAndSlugTrackingLabel = [NSString stringWithFormat:@"%@ / %@", selectedCategorySlug, selectedTagSlug];
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_AND_TAG_ACTION label:categoryAndSlugTrackingLabel value:nil];
+
+    // save selected tag slug
+    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = selectedTagSlug;
+    
     [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
 }
 

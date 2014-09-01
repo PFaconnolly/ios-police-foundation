@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface PFViewController : UIViewController
+@interface PFViewController : GAITrackedViewController
 
 - (void)showBarberPole;
 - (void)hideBarberPole;

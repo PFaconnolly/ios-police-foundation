@@ -29,6 +29,12 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.screenName = @"About Screen";
+}
+
 - (void)contactButtonTapped:(id)sender {
     
     UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a contact category:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Cambridge Police Exec. Prog.", @"Crime Mapping M.S.S.", @"Fellowship Program", @"General Inquiry", @"Publication Requst", nil];

@@ -7,8 +7,7 @@
 //
 
 #import "PFAppDelegate.h"
-#import "GAI.h"
-#import "GAIDictionaryBuilder.h"
+#import "PFAnalyticsManager.h"
 #import <Crashlytics/Crashlytics.h>
 #import "PFCategoriesViewController.h"
 #import "PFAboutViewController.h"
@@ -29,26 +28,7 @@
     [self setAppearance];
     [self setLogger];
     
-    // Google Analytics
-    
-    // Optional: automatically send uncaught exceptions to Google Analytics.
-    //[GAI sharedInstance].trackUncaughtExceptions = YES;
-    
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    //[GAI sharedInstance].dispatchInterval = 20;
-    
-    // Optional: set Logger to VERBOSE for debug information.
-    /*[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
-    
-    // Initialize tracker. Replace with your tracking ID.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-34908763-4"];
-    
-
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"System Action"   // Event category (required)
-                                                          action:@"App Launched"    // Event action (required)
-                                                           label:nil                // Event label
-                                                           value:nil] build]];      // Event value*/
-
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_SYSTEM_ACTION_CATEGORY action:GA_APPLICATION_LAUNCHED_ACTION label:nil value:nil];
     
     // Crashlytics
     [Crashlytics startWithAPIKey:@"4cc4ce965b769396e57af58ca8f2142491f099cd"];
