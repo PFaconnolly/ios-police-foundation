@@ -13,6 +13,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFFileDownloadManager()
 
+// filesDictionary is a hash of the files in the Documents directory. Key = file names, Value = full path to the file
 @property (strong, nonatomic) NSMutableDictionary * filesDictionary;
 
 @end
@@ -31,18 +32,45 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (PFFileDownloadManager *)init {
     self = [super init];
     if ( self ) {
-
+        // create cache dictionary
+        [self loadFiles];
     }
     return self;
 }
 
+#pragma mark - Private methods
+
+- (void)loadFiles {
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentDirectoryPath = [paths objectAtIndex:0];
+    NSError * error = nil;
+    NSArray * documents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectoryPath error:&error];
+
+    self.filesDictionary = [NSMutableDictionary dictionary];
+    [documents enumerateObjectsUsingBlock:^(NSString * fileName, NSUInteger idx, BOOL *stop) {
+        [self.filesDictionary setObject:[documentDirectoryPath stringByAppendingPathComponent:fileName] forKey:fileName];
+    }];
+}
+
 #pragma mark - Public methods
 
-- (void)downloadFileWithURL:(NSURL *)fileUrl withCompletion:(void (^)(NSURL * fileURL, NSError * error))completion {
+- (void)downloadFileWithURL:(NSURL *)URL withCompletion:(void (^)(NSURL * fileURL, NSError * error))completion {
+    
+    // check cache
+    NSString * fileName = [URL lastPathComponent];
+    NSString * filePath = [self.filesDictionary objectForKey:fileName];
+    if ( filePath ) {
+        DDLogVerbose(@"cached file found: %@", filePath);
+        NSURL * URL = [NSURL fileURLWithPath:filePath];
+        completion(URL, nil);
+        return;
+    }
+    
+    // file did not exist in cache
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:fileUrl];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request
                                                                      progress:nil
                                                                   destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
