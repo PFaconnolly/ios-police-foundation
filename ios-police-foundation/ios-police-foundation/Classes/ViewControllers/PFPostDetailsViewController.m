@@ -11,17 +11,35 @@
 #import "NSString+PFExtensions.h"
 #import "NSDate+PFExtensions.h"
 #import "PFBarberPoleView.h"
+#import "PFFileDownloadManager.h"
 
-static const int __unused ddLogLevel = LOG_LEVEL_INFO;
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
-@interface PFPostDetailsViewController () <UISplitViewControllerDelegate>
+static NSString * WP_POST_TITLE_KEY = @"title";
+static NSString * WP_POST_DATE_KEY = @"date";
+static NSString * WP_POST_CONTENT_KEY = @"content";
+static NSString * WP_POST_ATTACHMENTS_KEY = @"attachments";
+
+static NSString * WP_ATTACHMENT_ID_KEY = @"ID";
+static NSString * WP_ATTACHMENT_URL_KEY = @"URL";
+static NSString * WP_ATTACHMENT_GUID_KEY = @"guid";
+static NSString * WP_ATTACHMENT_WIDTH_KEY = @"mime-type";
+
+static NSString * RSS_POST_PUBLISH_DATE_KEY = @"pubDate";
+static NSString * RSS_POST_DESCRIPTION_KEY = @"description";
+static NSString * RSS_POST_TITLE_KEY = @"title";
+
+@interface PFPostDetailsViewController () <UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * dateLabel;
 @property (strong, nonatomic) IBOutlet UITextView *contentView;
+@property (strong, nonatomic) UIBarButtonItem * attachmentBarButtonItem;
 
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
+
+@property (strong, nonatomic) NSDictionary * wordPressPost;
 
 @end
 
@@ -30,6 +48,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Post";
+    
+    self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"File" style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
     
     if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
         self.contentView.font = [UIFont fontWithName:@"Georgia" size:24.0f];
@@ -52,15 +72,15 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                                            [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                            [self hideBarberPole];
                                                                        }];
-        
     }
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.rssPost = nil;
+    self.wordPressPost = nil;
 } 
+
 
 #pragma mark - UISplitViewControllerDelegate methods
 
@@ -87,6 +107,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     // iOS 7 has a weird 4 pixel width difference when presenting the view controller in a popover. set the view's frame here 
 }
 
+
 #pragma mark - PFPostSelectionDelegate methods
 
 - (void)selectPostWithId:(NSString *)postId {
@@ -95,8 +116,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)selectPostWithRssPost:(NSDictionary *)rssPost {
     self.rssPost = rssPost;
-    
 }
+
 
 #pragma mark - Setters
 
@@ -112,6 +133,49 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 
 #pragma mark - Private methods
+
+- (void)attachmentButtonTapped:(id)sender {
+    
+    // TO DO:
+    // detect if there are more than 1 attachments
+    
+    NSURL * attachmentURL = nil;
+    
+    NSDictionary * attachments = (NSDictionary *)[self.wordPressPost objectForKey:WP_POST_ATTACHMENTS_KEY];
+    if ( attachments && attachments.allKeys.count > 0 ) {
+        for( id key in attachments.allKeys ) {
+            NSDictionary * attachment = attachments[key];
+            attachmentURL = [NSURL URLWithString:[attachment objectForKey:WP_ATTACHMENT_URL_KEY]];
+            break;
+        }
+    }
+    
+    [self showBarberPole];
+    self.attachmentBarButtonItem.enabled = NO;
+    
+    @weakify(self);
+    [[PFFileDownloadManager sharedManager] downloadFileWithURL:attachmentURL withCompletion:^(NSURL * fileURL, NSError * error) {
+        @strongify(self);
+        [self hideBarberPole];
+        self->_attachmentBarButtonItem.enabled = YES;
+        
+        if ( error ) {
+            [UIAlertView showWithTitle:@"File could not be downloaded" message:error.localizedDescription];
+            return;
+        }
+        
+        // Fire up the document interaction controller
+        UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+        interactionController.delegate = self;
+        [interactionController presentPreviewAnimated:YES];
+    }];
+}
+
+#pragma mark UIDocumentInteractionControllerDelegate methods
+
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
+    return (UIViewController*)controller.delegate;
+}
 
 - (void)fetchWordPressPost {
     
@@ -131,27 +195,32 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 }
 
 - (void)processWordPressPost:(id)responseObject {
+    [self hideBarberPole];
+
     if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
-        NSDictionary * response = (NSDictionary *)responseObject;
-        self.titleLabel.text = [response objectForKey:@"title"];
+        self.wordPressPost = (NSDictionary *)responseObject;
+        self.titleLabel.text = [self.wordPressPost objectForKey:WP_POST_TITLE_KEY];
         
-        NSDate * date = [NSDate pfDateFromIso8601String:[response objectForKey:@"date"]];
+        NSDate * date = [NSDate pfDateFromIso8601String:[self.wordPressPost objectForKey:WP_POST_DATE_KEY]];
         
         self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
         
-        NSString * content = [[response objectForKey:@"content"] pfStringByConvertingHTMLToPlainText];
+        NSString * content = [[self.wordPressPost objectForKey:WP_POST_CONTENT_KEY] pfStringByConvertingHTMLToPlainText];
         [self.contentView setText:content];
+        
+        // check for attachments and hide/show attachments button
+        NSDictionary * attachments = (NSDictionary *)[self.wordPressPost objectForKey:WP_POST_ATTACHMENTS_KEY];
+        if ( attachments && attachments.allKeys.count > 0 ) {
+            self.navigationItem.rightBarButtonItem = self.attachmentBarButtonItem;
+        }
     }
-    [self hideBarberPole];
 }
 
 - (void)refreshRssPost {
-    NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:@"pubDate"]];
-    NSString * content = [[self.rssPost objectForKey:@"description"] pfStringByConvertingHTMLToPlainText];
-    
-    self.titleLabel.text = [self.rssPost objectForKey:@"title"];
+    NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
+    NSString * content = [[self.rssPost objectForKey:RSS_POST_DESCRIPTION_KEY] pfStringByConvertingHTMLToPlainText];
+    self.titleLabel.text = [self.rssPost objectForKey:RSS_POST_TITLE_KEY];
     self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
-    
     [self.contentView setText:content];
 }
 
