@@ -73,6 +73,8 @@ static NSString * RSS_POST_TITLE_KEY = @"title";
                                                                            [self hideBarberPole];
                                                                        }];
     }
+    
+    self.screenName = @"Post Details Screen";
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

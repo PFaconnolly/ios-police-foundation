@@ -47,6 +47,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    self.screenName = @"RSS News Screen";
 }
 
 - (void)setupTableView {

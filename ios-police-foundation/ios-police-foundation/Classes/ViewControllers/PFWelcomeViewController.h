@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFViewController.h"
 
 typedef enum {
     PFScreen_Research = 0,
@@ -20,7 +21,7 @@ typedef enum {
 
 @end
 
-@interface PFWelcomeViewController : UIViewController
+@interface PFWelcomeViewController : PFViewController
 
 - (id)initWithDelegate:(id<PFWelcomeSelectorDelegate>)delegate;
 

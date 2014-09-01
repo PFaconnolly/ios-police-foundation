@@ -13,6 +13,14 @@
 #import "PFArrayDataSource.h"
 #import "PFTagsViewController.h"
 #import "PFBarberPoleView.h"
+#import "PFAnalyticsManager.h"
+
+// categories response keys
+static NSString * WP_CATEGORIES_KEY = @"categories";
+
+// category keys
+static NSString * WP_CATEGORY_NAME_KEY = @"name";
+static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -39,6 +47,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    
+    self.screenName = @"WordPress Research Screen";
 }
 
 - (void)refreshButtonTapped:(id)sender {
@@ -74,7 +84,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                   successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                       @strongify(self)
                                                                       NSDictionary * response = (NSDictionary *)responseObject;
-                                                                      self->_categories = [response objectForKey:@"categories"];
+                                                                      self->_categories = [response objectForKey:WP_CATEGORIES_KEY];
                                                                       [self->_categoriesArrayDataSource reloadItems:self->_categories];
                                                                       [self->_tableView reloadData];
                                                                       
@@ -93,7 +103,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     // set the selected category on app delegate
     NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
+    
+    // track selected category
+    NSString * selectedCategorySlug = [category objectForKey:WP_CATEGORY_SLUG_KEY];
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
+    
+    // save selected category
+    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = selectedCategorySlug;
     
     [self performSegueWithIdentifier:@"categoriesToTagsSegue" sender:self];
 }
