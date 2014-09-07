@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="-1418" y="-203"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - About-->
         <scene sceneID="c9g-QY-P9a">
             <objects>
                 <navigationController definesPresentationContext="YES" id="J72-yN-Mho" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="About Tab Icon" id="qTv-Pi-JTv"/>
+                    <tabBarItem key="tabBarItem" title="About" image="About Tab Icon" id="qTv-Pi-JTv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="MoP-0v-N1K">
                         <autoresizingMask key="autoresizingMask"/>
