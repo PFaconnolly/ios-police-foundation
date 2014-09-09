@@ -108,7 +108,8 @@
         
         NSArray * array = @[@{ @"image" : @"Bulb Tab Icon", @"selectedImage" : @"Bulb Tab Icon Selected" },
                             @{ @"image" : @"News Tab Icon", @"selectedImage" : @"News Tab Icon Selected" },
-                            @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" }];
+                            @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" },
+                            @{ @"image" : @"Library Tab Icon", @"selectedImage" : @"Library Tab Icon Selected" }];
         
         [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tabBarItem, NSUInteger __unused index, BOOL * __unused stop) {
             if ( [tabBarItem respondsToSelector:@selector(setImage:)] &&

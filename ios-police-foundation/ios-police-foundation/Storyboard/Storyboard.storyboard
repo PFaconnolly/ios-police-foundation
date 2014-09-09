@@ -241,11 +241,60 @@
                         <segue destination="w0W-9v-FGl" kind="relationship" relationship="viewControllers" id="No6-B3-wgX"/>
                         <segue destination="7Xg-x6-90T" kind="relationship" relationship="viewControllers" id="3hV-ka-34t"/>
                         <segue destination="SM5-tr-mpi" kind="relationship" relationship="viewControllers" id="k4y-MK-H9p"/>
+                        <segue destination="qjT-NG-6Vb" kind="relationship" relationship="viewControllers" id="CBw-VO-M1H"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WpK-Lz-pfQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="53"/>
+            <point key="canvasLocation" x="-85" y="467"/>
+        </scene>
+        <!--Navigation Controller - Documents-->
+        <scene sceneID="6e3-6I-Yz4">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="qjT-NG-6Vb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Documents" id="N9e-xe-7s4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yhd-tx-joJ">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="edH-UI-A9p" kind="relationship" relationship="rootViewController" id="D2o-QZ-ajm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="and-tZ-BxP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="1579"/>
+        </scene>
+        <!--Documents View Controller-->
+        <scene sceneID="ltT-iX-wfy">
+            <objects>
+                <viewController id="edH-UI-A9p" customClass="PFDocumentsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n1U-4q-JNO"/>
+                        <viewControllerLayoutGuide type="bottom" id="tFq-YV-n4z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rTC-ft-eWo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-as-6St">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="edH-UI-A9p" id="kH6-K3-tVW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7WT-gn-FTa"/>
+                    <connections>
+                        <outlet property="tableView" destination="WeM-as-6St" id="92P-fe-qvf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zkP-4s-4Ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="1579"/>
         </scene>
         <!--Navigation Controller - About-->
         <scene sceneID="8ft-PV-5K5">

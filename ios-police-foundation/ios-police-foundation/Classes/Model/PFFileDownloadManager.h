@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+extern const NSString * PFFileName;
+extern const NSString * PFFilePath;
+
 @interface PFFileDownloadManager : NSObject
 
 + (id)sharedManager;
+
+- (NSArray *)files;
 
 // download a file at a given url and stores
 - (void)downloadFileWithURL:(NSURL *)fileUrl withCompletion:(void (^)(NSURL * filePath, NSError * error))completion;
