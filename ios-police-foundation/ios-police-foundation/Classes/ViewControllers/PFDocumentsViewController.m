@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSArray * documents;
 @property (strong, nonatomic) PFArrayDataSource * documentsArrayDataSource;
 @property (strong, nonatomic) UIDocumentInteractionController * documentInteractionController;
-
+@property (strong, nonatomic) UIBarButtonItem * editButton;
 @end
 
 @implementation PFDocumentsViewController
@@ -27,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Documents";
+    
+    self.editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonTapped:)];
+    self.navigationItem.rightBarButtonItem = self.editButton;
     
     TableViewCellConfigureBlock configureCellBlock = ^(PFDocumentTableViewCell * cell, NSDictionary * file) {
         CGFloat bytes = [file fileSize];
@@ -36,12 +39,16 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%.02f MB - %@", bytes/1000, [NSString pfShortDateStringFromDate:creationDate]];
     };
     
-    // set up data source
+    // turn off selection during editing
+    self.tableView.allowsMultipleSelection = NO;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    self.tableView.allowsSelectionDuringEditing = NO;
+    
+    // set up table and data source
     self.documentsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.documents
                                                               cellIdentifier:@"Cell"
                                                           configureCellBlock:configureCellBlock];
     self.tableView.dataSource = self.documentsArrayDataSource;
-    
     [self.tableView registerNib:[PFDocumentTableViewCell nib] forCellReuseIdentifier:@"Cell"];
 }
 
@@ -50,9 +57,18 @@
     self.screenName = @"Documents Screen";
     
     [self.documentsArrayDataSource reloadItems:self.documents];
+    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate methods
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -73,6 +89,12 @@
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
     return self.navigationController;
+}
+
+#pragma mark - Private methods
+
+- (void)editButtonTapped:(id)sender {
+    self.tableView.editing = ! self.tableView.editing;
 }
 
 @end

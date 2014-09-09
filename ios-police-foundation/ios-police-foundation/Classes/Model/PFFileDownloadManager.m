@@ -131,4 +131,39 @@ const NSString * PFFilePath = @"PFFilePath";
     [downloadTask resume];
 }
 
+- (void)deleteFileAtPath:(NSString *)filePath withCompletion:(void (^)(NSError * error))completion {
+    if ( ! [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
+        completion(nil);
+        return;
+    }
+
+    NSError * error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+    
+    // delete from dictionary
+    NSString * fileName = [filePath lastPathComponent];
+    [self.filesDictionary removeObjectForKey:fileName];
+    
+    __block NSInteger removeIndex = -1;
+    [self.filesArray enumerateObjectsUsingBlock:^(NSDictionary * file, NSUInteger idx, BOOL *stop) {
+        NSString * thisFileName = [file objectForKey:PFFileName];
+        if ( [fileName isEqualToString:thisFileName] ) {
+            removeIndex = (NSInteger)idx;
+            return;
+        }
+    }];
+    
+    // delete the object at the index specified if it was found
+    if ( removeIndex >= 0 ) [self.filesArray removeObjectAtIndex:removeIndex];
+    
+    // delete from array
+    
+    if ( error != nil ) {
+        completion(error);
+        return;
+    }
+
+    completion(nil);
+}
+
 @end
