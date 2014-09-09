@@ -176,7 +176,7 @@ static NSString * RSS_POST_TITLE_KEY = @"title";
 #pragma mark UIDocumentInteractionControllerDelegate methods
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
-    return (UIViewController*)controller.delegate;
+    return self.navigationController;
 }
 
 - (void)fetchWordPressPost {

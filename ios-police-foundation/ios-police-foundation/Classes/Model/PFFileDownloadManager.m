@@ -11,10 +11,18 @@
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
+const NSString * PFFileName = @"PFFileName";
+const NSString * PFFilePath = @"PFFilePath";
+
 @interface PFFileDownloadManager()
+
+// files array is a list of the files in the Documents directory, ordered by date last modified.
+@property (strong, nonatomic) NSMutableArray * filesArray;
 
 // filesDictionary is a hash of the files in the Documents directory. Key = file names, Value = full path to the file
 @property (strong, nonatomic) NSMutableDictionary * filesDictionary;
+
+@property (strong, nonatomic) NSString * documentDirectoryPath;
 
 @end
 
@@ -42,17 +50,39 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)loadFiles {
     NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString * documentDirectoryPath = [paths objectAtIndex:0];
+    self.documentDirectoryPath = [paths objectAtIndex:0];
     NSError * error = nil;
-    NSArray * documents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentDirectoryPath error:&error];
+    NSArray * documents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.documentDirectoryPath error:&error];
 
+    // create files dictionary
     self.filesDictionary = [NSMutableDictionary dictionary];
     [documents enumerateObjectsUsingBlock:^(NSString * fileName, NSUInteger idx, BOOL *stop) {
-        [self.filesDictionary setObject:[documentDirectoryPath stringByAppendingPathComponent:fileName] forKey:fileName];
+        [self.filesDictionary setObject:[self.documentDirectoryPath stringByAppendingPathComponent:fileName] forKey:fileName];
+    }];
+    
+    self.filesArray = [NSMutableArray array];
+    [documents enumerateObjectsUsingBlock:^(NSString * fileName, NSUInteger idx, BOOL *stop) {
+        NSString * filePath = [self.documentDirectoryPath stringByAppendingPathComponent:fileName];
+        NSError * error = nil;
+        NSDictionary * fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:&error];
+        if ( error ) {
+            fileAttributes = nil;
+            // throw error?
+        }
+        
+        // add file name
+        NSMutableDictionary * mutableFileAttributes = [NSMutableDictionary dictionaryWithDictionary:fileAttributes];
+        [mutableFileAttributes setObject:fileName forKey:PFFileName];
+        [mutableFileAttributes setObject:filePath forKey:PFFilePath];
+        [self.filesArray addObject:mutableFileAttributes];
     }];
 }
 
 #pragma mark - Public methods
+
+- (NSArray *)files {
+    return self.filesArray;
+}
 
 - (void)downloadFileWithURL:(NSURL *)URL withCompletion:(void (^)(NSURL * fileURL, NSError * error))completion {
     
@@ -94,9 +124,46 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                       }
                                                                       completion(filePath, nil);
                                                                       
+                                                                      [self loadFiles];
+                                                                      
                                                                       DDLogVerbose(@"File [%@] downloaded to: %@", response.suggestedFilename, filePath);
                                                                   }];
     [downloadTask resume];
+}
+
+- (void)deleteFileAtPath:(NSString *)filePath withCompletion:(void (^)(NSError * error))completion {
+    if ( ! [[NSFileManager defaultManager] fileExistsAtPath:filePath] ) {
+        completion(nil);
+        return;
+    }
+
+    NSError * error = nil;
+    [[NSFileManager defaultManager] removeItemAtPath:filePath error:&error];
+    
+    // delete from dictionary
+    NSString * fileName = [filePath lastPathComponent];
+    [self.filesDictionary removeObjectForKey:fileName];
+    
+    __block NSInteger removeIndex = -1;
+    [self.filesArray enumerateObjectsUsingBlock:^(NSDictionary * file, NSUInteger idx, BOOL *stop) {
+        NSString * thisFileName = [file objectForKey:PFFileName];
+        if ( [fileName isEqualToString:thisFileName] ) {
+            removeIndex = (NSInteger)idx;
+            return;
+        }
+    }];
+    
+    // delete the object at the index specified if it was found
+    if ( removeIndex >= 0 ) [self.filesArray removeObjectAtIndex:removeIndex];
+    
+    // delete from array
+    
+    if ( error != nil ) {
+        completion(error);
+        return;
+    }
+
+    completion(nil);
 }
 
 @end
