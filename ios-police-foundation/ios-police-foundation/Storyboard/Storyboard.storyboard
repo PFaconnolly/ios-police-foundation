@@ -55,6 +55,7 @@
                     <connections>
                         <outlet property="tableView" destination="Dli-ep-eJa" id="eyy-fg-GMz"/>
                         <segue destination="tCp-mv-5Pc" kind="push" identifier="categoriesToTagsSegue" id="hq4-Lo-7Wq"/>
+                        <segue destination="DNo-pi-ZMi" kind="modal" identifier="presentSearchSegue" id="b7g-6b-h71"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHk-Sw-3eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -138,7 +139,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SGZ-mx-2Hh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hMW-o7-jSw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
@@ -180,7 +181,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYq-eD-a7A">
-                                <rect key="frame" x="20" y="132" width="280" height="364"/>
+                                <rect key="frame" x="20" y="132" width="280" height="413"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -467,6 +468,86 @@ The president of the foundation speaks out on issues important to policing and s
             </objects>
             <point key="canvasLocation" x="1527" y="58"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8ww-yB-dN9">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="DNo-pi-ZMi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sRU-Sw-MkC">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="XUj-WV-0n7" kind="relationship" relationship="rootViewController" id="Rh4-vL-gax"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hR-a7-xeI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="-1491"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="AL9-AR-Y8H">
+            <objects>
+                <viewController id="XUj-WV-0n7" customClass="PFSearchViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wMK-fD-AaP"/>
+                        <viewControllerLayoutGuide type="bottom" id="7J8-NT-kid"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B1E-6d-rha">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2f-fI-Ddb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="16r-wN-194">
+                                        <rect key="frame" x="11" y="10" width="237" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="XUj-WV-0n7" id="mus-Ji-F2k"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B58-bx-vhh">
+                                        <rect key="frame" x="256" y="10" width="54" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchButtonTapped:" destination="XUj-WV-0n7" eventType="touchUpInside" id="ll2-Vo-azF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-Wc-kW5">
+                                <rect key="frame" x="0.0" y="50" width="320" height="454"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XUj-WV-0n7" id="A7q-E2-Wry"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="fYP-bs-r26">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchButton" destination="B58-bx-vhh" id="zEn-yT-fay"/>
+                        <outlet property="searchTextField" destination="16r-wN-194" id="IWO-jA-BfO"/>
+                        <outlet property="tableView" destination="fnD-Wc-kW5" id="gkf-L1-ogs"/>
+                        <segue destination="jbD-fJ-dga" kind="push" identifier="searchToPostDetailsSegue" id="WLV-5n-6l1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVj-hC-7Uy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2051" y="-1491"/>
+        </scene>
     </scenes>
     <resources>
         <image name="About Tab Icon" width="25" height="25"/>
@@ -479,6 +560,6 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OUY-gf-PlR"/>
+        <segue reference="WLV-5n-6l1"/>
     </inferredMetricsTieBreakers>
 </document>

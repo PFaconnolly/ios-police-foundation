@@ -15,20 +15,6 @@
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
-static NSString * WP_POST_TITLE_KEY = @"title";
-static NSString * WP_POST_DATE_KEY = @"date";
-static NSString * WP_POST_CONTENT_KEY = @"content";
-static NSString * WP_POST_ATTACHMENTS_KEY = @"attachments";
-
-static NSString * WP_ATTACHMENT_ID_KEY = @"ID";
-static NSString * WP_ATTACHMENT_URL_KEY = @"URL";
-static NSString * WP_ATTACHMENT_GUID_KEY = @"guid";
-static NSString * WP_ATTACHMENT_WIDTH_KEY = @"mime-type";
-
-static NSString * RSS_POST_PUBLISH_DATE_KEY = @"pubDate";
-static NSString * RSS_POST_DESCRIPTION_KEY = @"description";
-static NSString * RSS_POST_TITLE_KEY = @"title";
-
 @interface PFPostDetailsViewController () <UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
@@ -81,45 +67,7 @@ static NSString * RSS_POST_TITLE_KEY = @"title";
     [super viewDidDisappear:animated];
     self.rssPost = nil;
     self.wordPressPost = nil;
-} 
-
-
-#pragma mark - UISplitViewControllerDelegate methods
-
-- (void)splitViewController:(UISplitViewController *)svc
-     willHideViewController:(UIViewController *)aViewController
-          withBarButtonItem:(UIBarButtonItem *)barButtonItem
-       forPopoverController:(UIPopoverController *)pc {
-    self.popController = pc;
-    barButtonItem.title = @"Menu";
-    [self.navigationItem setLeftBarButtonItem:barButtonItem];
 }
-
-- (void)splitViewController:(UISplitViewController *)svc
-     willShowViewController:(UIViewController *)aViewController
-  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.popController = nil;
-}
-
-- (void)splitViewController:(UISplitViewController *)svc
-          popoverController:(UIPopoverController *)pc
-  willPresentViewController:(UIViewController *)aViewController {
-    pc.popoverContentSize = CGSizeMake(320, 1024);
-    // iOS 7 has a weird 4 pixel width difference when presenting the view controller in a popover. set the view's frame here 
-}
-
-
-#pragma mark - PFPostSelectionDelegate methods
-
-- (void)selectPostWithId:(NSString *)postId {
-    self.wordPressPostId = postId;
-}
-
-- (void)selectPostWithRssPost:(NSDictionary *)rssPost {
-    self.rssPost = rssPost;
-}
-
 
 #pragma mark - Setters
 

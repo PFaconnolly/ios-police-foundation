@@ -42,6 +42,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
     self.navigationItem.rightBarButtonItem = refreshButton;
+    
+    UIBarButtonItem * searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Search Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonTapped:)];
+    self.navigationItem.leftBarButtonItem = searchButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,6 +56,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)refreshButtonTapped:(id)sender {
     [self fetchCategories];
+}
+
+- (void)searchButtonTapped:(id)sender {
+    [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
 }
 
 #pragma mark - Private methods
