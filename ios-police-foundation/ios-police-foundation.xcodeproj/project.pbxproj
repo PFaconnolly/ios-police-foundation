@@ -100,7 +100,6 @@
 		B006F75119315B3000374295 /* PFPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostTableViewCell.xib; path = Classes/Cells/PFPostTableViewCell.xib; sourceTree = "<group>"; };
 		B006F7541931694900374295 /* PFPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostDetailsViewController.h; path = Classes/ViewControllers/PFPostDetailsViewController.h; sourceTree = "<group>"; };
 		B006F7551931694900374295 /* PFPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostDetailsViewController.m; path = Classes/ViewControllers/PFPostDetailsViewController.m; sourceTree = "<group>"; };
-		B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostSelectionDelegate.h; path = Classes/Protocols/PFPostSelectionDelegate.h; sourceTree = "<group>"; };
 		B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PFExtensions.h"; path = "Categories/NSDate+PFExtensions.h"; sourceTree = "<group>"; };
 		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
 		B0116C5519B4F458006904E8 /* PFAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAnalyticsManager.h; path = Classes/Model/PFAnalyticsManager.h; sourceTree = "<group>"; };
@@ -259,7 +258,6 @@
 		B00A7A63194D00AE00590D37 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B00A7A64194D00DE00590D37 /* PFPostSelectionDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";

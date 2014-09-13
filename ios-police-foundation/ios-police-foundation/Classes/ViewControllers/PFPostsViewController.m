@@ -35,10 +35,6 @@
 
     [self setupTableView];
     [self fetchPosts];
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        self.postSelectionDelegate = ((PFAppDelegate *)[UIApplication sharedApplication].delegate).detailsViewController;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFPostSelectionDelegate.h"
 #import "PFViewController.h"
 
-@interface PFPostDetailsViewController : PFViewController <PFPostSelectionDelegate>
+@interface PFPostDetailsViewController : PFViewController
 
 @property (strong, nonatomic) NSDictionary * rssPost;
 
 @property (strong, nonatomic) NSString * wordPressPostId;
-
-- (void)selectPostWithId:(NSString *)postId;
 
 @end

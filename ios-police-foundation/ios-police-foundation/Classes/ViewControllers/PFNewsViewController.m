@@ -38,10 +38,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     self.title = @"News";
     
     [self fetchRssPosts];
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        self.postSelectionDelegate = ((PFAppDelegate *)[UIApplication sharedApplication].delegate).detailsViewController;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

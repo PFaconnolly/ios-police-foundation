@@ -67,45 +67,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidDisappear:animated];
     self.rssPost = nil;
     self.wordPressPost = nil;
-} 
-
-
-#pragma mark - UISplitViewControllerDelegate methods
-
-- (void)splitViewController:(UISplitViewController *)svc
-     willHideViewController:(UIViewController *)aViewController
-          withBarButtonItem:(UIBarButtonItem *)barButtonItem
-       forPopoverController:(UIPopoverController *)pc {
-    self.popController = pc;
-    barButtonItem.title = @"Menu";
-    [self.navigationItem setLeftBarButtonItem:barButtonItem];
 }
-
-- (void)splitViewController:(UISplitViewController *)svc
-     willShowViewController:(UIViewController *)aViewController
-  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.popController = nil;
-}
-
-- (void)splitViewController:(UISplitViewController *)svc
-          popoverController:(UIPopoverController *)pc
-  willPresentViewController:(UIViewController *)aViewController {
-    pc.popoverContentSize = CGSizeMake(320, 1024);
-    // iOS 7 has a weird 4 pixel width difference when presenting the view controller in a popover. set the view's frame here 
-}
-
-
-#pragma mark - PFPostSelectionDelegate methods
-
-- (void)selectPostWithId:(NSString *)postId {
-    self.wordPressPostId = postId;
-}
-
-- (void)selectPostWithRssPost:(NSDictionary *)rssPost {
-    self.rssPost = rssPost;
-}
-
 
 #pragma mark - Setters
 

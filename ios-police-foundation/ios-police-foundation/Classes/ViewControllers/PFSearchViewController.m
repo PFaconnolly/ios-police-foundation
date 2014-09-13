@@ -33,7 +33,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Search";
+    self.title = @"Find Articles";
     UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonTapped:)];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self setupTableView];

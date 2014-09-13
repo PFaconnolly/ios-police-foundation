@@ -472,7 +472,6 @@ The president of the foundation speaks out on issues important to policing and s
         <scene sceneID="8ww-yB-dN9">
             <objects>
                 <navigationController definesPresentationContext="YES" id="DNo-pi-ZMi" sceneMemberID="viewController">
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sRU-Sw-MkC">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
