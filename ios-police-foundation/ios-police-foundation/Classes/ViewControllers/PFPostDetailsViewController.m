@@ -15,20 +15,6 @@
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
-static NSString * WP_POST_TITLE_KEY = @"title";
-static NSString * WP_POST_DATE_KEY = @"date";
-static NSString * WP_POST_CONTENT_KEY = @"content";
-static NSString * WP_POST_ATTACHMENTS_KEY = @"attachments";
-
-static NSString * WP_ATTACHMENT_ID_KEY = @"ID";
-static NSString * WP_ATTACHMENT_URL_KEY = @"URL";
-static NSString * WP_ATTACHMENT_GUID_KEY = @"guid";
-static NSString * WP_ATTACHMENT_WIDTH_KEY = @"mime-type";
-
-static NSString * RSS_POST_PUBLISH_DATE_KEY = @"pubDate";
-static NSString * RSS_POST_DESCRIPTION_KEY = @"description";
-static NSString * RSS_POST_TITLE_KEY = @"title";
-
 @interface PFPostDetailsViewController () <UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;

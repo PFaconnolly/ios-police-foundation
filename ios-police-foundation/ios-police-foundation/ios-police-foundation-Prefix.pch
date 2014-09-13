@@ -31,3 +31,33 @@
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 #define kPFUserDefaultsHasLaunchedAppKey @"PF_LAUNCHED_APP"
+
+// word press posts response keys
+static NSString * WP_POSTS_API_RESPONSE_POSTS_KEY = @"posts";
+static NSString * WP_SEARCH_POSTS_API_CATEGORY_KEY = @"category";
+static NSString * WP_SEARCH_POSTS_API_TAG_KEY = @"tag";
+static NSString * WP_SEARCH_POSTS_API_FIELDS_KEY = @"fields";
+static NSString * WP_SEARCH_POSTS_API_SEARCH_KEY = @"search";
+static NSString * WP_SEARCH_POSTS_API_NUMBER_OF_RESULTS_KEY = @"number";
+
+// word press post keys
+static NSString * WP_POST_ID_KEY = @"ID";
+static NSString * WP_POST_TITLE_KEY = @"title";
+static NSString * WP_POST_DATE_KEY = @"date";
+static NSString * WP_POST_CATEGORY_KEY = @"category";
+static NSString * WP_POST_TAG_KEY = @"tag";
+static NSString * WP_POST_FIELDS_KEY = @"fields";
+static NSString * WP_POST_URL_KEY = @"URL";
+static NSString * WP_POST_CONTENT_KEY = @"content";
+static NSString * WP_POST_ATTACHMENTS_KEY = @"attachments";
+
+// word press post attachment keys
+static NSString * WP_ATTACHMENT_ID_KEY = @"ID";
+static NSString * WP_ATTACHMENT_URL_KEY = @"URL";
+static NSString * WP_ATTACHMENT_GUID_KEY = @"guid";
+static NSString * WP_ATTACHMENT_WIDTH_KEY = @"mime-type";
+
+// rss post keys
+static NSString * RSS_POST_PUBLISH_DATE_KEY = @"pubDate";
+static NSString * RSS_POST_DESCRIPTION_KEY = @"description";
+static NSString * RSS_POST_TITLE_KEY = @"title";
