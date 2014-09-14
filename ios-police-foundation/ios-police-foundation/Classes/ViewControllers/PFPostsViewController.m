@@ -15,6 +15,8 @@
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
 
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface PFPostsViewController ()
 
 @property (strong, nonatomic) NSArray * posts;
@@ -30,7 +32,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Posts";
-
     [self setupTableView];
     [self fetchPosts];
 }
@@ -38,7 +39,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
     self.screenName = @"WordPress Post List Screen";
 }
 
@@ -49,6 +49,21 @@
 }
 
 #pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFPostTableViewCell * prototypeCell = (PFPostTableViewCell *)[PFPostTableViewCell prototypeCell];
+    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:indexPath];
+    
+    prototypeCell.titleLabel.text = [post objectForKey:WP_POST_TITLE_KEY];
+    NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
+    prototypeCell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    
+    CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
+    DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
+    DDLogVerbose(@"-");
+    DDLogVerbose(@"-");
+    return height;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
@@ -65,22 +80,21 @@
 #pragma mark - Private methods
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * category) {
-        cell.titleLabel.text = [category objectForKey:WP_POST_TITLE_KEY];
-        NSDate * date = [NSDate pfDateFromIso8601String:[category objectForKey:WP_POST_DATE_KEY]];
+    TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * post) {
+        cell.titleLabel.text = [post objectForKey:WP_POST_TITLE_KEY];
+        NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
         cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
     self.posts = [NSArray array];
     self.postsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.posts
-                                                          cellIdentifier:@"Cell"
+                                                          cellIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]
                                                       configureCellBlock:configureCellBlock];
     self.tableView.dataSource = self.postsArrayDataSource;
     [self.tableView reloadData];
     
-    [self.tableView registerNib:[PFPostTableViewCell nib] forCellReuseIdentifier:@"Cell"];
-    self.tableView.rowHeight = 70;
+    [self.tableView registerNib:[PFPostTableViewCell pfNib] forCellReuseIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchPosts {

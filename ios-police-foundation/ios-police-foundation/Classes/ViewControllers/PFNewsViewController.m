@@ -54,12 +54,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     };
     
     self.rssPostsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.rssPosts
-                                                             cellIdentifier:@"Cell"
+                                                             cellIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]
                                                          configureCellBlock:configureCellBlock];
     self.tableView.dataSource = self.rssPostsArrayDataSource;
     [self.tableView reloadData];
     
-    [self.tableView registerNib:[PFPostTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerNib:[PFPostTableViewCell pfNib] forCellReuseIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]];
     self.tableView.rowHeight = 70;
 }
 

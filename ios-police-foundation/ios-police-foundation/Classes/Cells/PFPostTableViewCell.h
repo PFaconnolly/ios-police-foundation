@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFTableViewCell.h"
 
-@interface PFPostTableViewCell : UITableViewCell
+@interface PFPostTableViewCell : PFTableViewCell
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-
-+ (UINib *)nib;
 
 @end

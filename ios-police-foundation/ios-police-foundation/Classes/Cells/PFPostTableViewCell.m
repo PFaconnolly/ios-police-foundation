@@ -10,8 +10,4 @@
 
 @implementation PFPostTableViewCell
 
-+ (UINib *)nib {
-    return [UINib nibWithNibName:@"PFPostTableViewCell" bundle:nil];
-}
-
 @end

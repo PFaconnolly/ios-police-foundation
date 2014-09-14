@@ -3,7 +3,6 @@
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PFCategoryTableViewCell"/>
@@ -15,28 +14,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="100" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="wiw-aO-nZh" userLabel="Category Label">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="100" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="wiw-aO-nZh" userLabel="Category Label">
                         <rect key="frame" x="20" y="8" width="272" height="22"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="tCI-YO-tVA" userLabel="Description Label">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="tCI-YO-tVA" userLabel="Description Label">
                         <rect key="frame" x="20" y="30" width="272" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.59353077168367352" green="0.59353077168367352" blue="0.59353077168367352" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="tCI-YO-tVA" firstAttribute="leading" secondItem="Hvi-wz-OC1" secondAttribute="leadingMargin" constant="12" id="2PD-ng-KP6"/>
-                    <constraint firstItem="wiw-aO-nZh" firstAttribute="top" secondItem="Hvi-wz-OC1" secondAttribute="topMargin" id="2Xu-Yw-ZFh"/>
-                    <constraint firstItem="wiw-aO-nZh" firstAttribute="leading" secondItem="Hvi-wz-OC1" secondAttribute="leadingMargin" constant="12" id="TBX-Qr-N8c"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="tCI-YO-tVA" secondAttribute="trailing" constant="20" id="aRQ-Na-Iic"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="wiw-aO-nZh" secondAttribute="trailing" constant="20" id="d9J-IG-eKR"/>
-                    <constraint firstItem="tCI-YO-tVA" firstAttribute="top" secondItem="wiw-aO-nZh" secondAttribute="bottom" id="hEc-ls-rna"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="tCI-YO-tVA" secondAttribute="bottom" id="sDy-AH-0F9"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="categoryLabel" destination="wiw-aO-nZh" id="Kqe-br-MVc"/>

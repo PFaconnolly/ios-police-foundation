@@ -95,13 +95,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     self.posts = [NSArray array];
     self.postsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.posts
-                                                          cellIdentifier:@"Cell"
+                                                          cellIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]
                                                       configureCellBlock:configureCellBlock];
     self.tableView.dataSource = self.postsArrayDataSource;
     [self.tableView reloadData];
     
-    [self.tableView registerNib:[PFPostTableViewCell nib] forCellReuseIdentifier:@"Cell"];
-    self.tableView.rowHeight = 70;
+    [self.tableView registerNib:[PFPostTableViewCell pfNib] forCellReuseIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]];
 }
 
 - (void)searchPosts {
