@@ -10,7 +10,6 @@
 #import "PFArrayDataSource.h"
 #import "PFFileDownloadManager.h"
 #import "PFDocumentTableViewCell.h"
-#import "NSString+PFExtensions.h"
 
 @interface PFDocumentsViewController () <UITableViewDelegate, UIDocumentInteractionControllerDelegate>
 

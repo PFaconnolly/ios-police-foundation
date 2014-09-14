@@ -15,13 +15,6 @@
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
 
-// categories response keys
-static NSString * WP_CATEGORIES_KEY = @"categories";
-
-// category keys
-static NSString * WP_CATEGORY_NAME_KEY = @"name";
-static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
-
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFCategoriesViewController ()
@@ -50,7 +43,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
     self.screenName = @"WordPress Research Screen";
 }
 
@@ -69,16 +61,16 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         [cell setCategory:category];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
-    
+
     self.categories = [NSArray array];
     self.categoriesArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
-                                                               cellIdentifier:@"Cell"
+                                                               cellIdentifier:[PFCategoryTableViewCell pfCellReuseIdentifier]
                                                            configureCellBlock:configureCellBlock];
-    self.tableView.rowHeight = 70;
+    
     self.tableView.dataSource = self.categoriesArrayDataSource;
     [self.tableView reloadData];
     
-    [self.tableView registerNib:[PFCategoryTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerNib:[PFCategoryTableViewCell pfNib] forCellReuseIdentifier:[PFCategoryTableViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchCategories {
@@ -98,13 +90,27 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                       [self hideBarberPole];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                      [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                      [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                       [self hideBarberPole];
                                                                   }];
 }
 
 
 #pragma mark - UITableViewDelegate methods
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    PFCategoryTableViewCell * prototypeCell = (PFCategoryTableViewCell *)[PFCategoryTableViewCell prototypeCell];
+    
+    NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
+    [prototypeCell setCategory:category];
+    
+    CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
+    DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
+    DDLogVerbose(@"-");
+    DDLogVerbose(@"-");
+    
+    return height;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     

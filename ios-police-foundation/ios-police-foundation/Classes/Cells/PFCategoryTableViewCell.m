@@ -8,24 +8,17 @@
 
 #import "PFCategoryTableViewCell.h"
 
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface PFCategoryTableViewCell()
 
 @end
 
 @implementation PFCategoryTableViewCell
 
-+ (UINib *)nib {
-    return [UINib nibWithNibName:@"PFCategoryTableViewCell" bundle:nil];
-}
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-}
-
 - (void)setCategory:(NSDictionary *)category {
     self.categoryLabel.text = [category objectForKey:@"name"];
-    self.descriptionLabel.text = [category objectForKey:@"description"];
-    self.postCountLabel.text = [NSString stringWithFormat:@"%@", [category objectForKey:@"post_count"]];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"%@ posts - %@", [category objectForKey:@"post_count"], [category objectForKey:@"description"]];
 }
 
 @end

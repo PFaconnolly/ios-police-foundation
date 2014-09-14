@@ -9,8 +9,6 @@
 #import "PFSearchViewController.h"
 #import "PFArrayDataSource.h"
 #import "PFPostTableViewCell.h"
-#import "NSDate+PFExtensions.h"
-#import "NSString+PFExtensions.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
 #import "PFAnalyticsManager.h"
@@ -112,7 +110,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     NSString * searchString = self.searchTextField.text;
     
     if ( searchString == nil || searchString.length == 0 ) {
-        [UIAlertView showWithTitle:@"Search failed" message:@"You did not enter any search terms."];
+        [UIAlertView pfShowWithTitle:@"Search failed" message:@"You did not enter any search terms."];
         [self hideBarberPole];
         return;
     }
@@ -137,7 +135,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                  [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                 [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                 [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                  [self hideBarberPole];
                                                              }];
 }

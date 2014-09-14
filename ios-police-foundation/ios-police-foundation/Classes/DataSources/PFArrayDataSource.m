@@ -57,6 +57,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier
                                                             forIndexPath:indexPath];
     id item = [self itemAtIndexPath:indexPath];
+    
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    
     self.configureCellBlock(cell, item);
     return cell;
 }
@@ -70,7 +74,7 @@
         // Delete item at filePath
         [[PFFileDownloadManager sharedManager] deleteFileAtPath:filePath withCompletion:^(NSError * error) {
             if ( error ) {
-                [UIAlertView showWithTitle:@"File was not deleted" message:error.localizedDescription];
+                [UIAlertView pfShowWithTitle:@"File was not deleted" message:error.localizedDescription];
                 return;
             }
             

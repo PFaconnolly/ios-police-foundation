@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFTableViewCell.h"
 
-@interface PFCategoryTableViewCell : UITableViewCell
+@interface PFCategoryTableViewCell : PFTableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (strong, nonatomic) IBOutlet UILabel *postCountLabel;
-
-+ (UINib *)nib;
 
 - (void)setCategory:(NSDictionary *)category;
 

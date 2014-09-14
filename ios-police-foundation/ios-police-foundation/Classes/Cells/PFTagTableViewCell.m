@@ -10,8 +10,4 @@
 
 @implementation PFTagTableViewCell
 
-+ (UINib *)nib {
-    return [UINib nibWithNibName:@"PFTagTableViewCell" bundle:nil];
-}
-
 @end

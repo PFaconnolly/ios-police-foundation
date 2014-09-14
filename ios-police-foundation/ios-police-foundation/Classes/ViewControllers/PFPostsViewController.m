@@ -12,8 +12,6 @@
 #import "PFArrayDataSource.h"
 #import "PFPostTableViewCell.h"
 #import "PFPostDetailsViewController.h"
-#import "NSDate+PFExtensions.h"
-#import "NSString+PFExtensions.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
 
@@ -111,7 +109,7 @@
                                                                  [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                 [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                 [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                  [self hideBarberPole];
                                                              }];
 }

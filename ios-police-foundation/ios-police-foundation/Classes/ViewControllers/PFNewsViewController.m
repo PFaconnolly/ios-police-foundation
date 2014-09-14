@@ -9,8 +9,6 @@
 #import "PFNewsViewController.h"
 #import "PFArrayDataSource.h"
 #import "PFBarberPoleView.h"
-#import "NSString+PFExtensions.h"
-#import "NSDate+PFExtensions.h"
 #import "PFPostTableViewCell.h"
 #import "PFRSSHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
@@ -79,7 +77,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                                        [self hideBarberPole];
                                                                    }
                                                                    failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                       [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                       [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                        [self hideBarberPole];
                                                                    }];
 }

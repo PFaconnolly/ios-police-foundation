@@ -14,12 +14,7 @@
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
 
-// categories response keys
-static NSString * WP_TAGS_KEY = @"tags";
-
-// category keys
-static NSString * WP_TAG_NAME_KEY = @"name";
-static NSString * WP_TAG_SLUG_KEY = @"slug";
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFTagsViewController ()
 
@@ -49,20 +44,20 @@ static NSString * WP_TAG_SLUG_KEY = @"slug";
 #pragma mark - Private methods
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFTagTableViewCell * cell, NSDictionary * category) {
-        cell.tagLabel.text = [category objectForKey:@"name"];
-        cell.descriptionLabel.text = [category objectForKey:@"description"];
+    TableViewCellConfigureBlock configureCellBlock = ^(PFTagTableViewCell * cell, NSDictionary * tag) {
+        cell.tagLabel.text = [tag objectForKey:@"name"];
+        cell.descriptionLabel.text = [tag objectForKey:@"description"];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
     self.tags = [NSArray array];
     self.tagsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.tags
-                                                         cellIdentifier:@"Cell"
+                                                         cellIdentifier:[PFTagTableViewCell pfCellReuseIdentifier]
                                                      configureCellBlock:configureCellBlock];
     self.tableView.dataSource = self.tagsArrayDataSource;
     [self.tableView reloadData];
     
-    [self.tableView registerNib:[PFTagTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    [self.tableView registerNib:[PFTagTableViewCell pfNib] forCellReuseIdentifier:[PFTagTableViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchCategories {
@@ -82,7 +77,7 @@ static NSString * WP_TAG_SLUG_KEY = @"slug";
                                                                 [self hideBarberPole];
                                                             }
                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                 [self hideBarberPole];
                                                             }];
 }
@@ -90,7 +85,17 @@ static NSString * WP_TAG_SLUG_KEY = @"slug";
 #pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0f;
+    PFTagTableViewCell * prototypeCell = (PFTagTableViewCell *)[PFTagTableViewCell prototypeCell];    
+    NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
+    prototypeCell.tagLabel.text = [tag objectForKey:@"name"];
+    prototypeCell.descriptionLabel.text = [tag objectForKey:@"description"];
+    prototypeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
+    DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
+    DDLogVerbose(@"-");
+    DDLogVerbose(@"-");
+    return height;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

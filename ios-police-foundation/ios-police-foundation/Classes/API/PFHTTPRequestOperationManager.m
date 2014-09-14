@@ -7,7 +7,6 @@
 //
 
 #import "PFHTTPRequestOperationManager.h"
-#import "NSString+PFExtensions.h"
 
 static NSString * BASE_URL = @"https://public-api.wordpress.com/rest/v1/";
 static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
