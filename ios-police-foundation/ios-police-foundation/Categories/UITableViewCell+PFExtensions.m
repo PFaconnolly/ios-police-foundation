@@ -8,6 +8,8 @@
 
 #import "UITableViewCell+PFExtensions.h"
 
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @implementation UITableViewCell (PFExtensions)
 
 + (UINib *)pfNib {
