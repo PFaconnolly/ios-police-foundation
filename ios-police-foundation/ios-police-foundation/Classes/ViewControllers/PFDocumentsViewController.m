@@ -46,7 +46,9 @@
     // set up table and data source
     self.documentsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.documents
                                                               cellIdentifier:@"Cell"
-                                                          configureCellBlock:configureCellBlock];
+                                                          configureCellBlock:configureCellBlock
+                                                             selectCellBlock:nil];
+    
     self.tableView.dataSource = self.documentsArrayDataSource;
     [self.tableView registerNib:[PFDocumentTableViewCell nib] forCellReuseIdentifier:@"Cell"];
 }

@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^TableViewCellConfigureBlock)(id cell, id item);
+typedef void (^TableViewCellSelectBlock)(id indexPath, id item);
 
-@interface PFArrayDataSource : NSObject<UITableViewDataSource>
+@interface PFArrayDataSource : NSObject<UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithItems:(NSArray *)anItems
      cellIdentifier:(NSString *)aCellIdentifier
- configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock;
+ configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+    selectCellBlock:(TableViewCellSelectBlock)aSelectCellBlock;
 
 - (void)reloadItems:(NSArray *)items;
 

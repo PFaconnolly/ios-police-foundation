@@ -10,10 +10,10 @@
 #import "PFAppDelegate.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFArrayDataSource.h"
-#import "PFPostTableViewCell.h"
 #import "PFPostDetailsViewController.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
+#import "PFCommonTableViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -48,62 +48,39 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
 
-#pragma mark - UITableViewDelegate methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // Dynamic height table cells in iOS 8 need only an estimated row height
-    // and the UITableViewAutomaticDimension specified. iOS 7 and below need a
-    // prototype cell
-    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
-    {
-        return UITableViewAutomaticDimension;
-    }
-    
-    PFPostTableViewCell * prototypeCell = (PFPostTableViewCell *)[PFPostTableViewCell prototypeCell];
-    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:indexPath];
-    [prototypeCell setPost:post];
-    
-    CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
-    DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
-    DDLogVerbose(@"-");
-    DDLogVerbose(@"-");
-    return height;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
-    // track selected post
-    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
-    NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
-    
-    // track selected post
-    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
-}
 
 #pragma mark - Private methods
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * post) {
+    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * post) {
         cell.titleLabel.text = [post objectForKey:WP_POST_TITLE_KEY];
         NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-        cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+        cell.descriptionLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    };
+    
+    TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * indexPath , NSDictionary * post) {
+        // track selected post
+        NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
+        
+        // track selected post
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
+        
+        [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
     };
     
     self.posts = [NSArray array];
     self.postsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.posts
-                                                          cellIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]
-                                                      configureCellBlock:configureCellBlock];
+                                                          cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
+                                                      configureCellBlock:configureCellBlock
+                                                         selectCellBlock:selectCellBlock];
     self.tableView.dataSource = self.postsArrayDataSource;
+    self.tableView.delegate = self.postsArrayDataSource;
     [self.tableView reloadData];
-    
-    [self.tableView registerNib:[PFPostTableViewCell pfNib] forCellReuseIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]];
-    
-    self.tableView.estimatedRowHeight = 44.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)fetchPosts {

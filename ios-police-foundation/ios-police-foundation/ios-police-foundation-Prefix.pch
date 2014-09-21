@@ -22,6 +22,7 @@
     #import "NSString+PFExtensions.h"
     #import "UIAlertView+PFExtensions.h"
     #import "UITableViewCell+PFExtensions.h"
+    #import "PureLayout.h"
 #endif
 
 /*
@@ -42,6 +43,8 @@ static NSString * WP_CATEGORIES_KEY = @"categories";
 // word press category keys
 static NSString * WP_CATEGORY_NAME_KEY = @"name";
 static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
+static NSString * WP_CATEGORY_DESCRIPTION_KEY = @"description";
+static NSString * WP_CATEGORY_POST_COUNT_KEY = @"post_count";
 
 // word press tags response keys
 static NSString * WP_TAGS_KEY = @"tags";
@@ -49,6 +52,7 @@ static NSString * WP_TAGS_KEY = @"tags";
 // word press tags keys
 static NSString * WP_TAG_NAME_KEY = @"name";
 static NSString * WP_TAG_SLUG_KEY = @"slug";
+static NSString * WP_TAG_DESCRIPTION_KEY = @"description";
 
 // word press posts response keys
 static NSString * WP_POSTS_API_RESPONSE_POSTS_KEY = @"posts";

@@ -23,6 +23,7 @@
 		B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */; };
 		B04C9E0219C51C2F00477E1B /* PFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E0119C51C2F00477E1B /* PFTableViewCell.m */; };
 		B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */; };
+		B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */; };
 		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
 		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
 		B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0991962783900EB9561 /* CGRectExtensions.m */; };
@@ -112,6 +113,8 @@
 		B04C9E0119C51C2F00477E1B /* PFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTableViewCell.m; path = Classes/Cells/PFTableViewCell.m; sourceTree = "<group>"; };
 		B04C9E1019C51E5700477E1B /* NSBundle+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+PFExtensions.h"; path = "Categories/NSBundle+PFExtensions.h"; sourceTree = "<group>"; };
 		B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+PFExtensions.m"; path = "Categories/NSBundle+PFExtensions.m"; sourceTree = "<group>"; };
+		B051268E19CF6F5800FB5FC7 /* PFCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommonTableViewCell.h; path = Classes/Cells/PFCommonTableViewCell.h; sourceTree = "<group>"; };
+		B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCommonTableViewCell.m; path = Classes/Cells/PFCommonTableViewCell.m; sourceTree = "<group>"; };
 		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRSSHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		B061B0951962748200EB9561 /* PFBarberPoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBarberPoleView.h; path = Classes/Views/PFBarberPoleView.h; sourceTree = "<group>"; };
@@ -352,6 +355,8 @@
 				B006F7451931552E00374295 /* PFTagTableViewCell.h */,
 				B006F7461931552E00374295 /* PFTagTableViewCell.m */,
 				B006F7471931552E00374295 /* PFTagTableViewCell.xib */,
+				B051268E19CF6F5800FB5FC7 /* PFCommonTableViewCell.h */,
+				B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 				B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */,
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
 				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
+				B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */,
 				B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
 				B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */,

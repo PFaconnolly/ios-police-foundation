@@ -42,7 +42,7 @@
                 <outlet property="categoryLabel" destination="wiw-aO-nZh" id="Kqe-br-MVc"/>
                 <outlet property="descriptionLabel" destination="tCI-YO-tVA" id="OAP-Fn-IQH"/>
             </connections>
-            <point key="canvasLocation" x="846" y="584"/>
+            <point key="canvasLocation" x="1087" y="367"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

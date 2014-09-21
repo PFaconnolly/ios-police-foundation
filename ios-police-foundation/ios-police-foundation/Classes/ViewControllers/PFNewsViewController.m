@@ -55,7 +55,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     
     self.rssPostsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.rssPosts
                                                              cellIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]
-                                                         configureCellBlock:configureCellBlock];
+                                                         configureCellBlock:configureCellBlock selectCellBlock:nil];
     self.tableView.dataSource = self.rssPostsArrayDataSource;
     [self.tableView reloadData];
     

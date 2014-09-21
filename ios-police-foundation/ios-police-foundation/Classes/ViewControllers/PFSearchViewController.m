@@ -96,7 +96,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.posts = [NSArray array];
     self.postsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.posts
                                                           cellIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]
-                                                      configureCellBlock:configureCellBlock];
+                                                      configureCellBlock:configureCellBlock selectCellBlock:nil];
     self.tableView.dataSource = self.postsArrayDataSource;
     [self.tableView reloadData];
     
