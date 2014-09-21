@@ -47,6 +47,7 @@
 		B0AE4AFA19BEA5DB0050D479 /* PFDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0AE4AF819BEA5DB0050D479 /* PFDocumentTableViewCell.xib */; };
 		B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */; };
 		B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */; };
+		B0C4A72E19C950CE00701441 /* PFTestLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C4A72D19C950CE00701441 /* PFTestLabel.m */; };
 		B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */; };
 		B0D63A53190CC53400103C02 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A52190CC53400103C02 /* AdSupport.framework */; };
 		B0D63A55190CC54A00103C02 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A54190CC54A00103C02 /* SystemConfiguration.framework */; };
@@ -158,6 +159,8 @@
 		B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSearchViewController.m; path = Classes/ViewControllers/PFSearchViewController.m; sourceTree = "<group>"; };
 		B0C1D0B4198F3E38008AB1B1 /* PFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFViewController.h; path = Classes/ViewControllers/PFViewController.h; sourceTree = "<group>"; };
 		B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFViewController.m; path = Classes/ViewControllers/PFViewController.m; sourceTree = "<group>"; };
+		B0C4A72C19C950CE00701441 /* PFTestLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTestLabel.h; path = Classes/Views/PFTestLabel.h; sourceTree = "<group>"; };
+		B0C4A72D19C950CE00701441 /* PFTestLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTestLabel.m; path = Classes/Views/PFTestLabel.m; sourceTree = "<group>"; };
 		B0C9D46119B4D34500E4B948 /* PFFileDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFFileDownloadManager.h; path = Classes/Model/PFFileDownloadManager.h; sourceTree = "<group>"; };
 		B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFFileDownloadManager.m; path = Classes/Model/PFFileDownloadManager.m; sourceTree = "<group>"; };
 		B0D63A52190CC53400103C02 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -275,6 +278,8 @@
 			children = (
 				B061B0951962748200EB9561 /* PFBarberPoleView.h */,
 				B061B0961962748200EB9561 /* PFBarberPoleView.m */,
+				B0C4A72C19C950CE00701441 /* PFTestLabel.h */,
+				B0C4A72D19C950CE00701441 /* PFTestLabel.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -666,6 +671,7 @@
 				B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */,
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
 				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
+				B0C4A72E19C950CE00701441 /* PFTestLabel.m in Sources */,
 				B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
 				B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */,

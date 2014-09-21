@@ -21,11 +21,14 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (CGFloat)pfGetCellHeightForTableView:(UITableView *)tableView {
-    self.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     [self setNeedsLayout];
-    [self layoutIfNeeded];
+    //[self layoutIfNeeded];
+    
+    self.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
     CGSize size = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     return size.height;
 }
+
+
 
 @end
