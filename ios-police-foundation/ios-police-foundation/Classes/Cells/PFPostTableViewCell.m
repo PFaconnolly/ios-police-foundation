@@ -10,4 +10,10 @@
 
 @implementation PFPostTableViewCell
 
+- (void)setPost:(NSDictionary *)post {
+    self.titleLabel.text = [post objectForKey:WP_POST_TITLE_KEY];
+    NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
+    self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+}
+
 @end

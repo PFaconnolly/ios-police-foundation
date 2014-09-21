@@ -12,6 +12,8 @@
 @interface PFPostTableViewCell : PFTableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
+@property (strong, nonatomic) IBOutlet UILabel * dateLabel;
+
+- (void)setPost:(NSDictionary *)post;
 
 @end

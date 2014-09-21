@@ -58,6 +58,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self.tableView reloadData];
     
     [self.tableView registerNib:[PFTagTableViewCell pfNib] forCellReuseIdentifier:[PFTagTableViewCell pfCellReuseIdentifier]];
+    
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)fetchCategories {
@@ -85,11 +88,19 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 #pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PFTagTableViewCell * prototypeCell = (PFTagTableViewCell *)[PFTagTableViewCell prototypeCell];    
+    
+    // Dynamic height table cells in iOS 8 need only an estimated row height
+    // and the UITableViewAutomaticDimension specified. iOS 7 and below need a
+    // prototype cell
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
+    {
+        return UITableViewAutomaticDimension;
+    }
+    
+    PFTagTableViewCell * prototypeCell = (PFTagTableViewCell *)[PFTagTableViewCell prototypeCell];
+
     NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
-    prototypeCell.tagLabel.text = [tag objectForKey:@"name"];
-    prototypeCell.descriptionLabel.text = [tag objectForKey:@"description"];
-    prototypeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [prototypeCell setTagData:tag];
     
     CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
     DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);

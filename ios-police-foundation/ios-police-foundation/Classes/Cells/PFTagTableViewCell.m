@@ -10,4 +10,9 @@
 
 @implementation PFTagTableViewCell
 
+- (void)setTagData:(NSDictionary *)tag {
+    self.tagLabel.text = [tag objectForKey:@"name"];
+    self.descriptionLabel.text = [tag objectForKey:@"description"];    
+}
+
 @end

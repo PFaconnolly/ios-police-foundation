@@ -51,12 +51,18 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 #pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Dynamic height table cells in iOS 8 need only an estimated row height
+    // and the UITableViewAutomaticDimension specified. iOS 7 and below need a
+    // prototype cell
+    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
+    {
+        return UITableViewAutomaticDimension;
+    }
+    
     PFPostTableViewCell * prototypeCell = (PFPostTableViewCell *)[PFPostTableViewCell prototypeCell];
     NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:indexPath];
-    
-    prototypeCell.titleLabel.text = [post objectForKey:WP_POST_TITLE_KEY];
-    NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-    prototypeCell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    [prototypeCell setPost:post];
     
     CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
     DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
@@ -95,6 +101,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self.tableView reloadData];
     
     [self.tableView registerNib:[PFPostTableViewCell pfNib] forCellReuseIdentifier:[PFPostTableViewCell pfCellReuseIdentifier]];
+    
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)fetchPosts {

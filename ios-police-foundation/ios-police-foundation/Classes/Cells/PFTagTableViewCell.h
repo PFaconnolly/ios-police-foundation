@@ -14,4 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *tagLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
+- (void)setTagData:(NSDictionary *)tag;
+
 @end
