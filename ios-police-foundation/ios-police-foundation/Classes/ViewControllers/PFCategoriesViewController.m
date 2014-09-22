@@ -9,7 +9,6 @@
 #import "PFCategoriesViewController.h"
 #import "PFAppDelegate.h"
 #import "PFHTTPRequestOperationManager.h"
-#import "PFCategoryTableViewCell.h"
 #import "PFArrayDataSource.h"
 #import "PFTagsViewController.h"
 #import "PFBarberPoleView.h"

@@ -25,7 +25,7 @@
     if (self) {
         self.titleLabel = [UILabel newAutoLayoutView];
         [self.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];
-        [self.titleLabel setNumberOfLines:1];
+        [self.titleLabel setNumberOfLines:0];
         [self.titleLabel setTextAlignment:NSTextAlignmentLeft];
         [self.titleLabel setTextColor:[UIColor blackColor]];
         
