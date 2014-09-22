@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Research-->
+        <!--Research-->
         <scene sceneID="vRV-1Q-dP6">
             <objects>
                 <navigationController definesPresentationContext="YES" id="w0W-9v-FGl" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Research" image="Bulb Tab Icon" id="3dk-XB-0uI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="tDg-bh-7Dq">
                         <autoresizingMask key="autoresizingMask"/>
@@ -35,7 +36,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dli-ep-eJa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="oHZ-cH-tn0" id="pE0-S7-CMI"/>
@@ -51,6 +51,7 @@
                             <constraint firstAttribute="trailing" secondItem="Dli-ep-eJa" secondAttribute="trailing" id="vKG-aw-1kW"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Do5-i7-DM8"/>
                     <connections>
                         <outlet property="tableView" destination="Dli-ep-eJa" id="eyy-fg-GMz"/>
@@ -62,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="1527" y="-698"/>
         </scene>
-        <!--Tags View Controller - Tags-->
+        <!--Tags-->
         <scene sceneID="JwO-lx-05d">
             <objects>
                 <viewController title="Tags" id="tCp-mv-5Pc" customClass="PFTagsViewController" sceneMemberID="viewController">
@@ -76,7 +77,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-yu-eAe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="tCp-mv-5Pc" id="sTr-iJ-QlL"/>
@@ -86,6 +86,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Em3-2Q-clr"/>
                     <connections>
                         <outlet property="tableView" destination="bEB-yu-eAe" id="BD1-gE-mec"/>
@@ -96,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="2051" y="-698"/>
         </scene>
-        <!--Posts View Controller - Posts-->
+        <!--Posts-->
         <scene sceneID="P7g-Wa-PXY">
             <objects>
                 <viewController title="Posts" id="BOx-gC-470" customClass="PFPostsViewController" sceneMemberID="viewController">
@@ -110,7 +111,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-zf-jng">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BOx-gC-470" id="deW-Fq-f8z"/>
@@ -120,6 +120,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Xvs-08-D3c"/>
                     <connections>
                         <outlet property="tableView" destination="VXM-zf-jng" id="VcN-FN-7wa"/>
@@ -139,12 +140,11 @@
                         <viewControllerLayoutGuide type="bottom" id="SGZ-mx-2Hh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hMW-o7-jSw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
                                 <rect key="frame" x="20" y="30" width="280" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="67h-xK-zlO"/>
                                     <constraint firstAttribute="width" constant="280" id="aqy-DI-wFY"/>
@@ -162,7 +162,6 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrJ-bt-ry6" userLabel="Date - Label">
                                 <rect key="frame" x="20" y="88" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="136" id="Iap-u5-J19"/>
                                     <constraint firstAttribute="height" constant="21" id="b4M-bE-TL7"/>
@@ -173,7 +172,6 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZJ-Bm-jMj" userLabel="Separator View">
                                 <rect key="frame" x="20" y="126" width="280" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87135283801020402" green="0.87135283801020402" blue="0.87135283801020402" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="NAT-ck-8wS"/>
@@ -181,8 +179,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYq-eD-a7A">
-                                <rect key="frame" x="20" y="132" width="280" height="413"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="20" y="132" width="280" height="364"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="SR9-10-Pj6"/>
@@ -215,6 +212,7 @@
                             <constraint firstItem="xrJ-bt-ry6" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leading" constant="20" id="uU1-7F-Hjp"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="U94-cd-TUj"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
@@ -249,10 +247,11 @@
             </objects>
             <point key="canvasLocation" x="-85" y="467"/>
         </scene>
-        <!--Navigation Controller - Documents-->
+        <!--Documents-->
         <scene sceneID="6e3-6I-Yz4">
             <objects>
                 <navigationController definesPresentationContext="YES" id="qjT-NG-6Vb" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Documents" id="N9e-xe-7s4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yhd-tx-joJ">
                         <autoresizingMask key="autoresizingMask"/>
@@ -274,12 +273,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tFq-YV-n4z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rTC-ft-eWo">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-as-6St">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="edH-UI-A9p" id="kH6-K3-tVW"/>
@@ -288,6 +286,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="7WT-gn-FTa"/>
                     <connections>
                         <outlet property="tableView" destination="WeM-as-6St" id="92P-fe-qvf"/>
@@ -297,10 +296,11 @@
             </objects>
             <point key="canvasLocation" x="1527" y="1579"/>
         </scene>
-        <!--Navigation Controller - About-->
+        <!--About-->
         <scene sceneID="8ft-PV-5K5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="SM5-tr-mpi" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="About" image="About Tab Icon" id="dbc-31-n3q"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="xbf-XO-1jR">
                         <autoresizingMask key="autoresizingMask"/>
@@ -327,7 +327,6 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN1-iN-Sib">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -412,6 +411,7 @@ The president of the foundation speaks out on issues important to policing and s
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="About" id="grz-Ow-cqk"/>
                     <navigationItem key="navigationItem" id="7EK-X2-9R2"/>
                 </viewController>
@@ -419,10 +419,11 @@ The president of the foundation speaks out on issues important to policing and s
             </objects>
             <point key="canvasLocation" x="1527" y="844"/>
         </scene>
-        <!--Navigation Controller - News-->
+        <!--News-->
         <scene sceneID="way-I2-lOz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="7Xg-x6-90T" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="News" image="News Tab Icon" id="bzc-FC-A3l"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="o6R-pA-cbl">
                         <autoresizingMask key="autoresizingMask"/>
@@ -449,7 +450,6 @@ The president of the foundation speaks out on issues important to policing and s
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-Zt-b8g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="Njm-y4-hch" id="Kin-Iq-fnO"/>
@@ -458,6 +458,7 @@ The president of the foundation speaks out on issues important to policing and s
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="XgF-GO-bpK"/>
                     <connections>
                         <outlet property="tableView" destination="HZM-Zt-b8g" id="8YN-L5-xSZ"/>
@@ -472,6 +473,7 @@ The president of the foundation speaks out on issues important to policing and s
         <scene sceneID="8ww-yB-dN9">
             <objects>
                 <navigationController definesPresentationContext="YES" id="DNo-pi-ZMi" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sRU-Sw-MkC">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -497,11 +499,9 @@ The president of the foundation speaks out on issues important to policing and s
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2f-fI-Ddb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="16r-wN-194">
                                         <rect key="frame" x="11" y="10" width="237" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -510,7 +510,6 @@ The president of the foundation speaks out on issues important to policing and s
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B58-bx-vhh">
                                         <rect key="frame" x="256" y="10" width="54" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Search">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -524,7 +523,6 @@ The president of the foundation speaks out on issues important to policing and s
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-Wc-kW5">
                                 <rect key="frame" x="0.0" y="50" width="320" height="454"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="XUj-WV-0n7" id="A7q-E2-Wry"/>
@@ -560,6 +558,6 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="WLV-5n-6l1"/>
+        <segue reference="OUY-gf-PlR"/>
     </inferredMetricsTieBreakers>
 </document>

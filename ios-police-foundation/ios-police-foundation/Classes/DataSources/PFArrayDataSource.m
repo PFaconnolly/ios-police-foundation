@@ -73,26 +73,6 @@
     return cell;
 }
 
-// TO DO: Refactor this method into PFArrayDataSource subclass
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ( editingStyle == UITableViewCellEditingStyleDelete ) {
-        NSDictionary * document = [self itemAtIndexPath:indexPath];
-        NSString * filePath = [document objectForKey:PFFilePath];
-        
-        // Delete item at filePath
-        [[PFFileDownloadManager sharedManager] deleteFileAtPath:filePath withCompletion:^(NSError * error) {
-            if ( error ) {
-                [UIAlertView pfShowWithTitle:@"File was not deleted" message:error.localizedDescription];
-                return;
-            }
-            
-            // remove file from items and reload table
-            [self.items removeObjectAtIndex:indexPath.row];
-            [tableView reloadData];
-        }];
-    }
-}
-
 #pragma mark UITableViewDelegate methods 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

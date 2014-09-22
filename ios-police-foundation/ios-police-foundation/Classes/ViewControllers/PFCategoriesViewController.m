@@ -94,6 +94,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     self.tableView.dataSource = self.categoriesDataSource;
     self.tableView.delegate = self.categoriesDataSource;
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)fetchCategories {

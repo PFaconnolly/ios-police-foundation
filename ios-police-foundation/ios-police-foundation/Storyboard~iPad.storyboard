@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="qgF-ad-Z9X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="qgF-ad-Z9X">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="rfu-r7-MjZ">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="qgF-ad-Z9X" customClass="PFTabBarController" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="UcF-gc-LYr">
@@ -20,16 +21,35 @@
                         <segue destination="wp5-7N-roL" kind="relationship" relationship="viewControllers" id="0um-pI-Sb7"/>
                         <segue destination="Hts-Zz-QSC" kind="relationship" relationship="viewControllers" id="LKg-9O-glt"/>
                         <segue destination="J72-yN-Mho" kind="relationship" relationship="viewControllers" id="8cd-IP-qjs"/>
+                        <segue destination="aiC-dj-ZuK" kind="relationship" relationship="viewControllers" id="EhN-Yq-31l"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x4K-fk-fXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1418" y="-203"/>
         </scene>
-        <!--Navigation Controller - About-->
+        <!--Documents-->
+        <scene sceneID="DqS-lk-HmT">
+            <objects>
+                <navigationController id="aiC-dj-ZuK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Documents" image="Folder Tab Icon" id="Eev-tv-Xqv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ud6-mO-Zjn">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="leM-47-q8x" kind="relationship" relationship="rootViewController" id="Kx7-C1-TxX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HzX-hA-kyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123" y="2352"/>
+        </scene>
+        <!--About-->
         <scene sceneID="c9g-QY-P9a">
             <objects>
                 <navigationController definesPresentationContext="YES" id="J72-yN-Mho" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="About" image="About Tab Icon" id="qTv-Pi-JTv"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="MoP-0v-N1K">
@@ -52,12 +72,11 @@
                         <viewControllerLayoutGuide type="bottom" id="MjT-US-Pq8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY" userLabel="Main View">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
                                 <rect key="frame" x="20" y="30" width="728" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="wHA-gd-5Ku"/>
                                 </constraints>
@@ -74,7 +93,6 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBg-kk-BmF" userLabel="dateLabel">
                                 <rect key="frame" x="20" y="98" width="180" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="kdn-8S-CLN"/>
                                 </constraints>
@@ -84,15 +102,13 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-VN-uni" userLabel="separatorView">
                                 <rect key="frame" x="20" y="136" width="728" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87135283799999996" green="0.87135283799999996" blue="0.87135283799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="PGV-r7-WNx"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ThH-wx-adS" userLabel="contentView">
-                                <rect key="frame" x="15" y="145" width="738" height="859"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="15" y="145" width="738" height="810"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -125,6 +141,7 @@
                             <constraint firstItem="xBg-kk-BmF" firstAttribute="top" secondItem="fjq-ur-d8R" secondAttribute="bottom" constant="8" id="u9i-5H-2oX"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PH9-k4-Vp7"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -138,10 +155,11 @@
             </objects>
             <point key="canvasLocation" x="4555" y="-1630"/>
         </scene>
-        <!--Navigation Controller - News-->
+        <!--News-->
         <scene sceneID="9NJ-KQ-h7U">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Hts-Zz-QSC" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="News" image="News Tab Icon" id="qjN-ur-9Yx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SCv-12-svn">
                         <autoresizingMask key="autoresizingMask"/>
@@ -168,7 +186,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-hD-gA3">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="nar-Uc-qH1" id="ucp-Yt-Has"/>
@@ -183,6 +200,7 @@
                             <constraint firstItem="yxP-hD-gA3" firstAttribute="leading" secondItem="sfi-RU-GyK" secondAttribute="leading" id="ij6-r5-ALa"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="uu1-Mc-rf7"/>
                     <connections>
                         <outlet property="tableView" destination="yxP-hD-gA3" id="8f4-hh-aSH"/>
@@ -207,7 +225,6 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-MN-Y6I">
                                 <rect key="frame" x="10" y="0.0" width="748" height="911"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -298,11 +315,38 @@ The president of the foundation speaks out on issues important to policing and s
                             <constraint firstItem="w8h-MN-Y6I" firstAttribute="top" secondItem="uOX-HV-vZF" secondAttribute="bottom" id="zMS-mZ-gZR"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="IiF-S3-Ggj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naN-us-baJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1053" y="1121"/>
+        </scene>
+        <!--Documents View Controller-->
+        <scene sceneID="PNl-dv-Mov">
+            <objects>
+                <viewController id="leM-47-q8x" customClass="PFDocumentsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JZp-6K-7Ko"/>
+                        <viewControllerLayoutGuide type="bottom" id="GVm-Bv-Cya"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tuD-fA-NR1">
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Rn-qoh">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="RzV-dJ-dL9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJO-jK-it9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="2352"/>
         </scene>
         <!--Categories View Controller-->
         <scene sceneID="WMZ-nZ-tTD">
@@ -318,7 +362,6 @@ The president of the foundation speaks out on issues important to policing and s
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bnj-QW-0Kf">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Rro-np-V3z" id="6Tw-p7-ZlN"/>
@@ -335,6 +378,7 @@ The president of the foundation speaks out on issues important to policing and s
                             <constraint firstItem="mfK-SW-PVG" firstAttribute="top" secondItem="bnj-QW-0Kf" secondAttribute="bottom" id="oVT-MU-RtS"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Tco-tW-14M"/>
                     <connections>
                         <outlet property="tableView" destination="bnj-QW-0Kf" id="Mrz-VQ-qcR"/>
@@ -350,6 +394,7 @@ The president of the foundation speaks out on issues important to policing and s
         <scene sceneID="r7K-DQ-FMo">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Pis-1p-Fph" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EbY-Zw-RGI">
                         <autoresizingMask key="autoresizingMask"/>
@@ -376,11 +421,9 @@ The president of the foundation speaks out on issues important to policing and s
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6j3-kq-XuZ">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WRp-Kq-eWa">
                                         <rect key="frame" x="180" y="10" width="409" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -389,7 +432,6 @@ The president of the foundation speaks out on issues important to policing and s
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FU4-za-yBk">
                                         <rect key="frame" x="597" y="10" width="69" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Search">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -402,7 +444,6 @@ The president of the foundation speaks out on issues important to policing and s
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-h7-Pxz">
                                 <rect key="frame" x="0.0" y="50" width="768" height="880"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="VUD-bf-LXb" id="chS-Ze-pZX"/>
@@ -438,7 +479,6 @@ The president of the foundation speaks out on issues important to policing and s
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9gZ-nx-Ph5">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8nP-TS-2fK" id="2vc-9x-4Be"/>
@@ -454,6 +494,7 @@ The president of the foundation speaks out on issues important to policing and s
                             <constraint firstItem="9gZ-nx-Ph5" firstAttribute="leading" secondItem="Dzt-3U-h6N" secondAttribute="leading" id="tNt-06-10A"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Jer-Do-Cpo"/>
                     <connections>
                         <outlet property="tableView" destination="9gZ-nx-Ph5" id="MJW-vX-DIC"/>
@@ -478,7 +519,6 @@ The president of the foundation speaks out on issues important to policing and s
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FBl-2g-c5n">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8iP-du-arh" id="gln-j8-hcm"/>
@@ -494,6 +534,7 @@ The president of the foundation speaks out on issues important to policing and s
                             <constraint firstItem="FBl-2g-c5n" firstAttribute="top" secondItem="Ua8-aT-fjc" secondAttribute="bottom" id="eAQ-U0-0m4"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="B2U-e8-LTW"/>
                     <connections>
                         <outlet property="tableView" destination="FBl-2g-c5n" id="YLc-Ri-M06"/>
@@ -504,10 +545,11 @@ The president of the foundation speaks out on issues important to policing and s
             </objects>
             <point key="canvasLocation" x="3458" y="-1630"/>
         </scene>
-        <!--Navigation Controller - Research-->
+        <!--Research-->
         <scene sceneID="Dds-LY-JJM">
             <objects>
                 <navigationController definesPresentationContext="YES" id="wp5-7N-roL" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Research" image="Bulb Tab Icon" id="GI9-Gm-7CK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0QS-63-OU3">
                         <autoresizingMask key="autoresizingMask"/>
@@ -524,6 +566,7 @@ The president of the foundation speaks out on issues important to policing and s
     <resources>
         <image name="About Tab Icon" width="25" height="25"/>
         <image name="Bulb Tab Icon" width="20" height="20"/>
+        <image name="Folder Tab Icon" width="25" height="25"/>
         <image name="News Tab Icon" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -532,6 +575,6 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5sj-gs-9aR"/>
+        <segue reference="xlO-AR-rZP"/>
     </inferredMetricsTieBreakers>
 </document>

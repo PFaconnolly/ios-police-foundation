@@ -103,6 +103,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                          selectCellBlock:selectBlock];
     self.tableView.dataSource = self.postsArrayDataSource;
     self.tableView.delegate = self.postsArrayDataSource;
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)searchPosts {

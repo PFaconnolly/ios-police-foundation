@@ -80,7 +80,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                          selectCellBlock:selectCellBlock];
     self.tableView.dataSource = self.postsArrayDataSource;
     self.tableView.delegate = self.postsArrayDataSource;
-    [self.tableView reloadData];
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)fetchPosts {

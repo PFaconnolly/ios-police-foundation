@@ -67,6 +67,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                             selectCellBlock:selectBlock];
     self.tableView.dataSource = self.rssPostsArrayDataSource;
     self.tableView.delegate = self.rssPostsArrayDataSource;
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)fetchRssPosts {
