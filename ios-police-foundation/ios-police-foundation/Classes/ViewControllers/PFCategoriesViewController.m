@@ -9,35 +9,31 @@
 #import "PFCategoriesViewController.h"
 #import "PFAppDelegate.h"
 #import "PFHTTPRequestOperationManager.h"
-#import "PFCategoryTableViewCell.h"
 #import "PFArrayDataSource.h"
 #import "PFTagsViewController.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
-
-// categories response keys
-static NSString * WP_CATEGORIES_KEY = @"categories";
-
-// category keys
-static NSString * WP_CATEGORY_NAME_KEY = @"name";
-static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
+#import "PFCommonTableViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFCategoriesViewController ()
 
 @property (strong, nonatomic) NSArray * categories;
-@property (strong, nonatomic) PFArrayDataSource *categoriesArrayDataSource;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) PFArrayDataSource * categoriesDataSource;
 
 @end
 
 @implementation PFCategoriesViewController
 
+#pragma mark - View life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"Research";
-    [self setupTableView];
+    [self setUpTableView];
     [self fetchCategories];
     
     UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
@@ -50,9 +46,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
     self.screenName = @"WordPress Research Screen";
 }
+
+
+#pragma mark - IBActions
 
 - (void)refreshButtonTapped:(id)sender {
     [self fetchCategories];
@@ -62,27 +60,46 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
 }
 
+
 #pragma mark - Private methods
 
-- (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFCategoryTableViewCell * cell, NSDictionary * category) {
-        [cell setCategory:category];
+- (void)setUpTableView {
+    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];    
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    // Configuration cell block
+    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * item) {
+        cell.titleLabel.text =  [item valueForKey:WP_CATEGORY_NAME_KEY];
+        cell.descriptionLabel.text = [item valueForKey:WP_CATEGORY_DESCRIPTION_KEY];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
-    self.categories = [NSArray array];
-    self.categoriesArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
-                                                               cellIdentifier:@"Cell"
-                                                           configureCellBlock:configureCellBlock];
-    self.tableView.rowHeight = 70;
-    self.tableView.dataSource = self.categoriesArrayDataSource;
-    [self.tableView reloadData];
+    // Selection cell block
+    TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * path, NSDictionary * item) {
+        // track selected category
+        NSString * selectedCategorySlug = [item objectForKey:WP_CATEGORY_SLUG_KEY];
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
+        
+        // save selected category
+        ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = selectedCategorySlug;
+        
+        [self performSegueWithIdentifier:@"categoriesToTagsSegue" sender:self];
+    };
+
+    self.categoriesDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
+                                                          cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
+                                                      configureCellBlock:configureCellBlock
+                                                         selectCellBlock:selectCellBlock];
     
-    [self.tableView registerNib:[PFCategoryTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    self.tableView.dataSource = self.categoriesDataSource;
+    self.tableView.delegate = self.categoriesDataSource;
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)fetchCategories {
-    
     [self showBarberPole];
     
     @weakify(self)
@@ -92,33 +109,14 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                       @strongify(self)
                                                                       NSDictionary * response = (NSDictionary *)responseObject;
                                                                       self->_categories = [response objectForKey:WP_CATEGORIES_KEY];
-                                                                      [self->_categoriesArrayDataSource reloadItems:self->_categories];
+                                                                      [self->_categoriesDataSource reloadItems:self->_categories];
                                                                       [self->_tableView reloadData];
-                                                                      
                                                                       [self hideBarberPole];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                      [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                      [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                       [self hideBarberPole];
                                                                   }];
-}
-
-
-#pragma mark - UITableViewDelegate methods
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // set the selected category on app delegate
-    NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
-    
-    // track selected category
-    NSString * selectedCategorySlug = [category objectForKey:WP_CATEGORY_SLUG_KEY];
-    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
-    
-    // save selected category
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = selectedCategorySlug;
-    
-    [self performSegueWithIdentifier:@"categoriesToTagsSegue" sender:self];
 }
 
 @end

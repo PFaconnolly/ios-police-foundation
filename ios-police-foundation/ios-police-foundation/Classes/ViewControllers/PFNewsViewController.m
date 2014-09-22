@@ -9,12 +9,10 @@
 #import "PFNewsViewController.h"
 #import "PFArrayDataSource.h"
 #import "PFBarberPoleView.h"
-#import "NSString+PFExtensions.h"
-#import "NSDate+PFExtensions.h"
-#import "PFPostTableViewCell.h"
 #import "PFRSSHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
 #import "PFAppDelegate.h"
+#import "PFCommonTableViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
@@ -48,21 +46,30 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 }
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * rssPost) {
-        cell.titleLabel.text = [rssPost objectForKey:@"title"];
-        NSDate * date = [NSDate pfDateFromRfc822String:[rssPost objectForKey:@"pubDate"]];
-        cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * rssPost) {
+        cell.titleLabel.text = [rssPost objectForKey:RSS_POST_TITLE_KEY];
+        NSDate * date = [NSDate pfDateFromRfc822String:[rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
+        cell.descriptionLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
-    self.rssPostsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.rssPosts
-                                                             cellIdentifier:@"Cell"
-                                                         configureCellBlock:configureCellBlock];
-    self.tableView.dataSource = self.rssPostsArrayDataSource;
-    [self.tableView reloadData];
+    TableViewCellSelectBlock selectBlock = ^(NSIndexPath * indexPath, NSDictionary * rssPost) {
+        [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
+    };
     
-    [self.tableView registerNib:[PFPostTableViewCell nib] forCellReuseIdentifier:@"Cell"];
-    self.tableView.rowHeight = 70;
+    self.rssPostsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.rssPosts
+                                                             cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
+                                                         configureCellBlock:configureCellBlock
+                                                            selectCellBlock:selectBlock];
+    self.tableView.dataSource = self.rssPostsArrayDataSource;
+    self.tableView.delegate = self.rssPostsArrayDataSource;
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)fetchRssPosts {
@@ -79,7 +86,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                                        [self hideBarberPole];
                                                                    }
                                                                    failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                       [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                       [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                        [self hideBarberPole];
                                                                    }];
 }
@@ -140,17 +147,6 @@ didStartElement:(NSString *)elementName
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     DDLogVerbose(@"parserDidEndDocument");
     [self setupTableView];
-}
-
-#pragma mark - UITableViewDelegate methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
 #pragma mark - Segue methods

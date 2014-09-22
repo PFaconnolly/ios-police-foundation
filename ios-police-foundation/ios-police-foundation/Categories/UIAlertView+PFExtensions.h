@@ -10,6 +10,6 @@
 
 @interface UIAlertView (PFExtensions)
 
-+ (void)showWithTitle:(NSString *)title message:(NSString *)message;
++ (void)pfShowWithTitle:(NSString *)title message:(NSString *)message;
 
 @end

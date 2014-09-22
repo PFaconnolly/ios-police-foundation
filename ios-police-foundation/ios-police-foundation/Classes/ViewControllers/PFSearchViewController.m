@@ -8,12 +8,10 @@
 
 #import "PFSearchViewController.h"
 #import "PFArrayDataSource.h"
-#import "PFPostTableViewCell.h"
-#import "NSDate+PFExtensions.h"
-#import "NSString+PFExtensions.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
 #import "PFAnalyticsManager.h"
+#import "PFCommonTableViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -62,22 +60,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     return YES;
 }
 
-#pragma mark - UITableViewDelegate methods
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.searchTextField resignFirstResponder];
-
-    [self performSegueWithIdentifier:@"searchToPostDetailsSegue" sender:self];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
-    // track selected post
-    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
-    NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
-    
-    // track selected post
-    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
-}
-
 #pragma mark - Private methods
 
 - (void)clearSearch {
@@ -88,22 +70,42 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFPostTableViewCell * cell, NSDictionary * category) {
+    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * category) {
         cell.titleLabel.text = [category objectForKey:WP_POST_TITLE_KEY];
         NSDate * date = [NSDate pfDateFromIso8601String:[category objectForKey:WP_POST_DATE_KEY]];
-        cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+        cell.descriptionLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    };
+    
+    @weakify(self);
+    TableViewCellSelectBlock selectBlock = ^(NSIndexPath * indexPath, NSDictionary * item) {
+        @strongify(self)
+        [self->_searchTextField resignFirstResponder];
+        
+        [self performSegueWithIdentifier:@"searchToPostDetailsSegue" sender:self];
+        [self->_tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        // track selected post
+        NSString * postURL = [item objectForKey:WP_POST_URL_KEY];
+        
+        // track selected post
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
     };
     
     self.posts = [NSArray array];
     self.postsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.posts
-                                                          cellIdentifier:@"Cell"
-                                                      configureCellBlock:configureCellBlock];
+                                                          cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
+                                                      configureCellBlock:configureCellBlock
+                                                         selectCellBlock:selectBlock];
     self.tableView.dataSource = self.postsArrayDataSource;
-    [self.tableView reloadData];
+    self.tableView.delegate = self.postsArrayDataSource;
     
-    [self.tableView registerNib:[PFPostTableViewCell nib] forCellReuseIdentifier:@"Cell"];
-    self.tableView.rowHeight = 70;
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)searchPosts {
@@ -112,7 +114,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     NSString * searchString = self.searchTextField.text;
     
     if ( searchString == nil || searchString.length == 0 ) {
-        [UIAlertView showWithTitle:@"Search failed" message:@"You did not enter any search terms."];
+        [UIAlertView pfShowWithTitle:@"Search failed" message:@"You did not enter any search terms."];
         [self hideBarberPole];
         return;
     }
@@ -137,7 +139,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                  [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                 [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                 [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                  [self hideBarberPole];
                                                              }];
 }

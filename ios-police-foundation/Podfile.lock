@@ -27,13 +27,16 @@ PODS:
   - CocoaLumberjack/Core (1.9.1)
   - CocoaLumberjack/Extensions (1.9.1):
     - CocoaLumberjack/Core
+  - PureLayout (1.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CocoaLumberjack
+  - PureLayout
 
 SPEC CHECKSUMS:
   AFNetworking: 47947303319594706f48a55185ea95a95159ab94
   CocoaLumberjack: 94accd5749f5c5d15134c8d50f34a973aed8ef69
+  PureLayout: c8960fa0f3b40d849d5e177d699d0148faa63b63
 
 COCOAPODS: 0.32.1

@@ -7,7 +7,6 @@
 //
 
 #import "PFRSSHTTPRequestOperationManager.h"
-#import "NSString+PFExtensions.h"
 
 static NSString * BASE_URL = @"http://www.policefoundation.org/rss.xml";
 

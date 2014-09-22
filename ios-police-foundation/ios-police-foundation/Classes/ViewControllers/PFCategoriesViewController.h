@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PFViewController.h"
 
-@interface PFCategoriesViewController : PFViewController <UITableViewDelegate>
+@interface PFCategoriesViewController : PFViewController
 
 @end

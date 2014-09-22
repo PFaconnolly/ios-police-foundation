@@ -8,8 +8,6 @@
 
 #import "PFPostDetailsViewController.h"
 #import "PFHTTPRequestOperationManager.h"
-#import "NSString+PFExtensions.h"
-#import "NSDate+PFExtensions.h"
 #import "PFBarberPoleView.h"
 #import "PFFileDownloadManager.h"
 
@@ -55,7 +53,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                        successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                                            [self processWordPressPost:responseObject];
                                                                        } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                           [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                           [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                            [self hideBarberPole];
                                                                        }];
     }
@@ -110,7 +108,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         self->_attachmentBarButtonItem.enabled = YES;
         
         if ( error ) {
-            [UIAlertView showWithTitle:@"File could not be downloaded" message:error.localizedDescription];
+            [UIAlertView pfShowWithTitle:@"File could not be downloaded" message:error.localizedDescription];
             return;
         }
         
@@ -139,7 +137,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                         [self processWordPressPost:responseObject];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                        [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                        [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                         [self hideBarberPole];
                                                     }];
 }

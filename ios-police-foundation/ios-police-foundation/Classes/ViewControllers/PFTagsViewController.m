@@ -9,17 +9,12 @@
 #import "PFTagsViewController.h"
 #import "PFAppDelegate.h"
 #import "PFArrayDataSource.h"
-#import "PFTagTableViewCell.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
+#import "PFCommonTableViewCell.h"
 
-// categories response keys
-static NSString * WP_TAGS_KEY = @"tags";
-
-// category keys
-static NSString * WP_TAG_NAME_KEY = @"name";
-static NSString * WP_TAG_SLUG_KEY = @"slug";
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFTagsViewController ()
 
@@ -49,24 +44,45 @@ static NSString * WP_TAG_SLUG_KEY = @"slug";
 #pragma mark - Private methods
 
 - (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFTagTableViewCell * cell, NSDictionary * category) {
-        cell.tagLabel.text = [category objectForKey:@"name"];
-        cell.descriptionLabel.text = [category objectForKey:@"description"];
+    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * tag) {
+        cell.titleLabel.text = [tag objectForKey:WP_TAG_NAME_KEY];
+        cell.descriptionLabel.text = [tag objectForKey:WP_TAG_DESCRIPTION_KEY];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    };
+    
+    TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * indexPath , NSDictionary * tag) {
+        NSString * selectedTagSlug = [tag objectForKey:WP_TAG_SLUG_KEY];
+        
+        // track selected category & tag
+        NSString * selectedCategorySlug = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
+        NSString * categoryAndSlugTrackingLabel = [NSString stringWithFormat:@"%@ / %@", selectedCategorySlug, selectedTagSlug];
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_AND_TAG_ACTION label:categoryAndSlugTrackingLabel value:nil];
+        
+        // save selected tag slug
+        ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = selectedTagSlug;
+        
+        // segue to posts
+        [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
     };
     
     self.tags = [NSArray array];
     self.tagsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.tags
-                                                         cellIdentifier:@"Cell"
-                                                     configureCellBlock:configureCellBlock];
-    self.tableView.dataSource = self.tagsArrayDataSource;
-    [self.tableView reloadData];
+                                                         cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
+                                                     configureCellBlock:configureCellBlock
+                                                        selectCellBlock:selectCellBlock];
     
-    [self.tableView registerNib:[PFTagTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    self.tableView.dataSource = self.tagsArrayDataSource;
+    self.tableView.delegate = self.tagsArrayDataSource;
+    
+    // hide extra rows
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)fetchCategories {
-    
     [self showBarberPole];
     
     @weakify(self)
@@ -82,31 +98,36 @@ static NSString * WP_TAG_SLUG_KEY = @"slug";
                                                                 [self hideBarberPole];
                                                             }
                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                [UIAlertView showWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                                 [self hideBarberPole];
                                                             }];
 }
 
-#pragma mark - UITableViewDelegate methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70.0f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
-    NSString * selectedTagSlug = [tag objectForKey:WP_TAG_SLUG_KEY];
-    
-    // track selected category & tag
-    NSString * selectedCategorySlug = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
-    NSString * categoryAndSlugTrackingLabel = [NSString stringWithFormat:@"%@ / %@", selectedCategorySlug, selectedTagSlug];
-    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_AND_TAG_ACTION label:categoryAndSlugTrackingLabel value:nil];
-
-    // save selected tag slug
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = selectedTagSlug;
-    
-    [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
-}
+//#pragma mark - UITableViewDelegate methods
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    // Dynamic height table cells in iOS 8 need only an estimated row height
+//    // and the UITableViewAutomaticDimension specified. iOS 7 and below need a
+//    // prototype cell
+//    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
+//    {
+//        return UITableViewAutomaticDimension;
+//    }
+//    
+//    PFCommonTableViewCell * prototypeCell = (PFTagTableViewCell *)[PFTagTableViewCell prototypeCell];
+//
+//    NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
+//    [prototypeCell setTagData:tag];
+//    
+//    CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
+//    DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
+//    DDLogVerbose(@"-");
+//    DDLogVerbose(@"-");
+//    return height;
+//}
+//
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    }
 
 @end
