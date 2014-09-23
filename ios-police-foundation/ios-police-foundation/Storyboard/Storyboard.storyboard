@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Research-->
@@ -178,36 +179,25 @@
                                     <constraint firstAttribute="width" constant="280" id="QcK-0q-eCt"/>
                                 </constraints>
                             </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYq-eD-a7A">
-                                <rect key="frame" x="20" y="132" width="280" height="364"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="SR9-10-Pj6"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <attributes>
-                                            <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="16" name="Georgia"/>
-                                            <font key="NSOriginalFont" size="16" name="Georgia"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.25"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-9M-9Vy">
+                                <rect key="frame" x="16" y="127" width="288" height="392"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="jbD-fJ-dga" id="L2J-Iz-WCg"/>
+                                </connections>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dYq-eD-a7A" secondAttribute="trailing" constant="20" id="2jg-4h-fje"/>
-                            <constraint firstItem="dYq-eD-a7A" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leading" constant="20" id="6YJ-c9-4tz"/>
                             <constraint firstItem="xrJ-bt-ry6" firstAttribute="top" secondItem="KAq-qN-vHm" secondAttribute="bottom" constant="8" id="EIG-2M-qIT"/>
-                            <constraint firstItem="dYq-eD-a7A" firstAttribute="top" secondItem="VZJ-Bm-jMj" secondAttribute="bottom" constant="5" id="Ozr-gp-hNG"/>
-                            <constraint firstItem="SGZ-mx-2Hh" firstAttribute="top" secondItem="dYq-eD-a7A" secondAttribute="bottom" constant="23" id="UVP-Mi-Brb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a2o-9M-9Vy" secondAttribute="trailing" id="FrG-Eb-dZU"/>
+                            <constraint firstItem="SGZ-mx-2Hh" firstAttribute="top" secondItem="a2o-9M-9Vy" secondAttribute="bottom" id="S3T-eO-BbJ"/>
                             <constraint firstAttribute="centerX" secondItem="VZJ-Bm-jMj" secondAttribute="centerX" id="bS3-8G-8Uz"/>
                             <constraint firstItem="VZJ-Bm-jMj" firstAttribute="top" secondItem="xrJ-bt-ry6" secondAttribute="bottom" constant="17" id="cXH-xP-khW"/>
+                            <constraint firstItem="a2o-9M-9Vy" firstAttribute="top" secondItem="VZJ-Bm-jMj" secondAttribute="bottom" id="iuU-v1-w0u"/>
                             <constraint firstAttribute="centerX" secondItem="KAq-qN-vHm" secondAttribute="centerX" id="iyU-Z6-Nb2"/>
+                            <constraint firstItem="a2o-9M-9Vy" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leadingMargin" id="kAc-06-1sM"/>
                             <constraint firstItem="KAq-qN-vHm" firstAttribute="top" secondItem="4hz-Y1-Rg3" secondAttribute="bottom" constant="10" id="sJa-eR-gQG"/>
                             <constraint firstItem="xrJ-bt-ry6" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leading" constant="20" id="uU1-7F-Hjp"/>
                         </constraints>
@@ -216,7 +206,7 @@
                     <navigationItem key="navigationItem" id="U94-cd-TUj"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
-                        <outlet property="contentView" destination="dYq-eD-a7A" id="6Tp-bj-NJe"/>
+                        <outlet property="contentWebView" destination="a2o-9M-9Vy" id="ysx-bX-jo5"/>
                         <outlet property="dateLabel" destination="xrJ-bt-ry6" id="uWq-Lh-qQi"/>
                         <outlet property="titleLabel" destination="KAq-qN-vHm" id="Bhu-zE-phq"/>
                     </connections>

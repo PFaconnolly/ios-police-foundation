@@ -13,12 +13,12 @@
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
-@interface PFPostDetailsViewController () <UIDocumentInteractionControllerDelegate>
+@interface PFPostDetailsViewController () <UIWebViewDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * dateLabel;
-@property (strong, nonatomic) IBOutlet UITextView *contentView;
 @property (strong, nonatomic) UIBarButtonItem * attachmentBarButtonItem;
+@property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
 
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
@@ -34,10 +34,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.title = @"Post";
     
     self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Paperclip Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
-    
-    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        self.contentView.font = [UIFont fontWithName:@"Georgia" size:24.0f];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -125,8 +121,19 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     return self.navigationController;
 }
 
+#pragma mark UIWebView methods
+
+- (BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark Private methods
+
 - (void)fetchWordPressPost {
-    
     [self showBarberPole];
     
     // Fetch posts from blog ...
@@ -147,14 +154,18 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
     if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
         self.wordPressPost = (NSDictionary *)responseObject;
-        self.titleLabel.text = [self.wordPressPost objectForKey:WP_POST_TITLE_KEY];
+        
+        self.titleLabel.text = [[self.wordPressPost objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
         
         NSDate * date = [NSDate pfDateFromIso8601String:[self.wordPressPost objectForKey:WP_POST_DATE_KEY]];
         
         self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
         
-        NSString * content = [[self.wordPressPost objectForKey:WP_POST_CONTENT_KEY] pfStringByConvertingHTMLToPlainText];
-        [self.contentView setText:content];
+        NSString * content = [self.wordPressPost objectForKey:WP_POST_CONTENT_KEY];
+        NSString * html = [NSString pfStyledHTMLDocumentWithBodyContent:content];
+        NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
+        
+        [self.contentWebView loadHTMLString:html baseURL:baseURL];
         
         // check for attachments and hide/show attachments button
         NSDictionary * attachments = (NSDictionary *)[self.wordPressPost objectForKey:WP_POST_ATTACHMENTS_KEY];
@@ -165,11 +176,15 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)refreshRssPost {
+    self.titleLabel.text = [[self.rssPost objectForKey:RSS_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
+
     NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
-    NSString * content = [[self.rssPost objectForKey:RSS_POST_DESCRIPTION_KEY] pfStringByConvertingHTMLToPlainText];
-    self.titleLabel.text = [self.rssPost objectForKey:RSS_POST_TITLE_KEY];
     self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
-    [self.contentView setText:content];
+    
+    NSString * content = [self.rssPost objectForKey:RSS_POST_DESCRIPTION_KEY];
+    NSString * html = [NSString pfStyledHTMLDocumentWithBodyContent:content];
+    NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
+    [self.contentWebView loadHTMLString:html baseURL:baseURL];
 }
 
 @end
