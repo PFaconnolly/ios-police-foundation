@@ -31,7 +31,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.title = @"Tags";
 
     [self setupTableView];
-    [self fetchCategories];
+    [self fetchTags];
+    
+    @weakify(self);
+    self.refreshBlock = ^(){
+        @strongify(self);
+        [self fetchTags];
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -82,7 +88,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
-- (void)fetchCategories {
+- (void)fetchTags {
     [self showBarberPole];
     
     @weakify(self)

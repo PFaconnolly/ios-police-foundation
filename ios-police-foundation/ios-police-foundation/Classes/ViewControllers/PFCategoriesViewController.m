@@ -35,12 +35,15 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.title = @"Research";
     [self setUpTableView];
     [self fetchCategories];
-    
-    UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
-    
+
     UIBarButtonItem * searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Search Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonTapped:)];
     self.navigationItem.leftBarButtonItem = searchButton;
+    
+    @weakify(self);
+    self.refreshBlock = ^(){
+        @strongify(self);
+        [self fetchCategories];
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,14 +55,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 #pragma mark - IBActions
 
-- (void)refreshButtonTapped:(id)sender {
-    [self fetchCategories];
-}
-
 - (void)searchButtonTapped:(id)sender {
     [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
 }
-
 
 #pragma mark - Private methods
 
