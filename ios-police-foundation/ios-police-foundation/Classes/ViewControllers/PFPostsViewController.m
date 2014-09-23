@@ -57,7 +57,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * post) {
-        cell.titleLabel.text = [post objectForKey:WP_POST_TITLE_KEY];
+        cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
         NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
         cell.descriptionLabel.text = [NSString pfMediumDateStringFromDate:date];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

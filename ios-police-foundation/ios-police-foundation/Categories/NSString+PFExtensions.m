@@ -37,6 +37,15 @@
     return [displayDateFormatter stringFromDate:date];
 }
 
++ (NSString *) pfStyledHTMLDocumentWithBodyContent:(NSString *)content {
+    NSString * html = [NSString stringWithFormat:@"<html>" \
+                            "<head>" \
+                                "<link href=\"default.css\" rel=\"stylesheet\" type=\"text/css\" />" \
+                            "</head>" \
+                            "<body>%@</body>" \
+                       "</html>", content];
+    return html;
+}
 
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters {
     
@@ -273,7 +282,7 @@
             // Replace with a space
             if ([scanner scanCharactersFromSet:newLineAndWhitespaceCharacters intoString:NULL]) {
                 if (result.length > 0 && ![scanner isAtEnd]) // Dont append space to beginning or end of result
-                    [result appendString:@" "];
+                    [result appendString:@"\r\n"];
             }
             
         }
