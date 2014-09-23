@@ -31,6 +31,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.title = @"Tags";
 
     [self setupTableView];
+    
     [self fetchTags];
     
     @weakify(self);
@@ -42,8 +43,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];    
     self.screenName = @"WordPress Tags Screen";
 }
 

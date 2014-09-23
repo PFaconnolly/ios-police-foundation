@@ -9,8 +9,6 @@
 #import "PFAboutViewController.h"
 #import <MessageUI/MessageUI.h>
 
-#define kPFInfoContactEmailAddress @"info@policefoundation.org"
-
 @interface PFAboutViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) UIBarButtonItem * contactButton;

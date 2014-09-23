@@ -11,6 +11,8 @@
 #define kLabelHorizontalInsets      15.0f
 #define kLabelVerticalInsets        10.0f
 
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface PFCommonTableViewCell()
 
 @property (nonatomic, assign) BOOL didSetupConstraints;
@@ -98,8 +100,8 @@
 
 - (void)updateFonts
 {
-    self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    self.descriptionLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+    self.titleLabel.font = [UIFont fontWithName:@"Georgia-Bold" size:18];
+    self.descriptionLabel.font = [UIFont fontWithName:@"Georgia" size:12];
 }
 
 @end

@@ -41,6 +41,8 @@
             UIViewAutoresizingFlexibleRightMargin     | \
             UIViewAutoresizingFlexibleTopMargin
 
+#define kPFInfoContactEmailAddress @"info@policefoundation.org"
+
 #define kPFUserDefaultsHasLaunchedAppKey @"PF_LAUNCHED_APP"
 
 // word press categories response keys
