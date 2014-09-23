@@ -73,19 +73,17 @@
                         <viewControllerLayoutGuide type="bottom" id="MjT-US-Pq8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY" userLabel="Main View">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
-                                <rect key="frame" x="20" y="30" width="728" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="wHA-gd-5Ku"/>
-                                </constraints>
+                                <rect key="frame" x="24" y="30" width="720" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Title">
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="30" name="HelveticaNeue-Bold"/>
+                                            <font key="NSFont" size="30" name="Georgia-Bold"/>
+                                            <font key="NSOriginalFont" size="30" name="Georgia-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
@@ -93,23 +91,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBg-kk-BmF" userLabel="dateLabel">
-                                <rect key="frame" x="20" y="98" width="180" height="27"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="kdn-8S-CLN"/>
-                                </constraints>
+                                <rect key="frame" x="24" y="98" width="172" height="22"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-VN-uni" userLabel="separatorView">
-                                <rect key="frame" x="20" y="136" width="728" height="1"/>
+                                <rect key="frame" x="24" y="131" width="720" height="1"/>
                                 <color key="backgroundColor" red="0.87135283799999996" green="0.87135283799999996" blue="0.87135283799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="PGV-r7-WNx"/>
+                                    <constraint firstAttribute="height" constant="1" id="CSr-Id-Pso"/>
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-Wt-YXe">
-                                <rect key="frame" x="20" y="145" width="728" height="830"/>
+                                <rect key="frame" x="24" y="140" width="720" height="884"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="VFZ-es-P2e" id="JsO-Vi-57f"/>
@@ -118,20 +113,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tFT-VN-uni" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="00n-fh-LzI"/>
-                            <constraint firstItem="fjq-ur-d8R" firstAttribute="top" secondItem="QHY-3F-sr4" secondAttribute="bottom" constant="10" id="9xI-o1-UBQ"/>
-                            <constraint firstItem="tFT-VN-uni" firstAttribute="top" secondItem="xBg-kk-BmF" secondAttribute="bottom" constant="11" id="AEA-rv-G8v"/>
-                            <constraint firstItem="fjq-ur-d8R" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="D6Z-UP-E9d"/>
-                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="trailing" secondItem="jZP-ux-3cY" secondAttribute="trailingMargin" id="M00-jo-wEb"/>
-                            <constraint firstItem="xBg-kk-BmF" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="ZB5-gw-Eco"/>
-                            <constraint firstItem="MjT-US-Pq8" firstAttribute="top" secondItem="ewe-Wt-YXe" secondAttribute="bottom" id="e0t-nS-1nc"/>
-                            <constraint firstItem="tFT-VN-uni" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="jZP-ux-3cY" secondAttribute="leading" constant="20" id="fIA-qs-zag"/>
-                            <constraint firstAttribute="trailing" secondItem="xBg-kk-BmF" secondAttribute="trailing" constant="568" id="kkl-4c-88R"/>
-                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="top" secondItem="tFT-VN-uni" secondAttribute="bottom" constant="8" id="lzE-h5-Zmd"/>
-                            <constraint firstAttribute="centerX" secondItem="tFT-VN-uni" secondAttribute="centerX" id="nBZ-uC-h7n"/>
-                            <constraint firstAttribute="trailing" secondItem="fjq-ur-d8R" secondAttribute="trailing" constant="20" id="pj5-JS-4ZP"/>
-                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" id="qXi-hI-0AQ"/>
-                            <constraint firstItem="xBg-kk-BmF" firstAttribute="top" secondItem="fjq-ur-d8R" secondAttribute="bottom" constant="8" id="u9i-5H-2oX"/>
+                            <constraint firstItem="tFT-VN-uni" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="00D-vN-q2C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xBg-kk-BmF" secondAttribute="trailing" constant="552" id="3lN-e5-fKa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ewe-Wt-YXe" secondAttribute="trailing" constant="4" id="8A8-Ta-BM1"/>
+                            <constraint firstItem="tFT-VN-uni" firstAttribute="top" secondItem="xBg-kk-BmF" secondAttribute="bottom" constant="11" id="GMN-YH-rQH"/>
+                            <constraint firstItem="xBg-kk-BmF" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="IQu-HZ-Lha"/>
+                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="top" secondItem="tFT-VN-uni" secondAttribute="bottom" constant="8" id="PuB-rG-iFY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fjq-ur-d8R" secondAttribute="trailing" constant="4" id="YjT-oU-peq"/>
+                            <constraint firstItem="xBg-kk-BmF" firstAttribute="top" secondItem="fjq-ur-d8R" secondAttribute="bottom" constant="33" id="ZcO-X7-sl2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tFT-VN-uni" secondAttribute="trailing" constant="4" id="c0O-8q-gMH"/>
+                            <constraint firstItem="fjq-ur-d8R" firstAttribute="top" secondItem="QHY-3F-sr4" secondAttribute="bottom" constant="10" id="cb9-If-uim"/>
+                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="chc-0f-EjC"/>
+                            <constraint firstItem="MjT-US-Pq8" firstAttribute="top" secondItem="ewe-Wt-YXe" secondAttribute="bottom" id="x47-Fk-qg1"/>
+                            <constraint firstItem="fjq-ur-d8R" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="zIb-sk-mZn"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -227,16 +221,18 @@ The purpose of the Police Foundation is to help the police be more effective in 
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="16" name="Georgia"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">Research &amp; Evaluation
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -251,16 +247,18 @@ Since it is the spirit of experimentation rather than a specific set of tactics 
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="16" name="Georgia"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">Professional Services
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -273,27 +271,31 @@ As a partner in the Community Policing Consortium, along with four other leading
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="16" name="Georgia"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Communication">
+                                    <fragment>
+                                        <string key="content">Communication
+</string>
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">
-
 Unconstrained by partisan imperatives, the Police Foundation speaks with a unique and objective voice. Its focus and perspective is the whole of American policing, rather than any single facet.A guiding tenet of the foundation is that to advance, policing–like other public services–deserves the best of thorough, objective study, and the impetus of new ideas that have the widest possible dissemination.Since its inception in 1970, the foundation has stressed the importance of helping to create a new body of knowledge about policing. The quality and quantity of its research reports have helped make the Police Foundation a catalyst for change in American policing.
 
 By disseminating as widely as possible the publications that result from its work, the foundation seeks to ensure that the knowledge it has gained reaches the broader criminal justice community, including law enforcement practitioners, policy makers, and scholars.
 
 The president of the foundation speaks out on issues important to policing and serves as a source of advice and information to police officers and executives, public officials responsible for the quality of policing, and to members of the news media who cover criminal justice.</string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="16" name="Georgia"/>
+                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -327,12 +329,18 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Rn-qoh">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Rn-qoh">
+                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kRA-Rn-qoh" firstAttribute="top" secondItem="JZp-6K-7Ko" secondAttribute="bottom" id="Q3G-9H-Ccg"/>
+                            <constraint firstItem="kRA-Rn-qoh" firstAttribute="leading" secondItem="tuD-fA-NR1" secondAttribute="leadingMargin" constant="-16" id="d48-EM-QVx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kRA-Rn-qoh" secondAttribute="trailing" constant="-16" id="pEg-Mb-WMV"/>
+                            <constraint firstItem="GVm-Bv-Cya" firstAttribute="top" secondItem="kRA-Rn-qoh" secondAttribute="bottom" constant="-113" id="wGC-Re-aN3"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="RzV-dJ-dL9"/>
@@ -412,8 +420,15 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6j3-kq-XuZ">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-h7-Pxz">
+                                <rect key="frame" x="20" y="50" width="728" height="910"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VUD-bf-LXb" id="chS-Ze-pZX"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6j3-kq-XuZ">
+                                <rect key="frame" x="20" y="0.0" width="728" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WRp-Kq-eWa">
                                         <rect key="frame" x="180" y="10" width="409" height="30"/>
@@ -434,16 +449,21 @@ The president of the foundation speaks out on issues important to policing and s
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ejc-I9-6rC"/>
+                                </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-h7-Pxz">
-                                <rect key="frame" x="0.0" y="50" width="768" height="880"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="delegate" destination="VUD-bf-LXb" id="chS-Ze-pZX"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6j3-kq-XuZ" firstAttribute="leading" secondItem="EQu-0i-kio" secondAttribute="leadingMargin" id="4pa-ob-2eq"/>
+                            <constraint firstItem="VZA-h7-Pxz" firstAttribute="leading" secondItem="EQu-0i-kio" secondAttribute="leadingMargin" id="5gp-oV-Hjo"/>
+                            <constraint firstItem="6j3-kq-XuZ" firstAttribute="top" secondItem="9Qp-1r-rdU" secondAttribute="bottom" id="BR5-G7-0ch"/>
+                            <constraint firstItem="VZA-h7-Pxz" firstAttribute="top" secondItem="6j3-kq-XuZ" secondAttribute="bottom" id="Num-v3-jje"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6j3-kq-XuZ" secondAttribute="trailing" id="VXT-lp-pfg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VZA-h7-Pxz" secondAttribute="trailing" id="XL7-XE-evA"/>
+                            <constraint firstItem="U5y-Sb-jWc" firstAttribute="top" secondItem="VZA-h7-Pxz" secondAttribute="bottom" id="otk-ub-GUg"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="YGa-gH-QOg"/>
@@ -568,6 +588,6 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="zkW-SQ-Aao"/>
+        <segue reference="5sj-gs-9aR"/>
     </inferredMetricsTieBreakers>
 </document>
