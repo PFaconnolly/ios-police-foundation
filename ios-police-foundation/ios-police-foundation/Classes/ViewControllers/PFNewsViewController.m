@@ -36,6 +36,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     self.title = @"News";
     
     [self fetchRssPosts];
+    
+    @weakify(self);
+    self.refreshBlock = ^(){
+        @strongify(self);
+        [self fetchRssPosts];
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated {

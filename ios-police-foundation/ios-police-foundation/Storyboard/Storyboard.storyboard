@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-yu-eAe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bEB-yu-eAe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -86,6 +86,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bEB-yu-eAe" firstAttribute="leading" secondItem="0kO-DJ-GXL" secondAttribute="leadingMargin" constant="-16" id="5JD-bx-JBf"/>
+                            <constraint firstItem="lTc-zT-aZD" firstAttribute="top" secondItem="bEB-yu-eAe" secondAttribute="bottom" id="PqR-AR-47x"/>
+                            <constraint firstItem="bEB-yu-eAe" firstAttribute="top" secondItem="bsa-Ad-uEr" secondAttribute="bottom" id="osZ-iC-8nX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bEB-yu-eAe" secondAttribute="trailing" constant="-16" id="yf4-9Y-4el"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Em3-2Q-clr"/>
@@ -110,7 +116,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-zf-jng">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VXM-zf-jng">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -120,6 +126,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="VXM-zf-jng" secondAttribute="trailing" constant="-16" id="F7e-Vf-pq3"/>
+                            <constraint firstItem="j6U-PR-mOO" firstAttribute="top" secondItem="VXM-zf-jng" secondAttribute="bottom" id="HCg-EJ-lER"/>
+                            <constraint firstItem="VXM-zf-jng" firstAttribute="leading" secondItem="YKw-PT-DAc" secondAttribute="leadingMargin" constant="-16" id="gLI-kh-4IJ"/>
+                            <constraint firstItem="VXM-zf-jng" firstAttribute="top" secondItem="oat-G2-hzp" secondAttribute="bottom" id="vWE-fq-1k6"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="Xvs-08-D3c"/>
@@ -144,17 +156,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
-                                <rect key="frame" x="20" y="30" width="280" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="67h-xK-zlO"/>
-                                    <constraint firstAttribute="width" constant="280" id="aqy-DI-wFY"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
+                                <rect key="frame" x="20" y="30" width="280" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Title">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineHeightMultiple="1.5"/>
                                         </attributes>
                                     </fragment>
@@ -162,25 +170,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrJ-bt-ry6" userLabel="Date - Label">
-                                <rect key="frame" x="20" y="88" width="136" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="136" id="Iap-u5-J19"/>
-                                    <constraint firstAttribute="height" constant="21" id="b4M-bE-TL7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <rect key="frame" x="20" y="73" width="280" height="13"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZJ-Bm-jMj" userLabel="Separator View">
-                                <rect key="frame" x="20" y="126" width="280" height="1"/>
+                                <rect key="frame" x="20" y="103" width="280" height="1"/>
                                 <color key="backgroundColor" red="0.87135283801020402" green="0.87135283801020402" blue="0.87135283801020402" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="NAT-ck-8wS"/>
-                                    <constraint firstAttribute="width" constant="280" id="QcK-0q-eCt"/>
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-9M-9Vy">
-                                <rect key="frame" x="16" y="127" width="288" height="392"/>
+                                <rect key="frame" x="16" y="104" width="288" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                 <connections>
@@ -190,16 +193,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="xrJ-bt-ry6" secondAttribute="trailing" constant="4" id="9sd-sq-PYs"/>
                             <constraint firstItem="xrJ-bt-ry6" firstAttribute="top" secondItem="KAq-qN-vHm" secondAttribute="bottom" constant="8" id="EIG-2M-qIT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a2o-9M-9Vy" secondAttribute="trailing" id="FrG-Eb-dZU"/>
+                            <constraint firstItem="KAq-qN-vHm" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leadingMargin" constant="4" id="Gg3-LS-esp"/>
+                            <constraint firstItem="xrJ-bt-ry6" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leadingMargin" constant="4" id="MjN-ja-KQG"/>
+                            <constraint firstItem="VZJ-Bm-jMj" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leadingMargin" constant="4" id="OCm-08-wel"/>
                             <constraint firstItem="SGZ-mx-2Hh" firstAttribute="top" secondItem="a2o-9M-9Vy" secondAttribute="bottom" id="S3T-eO-BbJ"/>
-                            <constraint firstAttribute="centerX" secondItem="VZJ-Bm-jMj" secondAttribute="centerX" id="bS3-8G-8Uz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KAq-qN-vHm" secondAttribute="trailing" constant="4" id="WOE-LD-mHg"/>
                             <constraint firstItem="VZJ-Bm-jMj" firstAttribute="top" secondItem="xrJ-bt-ry6" secondAttribute="bottom" constant="17" id="cXH-xP-khW"/>
                             <constraint firstItem="a2o-9M-9Vy" firstAttribute="top" secondItem="VZJ-Bm-jMj" secondAttribute="bottom" id="iuU-v1-w0u"/>
-                            <constraint firstAttribute="centerX" secondItem="KAq-qN-vHm" secondAttribute="centerX" id="iyU-Z6-Nb2"/>
                             <constraint firstItem="a2o-9M-9Vy" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leadingMargin" id="kAc-06-1sM"/>
-                            <constraint firstItem="KAq-qN-vHm" firstAttribute="top" secondItem="4hz-Y1-Rg3" secondAttribute="bottom" constant="10" id="sJa-eR-gQG"/>
-                            <constraint firstItem="xrJ-bt-ry6" firstAttribute="leading" secondItem="hMW-o7-jSw" secondAttribute="leading" constant="20" id="uU1-7F-Hjp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VZJ-Bm-jMj" secondAttribute="trailing" constant="4" id="tq9-A0-11p"/>
+                            <constraint firstItem="KAq-qN-vHm" firstAttribute="top" secondItem="4hz-Y1-Rg3" secondAttribute="bottom" constant="10" id="yEC-m4-DHw"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -266,7 +272,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-as-6St">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WeM-as-6St">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -275,6 +281,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WeM-as-6St" firstAttribute="leading" secondItem="rTC-ft-eWo" secondAttribute="leadingMargin" constant="-16" id="Srb-Po-cgO"/>
+                            <constraint firstItem="tFq-YV-n4z" firstAttribute="top" secondItem="WeM-as-6St" secondAttribute="bottom" constant="-64" id="ZfQ-W2-9Ry"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WeM-as-6St" secondAttribute="trailing" constant="-16" id="fbt-Hr-OAL"/>
+                            <constraint firstItem="WeM-as-6St" firstAttribute="top" secondItem="n1U-4q-JNO" secondAttribute="bottom" id="wvi-2R-8YJ"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="7WT-gn-FTa"/>
@@ -315,7 +327,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN1-iN-Sib">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nN1-iN-Sib">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
@@ -326,16 +338,16 @@ The purpose of the Police Foundation is to help the police be more effective in 
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="15" name="Georgia"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">Research &amp; Evaluation
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="18" name="Georgia-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -350,16 +362,16 @@ Since it is the spirit of experimentation rather than a specific set of tactics 
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="15" name="Georgia"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">Professional Services
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="18" name="Georgia-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
@@ -372,27 +384,28 @@ As a partner in the Community Policing Consortium, along with four other leading
 
 </string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="15" name="Georgia"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Communication">
+                                    <fragment>
+                                        <string key="content">Communication
+</string>
                                         <attributes>
-                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="18" name="Georgia-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
                                         <string key="content">
-
 Unconstrained by partisan imperatives, the Police Foundation speaks with a unique and objective voice. Its focus and perspective is the whole of American policing, rather than any single facet.A guiding tenet of the foundation is that to advance, policing–like other public services–deserves the best of thorough, objective study, and the impetus of new ideas that have the widest possible dissemination.Since its inception in 1970, the foundation has stressed the importance of helping to create a new body of knowledge about policing. The quality and quantity of its research reports have helped make the Police Foundation a catalyst for change in American policing.
 
 By disseminating as widely as possible the publications that result from its work, the foundation seeks to ensure that the knowledge it has gained reaches the broader criminal justice community, including law enforcement practitioners, policy makers, and scholars.
 
 The president of the foundation speaks out on issues important to policing and serves as a source of advice and information to police officers and executives, public officials responsible for the quality of policing, and to members of the news media who cover criminal justice.</string>
                                         <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <font key="NSFont" size="15" name="Georgia"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -400,6 +413,12 @@ The president of the foundation speaks out on issues important to policing and s
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XEQ-iv-sGY" firstAttribute="top" secondItem="nN1-iN-Sib" secondAttribute="bottom" id="3Hz-wT-T6O"/>
+                            <constraint firstItem="nN1-iN-Sib" firstAttribute="top" secondItem="rzS-Rx-hS9" secondAttribute="bottom" id="64i-vi-WeN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nN1-iN-Sib" secondAttribute="trailing" constant="-16" id="lcG-ce-Wnp"/>
+                            <constraint firstItem="nN1-iN-Sib" firstAttribute="leading" secondItem="Psy-XF-fpN" secondAttribute="leadingMargin" constant="-16" id="zY8-Vk-9IM"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="About" id="grz-Ow-cqk"/>
@@ -438,7 +457,7 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-Zt-b8g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HZM-Zt-b8g">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -447,6 +466,12 @@ The president of the foundation speaks out on issues important to policing and s
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="HZM-Zt-b8g" secondAttribute="trailing" constant="-16" id="Fdd-0I-7rc"/>
+                            <constraint firstItem="jMC-QO-gWa" firstAttribute="top" secondItem="HZM-Zt-b8g" secondAttribute="bottom" id="Rp0-do-UCg"/>
+                            <constraint firstItem="HZM-Zt-b8g" firstAttribute="leading" secondItem="hMy-NQ-PsG" secondAttribute="leadingMargin" constant="-16" id="gEk-GR-DNM"/>
+                            <constraint firstItem="HZM-Zt-b8g" firstAttribute="top" secondItem="JvI-CT-nqE" secondAttribute="bottom" id="pSm-kW-nlk"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="XgF-GO-bpK"/>
@@ -487,7 +512,7 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F2f-fI-Ddb">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2f-fI-Ddb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="16r-wN-194">
@@ -511,7 +536,7 @@ The president of the foundation speaks out on issues important to policing and s
                                 </subviews>
                                 <color key="backgroundColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-Wc-kW5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-Wc-kW5">
                                 <rect key="frame" x="0.0" y="50" width="320" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -520,6 +545,16 @@ The president of the foundation speaks out on issues important to policing and s
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7J8-NT-kid" firstAttribute="top" secondItem="fnD-Wc-kW5" secondAttribute="bottom" id="Ixc-cT-q0e"/>
+                            <constraint firstItem="F2f-fI-Ddb" firstAttribute="leading" secondItem="B1E-6d-rha" secondAttribute="leadingMargin" constant="-16" id="Ngd-NX-wpU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fnD-Wc-kW5" secondAttribute="trailing" constant="-16" id="VTA-RQ-fKC"/>
+                            <constraint firstItem="fnD-Wc-kW5" firstAttribute="top" secondItem="wMK-fD-AaP" secondAttribute="bottom" constant="50" id="aPE-ae-KAL"/>
+                            <constraint firstItem="fnD-Wc-kW5" firstAttribute="leading" secondItem="B1E-6d-rha" secondAttribute="leadingMargin" constant="-16" id="eu6-TZ-eAK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F2f-fI-Ddb" secondAttribute="trailing" constant="-16" id="iRN-Ow-jTj"/>
+                            <constraint firstItem="fnD-Wc-kW5" firstAttribute="top" secondItem="F2f-fI-Ddb" secondAttribute="bottom" id="j9F-Xl-ZL5"/>
+                            <constraint firstItem="F2f-fI-Ddb" firstAttribute="top" secondItem="wMK-fD-AaP" secondAttribute="bottom" id="puw-Kh-XxJ"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="fYP-bs-r26">
