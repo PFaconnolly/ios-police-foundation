@@ -19,6 +19,7 @@
 		B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */; };
 		B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */; };
 		B0504FA419D10D86003C791D /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA319D10D86003C791D /* GTMNSString+HTML.m */; };
+		B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA619D1107B003C791D /* PFRefreshableViewController.m */; };
 		B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */; };
 		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
 		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
@@ -101,6 +102,8 @@
 		B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+PFExtensions.m"; path = "Categories/NSBundle+PFExtensions.m"; sourceTree = "<group>"; };
 		B0504FA219D10D86003C791D /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Categories/GTMNSString+HTML.h"; sourceTree = "<group>"; };
 		B0504FA319D10D86003C791D /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Categories/GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		B0504FA519D1107B003C791D /* PFRefreshableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRefreshableViewController.h; path = Classes/ViewControllers/PFRefreshableViewController.h; sourceTree = "<group>"; };
+		B0504FA619D1107B003C791D /* PFRefreshableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRefreshableViewController.m; path = Classes/ViewControllers/PFRefreshableViewController.m; sourceTree = "<group>"; };
 		B051268E19CF6F5800FB5FC7 /* PFCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommonTableViewCell.h; path = Classes/Cells/PFCommonTableViewCell.h; sourceTree = "<group>"; };
 		B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCommonTableViewCell.m; path = Classes/Cells/PFCommonTableViewCell.m; sourceTree = "<group>"; };
 		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 				B006F7551931694900374295 /* PFPostDetailsViewController.m */,
 				B006F74A19315B0900374295 /* PFPostsViewController.h */,
 				B006F74B19315B0900374295 /* PFPostsViewController.m */,
+				B0504FA519D1107B003C791D /* PFRefreshableViewController.h */,
+				B0504FA619D1107B003C791D /* PFRefreshableViewController.m */,
 				B0BCE99C19C4B6EC008AB343 /* PFSearchViewController.h */,
 				B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */,
 				B08ABC2419A90E4800B9B5BD /* PFTabBarController.h */,
@@ -644,6 +649,7 @@
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
+				B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */,
 				B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */,
 				B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */,
 				B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */,

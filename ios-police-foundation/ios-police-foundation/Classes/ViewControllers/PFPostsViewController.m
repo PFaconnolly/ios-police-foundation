@@ -34,6 +34,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.title = @"Posts";
     [self setupTableView];
     [self fetchPosts];
+    
+    @weakify(self);
+    self.refreshBlock = ^(){
+        @strongify(self);
+        [self fetchPosts];
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated {
