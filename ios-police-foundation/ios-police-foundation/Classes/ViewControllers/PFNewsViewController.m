@@ -112,7 +112,7 @@ didStartElement:(NSString *)elementName
     
     self.currentElementName = elementName;
     
-    if ( [elementName isEqualToString:@"item"] ) {
+    if ( [elementName isEqualToString:RSS_POST_ITEM_KEY] ) {
         self.rssPost = [NSMutableDictionary new];
         return;
     }
@@ -127,16 +127,16 @@ didStartElement:(NSString *)elementName
     DDLogVerbose(@"didEndElement: %@", elementName);
 
     // add rss post to array
-    if ( [elementName isEqualToString:@"item"] ) {
+    if ( [elementName isEqualToString:RSS_POST_ITEM_KEY] ) {
         [self.rssPosts addObject:self.rssPost];
         return;
     }
 
     // set new 'found characters' strings on dictionary
-    if ( [elementName isEqualToString:@"title"] ||
-        [elementName isEqualToString:@"link"] ||
-        [elementName isEqualToString:@"description"] ||
-        [elementName isEqualToString:@"pubDate"]) {
+    if ( [elementName isEqualToString:RSS_POST_TITLE_KEY] ||
+        [elementName isEqualToString:RSS_POST_LINK_KEY] ||
+        [elementName isEqualToString:RSS_POST_DESCRIPTION_KEY] ||
+        [elementName isEqualToString:RSS_POST_PUBLISH_DATE_KEY]) {
         [self.rssPost setObject:self.currentFoundCharacters forKey:elementName];
     }
 }

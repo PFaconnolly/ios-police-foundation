@@ -18,7 +18,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * dateLabel;
 @property (strong, nonatomic) UIBarButtonItem * attachmentBarButtonItem;
+@property (strong, nonatomic) UIBarButtonItem * shareBarButtonItem;
 @property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
+@property (strong, nonatomic) NSMutableArray * rightBarButtonItems;
 
 // use with pad UI idiom
 @property (strong, nonatomic) UIPopoverController * popController;
@@ -32,8 +34,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Post";
-    
+
+    // set up right bar button items
     self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Paperclip Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
+    self.shareBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, nil];
+    self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -63,6 +69,25 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.wordPressPost = nil;
 }
 
+
+#pragma mark UIDocumentInteractionControllerDelegate methods
+
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
+    return self.navigationController;
+}
+
+
+#pragma mark UIWebView methods
+
+- (BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    return YES;
+}
+
+
 #pragma mark - Setters
 
 - (void)setWordPressPostId:(NSString *)wordPressPostId {
@@ -76,7 +101,27 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 
-#pragma mark - Private methods
+#pragma mark Private methods
+
+- (void)shareButtonTapped:(id)sender {
+
+    NSString * URLString = nil;
+    
+    if ( _wordPressPost ) {
+        URLString = [_wordPressPost objectForKey:WP_ATTACHMENT_URL_KEY];
+    } else if ( _rssPost ) {
+        URLString = [_rssPost objectForKey:RSS_POST_LINK_KEY];
+    } else {
+        // fall back
+        URLString = @"http://www.policefoundation.org";
+    }
+    
+    NSURL * URL = [NSURL URLWithString:URLString];
+    NSArray * sharingItems = [NSArray arrayWithObjects:URL, nil];
+    
+    UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
 
 - (void)attachmentButtonTapped:(id)sender {
     
@@ -115,24 +160,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     }];
 }
 
-#pragma mark UIDocumentInteractionControllerDelegate methods
-
-- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
-    return self.navigationController;
-}
-
-#pragma mark UIWebView methods
-
-- (BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
-    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
-        [[UIApplication sharedApplication] openURL:[inRequest URL]];
-        return NO;
-    }
-    return YES;
-}
-
-#pragma mark Private methods
-
 - (void)fetchWordPressPost {
     [self showBarberPole];
     
@@ -170,7 +197,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         // check for attachments and hide/show attachments button
         NSDictionary * attachments = (NSDictionary *)[self.wordPressPost objectForKey:WP_POST_ATTACHMENTS_KEY];
         if ( attachments && attachments.allKeys.count > 0 ) {
-            self.navigationItem.rightBarButtonItem = self.attachmentBarButtonItem;
+            self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, self.attachmentBarButtonItem, nil];
+            self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
         }
     }
 }

@@ -88,6 +88,9 @@ static NSString * WP_ATTACHMENT_GUID_KEY = @"guid";
 static NSString * WP_ATTACHMENT_WIDTH_KEY = @"mime-type";
 
 // rss post keys
-static NSString * RSS_POST_PUBLISH_DATE_KEY = @"pubDate";
-static NSString * RSS_POST_DESCRIPTION_KEY = @"description";
+static NSString * RSS_POST_ITEM_KEY = @"item";
 static NSString * RSS_POST_TITLE_KEY = @"title";
+static NSString * RSS_POST_LINK_KEY = @"link";
+static NSString * RSS_POST_DESCRIPTION_KEY = @"description";
+static NSString * RSS_POST_PUBLISH_DATE_KEY = @"pubDate";
+
