@@ -55,9 +55,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                parameters:(id)parameters
              successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
              failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock {
-    // Don't forget to URL encode
-    [self GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSXMLParser * responseObject) {
-        
+    [self GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, NSXMLParser * responseObject) {        
         successBlock(operation, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failureBlock(operation, error);

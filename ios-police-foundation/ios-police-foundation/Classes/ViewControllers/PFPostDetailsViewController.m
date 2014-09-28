@@ -105,9 +105,19 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)shareButtonTapped:(id)sender {
 
-    NSString * URLString = [_wordPressPost objectForKey:WP_ATTACHMENT_URL_KEY];
-    NSURL * wordPressPostURL = [NSURL URLWithString:URLString];
-    NSArray * sharingItems = [NSArray arrayWithObjects:wordPressPostURL, nil];
+    NSString * URLString = nil;
+    
+    if ( _wordPressPost ) {
+        URLString = [_wordPressPost objectForKey:WP_ATTACHMENT_URL_KEY];
+    } else if ( _rssPost ) {
+        URLString = [_rssPost objectForKey:RSS_POST_LINK_KEY];
+    } else {
+        // fall back
+        URLString = @"http://www.policefoundation.org";
+    }
+    
+    NSURL * URL = [NSURL URLWithString:URLString];
+    NSArray * sharingItems = [NSArray arrayWithObjects:URL, nil];
     
     UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self presentViewController:activityViewController animated:YES completion:nil];
