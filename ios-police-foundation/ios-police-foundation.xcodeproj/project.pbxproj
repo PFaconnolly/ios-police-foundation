@@ -30,7 +30,6 @@
 		B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */; };
 		B07880AF1971A02600EA1151 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07880AE1971A02600EA1151 /* MessageUI.framework */; };
 		B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344C19439B5300735CB5 /* Storyboard.storyboard */; };
-		B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
 		B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */; };
 		B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */; };
@@ -38,6 +37,7 @@
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
+		B0AB5F9C19D51ACE004C7256 /* Storyboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0AB5F9B19D51ACE004C7256 /* Storyboard~iPad.storyboard */; };
 		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
 		B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */; };
 		B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */; };
@@ -120,7 +120,6 @@
 		B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFWelcomeViewController~iPad.xib"; path = "XIBs/PFWelcomeViewController~iPad.xib"; sourceTree = "<group>"; };
 		B07880AE1971A02600EA1151 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B085344C19439B5300735CB5 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Storyboard.storyboard; path = Storyboard/Storyboard.storyboard; sourceTree = "<group>"; };
-		B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Classes/ViewControllers/PFAboutViewController.h; sourceTree = "<group>"; };
 		B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAboutViewController.m; path = Classes/ViewControllers/PFAboutViewController.m; sourceTree = "<group>"; };
 		B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNewsViewController.h; path = Classes/ViewControllers/PFNewsViewController.h; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoriesViewController.m; path = Classes/ViewControllers/PFCategoriesViewController.m; sourceTree = "<group>"; };
 		B095EF44192946B6008C3FF0 /* PFArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFArrayDataSource.h; path = Classes/DataSources/PFArrayDataSource.h; sourceTree = "<group>"; };
 		B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFArrayDataSource.m; path = Classes/DataSources/PFArrayDataSource.m; sourceTree = "<group>"; };
+		B0AB5F9B19D51ACE004C7256 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Storyboard~iPad.storyboard"; path = "Storyboard/Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDocumentsViewController.h; path = Classes/ViewControllers/PFDocumentsViewController.h; sourceTree = "<group>"; };
 		B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDocumentsViewController.m; path = Classes/ViewControllers/PFDocumentsViewController.m; sourceTree = "<group>"; };
 		B0BCE99C19C4B6EC008AB343 /* PFSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSearchViewController.h; path = Classes/ViewControllers/PFSearchViewController.h; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				B085344C19439B5300735CB5 /* Storyboard.storyboard */,
-				B085344E19439B6400735CB5 /* Storyboard~iPad.storyboard */,
+				B0AB5F9B19D51ACE004C7256 /* Storyboard~iPad.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -540,7 +540,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PF;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Police Foundation";
 				TargetAttributes = {
 					B0E75E13190C3249003BE9EF = {
@@ -578,8 +578,8 @@
 				B0FC41CA19CFB39300EDE859 /* NoDocumentsView.xib in Resources */,
 				B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */,
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
-				B085344F19439B6400735CB5 /* Storyboard~iPad.storyboard in Resources */,
 				B085344D19439B5300735CB5 /* Storyboard.storyboard in Resources */,
+				B0AB5F9C19D51ACE004C7256 /* Storyboard~iPad.storyboard in Resources */,
 				B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */,
 				B05B6D3E19D117C5005981FF /* LaunchScreen.xib in Resources */,
 				B0D8784319D109960008CE04 /* default.css in Resources */,
