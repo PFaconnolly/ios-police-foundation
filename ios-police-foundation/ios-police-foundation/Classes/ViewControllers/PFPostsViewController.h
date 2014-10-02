@@ -11,4 +11,7 @@
 
 @interface PFPostsViewController : PFRefreshableViewController
 
+@property (strong, nonatomic) NSDictionary * category;
+@property (strong, nonatomic) NSDictionary * tag;
+
 @end

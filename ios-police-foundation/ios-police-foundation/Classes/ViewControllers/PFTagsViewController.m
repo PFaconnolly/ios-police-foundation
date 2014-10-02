@@ -13,6 +13,7 @@
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
 #import "PFCommonTableViewCell.h"
+#import "PFPostsViewController.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -47,6 +48,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.screenName = @"WordPress Tags Screen";
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSDictionary * tag = [self.tags objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    ((PFPostsViewController *)segue.destinationViewController).tag = tag;
+}
+
 #pragma mark - Private methods
 
 - (void)setupTableView {
@@ -67,9 +73,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         NSString * selectedCategorySlug = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
         NSString * categoryAndSlugTrackingLabel = [NSString stringWithFormat:@"%@ / %@", selectedCategorySlug, selectedTagSlug];
         [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_AND_TAG_ACTION label:categoryAndSlugTrackingLabel value:nil];
-        
-        // save selected tag slug
-        ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = selectedTagSlug;
         
         // segue to posts
         [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];

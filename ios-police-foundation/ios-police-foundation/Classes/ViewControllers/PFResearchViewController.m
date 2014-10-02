@@ -54,7 +54,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ( [segue.identifier isEqualToString:@"researchToPostDetailsSegue"] ) {
         NSDictionary * post = [self.posts objectAtIndex:self.tableView.indexPathForSelectedRow.row];
         NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
@@ -184,8 +183,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                 NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
                 cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
                 NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-                NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
-                
+                NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];                
                 cell.descriptionLabel.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", [NSString pfMediumDateStringFromDate:date], excerpt];
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 break;

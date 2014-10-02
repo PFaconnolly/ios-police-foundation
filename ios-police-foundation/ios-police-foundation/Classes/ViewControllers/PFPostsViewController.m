@@ -48,12 +48,17 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.screenName = @"WordPress Post List Screen";
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.category = nil;
+    self.tag = nil;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
     NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
     ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
-
 
 #pragma mark - Private methods
 
@@ -65,17 +70,15 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * post) {
         cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
         NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-        cell.descriptionLabel.text = [NSString pfMediumDateStringFromDate:date];
+        NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
+        cell.descriptionLabel.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", [NSString pfMediumDateStringFromDate:date], excerpt];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     };
     
     TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * indexPath , NSDictionary * post) {
         // track selected post
         NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
-        
-        // track selected post
         [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
-        
         [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
     };
     
@@ -97,11 +100,21 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     @weakify(self)
     
-    NSString * category = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
-    NSString * tag = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug;
-    NSString * fields = [@[WP_POST_ID_KEY, WP_POST_TITLE_KEY, WP_POST_DATE_KEY, WP_POST_URL_KEY] componentsJoinedByString:@","];    // ID, title, date, URL
-    NSDictionary * parameters = [NSDictionary dictionaryWithObjects:@[category, tag, fields]
-                                                            forKeys:@[WP_SEARCH_POSTS_API_CATEGORY_KEY, WP_SEARCH_POSTS_API_TAG_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
+    NSString * fields = [@[WP_POST_ID_KEY, WP_POST_TITLE_KEY, WP_POST_DATE_KEY, WP_POST_EXCERPT_KEY, WP_POST_URL_KEY] componentsJoinedByString:@","];    // ID, title, date, URL
+    NSDictionary * parameters = [NSDictionary dictionaryWithObjects:@[fields]
+                                                            forKeys:@[WP_SEARCH_POSTS_API_FIELDS_KEY]];
+
+    // add category and tag parameters as needed
+    if ( self.category ) {
+        NSString * categorySlug = [self.category objectForKey:WP_CATEGORY_SLUG_KEY];
+        parameters = [NSDictionary dictionaryWithObjects:@[categorySlug, fields]
+                                                 forKeys:@[WP_SEARCH_POSTS_API_CATEGORY_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
+        
+    } else if ( self.tag ) {
+        NSString * tagSlug = [self.tag objectForKey:WP_TAG_SLUG_KEY];
+        parameters = [NSDictionary dictionaryWithObjects:@[tagSlug, fields]
+                                                 forKeys:@[WP_SEARCH_POSTS_API_TAG_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
+    }
     
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostsWithParameters:parameters

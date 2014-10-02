@@ -14,6 +14,7 @@
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
 #import "PFCommonTableViewCell.h"
+#import "PFPostsViewController.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
@@ -49,6 +50,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.screenName = @"WordPress Research Screen";
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSDictionary * category = [self.categories objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    ((PFPostsViewController *)segue.destinationViewController).category = category;
+}
+
 #pragma mark - Private methods
 
 - (void)setUpTableView {
@@ -68,11 +74,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         // track selected category
         NSString * selectedCategorySlug = [item objectForKey:WP_CATEGORY_SLUG_KEY];
         [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
-        
-        // save selected category
-        ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = selectedCategorySlug;
-        
-        [self performSegueWithIdentifier:@"categoriesToCategoryDetailsSegue" sender:self];
+        [self performSegueWithIdentifier:@"categoriesToPostsSegue" sender:self];
     };
 
     self.categoriesDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories

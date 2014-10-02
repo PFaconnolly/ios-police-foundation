@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
     <dependencies>
-        <deployment version="2048" defaultVersion="1792" identifier="iOS"/>
+        <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -56,11 +56,46 @@
                     <navigationItem key="navigationItem" id="Do5-i7-DM8"/>
                     <connections>
                         <outlet property="tableView" destination="Dli-ep-eJa" id="eyy-fg-GMz"/>
+                        <segue destination="OA6-35-Y6A" kind="push" identifier="categoriesToPostsSegue" id="OV0-CR-t9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NHk-Sw-3eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2121" y="-1968"/>
+        </scene>
+        <!--Posts View Controller-->
+        <scene sceneID="1zN-yt-YRY">
+            <objects>
+                <viewController id="OA6-35-Y6A" customClass="PFPostsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wxz-ND-dqG"/>
+                        <viewControllerLayoutGuide type="bottom" id="FFG-uC-0OA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Vf-ca-X7H">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qPO-zz-XaB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qPO-zz-XaB" firstAttribute="leading" secondItem="9Vf-ca-X7H" secondAttribute="leading" id="9sO-tU-w4A"/>
+                            <constraint firstAttribute="trailing" secondItem="qPO-zz-XaB" secondAttribute="trailing" id="JG7-zt-e58"/>
+                            <constraint firstItem="qPO-zz-XaB" firstAttribute="top" secondItem="9Vf-ca-X7H" secondAttribute="top" id="Vch-KV-2fQ"/>
+                            <constraint firstItem="FFG-uC-0OA" firstAttribute="top" secondItem="qPO-zz-XaB" secondAttribute="bottom" id="fzZ-me-ycA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1PO-nR-f96"/>
+                    <connections>
+                        <outlet property="tableView" destination="qPO-zz-XaB" id="TjQ-r4-Sts"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GMq-V8-Zqr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2931" y="-1610"/>
         </scene>
         <!--Tags-->
         <scene sceneID="JwO-lx-05d">
@@ -95,6 +130,7 @@
                     <navigationItem key="navigationItem" id="Em3-2Q-clr"/>
                     <connections>
                         <outlet property="tableView" destination="bEB-yu-eAe" id="BD1-gE-mec"/>
+                        <segue destination="OA6-35-Y6A" kind="push" identifier="tagsToPostsSegue" id="RIo-TC-jdc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvy-Xx-o04" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -590,6 +626,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="OV0-CR-t9X"/>
         <segue reference="WLV-5n-6l1"/>
     </inferredMetricsTieBreakers>
 </document>
