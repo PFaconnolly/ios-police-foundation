@@ -36,9 +36,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self setUpTableView];
     [self fetchCategories];
 
-    UIBarButtonItem * searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Search Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonTapped:)];
-    self.navigationItem.leftBarButtonItem = searchButton;
-    
     @weakify(self);
     self.refreshBlock = ^(){
         @strongify(self);
@@ -50,13 +47,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewWillAppear:animated];
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     self.screenName = @"WordPress Research Screen";
-}
-
-
-#pragma mark - IBActions
-
-- (void)searchButtonTapped:(id)sender {
-    [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
 }
 
 #pragma mark - Private methods
@@ -82,7 +72,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         // save selected category
         ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = selectedCategorySlug;
         
-        [self performSegueWithIdentifier:@"categoriesToTagsSegue" sender:self];
+        [self performSegueWithIdentifier:@"categoriesToCategoryDetailsSegue" sender:self];
     };
 
     self.categoriesDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
