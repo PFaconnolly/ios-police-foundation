@@ -73,7 +73,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MjT-US-Pq8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY" userLabel="Main View">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
@@ -104,7 +104,7 @@
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-Wt-YXe">
-                                <rect key="frame" x="24" y="140" width="720" height="884"/>
+                                <rect key="frame" x="24" y="140" width="720" height="835"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="VFZ-es-P2e" id="JsO-Vi-57f"/>
@@ -171,26 +171,34 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yxP-hD-gA3">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5P6-Lf-gOL">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="faP-E5-pKJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
                                 <connections>
-                                    <outlet property="delegate" destination="nar-Uc-qH1" id="ucp-Yt-Has"/>
+                                    <outlet property="dataSource" destination="nar-Uc-qH1" id="DgP-Lz-mE0"/>
+                                    <outlet property="delegate" destination="nar-Uc-qH1" id="Lg4-lP-wfy"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qur-85-uZu" firstAttribute="top" secondItem="yxP-hD-gA3" secondAttribute="bottom" id="I2O-gh-2TO"/>
-                            <constraint firstAttribute="trailing" secondItem="yxP-hD-gA3" secondAttribute="trailing" id="PBm-Dq-mlb"/>
-                            <constraint firstItem="yxP-hD-gA3" firstAttribute="top" secondItem="AKe-FP-duE" secondAttribute="bottom" id="fTs-V0-xBW"/>
-                            <constraint firstItem="yxP-hD-gA3" firstAttribute="leading" secondItem="sfi-RU-GyK" secondAttribute="leading" id="ij6-r5-ALa"/>
+                            <constraint firstItem="Qur-85-uZu" firstAttribute="top" secondItem="5P6-Lf-gOL" secondAttribute="bottom" id="7Z5-u4-Gf9"/>
+                            <constraint firstItem="5P6-Lf-gOL" firstAttribute="top" secondItem="AKe-FP-duE" secondAttribute="bottom" id="CgP-jK-ShE"/>
+                            <constraint firstAttribute="trailing" secondItem="5P6-Lf-gOL" secondAttribute="trailing" id="JfL-WH-R1d"/>
+                            <constraint firstItem="5P6-Lf-gOL" firstAttribute="leading" secondItem="sfi-RU-GyK" secondAttribute="leading" id="suz-0S-Kwq"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="uu1-Mc-rf7"/>
                     <connections>
-                        <outlet property="tableView" destination="yxP-hD-gA3" id="8f4-hh-aSH"/>
+                        <outlet property="collectionView" destination="5P6-Lf-gOL" id="G6L-kL-ZRm"/>
                         <segue destination="VFZ-es-P2e" kind="push" identifier="newsToPostDetailsSegue" id="xlO-AR-rZP"/>
                     </connections>
                 </viewController>
@@ -389,6 +397,7 @@ The president of the foundation speaks out on issues important to policing and s
                     <navigationItem key="navigationItem" id="Tco-tW-14M"/>
                     <connections>
                         <outlet property="collectionView" destination="Kiv-GK-7Rp" id="OeC-lG-GOd"/>
+                        <segue destination="8iP-du-arh" kind="push" identifier="categoriesToPostsSegue" id="vqE-4H-PBA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMl-zv-lUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -553,27 +562,34 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FBl-2g-c5n">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4bd-gL-YK6">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oOj-26-O3I">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
                                 <connections>
-                                    <outlet property="dataSource" destination="8iP-du-arh" id="gln-j8-hcm"/>
-                                    <outlet property="delegate" destination="8iP-du-arh" id="GYJ-Ts-Wh4"/>
+                                    <outlet property="dataSource" destination="8iP-du-arh" id="3sn-70-Dlx"/>
+                                    <outlet property="delegate" destination="8iP-du-arh" id="VdM-xK-Fc0"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FBl-2g-c5n" secondAttribute="trailing" id="7bz-qs-2yy"/>
-                            <constraint firstItem="FE2-Ew-d3h" firstAttribute="top" secondItem="FBl-2g-c5n" secondAttribute="bottom" id="SAs-1W-UD8"/>
-                            <constraint firstItem="FBl-2g-c5n" firstAttribute="leading" secondItem="gz4-1B-mlC" secondAttribute="leading" id="bXr-Wo-ycd"/>
-                            <constraint firstItem="FBl-2g-c5n" firstAttribute="top" secondItem="Ua8-aT-fjc" secondAttribute="bottom" id="eAQ-U0-0m4"/>
+                            <constraint firstItem="4bd-gL-YK6" firstAttribute="leading" secondItem="gz4-1B-mlC" secondAttribute="leading" id="A9S-4f-gCJ"/>
+                            <constraint firstAttribute="trailing" secondItem="4bd-gL-YK6" secondAttribute="trailing" id="GDr-uo-hf6"/>
+                            <constraint firstItem="4bd-gL-YK6" firstAttribute="top" secondItem="Ua8-aT-fjc" secondAttribute="bottom" id="RFn-nJ-Uww"/>
+                            <constraint firstItem="FE2-Ew-d3h" firstAttribute="top" secondItem="4bd-gL-YK6" secondAttribute="bottom" id="qUX-aS-iRm"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="B2U-e8-LTW"/>
                     <connections>
-                        <outlet property="tableView" destination="FBl-2g-c5n" id="YLc-Ri-M06"/>
+                        <outlet property="collectionView" destination="4bd-gL-YK6" id="hBN-Fx-T2f"/>
                         <segue destination="VFZ-es-P2e" kind="push" identifier="postsToPostDetailsSegue" id="zkW-SQ-Aao"/>
                     </connections>
                 </viewController>
@@ -661,6 +677,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5sj-gs-9aR"/>
+        <segue reference="xlO-AR-rZP"/>
+        <segue reference="vqE-4H-PBA"/>
     </inferredMetricsTieBreakers>
 </document>

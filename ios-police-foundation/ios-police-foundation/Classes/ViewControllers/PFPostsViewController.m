@@ -13,15 +13,14 @@
 #import "PFPostDetailsViewController.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
-#import "PFCommonTableViewCell.h"
+#import "PFArticleCollectionViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFPostsViewController ()
 
 @property (strong, nonatomic) NSArray * posts;
-@property (strong, nonatomic) PFArrayDataSource * postsArrayDataSource;
-@property (strong, nonatomic) IBOutlet UITableView * tableView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -31,8 +30,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Posts";
-    [self setupTableView];
+    [self setUpCollectionView];
     [self fetchPosts];
     
     @weakify(self);
@@ -44,7 +42,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
     self.screenName = @"WordPress Post List Screen";
 }
 
@@ -55,47 +52,85 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSDictionary * post = [self.postsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    // track selected post and seque to post details
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    NSDictionary * post = [self.posts objectAtIndex:selectedIndexPath.row];
+    NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
+        
     NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
     ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat widthFactor = 0.5f;
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = 0.25f;
+    }
+    
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
+    return size;
+}
+
+
+#pragma mark - UICollectionViewDataSource methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.posts.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFArticleCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
+    
+    // configure cell
+    NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
+    cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
+    NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
+    NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
+    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    cell.excerptLabel.text = excerpt;
+    
+    return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
+}
+
+#pragma mark - Setters
+
+- (void)setCategory:(NSDictionary *)category {
+    _category = category;
+    self.title = [_category objectForKey:WP_CATEGORY_NAME_KEY];
+}
+
+- (void)setTag:(NSDictionary *)tag {
+    _tag = tag;
+    self.title = [_tag objectForKey:WP_TAG_NAME_KEY];
+}
+
+
 #pragma mark - Private methods
 
-- (void)setupTableView {
-    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
-    self.tableView.estimatedRowHeight = 44.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * post) {
-        cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-        NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-        NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
-        cell.descriptionLabel.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", [NSString pfMediumDateStringFromDate:date], excerpt];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    };
-    
-    TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * indexPath , NSDictionary * post) {
-        // track selected post
-        NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
-        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
-        [self performSegueWithIdentifier:@"postsToPostDetailsSegue" sender:self];
-    };
-    
-    self.posts = [NSArray array];
-    self.postsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.posts
-                                                          cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
-                                                      configureCellBlock:configureCellBlock
-                                                         selectCellBlock:selectCellBlock];
-    self.tableView.dataSource = self.postsArrayDataSource;
-    self.tableView.delegate = self.postsArrayDataSource;
-    
-    // hide extra rows
-    self.tableView.tableFooterView = [[UIView alloc] init];
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFArticleCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchPosts {
-    
     [self showBarberPole];
     
     @weakify(self)
@@ -123,8 +158,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                  if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
                                                                      NSDictionary * response = (NSDictionary *)responseObject;
                                                                      self->_posts = [response objectForKey:WP_POSTS_API_RESPONSE_POSTS_KEY];
-                                                                     [self->_postsArrayDataSource reloadItems:self->_posts];
-                                                                     [self->_tableView reloadData];
+                                                                     [self->_collectionView reloadData];
                                                                  }
 
                                                                  [self hideBarberPole];
