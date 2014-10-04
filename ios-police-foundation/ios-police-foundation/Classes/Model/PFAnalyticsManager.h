@@ -19,6 +19,7 @@ static NSString * GA_SELECTED_TAG_ACTION = @"User selected tag";
 static NSString * GA_SELECTED_CATEGORY_AND_TAG_ACTION = @"User selected category and tag";
 static NSString * GA_SELECTED_POST_ACTION = @"User selected WordPress post";
 static NSString * GA_SELECTED_RSS_POST_ACTION = @"User selected RSS post";
+static NSString * GA_TEXT_SEARCH_ACTION = @"User text searched WordPress posts";
 
 @interface PFAnalyticsManager : NSObject
 

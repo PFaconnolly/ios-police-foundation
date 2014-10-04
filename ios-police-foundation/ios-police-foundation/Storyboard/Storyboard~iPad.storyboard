@@ -73,7 +73,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MjT-US-Pq8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY" userLabel="Main View">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
@@ -91,20 +91,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBg-kk-BmF" userLabel="dateLabel">
-                                <rect key="frame" x="24" y="98" width="172" height="22"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="24" y="98" width="172" height="21"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-VN-uni" userLabel="separatorView">
-                                <rect key="frame" x="24" y="131" width="720" height="1"/>
+                                <rect key="frame" x="24" y="130" width="720" height="1"/>
                                 <color key="backgroundColor" red="0.87135283799999996" green="0.87135283799999996" blue="0.87135283799999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="CSr-Id-Pso"/>
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-Wt-YXe">
-                                <rect key="frame" x="24" y="140" width="720" height="835"/>
+                                <rect key="frame" x="24" y="139" width="720" height="885"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="VFZ-es-P2e" id="JsO-Vi-57f"/>
@@ -471,31 +471,39 @@ The president of the foundation speaks out on issues important to policing and s
                                     <constraint firstAttribute="centerY" secondItem="WRp-Kq-eWa" secondAttribute="centerY" id="trh-Eh-G2E"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-h7-Pxz">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NxG-vk-AgF">
                                 <rect key="frame" x="0.0" y="50" width="768" height="910"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="qCo-cI-frP">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
                                 <connections>
-                                    <outlet property="delegate" destination="VUD-bf-LXb" id="chS-Ze-pZX"/>
+                                    <outlet property="dataSource" destination="VUD-bf-LXb" id="h9R-48-Cfc"/>
+                                    <outlet property="delegate" destination="VUD-bf-LXb" id="4mW-2g-0Pi"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VZA-h7-Pxz" firstAttribute="leading" secondItem="EQu-0i-kio" secondAttribute="leading" id="99G-ef-Ubn"/>
-                            <constraint firstItem="U5y-Sb-jWc" firstAttribute="top" secondItem="VZA-h7-Pxz" secondAttribute="bottom" id="C9I-9I-PGO"/>
+                            <constraint firstItem="NxG-vk-AgF" firstAttribute="top" secondItem="6j3-kq-XuZ" secondAttribute="bottom" id="9zl-qs-Es4"/>
                             <constraint firstItem="6j3-kq-XuZ" firstAttribute="leading" secondItem="EQu-0i-kio" secondAttribute="leading" id="Do5-Mn-03t"/>
-                            <constraint firstItem="VZA-h7-Pxz" firstAttribute="top" secondItem="6j3-kq-XuZ" secondAttribute="bottom" id="XQu-8d-JLk"/>
+                            <constraint firstItem="NxG-vk-AgF" firstAttribute="leading" secondItem="EQu-0i-kio" secondAttribute="leading" id="I71-b7-LgA"/>
+                            <constraint firstItem="U5y-Sb-jWc" firstAttribute="top" secondItem="NxG-vk-AgF" secondAttribute="bottom" id="Mz1-mG-yyx"/>
                             <constraint firstItem="6j3-kq-XuZ" firstAttribute="top" secondItem="9Qp-1r-rdU" secondAttribute="bottom" id="b3R-1v-OqF"/>
                             <constraint firstAttribute="trailing" secondItem="6j3-kq-XuZ" secondAttribute="trailing" id="fph-tY-d2J"/>
-                            <constraint firstAttribute="trailing" secondItem="VZA-h7-Pxz" secondAttribute="trailing" id="uLX-AA-ax3"/>
+                            <constraint firstAttribute="trailing" secondItem="NxG-vk-AgF" secondAttribute="trailing" id="v0a-JD-afo"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="YGa-gH-QOg"/>
                     <connections>
+                        <outlet property="collectionView" destination="NxG-vk-AgF" id="pHa-Pr-rMN"/>
                         <outlet property="searchButton" destination="FU4-za-yBk" id="hc0-iz-JUq"/>
                         <outlet property="searchTextField" destination="WRp-Kq-eWa" id="dQE-he-lfi"/>
-                        <outlet property="tableView" destination="VZA-h7-Pxz" id="eSg-MI-xdT"/>
                         <segue destination="VFZ-es-P2e" kind="push" identifier="searchToPostDetailsSegue" id="5sj-gs-9aR"/>
                     </connections>
                 </viewController>
@@ -677,7 +685,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="xlO-AR-rZP"/>
         <segue reference="vqE-4H-PBA"/>
+        <segue reference="5sj-gs-9aR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -172,7 +172,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SGZ-mx-2Hh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hMW-o7-jSw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
@@ -202,7 +202,7 @@
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-9M-9Vy">
-                                <rect key="frame" x="16" y="104" width="288" height="415"/>
+                                <rect key="frame" x="16" y="104" width="288" height="464"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                 <connections>
@@ -607,7 +607,7 @@ The president of the foundation speaks out on issues important to policing and s
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="16r-wN-194">
                                         <rect key="frame" x="11" y="10" width="237" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="XUj-WV-0n7" id="mus-Ji-F2k"/>
                                         </connections>
@@ -616,32 +616,39 @@ The president of the foundation speaks out on issues important to policing and s
                                 <color key="backgroundColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="B58-bx-vhh" secondAttribute="trailing" constant="10" id="2Rd-l6-635"/>
-                                    <constraint firstItem="16r-wN-194" firstAttribute="leading" secondItem="F2f-fI-Ddb" secondAttribute="leading" constant="11" id="gtG-st-i6A"/>
                                     <constraint firstAttribute="bottom" secondItem="16r-wN-194" secondAttribute="bottom" constant="10" id="h4e-Uc-1Ml"/>
                                     <constraint firstAttribute="bottom" secondItem="B58-bx-vhh" secondAttribute="bottom" constant="10" id="hm6-bh-1Mo"/>
                                     <constraint firstItem="16r-wN-194" firstAttribute="top" secondItem="F2f-fI-Ddb" secondAttribute="top" constant="10" id="iGO-hM-Ih7"/>
+                                    <constraint firstItem="16r-wN-194" firstAttribute="leading" secondItem="F2f-fI-Ddb" secondAttribute="leading" constant="11" id="iUT-tD-Ztt"/>
                                     <constraint firstItem="B58-bx-vhh" firstAttribute="leading" secondItem="16r-wN-194" secondAttribute="trailing" constant="8" id="j2p-2U-DyE"/>
                                     <constraint firstItem="B58-bx-vhh" firstAttribute="top" secondItem="F2f-fI-Ddb" secondAttribute="top" constant="10" id="zIl-BN-9wz"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-Wc-kW5">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KdH-Ya-m01">
                                 <rect key="frame" x="0.0" y="50" width="320" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="SsW-en-rQJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
                                 <connections>
-                                    <outlet property="delegate" destination="XUj-WV-0n7" id="A7q-E2-Wry"/>
+                                    <outlet property="dataSource" destination="XUj-WV-0n7" id="dJ4-xE-9yg"/>
+                                    <outlet property="delegate" destination="XUj-WV-0n7" id="iBg-xU-Dgs"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7J8-NT-kid" firstAttribute="top" secondItem="fnD-Wc-kW5" secondAttribute="bottom" id="Ixc-cT-q0e"/>
-                            <constraint firstItem="F2f-fI-Ddb" firstAttribute="leading" secondItem="B1E-6d-rha" secondAttribute="leadingMargin" constant="-16" id="Ngd-NX-wpU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fnD-Wc-kW5" secondAttribute="trailing" constant="-16" id="VTA-RQ-fKC"/>
-                            <constraint firstItem="fnD-Wc-kW5" firstAttribute="top" secondItem="wMK-fD-AaP" secondAttribute="bottom" constant="50" id="aPE-ae-KAL"/>
-                            <constraint firstItem="fnD-Wc-kW5" firstAttribute="leading" secondItem="B1E-6d-rha" secondAttribute="leadingMargin" constant="-16" id="eu6-TZ-eAK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="F2f-fI-Ddb" secondAttribute="trailing" constant="-16" id="iRN-Ow-jTj"/>
-                            <constraint firstItem="fnD-Wc-kW5" firstAttribute="top" secondItem="F2f-fI-Ddb" secondAttribute="bottom" id="j9F-Xl-ZL5"/>
+                            <constraint firstItem="KdH-Ya-m01" firstAttribute="top" secondItem="F2f-fI-Ddb" secondAttribute="bottom" id="SMb-os-8Km"/>
+                            <constraint firstItem="7J8-NT-kid" firstAttribute="top" secondItem="KdH-Ya-m01" secondAttribute="bottom" id="dJb-IV-HYb"/>
+                            <constraint firstAttribute="trailing" secondItem="KdH-Ya-m01" secondAttribute="trailing" id="efT-rK-SDX"/>
+                            <constraint firstItem="KdH-Ya-m01" firstAttribute="leading" secondItem="B1E-6d-rha" secondAttribute="leading" id="oQu-2f-hig"/>
                             <constraint firstItem="F2f-fI-Ddb" firstAttribute="top" secondItem="wMK-fD-AaP" secondAttribute="bottom" id="puw-Kh-XxJ"/>
+                            <constraint firstItem="F2f-fI-Ddb" firstAttribute="leading" secondItem="B1E-6d-rha" secondAttribute="leading" id="vac-az-C2l"/>
+                            <constraint firstAttribute="trailing" secondItem="F2f-fI-Ddb" secondAttribute="trailing" id="wF2-a7-3uR"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -649,9 +656,9 @@ The president of the foundation speaks out on issues important to policing and s
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionView" destination="KdH-Ya-m01" id="jLB-d9-RvO"/>
                         <outlet property="searchButton" destination="B58-bx-vhh" id="zEn-yT-fay"/>
                         <outlet property="searchTextField" destination="16r-wN-194" id="IWO-jA-BfO"/>
-                        <outlet property="tableView" destination="fnD-Wc-kW5" id="gkf-L1-ogs"/>
                         <segue destination="jbD-fJ-dga" kind="push" identifier="searchToPostDetailsSegue" id="WLV-5n-6l1"/>
                     </connections>
                 </viewController>
@@ -672,6 +679,6 @@ The president of the foundation speaks out on issues important to policing and s
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="OV0-CR-t9X"/>
-        <segue reference="847-TE-tyG"/>
+        <segue reference="WLV-5n-6l1"/>
     </inferredMetricsTieBreakers>
 </document>

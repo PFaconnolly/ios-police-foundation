@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PFViewController.h"
 
-@interface PFSearchViewController : PFViewController <UITableViewDelegate, UITextFieldDelegate>
+@interface PFSearchViewController : PFViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 
 @end
