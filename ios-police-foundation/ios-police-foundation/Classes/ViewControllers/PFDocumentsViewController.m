@@ -40,25 +40,10 @@
     
     self.documents = [[PFFileDownloadManager sharedManager] files];
     
-    /*if ( self.documents.count == 0 ) {
-        if ( self.noDocumentsView == nil ) {
-            self.noDocumentsView = [[NSBundle mainBundle] pfFindObjectInNibNamed:@"NoDocumentsView" owner:self byClass:([UIView class])];
-            self.noDocumentsView.autoresizingMask = UIViewAutoresizingFlexibleMargins;
-            
-            self.noDocumentsView.layer.borderColor = [UIColor redColor].CGColor;
-            self.noDocumentsView.layer.borderWidth = 1.0f;
-            
-            [self.view addSubview:self.noDocumentsView];
-        }
-        
-        // bring no documents view to the front
-        [self.view bringSubviewToFront:self.noDocumentsView];
-        
-        return;
-    }
+    [self toggleTableView];
     
     // bring table view to front
-    [self.view bringSubviewToFront:self.tableView];*/
+    [self.view bringSubviewToFront:self.tableView];
     
     [self.documentsArrayDataSource reloadItems:self.documents];
     [self.tableView reloadData];
@@ -101,6 +86,11 @@
         [self->_documentInteractionController presentPreviewAnimated:YES];
     };
     
+    // Item deleted ...
+    ItemDeletedBlock itemDeletedBlock = ^(NSUInteger count) {
+        [self toggleTableView];
+    };
+    
     // turn off selection during editing
     self.tableView.allowsMultipleSelection = NO;
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
@@ -110,7 +100,8 @@
     self.documentsArrayDataSource = [[PFEditableArrayDataSource alloc] initWithItems:self.documents
                                                                       cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
                                                                   configureCellBlock:configureCellBlock
-                                                                     selectCellBlock:selectCellBlock];
+                                                                     selectCellBlock:selectCellBlock
+                                                                    itemDeletedBlock:itemDeletedBlock];
     
     self.tableView.dataSource = self.documentsArrayDataSource;
     self.tableView.delegate = self.documentsArrayDataSource;
@@ -118,6 +109,22 @@
 
 - (void)editButtonTapped:(id)sender {
     self.tableView.editing = ! self.tableView.editing;
+}
+
+- (void)toggleTableView {
+    if ( self.documents.count == 0 ) {
+        if ( self.noDocumentsView == nil ) {
+            self.noDocumentsView = [[NSBundle mainBundle] pfFindObjectInNibNamed:@"NoDocumentsView" owner:self byClass:([UIView class])];
+            self.noDocumentsView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+            [self.view addSubview:self.noDocumentsView];
+        }
+        
+        // bring no documents view to the front
+        [self.view bringSubviewToFront:self.noDocumentsView];
+    }
+    else {
+        [self.view sendSubviewToBack:self.noDocumentsView];
+    }
 }
 
 @end

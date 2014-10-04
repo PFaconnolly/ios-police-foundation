@@ -19,13 +19,30 @@
 
 #pragma mark - UITableViewDataSource methods
 
+- (id)initWithItems:(NSArray *)anItems
+     cellIdentifier:(NSString *)aCellIdentifier
+ configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+    selectCellBlock:(TableViewCellSelectBlock)aSelectCellBlock
+   itemDeletedBlock:(ItemDeletedBlock)anItemDeletedBlock {
+    self = [super initWithItems:anItems
+                 cellIdentifier:aCellIdentifier
+             configureCellBlock:aConfigureCellBlock
+                selectCellBlock:aSelectCellBlock];
+    if (self) {
+        self.itemDeletedBlock = [anItemDeletedBlock copy];
+    }
+    return self;
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ( editingStyle == UITableViewCellEditingStyleDelete ) {
         NSDictionary * document = [self itemAtIndexPath:indexPath];
         NSString * filePath = [document objectForKey:PFFilePath];
         
+        @weakify(self);
         // Delete item at filePath
         [[PFFileDownloadManager sharedManager] deleteFileAtPath:filePath withCompletion:^(NSError * error) {
+            @strongify(self);
             if ( error ) {
                 [UIAlertView pfShowWithTitle:@"File was not deleted" message:error.localizedDescription];
                 return;
@@ -34,6 +51,11 @@
             // remove file from items and reload table
             [self.items removeObjectAtIndex:indexPath.row];
             [tableView reloadData];
+            
+            // fire items deleted block
+            if ( self->_itemDeletedBlock ) {
+                self->_itemDeletedBlock(self.items.count);
+            }
         }];
     }
 }

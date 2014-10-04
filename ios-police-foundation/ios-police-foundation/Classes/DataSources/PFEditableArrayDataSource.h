@@ -8,6 +8,17 @@
 
 #import "PFArrayDataSource.h"
 
+typedef void (^ItemDeletedBlock)(NSUInteger count);
+
 @interface PFEditableArrayDataSource : PFArrayDataSource
+
+@property (nonatomic, copy) ItemDeletedBlock itemDeletedBlock;
+
+- (id)initWithItems:(NSArray *)anItems
+     cellIdentifier:(NSString *)aCellIdentifier
+ configureCellBlock:(TableViewCellConfigureBlock)aConfigureCellBlock
+    selectCellBlock:(TableViewCellSelectBlock)aSelectCellBlock
+   itemDeletedBlock:(ItemDeletedBlock)anItemDeletedBlock;
+
 
 @end

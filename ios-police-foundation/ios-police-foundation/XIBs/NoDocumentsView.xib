@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment version="2048" identifier="iOS"/>
+        <deployment version="2048" defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -11,28 +11,26 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Folder Icon Large" translatesAutoresizingMaskIntoConstraints="NO" id="9sO-Sm-fnj">
-                    <rect key="frame" x="200" y="287" width="200" height="200"/>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have not downloaded any documents yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-FV-8WZ">
-                    <rect key="frame" x="150" y="80" width="301" height="199"/>
+                    <rect key="frame" x="150" y="58" width="301" height="199"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="301" id="JDv-sN-AyG"/>
                         <constraint firstAttribute="height" constant="199" id="Zwc-7p-Rgn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="21"/>
+                    <color key="textColor" red="0.0078431377190000002" green="0.57647061349999995" blue="0.99607849120000003" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Folder Icon Large" translatesAutoresizingMaskIntoConstraints="NO" id="X7s-Hy-qSf">
+                    <rect key="frame" x="200" y="200" width="200" height="200"/>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.93094206199999996" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93789717078567314" green="0.97778085495224321" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="9sO-Sm-fnj" secondAttribute="centerX" id="9TN-pe-LcY"/>
-                <constraint firstAttribute="centerY" secondItem="9sO-Sm-fnj" secondAttribute="centerY" constant="-87" id="Yba-s5-L1R"/>
-                <constraint firstItem="9sO-Sm-fnj" firstAttribute="top" secondItem="ASE-FV-8WZ" secondAttribute="bottom" constant="8" id="oSh-U8-gcC"/>
-                <constraint firstAttribute="centerX" secondItem="ASE-FV-8WZ" secondAttribute="centerX" constant="-0.5" id="q2a-17-eWS"/>
+                <constraint firstAttribute="centerX" secondItem="ASE-FV-8WZ" secondAttribute="centerX" id="q2a-17-eWS"/>
+                <constraint firstItem="ASE-FV-8WZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="58" id="zKw-kP-0mc"/>
             </constraints>
-            <point key="canvasLocation" x="693" y="677"/>
+            <point key="canvasLocation" x="590" y="471"/>
         </view>
     </objects>
     <resources>

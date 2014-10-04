@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Folder Icon Large 200x200.png"
+      "filename" : "Folder Icon Large.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Folder Icon Large 200x200@2x.png"
+      "filename" : "Folder Icon Large@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Folder Icon Large 200x200@3x.png"
+      "filename" : "Folder Icon Large@3x.png"
     }
   ],
   "info" : {
