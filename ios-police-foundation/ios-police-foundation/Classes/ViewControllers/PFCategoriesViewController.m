@@ -10,18 +10,17 @@
 #import "PFAppDelegate.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFArrayDataSource.h"
-#import "PFTagsViewController.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
-#import "PFCommonTableViewCell.h"
+#import "PFPostsViewController.h"
+#import "PFCategoryCollectionViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFCategoriesViewController ()
 
 @property (strong, nonatomic) NSArray * categories;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) PFArrayDataSource * categoriesDataSource;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -31,14 +30,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"Research";
-    [self setUpTableView];
+    self.title = @"Categories";
+    [self setUpCollectionView];
     [self fetchCategories];
 
-    UIBarButtonItem * searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Search Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonTapped:)];
-    self.navigationItem.leftBarButtonItem = searchButton;
-    
     @weakify(self);
     self.refreshBlock = ^(){
         @strongify(self);
@@ -48,53 +43,73 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    self.screenName = @"WordPress Research Screen";
+    self.screenName = @"WordPress Categories Screen";
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // track selected category
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    NSDictionary * category = [self.categories objectAtIndex:selectedIndexPath.row];
+    NSString * selectedCategorySlug = [category objectForKey:WP_CATEGORY_SLUG_KEY];
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
+    
+    // set category on posts view controller
+    ((PFPostsViewController *)segue.destinationViewController).category = category;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat widthFactor = 0.5f;
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = 0.25f;
+    }
+    
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 150.0f);
+    return size;
 }
 
 
-#pragma mark - IBActions
+#pragma mark - UICollectionViewDataSource methods
 
-- (void)searchButtonTapped:(id)sender {
-    [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
 }
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.categories.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFCategoryCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFCategoryCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
+    
+    // configure cell
+    NSDictionary * category = [self.categories objectAtIndex:indexPath.row];
+    cell.nameLabel.text =  [category valueForKey:WP_CATEGORY_NAME_KEY];
+    cell.descriptionLabel.text = [category valueForKey:WP_CATEGORY_DESCRIPTION_KEY];
+    
+    return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"categoriesToPostsSegue" sender:self];
+}
+
+
+
 
 #pragma mark - Private methods
 
-- (void)setUpTableView {
-    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];    
-    self.tableView.estimatedRowHeight = 44.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    // Configuration cell block
-    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * item) {
-        cell.titleLabel.text =  [item valueForKey:WP_CATEGORY_NAME_KEY];
-        cell.descriptionLabel.text = [item valueForKey:WP_CATEGORY_DESCRIPTION_KEY];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    };
-    
-    // Selection cell block
-    TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * path, NSDictionary * item) {
-        // track selected category
-        NSString * selectedCategorySlug = [item objectForKey:WP_CATEGORY_SLUG_KEY];
-        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
-        
-        // save selected category
-        ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = selectedCategorySlug;
-        
-        [self performSegueWithIdentifier:@"categoriesToTagsSegue" sender:self];
-    };
-
-    self.categoriesDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
-                                                          cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
-                                                      configureCellBlock:configureCellBlock
-                                                         selectCellBlock:selectCellBlock];
-    
-    self.tableView.dataSource = self.categoriesDataSource;
-    self.tableView.delegate = self.categoriesDataSource;
-    
-    // hide extra rows
-    self.tableView.tableFooterView = [[UIView alloc] init];
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFCategoryCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFCategoryCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchCategories {
@@ -107,8 +122,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                       @strongify(self)
                                                                       NSDictionary * response = (NSDictionary *)responseObject;
                                                                       self->_categories = [response objectForKey:WP_CATEGORIES_KEY];
-                                                                      [self->_categoriesDataSource reloadItems:self->_categories];
-                                                                      [self->_tableView reloadData];
+                                                                      [self->_collectionView reloadData];
                                                                       [self hideBarberPole];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {

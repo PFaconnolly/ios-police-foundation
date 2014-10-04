@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "PFRefreshableViewController.h"
 
-@interface PFCategoriesViewController : PFRefreshableViewController
+@interface PFCategoriesViewController : PFRefreshableViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end

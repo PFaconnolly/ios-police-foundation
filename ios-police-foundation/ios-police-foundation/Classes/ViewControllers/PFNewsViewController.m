@@ -12,7 +12,8 @@
 #import "PFRSSHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
 #import "PFAppDelegate.h"
-#import "PFCommonTableViewCell.h"
+#import "PFArticleCollectionViewCell.h"
+#import "PFAnalyticsManager.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
@@ -20,8 +21,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @property (strong, nonatomic) NSMutableArray * rssPosts;
 @property (strong, nonatomic) NSMutableDictionary * rssPost;
-@property (strong, nonatomic) PFArrayDataSource * rssPostsArrayDataSource;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 // nasty xml parsing
 @property (strong, nonatomic) NSString * currentElementName;
@@ -34,7 +34,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"News";
-    
+    [self setUpCollectionView];
     [self fetchRssPosts];
     
     @weakify(self);
@@ -46,36 +46,77 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    
     self.screenName = @"RSS News Screen";
 }
 
-- (void)setupTableView {
-    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
-    self.tableView.estimatedRowHeight = 44.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // track selected post and seque to post details
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    NSDictionary * rssPost = [self.rssPosts objectAtIndex:selectedIndexPath.row];
+    NSString * postURL = [rssPost objectForKey:RSS_POST_LINK_KEY];
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_RSS_POST_ACTION label:postURL value:nil];
     
-    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * rssPost) {
-        cell.titleLabel.text = [rssPost objectForKey:RSS_POST_TITLE_KEY];
-        NSDate * date = [NSDate pfDateFromRfc822String:[rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
-        cell.descriptionLabel.text = [NSString pfMediumDateStringFromDate:date];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    };
+    // segue to post details
+    ((PFPostDetailsViewController *)segue.destinationViewController).rssPost = rssPost;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    TableViewCellSelectBlock selectBlock = ^(NSIndexPath * indexPath, NSDictionary * rssPost) {
-        [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
-    };
+    CGFloat widthFactor = 0.5f;
     
-    self.rssPostsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.rssPosts
-                                                             cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
-                                                         configureCellBlock:configureCellBlock
-                                                            selectCellBlock:selectBlock];
-    self.tableView.dataSource = self.rssPostsArrayDataSource;
-    self.tableView.delegate = self.rssPostsArrayDataSource;
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = 0.25f;
+    }
     
-    // hide extra rows
-    self.tableView.tableFooterView = [[UIView alloc] init];
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
+    return size;
+}
+
+
+#pragma mark - UICollectionViewDataSource methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.rssPosts.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFArticleCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
+    
+    // configure cell
+    NSDictionary * rssPost = [self.rssPosts objectAtIndex:indexPath.row];
+    cell.titleLabel.text = [rssPost objectForKey:RSS_POST_TITLE_KEY];
+    NSDate * date = [NSDate pfDateFromRfc822String:[rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
+    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    
+    // build the excerpt
+    NSString * content = [[rssPost objectForKey:RSS_POST_DESCRIPTION_KEY] pfStringByConvertingHTMLToPlainText];
+    NSString * excerpt = (content.length < 120) ? content : [content substringWithRange:NSMakeRange(0, 120)];
+    cell.excerptLabel.text = [NSString stringWithFormat:@"%@ ...", excerpt];
+    
+    return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"newsToPostDetailsSegue" sender:self];
+}
+
+
+#pragma mark - Private methods
+
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFArticleCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchRssPosts {
@@ -152,15 +193,7 @@ didStartElement:(NSString *)elementName
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     DDLogVerbose(@"parserDidEndDocument");
-    [self setupTableView];
+    [self.collectionView reloadData];
 }
-
-#pragma mark - Segue methods
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSDictionary * rssPost = [self.rssPostsArrayDataSource itemAtIndexPath:[self.tableView indexPathForSelectedRow]];
-    ((PFPostDetailsViewController *)segue.destinationViewController).rssPost = rssPost;
-}
-
 
 @end
