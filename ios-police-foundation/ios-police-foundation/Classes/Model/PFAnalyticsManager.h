@@ -15,6 +15,7 @@ static NSString * GA_USER_ACTION_CATEGORY = @"User Action";
 // Google Analytics actions
 static NSString * GA_APPLICATION_LAUNCHED_ACTION = @"Application launched";
 static NSString * GA_SELECTED_CATEGORY_ACTION = @"User selected category";
+static NSString * GA_SELECTED_TAG_ACTION = @"User selected tag";
 static NSString * GA_SELECTED_CATEGORY_AND_TAG_ACTION = @"User selected category and tag";
 static NSString * GA_SELECTED_POST_ACTION = @"User selected WordPress post";
 static NSString * GA_SELECTED_RSS_POST_ACTION = @"User selected RSS post";

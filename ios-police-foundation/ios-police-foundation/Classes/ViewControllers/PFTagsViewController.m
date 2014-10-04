@@ -12,16 +12,15 @@
 #import "PFHTTPRequestOperationManager.h"
 #import "PFBarberPoleView.h"
 #import "PFAnalyticsManager.h"
-#import "PFCommonTableViewCell.h"
 #import "PFPostsViewController.h"
+#import "PFTagCollectionViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFTagsViewController ()
 
 @property (strong, nonatomic) NSArray * tags;
-@property (strong, nonatomic) PFArrayDataSource *tagsArrayDataSource;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -31,7 +30,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidLoad];
     self.title = @"Tags";
 
-    [self setupTableView];
+    [self setUpCollectionView];
     
     [self fetchTags];
     
@@ -43,52 +42,74 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];    
+    [super viewWillAppear:animated];  
     self.screenName = @"WordPress Tags Screen";
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSDictionary * tag = [self.tags objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    // track selected tag
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    NSDictionary * tag = [self.tags objectAtIndex:selectedIndexPath.row];
+    NSString * selectedTagSlug = [tag objectForKey:WP_TAG_SLUG_KEY];
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_TAG_ACTION label:selectedTagSlug value:nil];
+    
+    // segue to posts with the provided tag
     ((PFPostsViewController *)segue.destinationViewController).tag = tag;
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    CGFloat widthFactor = 0.5f;
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = 0.25f;
+    }
+    
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 150.0f);
+    return size;
+}
+
+#pragma mark - UICollectionViewDataSource methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.tags.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFTagCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFTagCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
+    
+    // configure cell
+    NSDictionary * tag = [self.tags objectAtIndex:indexPath.row];
+    cell.nameLabel.text =  [tag valueForKey:WP_TAG_NAME_KEY];
+    cell.descriptionLabel.text = [tag valueForKey:WP_TAG_DESCRIPTION_KEY];
+    
+    return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    // segue to posts
+    [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
+}
+
+
+
 #pragma mark - Private methods
 
-- (void)setupTableView {
-    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
-    self.tableView.estimatedRowHeight = 44.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    TableViewCellConfigureBlock configureCellBlock = ^(PFCommonTableViewCell * cell, NSDictionary * tag) {
-        cell.titleLabel.text = [tag objectForKey:WP_TAG_NAME_KEY];
-        cell.descriptionLabel.text = [tag objectForKey:WP_TAG_DESCRIPTION_KEY];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    };
-    
-    TableViewCellSelectBlock selectCellBlock = ^(NSIndexPath * indexPath , NSDictionary * tag) {
-        NSString * selectedTagSlug = [tag objectForKey:WP_TAG_SLUG_KEY];
-        
-        // track selected category & tag
-        NSString * selectedCategorySlug = ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug;
-        NSString * categoryAndSlugTrackingLabel = [NSString stringWithFormat:@"%@ / %@", selectedCategorySlug, selectedTagSlug];
-        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_AND_TAG_ACTION label:categoryAndSlugTrackingLabel value:nil];
-        
-        // segue to posts
-        [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
-    };
-    
-    self.tags = [NSArray array];
-    self.tagsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.tags
-                                                         cellIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]
-                                                     configureCellBlock:configureCellBlock
-                                                        selectCellBlock:selectCellBlock];
-    
-    self.tableView.dataSource = self.tagsArrayDataSource;
-    self.tableView.delegate = self.tagsArrayDataSource;
-    
-    // hide extra rows
-    self.tableView.tableFooterView = [[UIView alloc] init];
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFTagCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFTagCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchTags {
@@ -101,9 +122,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                 @strongify(self)
                                                                 NSDictionary * response = (NSDictionary *)responseObject;
                                                                 self->_tags = [response objectForKey:WP_TAGS_KEY];
-                                                                [self->_tagsArrayDataSource reloadItems:self->_tags];
-                                                                [self->_tableView reloadData];
-                                                                
+                                                                [self->_collectionView reloadData];                                                                
                                                                 [self hideBarberPole];
                                                             }
                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -111,32 +130,5 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                 [self hideBarberPole];
                                                             }];
 }
-
-//#pragma mark - UITableViewDelegate methods
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    // Dynamic height table cells in iOS 8 need only an estimated row height
-//    // and the UITableViewAutomaticDimension specified. iOS 7 and below need a
-//    // prototype cell
-//    if ( SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0"))
-//    {
-//        return UITableViewAutomaticDimension;
-//    }
-//    
-//    PFCommonTableViewCell * prototypeCell = (PFTagTableViewCell *)[PFTagTableViewCell prototypeCell];
-//
-//    NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
-//    [prototypeCell setTagData:tag];
-//    
-//    CGFloat height = [prototypeCell pfGetCellHeightForTableView:tableView];
-//    DDLogVerbose(@"row: %li height: %f", (long)indexPath.row, height);
-//    DDLogVerbose(@"-");
-//    DDLogVerbose(@"-");
-//    return height;
-//}
-//
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    }
 
 @end

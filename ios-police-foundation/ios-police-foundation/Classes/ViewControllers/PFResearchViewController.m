@@ -11,7 +11,7 @@
 #import "PFAnalyticsManager.h"
 #import "PFHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
-#import "PFCollectionViewCell.h"
+#import "PFArticleCollectionViewCell.h"
 
 typedef void (^TableViewCellConfigureBlock)(id cell, id indexPath);
 typedef void (^TableViewCellSelectBlock)(id indexPath);
@@ -80,6 +80,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     return size;
 }
 
+
 #pragma mark - UICollectionViewDataSource methods
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -91,7 +92,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    PFCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PFCollectionViewCell" forIndexPath:indexPath];
+    PFArticleCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
 
     // configure cell
     NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
@@ -100,9 +101,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
     cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
     cell.excerptLabel.text = excerpt;
-    
+
     return cell;
 }
+
 
 #pragma mark - UICollectionViewDelegate methods
 
@@ -113,7 +115,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 #pragma mark - Private methods
 
 - (void)setUpCollectionView {
-    [self.collectionView registerNib:[PFCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFCollectionViewCell pfCellReuseIdentifier]];
+    [self.collectionView registerNib:[PFArticleCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchPosts {

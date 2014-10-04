@@ -1,14 +1,14 @@
 //
-//  PFCollectionViewCell.m
+//  PFTagCollectionViewCell.m
 //  ios-police-foundation
 //
 //  Created by Aaron Connolly on 10/3/14.
 //  Copyright (c) 2014 Police Foundation. All rights reserved.
 //
 
-#import "PFCollectionViewCell.h"
+#import "PFTagCollectionViewCell.h"
 
-@implementation PFCollectionViewCell
+@implementation PFTagCollectionViewCell
 
 - (void)awakeFromNib {
     // Initialization code
