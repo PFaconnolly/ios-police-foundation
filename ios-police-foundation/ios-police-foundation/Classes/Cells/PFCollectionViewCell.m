@@ -7,13 +7,13 @@
 //
 
 #import "PFCollectionViewCell.h"
+#import "UIColor+PFExtensions.h"
 
 @implementation PFCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    self.layer.borderWidth = 1.0f;
+
+    self.backgroundColor = [UIColor pfRandomLightBlueColor];
     
     // iOS 8 encoded collection view cells don't have auto resizing masks by default:
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

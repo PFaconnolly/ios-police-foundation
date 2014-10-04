@@ -10,14 +10,4 @@
 
 @implementation PFTagCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-    self.layer.borderColor = [UIColor redColor].CGColor;
-    self.layer.borderWidth = 1.0f;
-    
-    // iOS 8 encoded collection view cells don't have auto resizing masks by default:
-    self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
-}
-
 @end

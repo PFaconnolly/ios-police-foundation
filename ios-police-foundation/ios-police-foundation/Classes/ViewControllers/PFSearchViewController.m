@@ -177,8 +177,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - IBActions
-
 - (IBAction)searchButtonTapped:(id)sender {
     [self.searchTextField resignFirstResponder];
     [self searchPosts];

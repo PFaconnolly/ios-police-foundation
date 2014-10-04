@@ -18,6 +18,7 @@
 		B005FDE519DFB9A200B361AD /* PFTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDE319DFB9A200B361AD /* PFTagCollectionViewCell.m */; };
 		B005FDE619DFB9A200B361AD /* PFTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */; };
 		B005FDE919DFBE3C00B361AD /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */; };
+		B005FDEC19E0531300B361AD /* UIColor+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */; };
 		B006F73F1931423500374295 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F73D1931423500374295 /* EXTScope.m */; };
 		B006F743193152E400374295 /* PFTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F741193152E400374295 /* PFTagsViewController.m */; };
 		B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F74B19315B0900374295 /* PFPostsViewController.m */; };
@@ -107,6 +108,8 @@
 		B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFTagCollectionViewCell.xib; path = Classes/Cells/PFTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		B005FDE719DFBE3C00B361AD /* PFCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCollectionViewCell.h; path = Classes/Cells/PFCollectionViewCell.h; sourceTree = "<group>"; };
 		B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCollectionViewCell.m; path = Classes/Cells/PFCollectionViewCell.m; sourceTree = "<group>"; };
+		B005FDEA19E0531300B361AD /* UIColor+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PFExtensions.h"; path = "Categories/UIColor+PFExtensions.h"; sourceTree = "<group>"; };
+		B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PFExtensions.m"; path = "Categories/UIColor+PFExtensions.m"; sourceTree = "<group>"; };
 		B006F73C1931423500374295 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		B006F73D1931423500374295 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		B006F73E1931423500374295 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
@@ -265,10 +268,12 @@
 				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
 				B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */,
 				B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */,
-				B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */,
-				B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */,
 				B005FDD719DF79BF00B361AD /* UICollectionViewCell+PFExtensions.h */,
 				B005FDD819DF79BF00B361AD /* UICollectionViewCell+PFExtensions.m */,
+				B005FDEA19E0531300B361AD /* UIColor+PFExtensions.h */,
+				B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */,
+				B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */,
+				B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -701,6 +706,7 @@
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
 				B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */,
+				B005FDEC19E0531300B361AD /* UIColor+PFExtensions.m in Sources */,
 				B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */,
 				B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */,
 				B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */,

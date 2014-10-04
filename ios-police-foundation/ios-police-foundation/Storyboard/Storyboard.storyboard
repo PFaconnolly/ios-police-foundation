@@ -172,7 +172,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SGZ-mx-2Hh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hMW-o7-jSw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
@@ -202,7 +202,7 @@
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-9M-9Vy">
-                                <rect key="frame" x="16" y="104" width="288" height="464"/>
+                                <rect key="frame" x="16" y="104" width="288" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                 <connections>
@@ -678,7 +678,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="OQV-gI-DMh"/>
         <segue reference="OV0-CR-t9X"/>
-        <segue reference="WLV-5n-6l1"/>
     </inferredMetricsTieBreakers>
 </document>
