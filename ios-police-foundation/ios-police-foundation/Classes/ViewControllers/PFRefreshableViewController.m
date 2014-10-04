@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithTitle:@"Refresh" style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
+    UIBarButtonItem * refreshButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Refresh Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(refreshButtonTapped:)];
     self.navigationItem.rightBarButtonItem = refreshButton;
 }
 

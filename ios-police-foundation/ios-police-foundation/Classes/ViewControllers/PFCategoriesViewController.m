@@ -33,7 +33,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Research";
+    self.title = @"Categories";
     [self setUpTableView];
     [self fetchCategories];
 

@@ -597,23 +597,34 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0i5-Hz-ds6">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="W8R-G7-kOk">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="fCn-P6-Yo4">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9uz-ui-NT6" id="eHv-pr-NVo"/>
+                                    <outlet property="delegate" destination="9uz-ui-NT6" id="HOk-fh-iuh"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0i5-Hz-ds6" firstAttribute="leading" secondItem="gBH-IE-dI9" secondAttribute="leading" id="3Eb-Lm-jKm"/>
-                            <constraint firstAttribute="trailing" secondItem="0i5-Hz-ds6" secondAttribute="trailing" id="9b1-Ft-TVx"/>
-                            <constraint firstItem="0i5-Hz-ds6" firstAttribute="top" secondItem="7cV-eh-KSB" secondAttribute="bottom" id="RcR-gY-1dr"/>
-                            <constraint firstItem="RhF-bz-VkM" firstAttribute="top" secondItem="0i5-Hz-ds6" secondAttribute="bottom" id="YqB-co-iAL"/>
+                            <constraint firstAttribute="trailing" secondItem="W8R-G7-kOk" secondAttribute="trailing" id="1LH-3V-iVJ"/>
+                            <constraint firstItem="RhF-bz-VkM" firstAttribute="top" secondItem="W8R-G7-kOk" secondAttribute="bottom" id="3Zs-to-XiH"/>
+                            <constraint firstItem="W8R-G7-kOk" firstAttribute="leading" secondItem="gBH-IE-dI9" secondAttribute="leading" id="Aqh-Vo-YHY"/>
+                            <constraint firstItem="W8R-G7-kOk" firstAttribute="top" secondItem="7cV-eh-KSB" secondAttribute="bottom" id="e2X-kF-fhA"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="7lW-Ab-IRf"/>
                     <connections>
-                        <outlet property="tableView" destination="0i5-Hz-ds6" id="QB0-WM-wNI"/>
+                        <outlet property="collectionView" destination="W8R-G7-kOk" id="DPA-Ad-UWE"/>
                         <segue destination="Rro-np-V3z" kind="push" identifier="researchToCategoriesSegue" id="CiC-gk-RhR"/>
                         <segue destination="8nP-TS-2fK" kind="push" identifier="researchToTagsSegue" id="6lR-97-Zi3"/>
                         <segue destination="VFZ-es-P2e" kind="push" identifier="researchToPostDetailsSegue" id="t08-HI-8Ty"/>

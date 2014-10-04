@@ -31,15 +31,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Posts";
-    //[self setupTableView];
-    
-    [self.collectionView registerNib:[PFCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFCollectionViewCell pfCellReuseIdentifier]];
-    
+    [self setUpCollectionView];
     [self fetchPosts];
     
     UIBarButtonItem * searchButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Search Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonTapped:)];
-    self.navigationItem.leftBarButtonItem = searchButton;
+    UIBarButtonItem * categoriesButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Categories Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(categoriesButtonTapped:)];
+    UIBarButtonItem * tagsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Tags Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(tagsButtonTapped:)];
+    self.navigationItem.leftBarButtonItems = @[searchButton, categoriesButton, tagsButton];
     
     @weakify(self);
     self.refreshBlock = ^(){
@@ -54,14 +52,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    // track selected post and seque to post details
-    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
-    NSDictionary * post = [self.posts objectAtIndex:selectedIndexPath.row];
-    NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
-    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
-    
     if ( [segue.identifier isEqualToString:@"researchToPostDetailsSegue"] ) {
+        // track selected post and seque to post details
+        NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+        NSDictionary * post = [self.posts objectAtIndex:selectedIndexPath.row];
+        NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
+        
         NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
         ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
     }
@@ -72,7 +69,14 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) / 2.0f, 200.0f);
+    
+    CGFloat widthFactor = 0.5f;
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = 0.25f;
+    }
+    
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
     return size;
 }
 
@@ -100,27 +104,17 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     return cell;
 }
 
-
 #pragma mark - UICollectionViewDelegate methods
-
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"researchToPostDetailsSegue" sender:self];
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 #pragma mark - Private methods
+
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFCollectionViewCell pfCellReuseIdentifier]];
+}
 
 - (void)fetchPosts {
     [self showBarberPole];
@@ -153,90 +147,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
 }
 
-
-
-
-
-
-
-
-
-
-/*
-- (void)setupTableView {
-    [self.tableView registerClass:[PFCommonTableViewCell class] forCellReuseIdentifier:[PFCommonTableViewCell pfCellReuseIdentifier]];
-    self.tableView.estimatedRowHeight = 44.0;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
-    @weakify(self);
-    self.configureCellBlock = ^(PFCommonTableViewCell * cell, NSIndexPath * indexPath) {
-        @strongify(self);
-        switch ( indexPath.section ) {
-            case 0: {
-                // configure cell
-                NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
-                cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-                NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-                NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
-                cell.descriptionLabel.text = [NSString stringWithFormat:@"%@\r\n\r\n%@", [NSString pfMediumDateStringFromDate:date], excerpt];
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                break;
-            }
-            case 1: {
-                switch ( indexPath.row ) {
-                    case 0: {
-                        cell.titleLabel.text = @"Categories";
-                        cell.descriptionLabel.text = nil;
-                        break;
-                    }
-                    case 1: {
-                        cell.titleLabel.text = @"Tags";
-                        cell.descriptionLabel.text = nil;
-                        break;
-                    }
-                    default: break;
-                }
-                break;
-            }
-            default:
-                break;
-        }
-    };
-    
-    self.selectCellBlock = ^(NSIndexPath * indexPath) {
-        @strongify(self);
-        
-        switch ( indexPath.section ) {
-            case 0: {
-                // track selected post and seque to post details
-                NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
-                NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
-                [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
-                [self performSegueWithIdentifier:@"researchToPostDetailsSegue" sender:self];
-                break;
-            }
-            case 1: {
-                switch ( indexPath.row ) {
-                    case 0: [self performSegueWithIdentifier:@"researchToCategoriesSegue" sender:self]; break;
-                    case 1: [self performSegueWithIdentifier:@"researchToTagsSegue" sender:self]; break;
-                    default: break;
-                }
-                break;
-            }
-            default: break;
-        }
-    };
-    
-    self.posts = [NSArray array];
-    //self.tableView.dataSource = self;
-    //self.tableView.delegate = self;
-    
-    // hide extra rows
-    self.tableView.tableFooterView = [[UIView alloc] init];
+- (void)categoriesButtonTapped:(id)sender {
+    [self performSegueWithIdentifier:@"researchToCategoriesSegue" sender:self];
 }
- */
 
-
-
+- (void)tagsButtonTapped:(id)sender {
+    [self performSegueWithIdentifier:@"researchToTagsSegue" sender:self];
+}
 
 @end
