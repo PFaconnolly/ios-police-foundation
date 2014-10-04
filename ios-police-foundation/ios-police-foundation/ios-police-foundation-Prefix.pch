@@ -22,6 +22,7 @@
     #import "NSString+PFExtensions.h"
     #import "UIAlertView+PFExtensions.h"
     #import "UITableViewCell+PFExtensions.h"
+    #import "UICollectionViewCell+PFExtensions.h"
     #import "PureLayout.h"
 #endif
 

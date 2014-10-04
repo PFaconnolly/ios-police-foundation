@@ -8,6 +8,6 @@
 
 #import "PFRefreshableViewController.h"
 
-@interface PFResearchViewController : PFRefreshableViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PFResearchViewController : PFRefreshableViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
     <dependencies>
-        <deployment version="2048" identifier="iOS"/>
+        <deployment version="2048" defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -146,7 +146,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SGZ-mx-2Hh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hMW-o7-jSw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAq-qN-vHm" userLabel="Title - Label">
@@ -176,7 +176,7 @@
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2o-9M-9Vy">
-                                <rect key="frame" x="16" y="104" width="288" height="464"/>
+                                <rect key="frame" x="16" y="104" width="288" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                 <connections>
@@ -489,22 +489,33 @@ The president of the foundation speaks out on issues important to policing and s
                         <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n3U-JI-In2">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="go6-tK-52J">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="rpz-SC-nnj">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sTU-MP-e8y" id="ppo-7A-sgS"/>
+                                    <outlet property="delegate" destination="sTU-MP-e8y" id="oEr-yy-S6A"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="n3U-JI-In2" firstAttribute="top" secondItem="Nza-zj-IIg" secondAttribute="bottom" id="6Wh-Me-nAg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="n3U-JI-In2" secondAttribute="trailing" constant="-16" id="MnK-xB-3vb"/>
-                            <constraint firstItem="n3U-JI-In2" firstAttribute="leading" secondItem="j52-ft-W3w" secondAttribute="leadingMargin" constant="-16" id="i60-Bx-Ore"/>
-                            <constraint firstItem="7B0-0w-n0r" firstAttribute="top" secondItem="n3U-JI-In2" secondAttribute="bottom" id="nQF-pV-epT"/>
+                            <constraint firstAttribute="trailing" secondItem="go6-tK-52J" secondAttribute="trailing" id="JCZ-xp-VUg"/>
+                            <constraint firstItem="go6-tK-52J" firstAttribute="leading" secondItem="j52-ft-W3w" secondAttribute="leading" id="arV-iu-K6z"/>
+                            <constraint firstItem="7B0-0w-n0r" firstAttribute="top" secondItem="go6-tK-52J" secondAttribute="bottom" id="hTu-Al-1h6"/>
+                            <constraint firstItem="go6-tK-52J" firstAttribute="top" secondItem="Nza-zj-IIg" secondAttribute="bottom" id="xgB-ZW-FzY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MfC-H1-TpR"/>
                     <connections>
-                        <outlet property="tableView" destination="n3U-JI-In2" id="gUJ-9O-SYn"/>
+                        <outlet property="collectionView" destination="go6-tK-52J" id="d7J-Vj-4Dy"/>
                         <segue destination="tCp-mv-5Pc" kind="push" identifier="researchToTagsSegue" id="Ii1-Zw-87p"/>
                         <segue destination="oHZ-cH-tn0" kind="push" identifier="researchToCategoriesSegue" id="Yhv-MX-WC0"/>
                         <segue destination="DNo-pi-ZMi" kind="modal" identifier="presentSearchSegue" id="VSp-8E-WDd"/>
@@ -626,7 +637,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="OQV-gI-DMh"/>
         <segue reference="OV0-CR-t9X"/>
-        <segue reference="WLV-5n-6l1"/>
     </inferredMetricsTieBreakers>
 </document>

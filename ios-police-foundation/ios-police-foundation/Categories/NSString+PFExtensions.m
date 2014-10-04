@@ -61,7 +61,10 @@
             } else if ( [obj isKindOfClass:([NSArray class])] ) {
                 // join by comma, remove spaces
                 objString = [[((NSArray *)obj) componentsJoinedByString:@","] stringByReplacingOccurrencesOfString:@" " withString:@""];
-            }            
+            } else if ( [obj isKindOfClass:([NSNumber class])] ) {
+                objString = [NSString stringWithFormat:@"%@", obj];
+            }
+            
             queryParameters = [queryParameters stringByAppendingString:[NSString stringWithFormat:@"&%@=%@", key, objString]];
         }];
         // Replace first '&' with '?' and add parameters to url
