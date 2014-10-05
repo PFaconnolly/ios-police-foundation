@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment version="2048" defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PFNoDocumentsView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no Documents" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASE-FV-8WZ">
+                    <rect key="frame" x="150" y="33" width="301" height="66"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="301" id="JDv-sN-AyG"/>
+                        <constraint firstAttribute="height" constant="66" id="Zwc-7p-Rgn"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="21"/>
+                    <color key="textColor" red="0.0078431377190000002" green="0.36078432199999999" blue="0.74509805439999999" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To download a Document tap the Paper Clip icon when viewing an Article. Some Articles may not have any Documents." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1n-M9-9zU">
+                    <rect key="frame" x="142" y="107" width="316" height="71"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="71" id="PZO-DZ-Nez"/>
+                        <constraint firstAttribute="width" constant="316" id="zUm-fy-BNw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="15"/>
+                    <color key="textColor" red="0.48106060610000001" green="0.48106060610000001" blue="0.48106060610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Documents Tutorial Phone" translatesAutoresizingMaskIntoConstraints="NO" id="cXo-BI-QDC">
+                    <rect key="frame" x="75" y="13" width="450" height="650"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="450" id="VhM-gE-Po1"/>
+                        <constraint firstAttribute="height" constant="650" id="tzE-oF-b1a"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.93789717078567314" green="0.97778085495224321" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="x1n-M9-9zU" secondAttribute="centerY" constant="157.5" id="2Qy-p9-GcJ"/>
+                <constraint firstAttribute="centerY" secondItem="ASE-FV-8WZ" secondAttribute="centerY" constant="234" id="3XU-9y-cnG"/>
+                <constraint firstAttribute="centerX" secondItem="cXo-BI-QDC" secondAttribute="centerX" id="QMQ-sO-xg4"/>
+                <constraint firstAttribute="centerX" secondItem="ASE-FV-8WZ" secondAttribute="centerX" id="q2a-17-eWS"/>
+                <constraint firstAttribute="bottom" secondItem="cXo-BI-QDC" secondAttribute="bottom" constant="-63" id="smX-fz-ynd"/>
+                <constraint firstAttribute="centerX" secondItem="x1n-M9-9zU" secondAttribute="centerX" id="yl2-we-wwM"/>
+            </constraints>
+            <point key="canvasLocation" x="450" y="406"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Documents Tutorial Phone" width="500" height="700"/>
+    </resources>
+</document>

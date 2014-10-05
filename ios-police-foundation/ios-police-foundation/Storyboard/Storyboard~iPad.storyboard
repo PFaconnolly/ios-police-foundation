@@ -73,7 +73,7 @@
                         <viewControllerLayoutGuide type="bottom" id="MjT-US-Pq8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jZP-ux-3cY" userLabel="Main View">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
@@ -104,7 +104,7 @@
                                 </constraints>
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-Wt-YXe">
-                                <rect key="frame" x="24" y="139" width="720" height="885"/>
+                                <rect key="frame" x="24" y="139" width="720" height="836"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="VFZ-es-P2e" id="JsO-Vi-57f"/>
@@ -338,20 +338,26 @@ The president of the foundation speaks out on issues important to policing and s
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-Rn-qoh">
-                                <rect key="frame" x="4" y="0.0" width="760" height="1024"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="leM-47-q8x" id="64w-gS-iKa"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kRA-Rn-qoh" firstAttribute="top" secondItem="JZp-6K-7Ko" secondAttribute="bottom" id="Q3G-9H-Ccg"/>
-                            <constraint firstItem="kRA-Rn-qoh" firstAttribute="leading" secondItem="tuD-fA-NR1" secondAttribute="leadingMargin" constant="-16" id="d48-EM-QVx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kRA-Rn-qoh" secondAttribute="trailing" constant="-16" id="pEg-Mb-WMV"/>
-                            <constraint firstItem="GVm-Bv-Cya" firstAttribute="top" secondItem="kRA-Rn-qoh" secondAttribute="bottom" constant="-113" id="wGC-Re-aN3"/>
+                            <constraint firstAttribute="trailing" secondItem="kRA-Rn-qoh" secondAttribute="trailing" id="IEm-xf-jcp"/>
+                            <constraint firstItem="GVm-Bv-Cya" firstAttribute="top" secondItem="kRA-Rn-qoh" secondAttribute="bottom" id="Jpd-NN-rxv"/>
+                            <constraint firstItem="kRA-Rn-qoh" firstAttribute="leading" secondItem="tuD-fA-NR1" secondAttribute="leading" id="VFW-Zc-PIm"/>
+                            <constraint firstItem="kRA-Rn-qoh" firstAttribute="top" secondItem="JZp-6K-7Ko" secondAttribute="bottom" id="X69-Td-Y1C"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="RzV-dJ-dL9"/>
+                    <connections>
+                        <outlet property="tableView" destination="kRA-Rn-qoh" id="8fj-Ui-W9S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PJO-jK-it9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -526,7 +532,7 @@ The president of the foundation speaks out on issues important to policing and s
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FBP-iO-kgH">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cCj-fe-C25">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cCj-fe-C25">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -573,7 +579,7 @@ The president of the foundation speaks out on issues important to policing and s
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4bd-gL-YK6">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oOj-26-O3I">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oOj-26-O3I">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -685,7 +691,7 @@ The president of the foundation speaks out on issues important to policing and s
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vqE-4H-PBA"/>
-        <segue reference="5sj-gs-9aR"/>
+        <segue reference="t08-HI-8Ty"/>
+        <segue reference="P1D-yl-HvO"/>
     </inferredMetricsTieBreakers>
 </document>

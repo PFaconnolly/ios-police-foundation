@@ -15,19 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLm-A5-7aJ">
-                    <rect key="frame" x="682" y="20" width="66" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="513-H2-iyM"/>
-                        <constraint firstAttribute="width" constant="66" id="KDO-Ec-mKF"/>
-                    </constraints>
-                    <state key="normal" title="Dismiss">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="rbf-zc-NTh"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geA-Y2-l1C" userLabel="Container View">
                     <rect key="frame" x="46" y="68" width="676" height="888"/>
                     <subviews>
@@ -163,15 +150,29 @@ Tap </string>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLm-A5-7aJ">
+                    <rect key="frame" x="730" y="24" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="513-H2-iyM"/>
+                        <constraint firstAttribute="width" constant="30" id="KDO-Ec-mKF"/>
+                    </constraints>
+                    <state key="normal" image="Close Icon">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="rbf-zc-NTh"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0078431377190000002" green="0.36078432199999999" blue="0.74509805439999999" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="MLm-A5-7aJ" secondAttribute="trailing" constant="20" id="kV6-0U-Y6n"/>
-                <constraint firstItem="MLm-A5-7aJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="zXb-d4-gqQ"/>
+                <constraint firstAttribute="trailing" secondItem="MLm-A5-7aJ" secondAttribute="trailing" constant="8" id="kV6-0U-Y6n"/>
+                <constraint firstItem="MLm-A5-7aJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="zXb-d4-gqQ"/>
             </constraints>
         </view>
     </objects>
     <resources>
+        <image name="Close Icon" width="30" height="30"/>
         <image name="PF Logo" width="243" height="390"/>
         <image name="Welcome About Tab Icon" width="100" height="100"/>
         <image name="Welcome About Tab Icon Selected" width="100" height="102"/>
