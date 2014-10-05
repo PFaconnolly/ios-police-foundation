@@ -37,13 +37,17 @@
     return [displayDateFormatter stringFromDate:date];
 }
 
-+ (NSString *) pfStyledHTMLDocumentWithBodyContent:(NSString *)content {
++ (NSString *) pfStyledHTMLDocumentWithTitle:(NSString *)title date:(NSString*)date body:(NSString *)body {
     NSString * html = [NSString stringWithFormat:@"<html>" \
                             "<head>" \
                                 "<link href=\"default.css\" rel=\"stylesheet\" type=\"text/css\" />" \
                             "</head>" \
-                            "<body>%@</body>" \
-                       "</html>", content];
+                            "<body>" \
+                                "<h1>%@</h1>" \
+                                "<h3>%@</h3>" \
+                                "%@" \
+                            "</body>" \
+                       "</html>", title, date, body];
     return html;
 }
 

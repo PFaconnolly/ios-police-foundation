@@ -181,15 +181,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
     if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
         self.wordPressPost = (NSDictionary *)responseObject;
-        
-        self.titleLabel.text = [[self.wordPressPost objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-        
+        NSString * titleString = [[self.wordPressPost objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];        
         NSDate * date = [NSDate pfDateFromIso8601String:[self.wordPressPost objectForKey:WP_POST_DATE_KEY]];
-        
-        self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+        NSString * dateString = [NSString pfMediumDateStringFromDate:date];
         
         NSString * content = [self.wordPressPost objectForKey:WP_POST_CONTENT_KEY];
-        NSString * html = [NSString pfStyledHTMLDocumentWithBodyContent:content];
+        NSString * html = [NSString pfStyledHTMLDocumentWithTitle:titleString date:dateString body:content];
         NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
         
         [self.contentWebView loadHTMLString:html baseURL:baseURL];
@@ -204,13 +201,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)refreshRssPost {
-    self.titleLabel.text = [[self.rssPost objectForKey:RSS_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
+    NSString * titleString = [[self.rssPost objectForKey:RSS_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
 
     NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
-    self.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
+    NSString * dateString = [NSString pfMediumDateStringFromDate:date];
     
     NSString * content = [self.rssPost objectForKey:RSS_POST_DESCRIPTION_KEY];
-    NSString * html = [NSString pfStyledHTMLDocumentWithBodyContent:content];
+    NSString * html = [NSString pfStyledHTMLDocumentWithTitle:titleString date:dateString body:content];
     NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
     [self.contentWebView loadHTMLString:html baseURL:baseURL];
 }
