@@ -30,7 +30,7 @@
                 <constraint firstAttribute="centerX" secondItem="ASE-FV-8WZ" secondAttribute="centerX" id="q2a-17-eWS"/>
                 <constraint firstItem="ASE-FV-8WZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="58" id="zKw-kP-0mc"/>
             </constraints>
-            <point key="canvasLocation" x="590" y="471"/>
+            <point key="canvasLocation" x="465" y="454"/>
         </view>
     </objects>
     <resources>
