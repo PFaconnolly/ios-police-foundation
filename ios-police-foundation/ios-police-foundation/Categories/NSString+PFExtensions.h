@@ -13,7 +13,7 @@
 + (NSString *) pfFullDateStringFromDate:(NSDate *)date;
 + (NSString *) pfMediumDateStringFromDate:(NSDate *)date;
 + (NSString *) pfShortDateStringFromDate:(NSDate *)date;
-+ (NSString *) pfStyledHTMLDocumentWithBodyContent:(NSString *)content;
++ (NSString *) pfStyledHTMLDocumentWithTitle:(NSString *)title date:(NSString*)date body:(NSString *)body;
 
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters;
 - (NSString *) pfURLEncodedString;

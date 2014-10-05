@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="qgF-ad-Z9X">
     <dependencies>
-        <deployment version="2048" defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -76,35 +74,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="fjq-ur-d8R" userLabel="titleLabel">
-                                <rect key="frame" x="24" y="30" width="720" height="35"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Title">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="30" name="Georgia-Bold"/>
-                                            <font key="NSOriginalFont" size="30" name="Georgia-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBg-kk-BmF" userLabel="dateLabel">
-                                <rect key="frame" x="24" y="98" width="172" height="21"/>
-                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="18"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFT-VN-uni" userLabel="separatorView">
-                                <rect key="frame" x="24" y="130" width="720" height="1"/>
-                                <color key="backgroundColor" red="0.87135283799999996" green="0.87135283799999996" blue="0.87135283799999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="CSr-Id-Pso"/>
-                                </constraints>
-                            </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewe-Wt-YXe">
-                                <rect key="frame" x="24" y="139" width="720" height="836"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="VFZ-es-P2e" id="JsO-Vi-57f"/>
@@ -113,19 +84,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tFT-VN-uni" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="00D-vN-q2C"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xBg-kk-BmF" secondAttribute="trailing" constant="552" id="3lN-e5-fKa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ewe-Wt-YXe" secondAttribute="trailing" constant="4" id="8A8-Ta-BM1"/>
-                            <constraint firstItem="tFT-VN-uni" firstAttribute="top" secondItem="xBg-kk-BmF" secondAttribute="bottom" constant="11" id="GMN-YH-rQH"/>
-                            <constraint firstItem="xBg-kk-BmF" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="IQu-HZ-Lha"/>
-                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="top" secondItem="tFT-VN-uni" secondAttribute="bottom" constant="8" id="PuB-rG-iFY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fjq-ur-d8R" secondAttribute="trailing" constant="4" id="YjT-oU-peq"/>
-                            <constraint firstItem="xBg-kk-BmF" firstAttribute="top" secondItem="fjq-ur-d8R" secondAttribute="bottom" constant="33" id="ZcO-X7-sl2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tFT-VN-uni" secondAttribute="trailing" constant="4" id="c0O-8q-gMH"/>
-                            <constraint firstItem="fjq-ur-d8R" firstAttribute="top" secondItem="QHY-3F-sr4" secondAttribute="bottom" constant="10" id="cb9-If-uim"/>
-                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="chc-0f-EjC"/>
-                            <constraint firstItem="MjT-US-Pq8" firstAttribute="top" secondItem="ewe-Wt-YXe" secondAttribute="bottom" id="x47-Fk-qg1"/>
-                            <constraint firstItem="fjq-ur-d8R" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leadingMargin" constant="4" id="zIb-sk-mZn"/>
+                            <constraint firstItem="MjT-US-Pq8" firstAttribute="top" secondItem="ewe-Wt-YXe" secondAttribute="bottom" id="AOE-xC-VA2"/>
+                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="leading" secondItem="jZP-ux-3cY" secondAttribute="leading" id="ifz-Rc-t6f"/>
+                            <constraint firstItem="ewe-Wt-YXe" firstAttribute="top" secondItem="jZP-ux-3cY" secondAttribute="top" id="l5v-rr-3Hk"/>
+                            <constraint firstAttribute="trailing" secondItem="ewe-Wt-YXe" secondAttribute="trailing" id="zEA-uf-PlH"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -134,8 +96,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="contentWebView" destination="ewe-Wt-YXe" id="dyY-Fs-RIw"/>
-                        <outlet property="dateLabel" destination="xBg-kk-BmF" id="NpA-Me-R7O"/>
-                        <outlet property="titleLabel" destination="fjq-ur-d8R" id="pq2-Lv-zeS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxt-dT-RXv" userLabel="First Responder" sceneMemberID="firstResponder"/>
