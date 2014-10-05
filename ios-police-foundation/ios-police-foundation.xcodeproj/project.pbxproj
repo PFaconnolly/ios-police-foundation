@@ -25,6 +25,8 @@
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
 		B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */; };
 		B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */; };
+		B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */; };
+		B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */; };
 		B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */; };
 		B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */; };
 		B0504FA419D10D86003C791D /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA319D10D86003C791D /* GTMNSString+HTML.m */; };
@@ -75,7 +77,7 @@
 		B0E75E43190C3249003BE9EF /* ios_police_foundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */; };
 		B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F35E071927D01F00C05D03 /* Crashlytics.framework */; };
 		B0FC41C819CFAADC00EDE859 /* PFEditableArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC41C719CFAADC00EDE859 /* PFEditableArrayDataSource.m */; };
-		B0FC41CA19CFB39300EDE859 /* NoDocumentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0FC41C919CFB39300EDE859 /* NoDocumentsView.xib */; };
+		B0FC41CA19CFB39300EDE859 /* PFNoDocumentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,9 @@
 		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
 		B0116C5519B4F458006904E8 /* PFAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAnalyticsManager.h; path = Classes/Model/PFAnalyticsManager.h; sourceTree = "<group>"; };
 		B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsManager.m; path = Classes/Model/PFAnalyticsManager.m; sourceTree = "<group>"; };
+		B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFNoDocumentsView~iPad.xib"; path = "XIBs/PFNoDocumentsView~iPad.xib"; sourceTree = "<group>"; };
+		B02C640C19E1E54800CD094C /* PFNoDocumentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNoDocumentsView.h; path = Classes/Views/PFNoDocumentsView.h; sourceTree = "<group>"; };
+		B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNoDocumentsView.m; path = Classes/Views/PFNoDocumentsView.m; sourceTree = "<group>"; };
 		B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+PFExtensions.h"; path = "Categories/UITableViewCell+PFExtensions.h"; sourceTree = "<group>"; };
 		B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+PFExtensions.m"; path = "Categories/UITableViewCell+PFExtensions.m"; sourceTree = "<group>"; };
 		B04C9E1019C51E5700477E1B /* NSBundle+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+PFExtensions.h"; path = "Categories/NSBundle+PFExtensions.h"; sourceTree = "<group>"; };
@@ -203,7 +208,7 @@
 		B0F35E071927D01F00C05D03 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		B0FC41C619CFAADC00EDE859 /* PFEditableArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFEditableArrayDataSource.h; path = Classes/DataSources/PFEditableArrayDataSource.h; sourceTree = "<group>"; };
 		B0FC41C719CFAADC00EDE859 /* PFEditableArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFEditableArrayDataSource.m; path = Classes/DataSources/PFEditableArrayDataSource.m; sourceTree = "<group>"; };
-		B0FC41C919CFB39300EDE859 /* NoDocumentsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NoDocumentsView.xib; path = XIBs/NoDocumentsView.xib; sourceTree = "<group>"; };
+		B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFNoDocumentsView.xib; path = XIBs/PFNoDocumentsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +306,8 @@
 			children = (
 				B061B0951962748200EB9561 /* PFBarberPoleView.h */,
 				B061B0961962748200EB9561 /* PFBarberPoleView.m */,
+				B02C640C19E1E54800CD094C /* PFNoDocumentsView.h */,
+				B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -308,10 +315,11 @@
 		B0674F0E1971B5D40074C22E /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
+				B05B6D3D19D117C5005981FF /* LaunchScreen.xib */,
+				B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */,
+				B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */,
 				B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */,
 				B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */,
-				B0FC41C919CFB39300EDE859 /* NoDocumentsView.xib */,
-				B05B6D3D19D117C5005981FF /* LaunchScreen.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -623,8 +631,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E75E24190C3249003BE9EF /* InfoPlist.strings in Resources */,
+				B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */,
 				B005FDE619DFB9A200B361AD /* PFTagCollectionViewCell.xib in Resources */,
-				B0FC41CA19CFB39300EDE859 /* NoDocumentsView.xib in Resources */,
+				B0FC41CA19CFB39300EDE859 /* PFNoDocumentsView.xib in Resources */,
 				B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */,
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
 				B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */,
@@ -704,6 +713,7 @@
 				B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */,
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
+				B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
 				B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */,
 				B005FDEC19E0531300B361AD /* UIColor+PFExtensions.m in Sources */,

@@ -11,6 +11,7 @@
 #import "PFFileDownloadManager.h"
 #import "PFCommonTableViewCell.h"
 #import "NSBundle+PFExtensions.h"
+#import "PFNoDocumentsView.h"
 
 @interface PFDocumentsViewController () <UITableViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -114,7 +115,7 @@
 - (void)toggleTableView {
     if ( self.documents.count == 0 ) {
         if ( self.noDocumentsView == nil ) {
-            self.noDocumentsView = [[NSBundle mainBundle] pfFindObjectInNibNamed:@"NoDocumentsView" owner:self byClass:([UIView class])];
+            self.noDocumentsView = [[NSBundle mainBundle] pfFindObjectInNibNamed:[PFNoDocumentsView pfNibName] owner:self byClass:([UIView class])];
             self.noDocumentsView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
             [self.view addSubview:self.noDocumentsView];
         }
