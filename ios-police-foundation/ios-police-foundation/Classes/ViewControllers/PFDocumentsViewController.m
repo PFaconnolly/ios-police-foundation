@@ -29,22 +29,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Documents";
-    [self setUpTableView];
-    
+    [self setUpTableView];    
     self.editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonTapped:)];
     self.navigationItem.rightBarButtonItem = self.editButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.screenName = @"Documents Screen";
-    
     self.documents = [[PFFileDownloadManager sharedManager] files];
-    
     [self toggleTableView];
-    
-    // bring table view to front
-    [self.view bringSubviewToFront:self.tableView];
-    
     [self.documentsArrayDataSource reloadItems:self.documents];
     [self.tableView reloadData];
 }
@@ -60,6 +53,7 @@
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
     return self.navigationController;
 }
+
 
 #pragma mark - Private methods
 
@@ -126,10 +120,15 @@
         }
         
         // bring no documents view to the front
-        [self.view bringSubviewToFront:self.noDocumentsView];
-    }
-    else {
-        [self.view sendSubviewToBack:self.noDocumentsView];
+        self.noDocumentsView.hidden = NO;
+        self.tableView.hidden = YES;
+        self.navigationItem.rightBarButtonItem = nil;
+
+    } else {
+        // bring table view to the front
+        self.tableView.hidden = NO;
+        self.noDocumentsView.hidden = YES;
+        self.navigationItem.rightBarButtonItem = self.editButton;
     }
 }
 
