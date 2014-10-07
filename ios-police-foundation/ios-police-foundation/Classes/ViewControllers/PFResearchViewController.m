@@ -13,6 +13,9 @@
 #import "PFPostDetailsViewController.h"
 #import "PFArticleCollectionViewCell.h"
 
+// testing
+#import "PFWelcomeViewController.h"
+
 typedef void (^TableViewCellConfigureBlock)(id cell, id indexPath);
 typedef void (^TableViewCellSelectBlock)(id indexPath);
 
@@ -147,7 +150,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)searchButtonTapped:(id)sender {
-    [self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
+    PFWelcomeViewController * welcomeVC = [[PFWelcomeViewController alloc] initWithDelegate:nil];
+    [self presentViewController:welcomeVC animated:YES completion:nil];
+    
+    //[self performSegueWithIdentifier:@"presentSearchSegue" sender:self];
 }
 
 - (void)categoriesButtonTapped:(id)sender {
