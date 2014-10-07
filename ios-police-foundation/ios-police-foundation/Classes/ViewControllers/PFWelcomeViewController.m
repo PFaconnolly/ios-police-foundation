@@ -9,12 +9,15 @@
 #import "PFWelcomeViewController.h"
 #import "PFWelcomeCollectionViewCell.h"
 #import "PFResearchCollectionViewCell.h"
+#import "PFWelcomeCategoriesCollectionViewCell.h"
+#import "PFWelcomeTagsCollectionViewCell.h"
+#import "PFWelcomeNewsCollectionViewCell.h"
 
 @interface PFWelcomeViewController ()
 
 @property (nonatomic, weak) id<PFWelcomeSelectorDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UICollectionView * collectionView;
-@property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) IBOutlet UIPageControl * pageControl;
 
 @end
 
@@ -32,10 +35,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pageControl.numberOfPages = 2;
+    self.pageControl.numberOfPages = 5;
     
     [self.collectionView registerNib:[PFWelcomeCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFResearchCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFResearchCollectionViewCell pfCellReuseIdentifier]];
+    [self.collectionView registerNib:[PFWelcomeCategoriesCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]];
+    [self.collectionView registerNib:[PFWelcomeTagsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier]];
+    [self.collectionView registerNib:[PFWelcomeNewsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,7 +78,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return 5;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,6 +88,9 @@
     switch ( indexPath.row ) {
         case 0: cellReuseIdentifier = [PFWelcomeCollectionViewCell pfCellReuseIdentifier]; break;
         case 1: cellReuseIdentifier = [PFResearchCollectionViewCell pfCellReuseIdentifier]; break;
+        case 2: cellReuseIdentifier = [PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]; break;
+        case 3: cellReuseIdentifier = [PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier]; break;
+        case 4: cellReuseIdentifier = [PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier]; break;
         default: break;
     }
     
