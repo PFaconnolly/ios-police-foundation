@@ -10,10 +10,14 @@
 
 @implementation UIColor (PFExtensions)
 
++ (UIColor *)pfLightBlueColor {
+    CGFloat max = 255.0f;
+    return [UIColor colorWithRed:245/max green:252/max blue:255/max alpha:1.0f];
+}
+
 + (UIColor *)pfRandomLightBlueColor {
     
     /*
-    245/252/255
     237/250/255
     233/243/247
     230/248/255
@@ -26,8 +30,7 @@
     
     CGFloat max = 255.0f;
     
-    NSArray * colors = @[[UIColor colorWithRed:245/max green:252/max blue:255/max alpha:1.0f],
-                         [UIColor colorWithRed:237/max green:250/max blue:255/max alpha:1.0f],
+    NSArray * colors = @[[UIColor colorWithRed:237/max green:250/max blue:255/max alpha:1.0f],
                          [UIColor colorWithRed:233/max green:243/max blue:247/max alpha:1.0f],
                          [UIColor colorWithRed:230/max green:248/max blue:255/max alpha:1.0f],
                          [UIColor colorWithRed:222/max green:246/max blue:255/max alpha:1.0f],
@@ -36,7 +39,7 @@
                          [UIColor colorWithRed:200/max green:234/max blue:247/max alpha:1.0f],
                          [UIColor colorWithRed:209/max green:242/max blue:255/max alpha:1.0f]];
     
-    NSInteger r = arc4random_uniform(9);
+    NSInteger r = arc4random_uniform(8);
 
     return colors[r];
 }

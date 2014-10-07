@@ -31,6 +31,7 @@
 		B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */; };
 		B0504FA419D10D86003C791D /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA319D10D86003C791D /* GTMNSString+HTML.m */; };
 		B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA619D1107B003C791D /* PFRefreshableViewController.m */; };
+		B050601419E3818F001F933C /* UICollectionView+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B050601319E3818F001F933C /* UICollectionView+PFExtensions.m */; };
 		B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */; };
 		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
 		B05B6D3E19D117C5005981FF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B05B6D3D19D117C5005981FF /* LaunchScreen.xib */; };
@@ -136,6 +137,8 @@
 		B0504FA319D10D86003C791D /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Categories/GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		B0504FA519D1107B003C791D /* PFRefreshableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRefreshableViewController.h; path = Classes/ViewControllers/PFRefreshableViewController.h; sourceTree = "<group>"; };
 		B0504FA619D1107B003C791D /* PFRefreshableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRefreshableViewController.m; path = Classes/ViewControllers/PFRefreshableViewController.m; sourceTree = "<group>"; };
+		B050601219E3818F001F933C /* UICollectionView+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+PFExtensions.h"; path = "Categories/UICollectionView+PFExtensions.h"; sourceTree = "<group>"; };
+		B050601319E3818F001F933C /* UICollectionView+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+PFExtensions.m"; path = "Categories/UICollectionView+PFExtensions.m"; sourceTree = "<group>"; };
 		B051268E19CF6F5800FB5FC7 /* PFCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommonTableViewCell.h; path = Classes/Cells/PFCommonTableViewCell.h; sourceTree = "<group>"; };
 		B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCommonTableViewCell.m; path = Classes/Cells/PFCommonTableViewCell.m; sourceTree = "<group>"; };
 		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 				B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */,
 				B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */,
 				B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */,
+				B050601219E3818F001F933C /* UICollectionView+PFExtensions.h */,
+				B050601319E3818F001F933C /* UICollectionView+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -292,13 +297,6 @@
 			);
 			name = extobjc;
 			path = Resources/extobjc;
-			sourceTree = "<group>";
-		};
-		B00A7A63194D00AE00590D37 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		B061B0941962746000EB9561 /* Views */ = {
@@ -316,8 +314,8 @@
 			isa = PBXGroup;
 			children = (
 				B05B6D3D19D117C5005981FF /* LaunchScreen.xib */,
-				B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */,
 				B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */,
+				B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */,
 				B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */,
 				B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */,
 			);
@@ -447,7 +445,6 @@
 				B095EF47192949CD008C3FF0 /* Cells */,
 				B095EF40192945B5008C3FF0 /* DataSources */,
 				B0C9D46019B4D32A00E4B948 /* Model */,
-				B00A7A63194D00AE00590D37 /* Protocols */,
 				B095EF3C192944E2008C3FF0 /* ViewControllers */,
 				B061B0941962746000EB9561 /* Views */,
 			);
@@ -740,6 +737,7 @@
 				B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */,
 				B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */,
 				B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */,
+				B050601419E3818F001F933C /* UICollectionView+PFExtensions.m in Sources */,
 				B0E75E2D190C3249003BE9EF /* ios_police_foundation.xcdatamodeld in Sources */,
 				B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */,
 				B0FC41C819CFAADC00EDE859 /* PFEditableArrayDataSource.m in Sources */,

@@ -21,11 +21,13 @@
 @property (strong, nonatomic) PFEditableArrayDataSource * documentsArrayDataSource;
 @property (strong, nonatomic) UIDocumentInteractionController * documentInteractionController;
 @property (strong, nonatomic) UIBarButtonItem * editButton;
-@property (strong, nonatomic) UIView * noDocumentsView;
+@property (strong, nonatomic) PFNoDocumentsView * noDocumentsView;
 
 @end
 
 @implementation PFDocumentsViewController
+
+#pragma mark - View life cycle methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +51,7 @@
 }
 
 
-#pragma mark UIDocumentInteractionControllerDelegate methods
+#pragma mark - UIDocumentInteractionControllerDelegate methods
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
     return self.navigationController;
