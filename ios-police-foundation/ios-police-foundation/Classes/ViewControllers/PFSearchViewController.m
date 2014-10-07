@@ -20,7 +20,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (strong, nonatomic) NSArray * posts;
 @property (strong, nonatomic) IBOutlet UITextField * searchTextField;
 @property (strong, nonatomic) IBOutlet UIButton * searchButton;
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UICollectionView * collectionView;
 
 @end
 

@@ -10,6 +10,7 @@
 
 @interface UIColor (PFExtensions)
 
++ (UIColor *)pfLightBlueColor;
 + (UIColor *)pfRandomLightBlueColor;
 + (UIColor *)pfRandomLightGrayColor;
 

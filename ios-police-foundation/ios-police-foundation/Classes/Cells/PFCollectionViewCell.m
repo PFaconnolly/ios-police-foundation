@@ -14,6 +14,8 @@
 - (void)awakeFromNib {
 
     self.backgroundColor = [UIColor pfRandomLightBlueColor];
+    self.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.layer.borderWidth = 0.5f;
     
     // iOS 8 encoded collection view cells don't have auto resizing masks by default:
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
