@@ -14,11 +14,14 @@
 #import "PFWelcomeNewsCollectionViewCell.h"
 #import "PFWelcomeDocumentsCollectionViewCell.h"
 
-@interface PFWelcomeViewController ()
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+
+@interface PFWelcomeViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, weak) id<PFWelcomeSelectorDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UICollectionView * collectionView;
 @property (strong, nonatomic) IBOutlet UIPageControl * pageControl;
+@property (assign, nonatomic, getter=isScrolling) BOOL scrolling;
 
 @end
 
@@ -37,7 +40,7 @@
     [super viewDidLoad];
     
     self.pageControl.numberOfPages = 6;
-    
+
     [self.collectionView registerNib:[PFWelcomeCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeResearchCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeResearchCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeCategoriesCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]];
@@ -99,9 +102,40 @@
     
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellReuseIdentifier forIndexPath:indexPath];
     
-    self.pageControl.currentPage = indexPath.row;
-    
     return cell;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)tcUnused {
+    if ( self.isScrolling ) {
+        [self endScrolling];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)tcUnused willDecelerate:(BOOL)decelerate {
+    //	ignore if we are going to decelerate; we will pick up the end of scrolling from -scrollViewDidEndDecelerating
+    if ( decelerate ) {
+        return;
+    }
+    [self endScrolling];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)tcUnused {
+    [self endScrolling];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)tcUnused {
+    if ( ! self.isScrolling ) {
+        self.scrolling = YES;
+    }
+}
+
+#pragma mark Private methods
+
+- (void)endScrolling {
+    NSArray * indexPaths = self.collectionView.indexPathsForVisibleItems;
+    DDLogVerbose(@"visible items: %@", indexPaths);
+    NSIndexPath * visibleIndexPath = [indexPaths objectAtIndex:0];
+    self.pageControl.currentPage = visibleIndexPath.row;
 }
 
 #pragma mark - IBActions
