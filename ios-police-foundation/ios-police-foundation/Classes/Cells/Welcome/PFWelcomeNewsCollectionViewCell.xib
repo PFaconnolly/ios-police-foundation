@@ -14,30 +14,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome News" translatesAutoresizingMaskIntoConstraints="NO" id="Eqo-8l-daq">
-                        <rect key="frame" x="196" y="133" width="122" height="122"/>
+                        <rect key="frame" x="204" y="161" width="92" height="92"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="122" id="69b-Id-Bsv"/>
-                            <constraint firstAttribute="width" constant="122" id="dnU-Ly-hnU"/>
+                            <constraint firstAttribute="width" constant="92" id="b6D-jp-Wjg"/>
+                            <constraint firstAttribute="height" constant="92" id="ep0-qK-tsm"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get the latest news and information from the Police Foundation on the News tab." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3j-YV-FAh">
-                        <rect key="frame" x="127" y="337" width="261" height="92"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FOUNDATION NEWS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P00-6z-Hny">
+                        <rect key="frame" x="137" y="288" width="226" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="261" id="2uG-AA-62k"/>
-                            <constraint firstAttribute="height" constant="92" id="t9q-1p-6fM"/>
+                            <constraint firstAttribute="width" constant="226" id="aHR-d1-WKQ"/>
+                            <constraint firstAttribute="height" constant="24" id="gk0-pN-0Wl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get the latest news and information from the Police Foundation on the News tab." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3j-YV-FAh">
+                        <rect key="frame" x="120" y="337" width="261" height="57"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="57" id="D3d-jJ-jdG"/>
+                            <constraint firstAttribute="width" constant="261" id="pKj-et-PXc"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P00-6z-Hny">
-                        <rect key="frame" x="164" y="273" width="172" height="53"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="53" id="kXy-Ob-12e"/>
-                            <constraint firstAttribute="width" constant="172" id="vLi-A4-ACA"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -45,12 +45,12 @@
             </view>
             <color key="backgroundColor" red="0.0078431377190000002" green="0.36078432199999999" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="P00-6z-Hny" secondAttribute="centerY" constant="0.5" id="Ids-CG-IJa"/>
-                <constraint firstAttribute="centerX" secondItem="m3j-YV-FAh" secondAttribute="centerX" constant="-7.5" id="Jne-z1-H7e"/>
-                <constraint firstAttribute="centerX" secondItem="P00-6z-Hny" secondAttribute="centerX" id="VOy-qT-qkq"/>
-                <constraint firstItem="m3j-YV-FAh" firstAttribute="top" secondItem="P00-6z-Hny" secondAttribute="bottom" constant="11" id="Vio-8l-Zzt"/>
-                <constraint firstItem="P00-6z-Hny" firstAttribute="top" secondItem="Eqo-8l-daq" secondAttribute="bottom" constant="18" id="pGU-SG-a91"/>
-                <constraint firstAttribute="centerX" secondItem="Eqo-8l-daq" secondAttribute="centerX" constant="-7" id="yZG-bD-RF2"/>
+                <constraint firstAttribute="centerY" secondItem="P00-6z-Hny" secondAttribute="centerY" id="2be-sA-Vhu"/>
+                <constraint firstItem="m3j-YV-FAh" firstAttribute="top" secondItem="P00-6z-Hny" secondAttribute="bottom" constant="25" id="4ns-yp-OII"/>
+                <constraint firstAttribute="centerX" secondItem="m3j-YV-FAh" secondAttribute="centerX" constant="-0.5" id="ckL-BF-q1w"/>
+                <constraint firstAttribute="centerX" secondItem="Eqo-8l-daq" secondAttribute="centerX" id="tHz-86-51L"/>
+                <constraint firstAttribute="centerX" secondItem="P00-6z-Hny" secondAttribute="centerX" id="umc-06-7Jp"/>
+                <constraint firstItem="P00-6z-Hny" firstAttribute="top" secondItem="Eqo-8l-daq" secondAttribute="bottom" constant="35" id="z0M-We-GiL"/>
             </constraints>
             <size key="customSize" width="50" height="40"/>
             <point key="canvasLocation" x="443" y="229"/>

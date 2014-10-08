@@ -1,5 +1,5 @@
 //
-//  PFResearchCollectionViewCell.h
+//  PFWelcomeResearchCollectionViewCell.h
 //  ios-police-foundation
 //
 //  Created by Aaron Connolly on 10/6/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PFResearchCollectionViewCell : UICollectionViewCell
+@interface PFWelcomeResearchCollectionViewCell : UICollectionViewCell
 
 @end

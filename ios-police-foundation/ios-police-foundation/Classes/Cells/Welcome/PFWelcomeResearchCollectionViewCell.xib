@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PFResearchCollectionViewCell" id="gTV-IL-0wX" customClass="PFResearchCollectionViewCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PFWelcomeResearchCollectionViewCell" id="gTV-IL-0wX" customClass="PFWelcomeResearchCollectionViewCell">
             <rect key="frame" x="0.0" y="0.0" width="500" height="616"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="500" height="616"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome Bulb" translatesAutoresizingMaskIntoConstraints="NO" id="Lii-Rb-h4w">
-                        <rect key="frame" x="210" y="136" width="80" height="127"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="o2C-5C-fUu"/>
-                            <constraint firstAttribute="height" constant="127" id="x6i-uo-8Nb"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESEARCH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdP-KY-2oO">
-                        <rect key="frame" x="174" y="281" width="153" height="53"/>
+                        <rect key="frame" x="174" y="299" width="153" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="153" id="1CD-3O-yT7"/>
-                            <constraint firstAttribute="height" constant="53" id="U8I-na-nJJ"/>
+                            <constraint firstAttribute="height" constant="18" id="9Ei-Oc-wlu"/>
+                            <constraint firstAttribute="width" constant="153" id="VCL-7J-Jpv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCX-YL-rnt">
-                        <rect key="frame" x="113" y="323" width="275" height="150"/>
+                        <rect key="frame" x="113" y="342" width="275" height="95"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="275" id="YYw-Md-Wjq"/>
-                            <constraint firstAttribute="height" constant="150" id="eBR-zb-LhA"/>
+                            <constraint firstAttribute="width" constant="275" id="Qmz-4e-Peh"/>
+                            <constraint firstAttribute="height" constant="95" id="ssV-RB-slx"/>
                         </constraints>
                         <string key="text">The Police Foundation has over 40 years of expertise in conducting research on a wide variety of policing topics. You can find that content under the Research tab.</string>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome Bulb" translatesAutoresizingMaskIntoConstraints="NO" id="Lii-Rb-h4w">
+                        <rect key="frame" x="221" y="172" width="58" height="92"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="92" id="Jsy-aL-3YA"/>
+                            <constraint firstAttribute="width" constant="58" id="aJX-sf-e3j"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.0001506688635406977" green="0.36923611845979237" blue="0.77777777777777779" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="WdP-KY-2oO" secondAttribute="centerY" constant="0.5" id="3Qz-28-Xjf"/>
-                <constraint firstItem="WdP-KY-2oO" firstAttribute="top" secondItem="Lii-Rb-h4w" secondAttribute="bottom" constant="18" id="5Da-cs-eKK"/>
-                <constraint firstAttribute="centerX" secondItem="PCX-YL-rnt" secondAttribute="centerX" constant="-0.5" id="JJk-9x-2mQ"/>
-                <constraint firstAttribute="centerX" secondItem="Lii-Rb-h4w" secondAttribute="centerX" id="orH-kx-acD"/>
-                <constraint firstItem="PCX-YL-rnt" firstAttribute="top" secondItem="WdP-KY-2oO" secondAttribute="bottom" constant="-11" id="reL-a4-8hZ"/>
-                <constraint firstAttribute="centerX" secondItem="WdP-KY-2oO" secondAttribute="centerX" constant="-0.5" id="ykq-LB-aU7"/>
+                <constraint firstAttribute="centerY" secondItem="WdP-KY-2oO" secondAttribute="centerY" id="6Hx-Tt-oHj"/>
+                <constraint firstAttribute="centerX" secondItem="Lii-Rb-h4w" secondAttribute="centerX" id="Dds-fH-qoW"/>
+                <constraint firstItem="PCX-YL-rnt" firstAttribute="top" secondItem="WdP-KY-2oO" secondAttribute="bottom" constant="25" id="fgs-JT-Nrk"/>
+                <constraint firstAttribute="centerX" secondItem="PCX-YL-rnt" secondAttribute="centerX" id="hkb-lR-w6D"/>
+                <constraint firstAttribute="centerX" secondItem="WdP-KY-2oO" secondAttribute="centerX" id="nex-hZ-k2d"/>
+                <constraint firstItem="WdP-KY-2oO" firstAttribute="top" secondItem="Lii-Rb-h4w" secondAttribute="bottom" constant="35" id="xJW-Kc-hjv"/>
             </constraints>
-            <point key="canvasLocation" x="580" y="238"/>
+            <point key="canvasLocation" x="559" y="300"/>
         </collectionViewCell>
     </objects>
     <resources>

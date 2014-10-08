@@ -55,10 +55,13 @@
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
-		B097263619E39E3C0025760C /* PFResearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B097263419E39E3C0025760C /* PFResearchCollectionViewCell.m */; };
-		B097263719E39E3C0025760C /* PFResearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B097263519E39E3C0025760C /* PFResearchCollectionViewCell.xib */; };
+		B097263619E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B097263419E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m */; };
+		B097263719E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B097263519E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib */; };
 		B097263B19E39E4E0025760C /* PFWelcomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B097263919E39E4E0025760C /* PFWelcomeCollectionViewCell.m */; };
 		B097263C19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */; };
+		B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */; };
+		B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */; };
+		B09ABB3019E4CD0400DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2F19E4CD0400DC846A /* PFBorderedCollectionViewCell.m */; };
 		B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AB5F9F19D7A695004C7256 /* Social.framework */; };
 		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
 		B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */; };
@@ -192,12 +195,17 @@
 		B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoriesViewController.m; path = Classes/ViewControllers/PFCategoriesViewController.m; sourceTree = "<group>"; };
 		B095EF44192946B6008C3FF0 /* PFArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFArrayDataSource.h; path = Classes/DataSources/PFArrayDataSource.h; sourceTree = "<group>"; };
 		B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFArrayDataSource.m; path = Classes/DataSources/PFArrayDataSource.m; sourceTree = "<group>"; };
-		B097263319E39E3C0025760C /* PFResearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFResearchCollectionViewCell.h; path = Classes/Cells/Welcome/PFResearchCollectionViewCell.h; sourceTree = "<group>"; };
-		B097263419E39E3C0025760C /* PFResearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFResearchCollectionViewCell.m; path = Classes/Cells/Welcome/PFResearchCollectionViewCell.m; sourceTree = "<group>"; };
-		B097263519E39E3C0025760C /* PFResearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFResearchCollectionViewCell.xib; path = Classes/Cells/Welcome/PFResearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		B097263319E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeResearchCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeResearchCollectionViewCell.h; sourceTree = "<group>"; };
+		B097263419E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeResearchCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeResearchCollectionViewCell.m; sourceTree = "<group>"; };
+		B097263519E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeResearchCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeResearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		B097263819E39E4E0025760C /* PFWelcomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeCollectionViewCell.h; sourceTree = "<group>"; };
 		B097263919E39E4E0025760C /* PFWelcomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeCollectionViewCell.m; sourceTree = "<group>"; };
 		B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		B09ABB2919E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeDocumentsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.h; sourceTree = "<group>"; };
+		B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeDocumentsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.m; sourceTree = "<group>"; };
+		B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeDocumentsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.xib; sourceTree = "<group>"; };
+		B09ABB2E19E4CD0400DC846A /* PFBorderedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBorderedCollectionViewCell.h; path = Classes/Cells/PFBorderedCollectionViewCell.h; sourceTree = "<group>"; };
+		B09ABB2F19E4CD0400DC846A /* PFBorderedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBorderedCollectionViewCell.m; path = Classes/Cells/PFBorderedCollectionViewCell.m; sourceTree = "<group>"; };
 		B0AB5F9B19D51ACE004C7256 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Storyboard~iPad.storyboard"; path = "Storyboard/Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B0AB5F9F19D7A695004C7256 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDocumentsViewController.h; path = Classes/ViewControllers/PFDocumentsViewController.h; sourceTree = "<group>"; };
@@ -413,6 +421,8 @@
 				B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */,
 				B005FDE719DFBE3C00B361AD /* PFCollectionViewCell.h */,
 				B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */,
+				B09ABB2E19E4CD0400DC846A /* PFBorderedCollectionViewCell.h */,
+				B09ABB2F19E4CD0400DC846A /* PFBorderedCollectionViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -420,21 +430,24 @@
 		B097262A19E39B510025760C /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				B097263319E39E3C0025760C /* PFResearchCollectionViewCell.h */,
-				B097263419E39E3C0025760C /* PFResearchCollectionViewCell.m */,
-				B097263519E39E3C0025760C /* PFResearchCollectionViewCell.xib */,
 				B063555719E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.h */,
 				B063555819E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.m */,
 				B063555919E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib */,
 				B097263819E39E4E0025760C /* PFWelcomeCollectionViewCell.h */,
 				B097263919E39E4E0025760C /* PFWelcomeCollectionViewCell.m */,
 				B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */,
-				B063555C19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.h */,
-				B063555D19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m */,
-				B063555E19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib */,
+				B09ABB2919E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.h */,
+				B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */,
+				B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */,
 				B063556119E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.h */,
 				B063556219E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.m */,
 				B063556319E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib */,
+				B097263319E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.h */,
+				B097263419E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m */,
+				B097263519E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib */,
+				B063555C19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.h */,
+				B063555D19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m */,
+				B063555E19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -670,7 +683,7 @@
 				B097263C19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib in Resources */,
 				B0FC41CA19CFB39300EDE859 /* PFNoDocumentsView.xib in Resources */,
 				B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */,
-				B097263719E39E3C0025760C /* PFResearchCollectionViewCell.xib in Resources */,
+				B097263719E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib in Resources */,
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
 				B063555B19E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib in Resources */,
 				B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */,
@@ -679,6 +692,7 @@
 				B063556519E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib in Resources */,
 				B005FDE119DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib in Resources */,
 				B05B6D3E19D117C5005981FF /* LaunchScreen.xib in Resources */,
+				B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */,
 				B0D8784319D109960008CE04 /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,8 +760,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */,
+				B09ABB3019E4CD0400DC846A /* PFBorderedCollectionViewCell.m in Sources */,
 				B005FDE019DFAFDB00B361AD /* PFCategoryCollectionViewCell.m in Sources */,
 				B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */,
+				B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */,
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
 				B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */,
@@ -763,7 +779,7 @@
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
 				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
 				B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */,
-				B097263619E39E3C0025760C /* PFResearchCollectionViewCell.m in Sources */,
+				B097263619E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m in Sources */,
 				B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
 				B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */,

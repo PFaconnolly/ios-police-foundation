@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -12,21 +13,11 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="500" height="616"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE POLICE FOUNDATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjD-WE-kY5">
-                        <rect key="frame" x="101" y="283" width="298" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="298" id="2sF-yP-ROZ"/>
-                            <constraint firstAttribute="height" constant="50" id="swW-1o-Cc6"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="Pzo-Xr-17i">
-                        <rect key="frame" x="127" y="344" width="246" height="118"/>
+                        <rect key="frame" x="127" y="343" width="246" height="113"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="246" id="n76-4N-oLe"/>
-                            <constraint firstAttribute="height" constant="118" id="uoU-NT-cBB"/>
+                            <constraint firstAttribute="height" constant="113" id="uoU-NT-cBB"/>
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment>
@@ -92,19 +83,29 @@ Tap </string>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PF Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-3h-dAa">
-                        <rect key="frame" x="215" y="149" width="70" height="116"/>
+                        <rect key="frame" x="223" y="171" width="55" height="92"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="116" id="JNB-QF-0nm"/>
-                            <constraint firstAttribute="width" constant="70" id="aQG-Ls-0gq"/>
+                            <constraint firstAttribute="height" constant="92" id="JNB-QF-0nm"/>
+                            <constraint firstAttribute="width" constant="55" id="aQG-Ls-0gq"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE POLICE FOUNDATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjD-WE-kY5">
+                        <rect key="frame" x="101" y="298" width="298" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="298" id="2sF-yP-ROZ"/>
+                            <constraint firstAttribute="height" constant="20" id="swW-1o-Cc6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.0078431377190000002" green="0.36078432199999999" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="RjD-WE-kY5" firstAttribute="top" secondItem="Sts-3h-dAa" secondAttribute="bottom" constant="18" id="7xX-Uv-5Fd"/>
-                <constraint firstItem="Pzo-Xr-17i" firstAttribute="top" secondItem="RjD-WE-kY5" secondAttribute="bottom" constant="11" id="HBD-aB-r9q"/>
+                <constraint firstItem="RjD-WE-kY5" firstAttribute="top" secondItem="Sts-3h-dAa" secondAttribute="bottom" constant="35" id="7xX-Uv-5Fd"/>
+                <constraint firstItem="Pzo-Xr-17i" firstAttribute="top" secondItem="RjD-WE-kY5" secondAttribute="bottom" constant="25" id="HBD-aB-r9q"/>
                 <constraint firstAttribute="centerX" secondItem="Sts-3h-dAa" secondAttribute="centerX" id="Kq0-to-ZCU"/>
                 <constraint firstAttribute="centerX" secondItem="RjD-WE-kY5" secondAttribute="centerX" id="eVD-Qy-6aN"/>
                 <constraint firstAttribute="centerY" secondItem="RjD-WE-kY5" secondAttribute="centerY" id="hbX-lK-d60"/>

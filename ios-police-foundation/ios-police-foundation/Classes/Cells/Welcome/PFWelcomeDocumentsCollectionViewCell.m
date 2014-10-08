@@ -1,16 +1,16 @@
 //
-//  PFResearchCollectionViewCell.m
+//  PFWelcomeDocumentsCollectionViewCell.m
 //  ios-police-foundation
 //
-//  Created by Aaron Connolly on 10/6/14.
+//  Created by Aaron Connolly on 10/7/14.
 //  Copyright (c) 2014 Police Foundation. All rights reserved.
 //
 
-#import "PFResearchCollectionViewCell.h"
+#import "PFWelcomeDocumentsCollectionViewCell.h"
 
-@implementation PFResearchCollectionViewCell
+@implementation PFWelcomeDocumentsCollectionViewCell
 
-- (void)awakeFromNib {    
+- (void)awakeFromNib {
     // iOS 8 encoded collection view cells don't have auto resizing masks by default:
     self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
