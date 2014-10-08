@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFCollectionViewCell.h"
 
-@interface PFWelcomeResearchCollectionViewCell : UICollectionViewCell
+@interface PFWelcomeResearchCollectionViewCell : PFCollectionViewCell
 
 @end

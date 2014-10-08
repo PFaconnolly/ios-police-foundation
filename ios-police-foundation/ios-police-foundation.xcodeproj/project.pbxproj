@@ -61,7 +61,7 @@
 		B097263C19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */; };
 		B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */; };
 		B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */; };
-		B09ABB3019E4CD0400DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2F19E4CD0400DC846A /* PFBorderedCollectionViewCell.m */; };
+		B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */; };
 		B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AB5F9F19D7A695004C7256 /* Social.framework */; };
 		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
 		B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */; };
@@ -204,8 +204,8 @@
 		B09ABB2919E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeDocumentsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.h; sourceTree = "<group>"; };
 		B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeDocumentsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.m; sourceTree = "<group>"; };
 		B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeDocumentsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.xib; sourceTree = "<group>"; };
-		B09ABB2E19E4CD0400DC846A /* PFBorderedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBorderedCollectionViewCell.h; path = Classes/Cells/PFBorderedCollectionViewCell.h; sourceTree = "<group>"; };
-		B09ABB2F19E4CD0400DC846A /* PFBorderedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBorderedCollectionViewCell.m; path = Classes/Cells/PFBorderedCollectionViewCell.m; sourceTree = "<group>"; };
+		B09ABB3119E4D2C300DC846A /* PFBorderedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBorderedCollectionViewCell.h; path = Classes/Cells/PFBorderedCollectionViewCell.h; sourceTree = "<group>"; };
+		B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBorderedCollectionViewCell.m; path = Classes/Cells/PFBorderedCollectionViewCell.m; sourceTree = "<group>"; };
 		B0AB5F9B19D51ACE004C7256 /* Storyboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Storyboard~iPad.storyboard"; path = "Storyboard/Storyboard~iPad.storyboard"; sourceTree = "<group>"; };
 		B0AB5F9F19D7A695004C7256 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDocumentsViewController.h; path = Classes/ViewControllers/PFDocumentsViewController.h; sourceTree = "<group>"; };
@@ -421,8 +421,8 @@
 				B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */,
 				B005FDE719DFBE3C00B361AD /* PFCollectionViewCell.h */,
 				B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */,
-				B09ABB2E19E4CD0400DC846A /* PFBorderedCollectionViewCell.h */,
-				B09ABB2F19E4CD0400DC846A /* PFBorderedCollectionViewCell.m */,
+				B09ABB3119E4D2C300DC846A /* PFBorderedCollectionViewCell.h */,
+				B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -760,7 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */,
-				B09ABB3019E4CD0400DC846A /* PFBorderedCollectionViewCell.m in Sources */,
+				B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */,
 				B005FDE019DFAFDB00B361AD /* PFCategoryCollectionViewCell.m in Sources */,
 				B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */,
 				B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */,

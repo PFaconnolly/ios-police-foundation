@@ -7,15 +7,16 @@
 //
 
 #import "PFBorderedCollectionViewCell.h"
+#import "UIColor+PFExtensions.h"
 
 @implementation PFBorderedCollectionViewCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.backgroundColor = [UIColor pfRandomLightBlueColor];
+    self.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.layer.borderWidth = 0.5f;
 }
-*/
 
 @end

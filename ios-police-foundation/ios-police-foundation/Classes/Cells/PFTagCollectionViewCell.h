@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFBorderdCollectionViewCell.h"
+#import "PFBorderedCollectionViewCell.h"
 
 @interface PFTagCollectionViewCell : PFBorderedCollectionViewCell
 

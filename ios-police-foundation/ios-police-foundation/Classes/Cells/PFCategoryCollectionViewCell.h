@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFCollectionViewCell.h"
+#import "PFBorderedCollectionViewCell.h"
 
-@interface PFCategoryCollectionViewCell : PFCollectionViewCell
+@interface PFCategoryCollectionViewCell : PFBorderedCollectionViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel * nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;

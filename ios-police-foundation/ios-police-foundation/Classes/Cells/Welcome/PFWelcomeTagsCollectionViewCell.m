@@ -10,10 +10,4 @@
 
 @implementation PFWelcomeTagsCollectionViewCell
 
-- (void)awakeFromNib {
-    // iOS 8 encoded collection view cells don't have auto resizing masks by default:
-    self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.contentView.translatesAutoresizingMaskIntoConstraints = YES;
-}
-
 @end

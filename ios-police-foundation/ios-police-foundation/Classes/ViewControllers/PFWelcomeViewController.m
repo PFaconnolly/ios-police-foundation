@@ -12,6 +12,7 @@
 #import "PFWelcomeCategoriesCollectionViewCell.h"
 #import "PFWelcomeTagsCollectionViewCell.h"
 #import "PFWelcomeNewsCollectionViewCell.h"
+#import "PFWelcomeDocumentsCollectionViewCell.h"
 
 @interface PFWelcomeViewController ()
 
@@ -35,13 +36,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pageControl.numberOfPages = 5;
+    self.pageControl.numberOfPages = 6;
     
     [self.collectionView registerNib:[PFWelcomeCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeResearchCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeResearchCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeCategoriesCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeTagsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeNewsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier]];
+    [self.collectionView registerNib:[PFWelcomeDocumentsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeDocumentsCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -78,7 +80,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,6 +93,7 @@
         case 2: cellReuseIdentifier = [PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]; break;
         case 3: cellReuseIdentifier = [PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier]; break;
         case 4: cellReuseIdentifier = [PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier]; break;
+        case 5: cellReuseIdentifier = [PFWelcomeDocumentsCollectionViewCell pfCellReuseIdentifier]; break;
         default: break;
     }
     
