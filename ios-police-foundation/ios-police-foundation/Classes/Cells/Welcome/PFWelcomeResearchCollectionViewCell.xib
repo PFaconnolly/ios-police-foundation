@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment version="2048" defaultVersion="1792" identifier="iOS"/>
+        <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -34,11 +34,11 @@
                         <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome Bulb" translatesAutoresizingMaskIntoConstraints="NO" id="Lii-Rb-h4w">
-                        <rect key="frame" x="221" y="172" width="58" height="92"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome Research" translatesAutoresizingMaskIntoConstraints="NO" id="Lii-Rb-h4w">
+                        <rect key="frame" x="214" y="172" width="72" height="92"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="92" id="Jsy-aL-3YA"/>
-                            <constraint firstAttribute="width" constant="58" id="aJX-sf-e3j"/>
+                            <constraint firstAttribute="width" constant="72" id="aJX-sf-e3j"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -53,10 +53,10 @@
                 <constraint firstAttribute="centerX" secondItem="WdP-KY-2oO" secondAttribute="centerX" id="nex-hZ-k2d"/>
                 <constraint firstItem="WdP-KY-2oO" firstAttribute="top" secondItem="Lii-Rb-h4w" secondAttribute="bottom" constant="35" id="xJW-Kc-hjv"/>
             </constraints>
-            <point key="canvasLocation" x="559" y="300"/>
+            <point key="canvasLocation" x="668" y="293"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Welcome Bulb" width="80" height="127"/>
+        <image name="Welcome Research" width="94" height="120"/>
     </resources>
 </document>

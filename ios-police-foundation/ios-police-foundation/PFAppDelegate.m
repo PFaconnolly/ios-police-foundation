@@ -85,10 +85,10 @@
     if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
         UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
         
-        NSArray * array = @[@{ @"image" : @"Bulb Tab Icon", @"selectedImage" : @"Bulb Tab Icon Selected" },
-                            @{ @"image" : @"News Tab Icon", @"selectedImage" : @"News Tab Icon Selected" },
+        NSArray * array = @[@{ @"image" : @"Research Tab Icon", @"selectedImage" : @"Research Tab Icon Selected" },
+                            @{ @"image" : @"RSS Tab Icon", @"selectedImage" : @"RSS Tab Icon Selected" },
                             @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" },
-                            @{ @"image" : @"Folder Tab Icon", @"selectedImage" : @"Folder Tab Icon Selected" }];
+                            @{ @"image" : @"Document Tab Icon", @"selectedImage" : @"Document Tab Icon Selected" }];
         
         [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tabBarItem, NSUInteger __unused index, BOOL * __unused stop) {
             if ( [tabBarItem respondsToSelector:@selector(setImage:)] &&

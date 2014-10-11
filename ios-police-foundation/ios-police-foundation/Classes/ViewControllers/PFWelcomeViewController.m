@@ -140,30 +140,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 #pragma mark - IBActions
 
-- (IBAction)pageControlValueChanged:(id)sender {
-    
-}
-
 - (IBAction)dismissButtonTapped:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (IBAction)researchButtonTapped:(id)sender {
-    if ( [self.delegate respondsToSelector:@selector(startWithScreen:)] ) {
-        [self.delegate startWithScreen:PFScreen_Research];
-    }
-}
-
-- (IBAction)newsButtonTapped:(id)sender {
-    if ( [self.delegate respondsToSelector:@selector(startWithScreen:)] ) {
-        [self.delegate startWithScreen:PFScreen_News];
-    }
-}
-
-- (IBAction)aboutButtonTapped:(id)sender {
-    if ( [self.delegate respondsToSelector:@selector(startWithScreen:)] ) {
-        [self.delegate startWithScreen:PFScreen_About];
-    }
 }
 
 @end

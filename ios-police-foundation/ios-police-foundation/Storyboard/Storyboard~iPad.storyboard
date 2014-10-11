@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="qgF-ad-Z9X">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -31,7 +32,7 @@
         <scene sceneID="DqS-lk-HmT">
             <objects>
                 <navigationController id="aiC-dj-ZuK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Documents" image="Folder Tab Icon" id="Eev-tv-Xqv"/>
+                    <tabBarItem key="tabBarItem" title="Documents" image="Document Tab Icon" id="Eev-tv-Xqv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ud6-mO-Zjn">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,7 +108,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="Hts-Zz-QSC" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="News" image="News Tab Icon" id="qjN-ur-9Yx"/>
+                    <tabBarItem key="tabBarItem" title="News" image="RSS Tab Icon" id="qjN-ur-9Yx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="SCv-12-svn">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -576,7 +577,7 @@ The president of the foundation speaks out on issues important to policing and s
             <objects>
                 <navigationController definesPresentationContext="YES" id="wp5-7N-roL" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Research" image="Bulb Tab Icon" id="GI9-Gm-7CK"/>
+                    <tabBarItem key="tabBarItem" title="Research" image="Research Tab Icon" id="GI9-Gm-7CK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="0QS-63-OU3">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -640,10 +641,10 @@ The president of the foundation speaks out on issues important to policing and s
         </scene>
     </scenes>
     <resources>
-        <image name="About Tab Icon" width="25" height="25"/>
-        <image name="Bulb Tab Icon" width="20" height="20"/>
-        <image name="Folder Tab Icon" width="25" height="25"/>
-        <image name="News Tab Icon" width="20" height="20"/>
+        <image name="About Tab Icon" width="20" height="20"/>
+        <image name="Document Tab Icon" width="20" height="20"/>
+        <image name="RSS Tab Icon" width="20" height="20"/>
+        <image name="Research Tab Icon" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

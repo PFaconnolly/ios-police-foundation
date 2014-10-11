@@ -3,16 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "About Tab Icon Selected - 25x25.png"
+      "filename" : "About Tab Icon Selected.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "About Tab Icon Selected - 50x50.png"
+      "filename" : "About Tab Icon Selected@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "About Tab Icon Selected@3x.png"
     }
   ],
   "info" : {
