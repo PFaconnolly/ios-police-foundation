@@ -44,8 +44,10 @@
             UIViewAutoresizingFlexibleTopMargin
 
 #define kPFInfoContactEmailAddress @"info@policefoundation.org"
-
 #define kPFUserDefaultsHasLaunchedAppKey @"PF_LAUNCHED_APP"
+
+static NSString * WP_ABOUT_CONTENT_POST_ID = @"104";
+static NSString * WP_TERMS_CONTENT_POST_ID = @"106";
 
 // word press categories response keys
 static NSString * WP_CATEGORIES_KEY = @"categories";

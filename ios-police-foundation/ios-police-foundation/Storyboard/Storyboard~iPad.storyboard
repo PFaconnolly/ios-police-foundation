@@ -21,7 +21,8 @@
                         <segue destination="wp5-7N-roL" kind="relationship" relationship="viewControllers" id="0um-pI-Sb7"/>
                         <segue destination="Hts-Zz-QSC" kind="relationship" relationship="viewControllers" id="LKg-9O-glt"/>
                         <segue destination="J72-yN-Mho" kind="relationship" relationship="viewControllers" id="8cd-IP-qjs"/>
-                        <segue destination="aiC-dj-ZuK" kind="relationship" relationship="viewControllers" id="EhN-Yq-31l"/>
+                        <segue destination="w54-SX-BMO" kind="relationship" relationship="viewControllers" id="2nh-X4-ozC"/>
+                        <segue destination="aiC-dj-ZuK" kind="relationship" relationship="viewControllers" id="Zqd-Mw-RNt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x4K-fk-fXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -44,6 +45,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HzX-hA-kyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-123" y="2352"/>
+        </scene>
+        <!--Terms-->
+        <scene sceneID="PRP-fn-6nD">
+            <objects>
+                <navigationController id="w54-SX-BMO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Terms" image="Terms Tab Icon" id="UV5-p9-ICQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bud-Zu-iBN">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e4A-hJ-Ptu" kind="relationship" relationship="rootViewController" id="7Q7-uE-f5M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6OX-4n-9re" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-123" y="3667"/>
+        </scene>
+        <!--Terms View Controller-->
+        <scene sceneID="6mL-e7-ytz">
+            <objects>
+                <viewController id="e4A-hJ-Ptu" customClass="PFTermsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ljy-Cb-dBe"/>
+                        <viewControllerLayoutGuide type="bottom" id="o7I-kp-Zsz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4yp-yH-fmS">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MYz-ee-uCV">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="raX-Uz-j8v"/>
+                    <connections>
+                        <outlet property="contentWebView" destination="MYz-ee-uCV" id="GeX-Wg-cx9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ge8-Vo-8Of" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="3667"/>
         </scene>
         <!--About-->
         <scene sceneID="c9g-QY-P9a">
@@ -179,108 +225,24 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-MN-Y6I">
-                                <rect key="frame" x="10" y="0.0" width="748" height="911"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Every citizen has a stake in the success of American policing. The police are the crucial link in the nation’s system of crime control and the local agency of government on duty 24 hours a day to protect lives, homes, and property. Everywhere in the nation, police can be the catalyst for community crime prevention efforts.
-
-The purpose of the Police Foundation is to help the police be more effective in doing their job, whether it be deterring robberies, intervening in potentially injurious family disputes, or working to improve relationships between the police and the communities they serve. To accomplish our mission, we work closely with police officers and police agencies across the country, and it is in their hard work and contributions that our accomplishments are rooted.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="Georgia"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Research &amp; Evaluation
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-The Ford Foundation was not alone in 1970 in raising questions about the role of the police. Policy makers, academics, the public, and, most importantly, the police themselves, wanted to know: what are we doing? why are we doing it? can we do it better? what works? how do we experiment and measure?
-
-Social experiments are the hardest kind because they deal with people. When the Police Foundation began its work, social experimentation was not a well-established discipline, but rather a developing art. The foundation has established and refined the capacity to define, design, conduct, and evaluate controlled experiments testing ways to improve the delivery of police services. The development of this method, its execution in the real world, and the dissemination of what it has learned constitute a unique contribution to policing and is a central reason for the foundation’s existence.
-
-It was the foundation that first brought researchers into a lasting, constructive partnership with law enforcement. It was the foundation, in cooperation with police departments all across the country, that engendered a questioning of the traditional model of professional law enforcement and the testing of new approaches to policing.
-
-Since it is the spirit of experimentation rather than a specific set of tactics that the foundation seeks to encourage, there can never be an end to the process. What works in one city may not work in another. Policing constantly faces new challenges, so there is an endless process of discovery and testing, trying new ideas in changing circumstances, and testing them by the most rigorous and objective standards in real-world experiments.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="Georgia"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Professional Services
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-Over the Police Foundation’s history, its leadership has insisted that the organization’s work have a practical impact on policing, that the knowledge gained through empirical investigation be such that it could be applied outside the "laboratory," with the end result being improvement in the way that police do their work.
-
-In addition to defining, designing, conducting, and evaluating controlled experiments, the foundation offers a range of professional services, including training, technical assistance, and technology. Training programs are custom designed to meet the needs of the individual law enforcement agency.
-
-As a partner in the Community Policing Consortium, along with four other leading national law enforcement organizations, the foundation played a principal role in the development of community policing research, training, and technical assistance. Since 1993, the foundation has provided community policing education, training, and technical assistance to more than 1,000 law enforcement agencies and communities.
-
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="Georgia"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">Communication
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="20" name="Georgia-Bold"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">
-Unconstrained by partisan imperatives, the Police Foundation speaks with a unique and objective voice. Its focus and perspective is the whole of American policing, rather than any single facet.A guiding tenet of the foundation is that to advance, policing–like other public services–deserves the best of thorough, objective study, and the impetus of new ideas that have the widest possible dissemination.Since its inception in 1970, the foundation has stressed the importance of helping to create a new body of knowledge about policing. The quality and quantity of its research reports have helped make the Police Foundation a catalyst for change in American policing.
-
-By disseminating as widely as possible the publications that result from its work, the foundation seeks to ensure that the knowledge it has gained reaches the broader criminal justice community, including law enforcement practitioners, policy makers, and scholars.
-
-The president of the foundation speaks out on issues important to policing and serves as a source of advice and information to police officers and executives, public officials responsible for the quality of policing, and to members of the news media who cover criminal justice.</string>
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="Georgia"/>
-                                            <font key="NSOriginalFont" size="14" name="Garamond"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.2"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUJ-7U-aXe">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="911"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="scY-8Q-zuW" firstAttribute="top" secondItem="w8h-MN-Y6I" secondAttribute="bottom" id="28a-cA-nch"/>
-                            <constraint firstItem="w8h-MN-Y6I" firstAttribute="leading" secondItem="LbG-Y2-ggC" secondAttribute="leading" constant="10" id="YL0-07-opj"/>
-                            <constraint firstAttribute="trailing" secondItem="w8h-MN-Y6I" secondAttribute="trailing" constant="10" id="rrf-yr-HKY"/>
-                            <constraint firstItem="w8h-MN-Y6I" firstAttribute="top" secondItem="uOX-HV-vZF" secondAttribute="bottom" id="zMS-mZ-gZR"/>
+                            <constraint firstItem="BUJ-7U-aXe" firstAttribute="top" secondItem="uOX-HV-vZF" secondAttribute="bottom" id="BjS-qN-jqI"/>
+                            <constraint firstAttribute="trailing" secondItem="BUJ-7U-aXe" secondAttribute="trailing" id="Fl8-NH-wba"/>
+                            <constraint firstItem="scY-8Q-zuW" firstAttribute="top" secondItem="BUJ-7U-aXe" secondAttribute="bottom" id="Xhz-H6-9fR"/>
+                            <constraint firstItem="BUJ-7U-aXe" firstAttribute="leading" secondItem="LbG-Y2-ggC" secondAttribute="leading" id="eRb-Xm-fmk"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="IiF-S3-Ggj"/>
+                    <connections>
+                        <outlet property="contentWebView" destination="BUJ-7U-aXe" id="ISM-Qg-7dx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naN-us-baJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -645,6 +607,7 @@ The president of the foundation speaks out on issues important to policing and s
         <image name="Document Tab Icon" width="20" height="20"/>
         <image name="RSS Tab Icon" width="20" height="20"/>
         <image name="Research Tab Icon" width="20" height="20"/>
+        <image name="Terms Tab Icon" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
