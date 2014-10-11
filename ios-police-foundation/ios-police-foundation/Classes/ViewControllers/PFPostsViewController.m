@@ -112,9 +112,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 #pragma mark - Setters
 
-- (void)setCategory:(NSDictionary *)category {
+- (void)setCategory:(PFWordPressCategory *)category {
     _category = category;
-    self.title = [_category objectForKey:WP_CATEGORY_NAME_KEY];
+    self.title =_category.name;
 }
 
 - (void)setTag:(NSDictionary *)tag {
@@ -141,8 +141,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
     // add category and tag parameters as needed
     if ( self.category ) {
-        NSString * categorySlug = [self.category objectForKey:WP_CATEGORY_SLUG_KEY];
-        parameters = [NSDictionary dictionaryWithObjects:@[categorySlug, fields]
+        parameters = [NSDictionary dictionaryWithObjects:@[self.category.slug, fields]
                                                  forKeys:@[WP_SEARCH_POSTS_API_CATEGORY_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
         
     } else if ( self.tag ) {

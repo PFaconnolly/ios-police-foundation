@@ -51,10 +51,12 @@
 static NSString * WP_CATEGORIES_KEY = @"categories";
 
 // word press category keys
-static NSString * WP_CATEGORY_NAME_KEY = @"name";
-static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
+static NSString * WP_CATEGORY_ID_KEY = @"ID";
 static NSString * WP_CATEGORY_DESCRIPTION_KEY = @"description";
+static NSString * WP_CATEGORY_NAME_KEY = @"name";
+static NSString * WP_CATEGORY_PARENT_ID_KEY = @"parent";
 static NSString * WP_CATEGORY_POST_COUNT_KEY = @"post_count";
+static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
 
 // word press tags response keys
 static NSString * WP_TAGS_KEY = @"tags";

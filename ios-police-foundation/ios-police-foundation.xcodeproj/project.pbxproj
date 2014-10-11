@@ -64,6 +64,7 @@
 		B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */; };
 		B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AB5F9F19D7A695004C7256 /* Social.framework */; };
 		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
+		B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */; };
 		B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */; };
 		B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */; };
 		B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */; };
@@ -210,6 +211,8 @@
 		B0AB5F9F19D7A695004C7256 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDocumentsViewController.h; path = Classes/ViewControllers/PFDocumentsViewController.h; sourceTree = "<group>"; };
 		B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDocumentsViewController.m; path = Classes/ViewControllers/PFDocumentsViewController.m; sourceTree = "<group>"; };
+		B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWordPressCategory.h; path = Classes/Model/PFWordPressCategory.h; sourceTree = "<group>"; };
+		B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWordPressCategory.m; path = Classes/Model/PFWordPressCategory.m; sourceTree = "<group>"; };
 		B0BCE99C19C4B6EC008AB343 /* PFSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSearchViewController.h; path = Classes/ViewControllers/PFSearchViewController.h; sourceTree = "<group>"; };
 		B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSearchViewController.m; path = Classes/ViewControllers/PFSearchViewController.m; sourceTree = "<group>"; };
 		B0C1D0B4198F3E38008AB1B1 /* PFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFViewController.h; path = Classes/ViewControllers/PFViewController.h; sourceTree = "<group>"; };
@@ -459,6 +462,8 @@
 				B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */,
 				B0116C5519B4F458006904E8 /* PFAnalyticsManager.h */,
 				B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */,
+				B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */,
+				B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -792,6 +797,7 @@
 				B005FDE519DFB9A200B361AD /* PFTagCollectionViewCell.m in Sources */,
 				B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
+				B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */,
 				B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */,
 				B05CF46319DCF29600344A98 /* PFResearchViewController.m in Sources */,
 				B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */,
