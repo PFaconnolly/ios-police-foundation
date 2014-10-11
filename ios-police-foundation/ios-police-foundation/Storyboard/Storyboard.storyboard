@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -434,12 +435,12 @@
                     <navigationItem key="navigationItem" id="XgF-GO-bpK"/>
                     <connections>
                         <outlet property="collectionView" destination="eTp-69-UrI" id="xAL-Eq-NF4"/>
-                        <segue destination="jbD-fJ-dga" kind="push" identifier="newsToPostDetailsSegue" id="OUY-gf-PlR"/>
+                        <segue destination="jbD-fJ-dga" kind="push" identifier="newsToPostDetailsSegue" id="hIM-k2-SnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cL-7H-Vx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1559" y="58"/>
+            <point key="canvasLocation" x="1710" y="58"/>
         </scene>
         <!--Research View Controller-->
         <scene sceneID="Xoy-xn-eHD">
@@ -610,7 +611,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OUY-gf-PlR"/>
         <segue reference="OV0-CR-t9X"/>
+        <segue reference="hIM-k2-SnC"/>
     </inferredMetricsTieBreakers>
 </document>

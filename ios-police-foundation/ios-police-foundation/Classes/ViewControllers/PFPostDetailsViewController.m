@@ -44,6 +44,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.screenName = @"Post Details Screen";
     
     if ( self.rssPost ) {
         [self refreshRssPost];
@@ -59,14 +60,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                            [self hideBarberPole];
                                                                        }];
     }
-    
-    self.screenName = @"Post Details Screen";
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    self.rssPost = nil;
-    self.wordPressPost = nil;
 }
 
 
