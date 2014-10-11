@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GAITrackedViewController.h"
+#import "PFRefreshableViewController.h"
 
-@interface PFAboutViewController : GAITrackedViewController
+@interface PFAboutViewController : PFRefreshableViewController
 
 
 @end
