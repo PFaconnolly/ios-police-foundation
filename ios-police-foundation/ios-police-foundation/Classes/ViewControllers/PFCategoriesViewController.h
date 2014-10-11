@@ -11,4 +11,6 @@
 
 @interface PFCategoriesViewController : PFRefreshableViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (strong, nonatomic) NSArray * categories;
+
 @end

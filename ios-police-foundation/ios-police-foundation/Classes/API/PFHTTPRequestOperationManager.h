@@ -13,7 +13,7 @@
 + (id)sharedManager;
 
 - (void)getCategoriesWithParameters:(NSDictionary *)parameters
-                            successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+                            successBlock:(void (^)(AFHTTPRequestOperation * operation, NSArray * categories))successBlock
                             failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
 
 - (void)getTagsWithParameters:(NSDictionary *)parameters

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ck7-uA-GYI">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -24,7 +25,7 @@
         <!--Categories View Controller - Categories-->
         <scene sceneID="9qs-uN-6i6">
             <objects>
-                <viewController title="Categories" id="oHZ-cH-tn0" userLabel="Categories View Controller - Categories" customClass="PFCategoriesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PFCategoriesViewController" title="Categories" id="oHZ-cH-tn0" userLabel="Categories View Controller - Categories" customClass="PFCategoriesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sn6-OI-aJP"/>
                         <viewControllerLayoutGuide type="bottom" id="fSl-VV-Gru"/>
@@ -228,7 +229,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="qjT-NG-6Vb" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Documents" id="N9e-xe-7s4"/>
+                    <tabBarItem key="tabBarItem" title="Documents" image="Document Tab Icon" id="N9e-xe-7s4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yhd-tx-joJ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -630,6 +631,7 @@ The president of the foundation speaks out on issues important to policing and s
     </scenes>
     <resources>
         <image name="About Tab Icon" width="20" height="20"/>
+        <image name="Document Tab Icon" width="20" height="20"/>
         <image name="RSS Tab Icon" width="20" height="20"/>
         <image name="Research Tab Icon" width="20" height="20"/>
     </resources>
@@ -640,6 +642,6 @@ The president of the foundation speaks out on issues important to policing and s
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="OUY-gf-PlR"/>
-        <segue reference="RIo-TC-jdc"/>
+        <segue reference="OV0-CR-t9X"/>
     </inferredMetricsTieBreakers>
 </document>

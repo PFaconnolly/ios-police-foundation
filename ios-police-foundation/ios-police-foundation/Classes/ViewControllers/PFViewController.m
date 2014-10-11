@@ -24,6 +24,13 @@
                                                                              0,
                                                                              CGRectGetWidth(self.view.frame),
                                                                              20)];
+    
+    // add empty back button title
+    UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                          style:UIBarButtonItemStylePlain
+                                                                         target:nil
+                                                                         action:nil];
+    self.navigationItem.backBarButtonItem = backBarButtonItem;
 }
 
 - (void)updateViewConstraints {
