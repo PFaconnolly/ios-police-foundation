@@ -13,6 +13,8 @@
 #import "NSBundle+PFExtensions.h"
 #import "PFNoDocumentsView.h"
 
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @interface PFDocumentsViewController () <UITableViewDelegate, UIDocumentInteractionControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -118,6 +120,7 @@
     if ( self.documents.count == 0 ) {
         if ( self.noDocumentsView == nil ) {
             self.noDocumentsView = [[NSBundle mainBundle] pfFindObjectInNibNamed:[PFNoDocumentsView pfNibName] owner:self byClass:([UIView class])];
+            //self.noDocumentsView.translatesAutoresizingMaskIntoConstraints = NO;
             self.noDocumentsView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
             [self.view addSubview:self.noDocumentsView];
         }

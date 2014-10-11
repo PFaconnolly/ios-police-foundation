@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PFWelcomeViewController">
             <connections>
+                <outlet property="collectionView" destination="v17-Vb-Ca8" id="OoA-dX-6kz"/>
+                <outlet property="pageControl" destination="5LQ-HJ-AKs" id="9Dx-H3-vkQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="BDb-gK-Gd0"/>
             </connections>
         </placeholder>
@@ -15,14 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Welcome iPhone Background" translatesAutoresizingMaskIntoConstraints="NO" id="Pk0-DZ-jwO">
-                    <rect key="frame" x="44" y="71" width="233" height="425"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="233" id="BmM-8Z-xG3"/>
-                        <constraint firstAttribute="height" constant="425" id="Vo2-Ec-3o4"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLj-d1-caV" userLabel="Close Button">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="v17-Vb-Ca8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" red="0.0078431377190000002" green="0.36078432199999999" blue="0.74509805439999999" alpha="1" colorSpace="deviceRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Q2e-2e-U2R">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dfc-KP-Is3"/>
+                        <outlet property="delegate" destination="-1" id="7CV-Aa-rEa"/>
+                    </connections>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLj-d1-caV" userLabel="Close Button">
                     <rect key="frame" x="282" y="20" width="30" height="30"/>
                     <state key="normal" image="Close Icon">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,172 +39,33 @@
                         <action selector="dismissButtonTapped:" destination="-1" eventType="touchUpInside" id="CBF-p0-07o"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jL-B8-n8P">
-                    <rect key="frame" x="33" y="115" width="255" height="339"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PF Logo" translatesAutoresizingMaskIntoConstraints="NO" id="kC3-zB-NcA">
-                            <rect key="frame" x="113" y="20" width="19" height="32"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="3lZ-Bt-Bnz">
-                            <rect key="frame" x="36" y="90" width="180" height="98"/>
-                            <attributedString key="attributedText">
-                                <fragment>
-                                    <string key="content">The purpose of the Police Foundation is to help police be more effective in doing their job.
-
-Tap </string>
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="Research">
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=", ">
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="News">
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=" or ">
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content="About">
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                                <fragment content=" to get started.">
-                                    <attributes>
-                                        <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4iu-ci-Kos" userLabel="Separator View">
-                            <rect key="frame" x="36" y="84" width="180" height="1"/>
-                            <color key="backgroundColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
-                        </view>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="THE POLICE FOUNDATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6o-sQ-SPw">
-                            <rect key="frame" x="26" y="54" width="201" height="28"/>
-                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7XD-IX-gsS" userLabel="Tab Separator View">
-                            <rect key="frame" x="20" y="259" width="215" height="1"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Welcome Tap Hint" translatesAutoresizingMaskIntoConstraints="NO" id="HA6-7z-MH2">
-                            <rect key="frame" x="101" y="193" width="52" height="58"/>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjG-C5-F03" userLabel="Research Button">
-                            <rect key="frame" x="52" y="268" width="39" height="35"/>
-                            <state key="normal" image="Bulb Tab Icon">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" image="Bulb Tab Icon Selected"/>
-                            <connections>
-                                <action selector="researchButtonTapped:" destination="-1" eventType="touchUpInside" id="GSQ-GS-P8v"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcw-lG-Thv" userLabel="News Button">
-                            <rect key="frame" x="107" y="268" width="39" height="35"/>
-                            <state key="normal" image="News Tab Icon">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" image="News Tab Icon Selected"/>
-                            <connections>
-                                <action selector="newsButtonTapped:" destination="-1" eventType="touchUpInside" id="JMj-Q0-Op7"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahu-JL-zAc" userLabel="About Button">
-                            <rect key="frame" x="163" y="268" width="39" height="35"/>
-                            <state key="normal" image="About Tab Icon">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" image="About Tab Icon Selected"/>
-                            <connections>
-                                <action selector="aboutButtonTapped:" destination="-1" eventType="touchUpInside" id="Cz9-Mq-MWh"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Research" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GU-Vy-ufV">
-                            <rect key="frame" x="45" y="298" width="55" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="News" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BQ-i7-jKM">
-                            <rect key="frame" x="110" y="298" width="33" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU1-KA-IK6">
-                            <rect key="frame" x="166" y="298" width="39" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5LQ-HJ-AKs">
+                    <rect key="frame" x="8" y="485" width="304" height="36"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="339" id="NPN-JM-wau"/>
-                        <constraint firstAttribute="width" constant="255" id="nWU-ft-f1b"/>
+                        <constraint firstAttribute="height" constant="36" id="IqQ-Tn-Zbx"/>
+                        <constraint firstAttribute="width" constant="304" id="P9h-Rx-3j9"/>
                     </constraints>
-                </view>
+                    <connections>
+                        <action selector="pageControlValueChanged:" destination="-1" eventType="valueChanged" id="7ji-M3-jyO"/>
+                    </connections>
+                </pageControl>
             </subviews>
-            <color key="backgroundColor" red="0.0078431377190000002" green="0.36078432202339172" blue="0.7450980544090271" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="v17-Vb-Ca8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4qx-jr-Nvn"/>
+                <constraint firstAttribute="bottom" secondItem="5LQ-HJ-AKs" secondAttribute="bottom" constant="47" id="5YK-KD-jbO"/>
                 <constraint firstAttribute="trailing" secondItem="cLj-d1-caV" secondAttribute="trailing" constant="8" id="5bd-L9-ZbB"/>
-                <constraint firstAttribute="centerY" secondItem="Pk0-DZ-jwO" secondAttribute="centerY" id="F5h-gZ-wDo"/>
-                <constraint firstAttribute="centerX" secondItem="Pk0-DZ-jwO" secondAttribute="centerX" id="G1B-sR-0x4"/>
-                <constraint firstAttribute="centerX" secondItem="3jL-B8-n8P" secondAttribute="centerX" id="N92-6W-taU"/>
+                <constraint firstAttribute="trailing" secondItem="v17-Vb-Ca8" secondAttribute="trailing" id="5lZ-Fq-a2R"/>
+                <constraint firstItem="v17-Vb-Ca8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jkz-e0-zdi"/>
                 <constraint firstItem="cLj-d1-caV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="UzW-NG-LZf"/>
-                <constraint firstAttribute="centerY" secondItem="3jL-B8-n8P" secondAttribute="centerY" id="tQT-An-Bdd"/>
+                <constraint firstAttribute="bottom" secondItem="v17-Vb-Ca8" secondAttribute="bottom" id="b1L-ke-RjZ"/>
+                <constraint firstAttribute="centerX" secondItem="5LQ-HJ-AKs" secondAttribute="centerX" id="i9B-p9-Tc3"/>
             </constraints>
-            <point key="canvasLocation" x="501" y="536"/>
+            <point key="canvasLocation" x="1094" y="564"/>
         </view>
-        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aB7-gI-H4J">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="highlightedColor"/>
-        </label>
     </objects>
     <resources>
-        <image name="About Tab Icon" width="25" height="25"/>
-        <image name="About Tab Icon Selected" width="25" height="25"/>
-        <image name="Bulb Tab Icon" width="20" height="20"/>
-        <image name="Bulb Tab Icon Selected" width="20" height="20"/>
         <image name="Close Icon" width="30" height="30"/>
-        <image name="News Tab Icon" width="20" height="20"/>
-        <image name="News Tab Icon Selected" width="20" height="20"/>
-        <image name="PF Logo" width="243" height="390"/>
-        <image name="Welcome Tap Hint" width="104" height="116"/>
-        <image name="Welcome iPhone Background" width="466" height="850"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

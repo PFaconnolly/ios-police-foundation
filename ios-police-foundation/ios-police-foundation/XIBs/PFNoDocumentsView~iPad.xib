@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no Documents" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGn-ks-QGt">
-                    <rect key="frame" x="55" y="32" width="490" height="66"/>
+                    <rect key="frame" x="55" y="197" width="490" height="66"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="66" id="nnP-Qd-tzb"/>
                         <constraint firstAttribute="width" constant="490" id="pOY-Xt-wIb"/>
@@ -22,7 +22,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To download a Document tap the Paper Clip icon when viewing an Article. Some Articles may not have any Documents." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ch9-U1-gAf">
-                    <rect key="frame" x="101.5" y="106" width="397" height="88"/>
+                    <rect key="frame" x="102" y="256" width="397" height="88"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="397" id="Xz4-6R-ts8"/>
                         <constraint firstAttribute="height" constant="88" id="vtB-cb-cAE"/>
@@ -31,27 +31,15 @@
                     <color key="textColor" red="0.48106060610000001" green="0.48106060610000001" blue="0.48106060610000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Documents Tutorial Pad" translatesAutoresizingMaskIntoConstraints="NO" id="1bk-WA-lW2">
-                    <rect key="frame" x="0.0" y="-53" width="600" height="800"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="800" id="09z-ck-QsT"/>
-                        <constraint firstAttribute="width" constant="600" id="ee8-wD-zxC"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.93789717080000001" green="0.977780855" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="dGn-ks-QGt" secondAttribute="centerY" constant="235" id="MCt-o4-ahd"/>
-                <constraint firstAttribute="centerX" secondItem="1bk-WA-lW2" secondAttribute="centerX" id="RXA-XY-ioV"/>
-                <constraint firstAttribute="centerY" secondItem="Ch9-U1-gAf" secondAttribute="centerY" constant="150" id="RZw-6f-KLE"/>
+                <constraint firstAttribute="centerY" secondItem="dGn-ks-QGt" secondAttribute="centerY" constant="70" id="MCt-o4-ahd"/>
+                <constraint firstAttribute="centerY" secondItem="Ch9-U1-gAf" secondAttribute="centerY" id="RZw-6f-KLE"/>
                 <constraint firstAttribute="centerX" secondItem="Ch9-U1-gAf" secondAttribute="centerX" id="WKe-s2-8tz"/>
-                <constraint firstAttribute="bottom" secondItem="1bk-WA-lW2" secondAttribute="bottom" constant="-147" id="on5-A8-zbh"/>
                 <constraint firstAttribute="centerX" secondItem="dGn-ks-QGt" secondAttribute="centerX" id="ynG-Fb-fNe"/>
             </constraints>
             <point key="canvasLocation" x="509" y="459"/>
         </view>
     </objects>
-    <resources>
-        <image name="Documents Tutorial Pad" width="700" height="900"/>
-    </resources>
 </document>
