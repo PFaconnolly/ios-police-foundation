@@ -15,8 +15,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFPostDetailsViewController () <UIWebViewDelegate, UIDocumentInteractionControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UILabel * titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel * dateLabel;
 @property (strong, nonatomic) UIBarButtonItem * attachmentBarButtonItem;
 @property (strong, nonatomic) UIBarButtonItem * shareBarButtonItem;
 @property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
@@ -118,13 +116,22 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     NSURL * URL = [NSURL URLWithString:URLString];
     NSArray * sharingItems = [NSArray arrayWithObjects:URL, nil];
     
+    // track the file name that was shared
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SHARED_ITEM_WITH_URL_ACTION label:URLString value:nil];
+    
     UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    
+    // iOS 8 requires that activity controllers be presented from a UIView
+    if ( [activityViewController respondsToSelector:@selector(popoverPresentationController)] ) {
+        activityViewController.popoverPresentationController.barButtonItem = self.shareBarButtonItem;
+    }
+    
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 - (void)attachmentButtonTapped:(id)sender {
     
-    // TO DO:
+    // TO DO: (future)
     // detect if there are more than 1 attachments
     
     NSURL * attachmentURL = nil;
@@ -152,6 +159,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
             return;
         }
         
+        // track the file name that was viewed
+        NSString * fileName = [fileURL lastPathComponent];
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_VIEWED_FILE_NAME_ACTION label:fileName value:nil];
+        
         // Fire up the document interaction controller
         UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
         interactionController.delegate = self;
@@ -166,7 +177,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.wordPressPostId
                                                       parameters:nil
                                                     successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                        
                                                         [self processWordPressPost:responseObject];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {

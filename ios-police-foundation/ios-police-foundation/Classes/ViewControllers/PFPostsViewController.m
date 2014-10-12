@@ -33,6 +33,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self setUpCollectionView];
     [self fetchPosts];
     
+    //self.collectionView.layer.borderColor = [UIColor redColor].CGColor;
+    //self.collectionView.layer.borderWidth = 1.0f;
+    
     @weakify(self);
     self.refreshBlock = ^(){
         @strongify(self);

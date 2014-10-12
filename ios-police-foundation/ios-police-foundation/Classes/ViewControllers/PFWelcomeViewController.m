@@ -90,15 +90,44 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     NSString * cellReuseIdentifier = @"Cell";
     
+    NSString * analyticsActionName = GA_VIEWED_WELCOME_INSTRUCTIONS_ACTION;
+    
     switch ( indexPath.row ) {
-        case 0: cellReuseIdentifier = [PFWelcomeCollectionViewCell pfCellReuseIdentifier]; break;
-        case 1: cellReuseIdentifier = [PFWelcomeResearchCollectionViewCell pfCellReuseIdentifier]; break;
-        case 2: cellReuseIdentifier = [PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]; break;
-        case 3: cellReuseIdentifier = [PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier]; break;
-        case 4: cellReuseIdentifier = [PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier]; break;
-        case 5: cellReuseIdentifier = [PFWelcomeDocumentsCollectionViewCell pfCellReuseIdentifier]; break;
+        case 0: {
+            cellReuseIdentifier = [PFWelcomeCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_WELCOME_INSTRUCTIONS_ACTION;
+            break;
+        }
+        case 1: {
+            cellReuseIdentifier = [PFWelcomeResearchCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_RESEARCH_INSTRUCTIONS_ACTION;
+            break;
+        }
+        case 2: {
+            cellReuseIdentifier = [PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_CATEGORIES_INSTRUCTIONS_ACTION;
+            break;
+        }
+        case 3: {
+            cellReuseIdentifier = [PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_TAGS_INSTRUCTIONS_ACTION;
+            break;
+        }
+        case 4: {
+            cellReuseIdentifier = [PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_NEWS_INSTRUCTIONS_ACTION;
+            break;
+        }
+        case 5: {
+            cellReuseIdentifier = [PFWelcomeDocumentsCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_DOCUMENTS_INSTRUCTIONS_ACTION;
+            break;
+        }
         default: break;
     }
+    
+    // track the welcome screen cell that was viewed
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:analyticsActionName label:nil value:nil];
     
     UICollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellReuseIdentifier forIndexPath:indexPath];
     
