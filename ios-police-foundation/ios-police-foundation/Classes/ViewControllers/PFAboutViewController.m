@@ -29,6 +29,8 @@
     }
     
     [self fetchWordPressPost];
+    
+    [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

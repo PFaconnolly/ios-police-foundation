@@ -2,17 +2,19 @@ body
 {
     font-family: Georgia;
     color: #5e5e5e;
-    padding: 20px 15px;
+    padding: 15px 10px;
 }
 
 h1
 {
-    color: #050505;
+    color:      #050505;
+    font-size:  175%;
 }
 
 h3
 {
     color: #909090;
+    font-size:  120%;
 }
 
 p
@@ -21,6 +23,7 @@ p
 }
 
 blockquote {
-    background-color: #f1f1f1;
-    padding: 5px;
+    background-color: #F1F8FF;
+    margin: 2px;
+    padding: 10px 2px 2px 2px;
 }
