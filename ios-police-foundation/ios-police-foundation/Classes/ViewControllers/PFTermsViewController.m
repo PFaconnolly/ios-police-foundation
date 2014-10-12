@@ -26,6 +26,10 @@
     [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Terms Screen";
+}
 
 #pragma mark - Private methods
 

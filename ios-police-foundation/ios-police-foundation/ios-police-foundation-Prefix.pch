@@ -25,6 +25,7 @@
     #import "UICollectionViewCell+PFExtensions.h"
     #import "PureLayout.h"
     #import "UICollectionView+PFExtensions.h"
+    #import "PFAnalyticsManager.h"
 #endif
 
 /*

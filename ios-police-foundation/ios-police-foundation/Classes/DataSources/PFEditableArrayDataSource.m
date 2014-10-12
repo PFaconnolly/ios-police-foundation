@@ -48,6 +48,10 @@
                 return;
             }
             
+            // track the file name that was viewed
+            NSString * fileName = [filePath lastPathComponent];
+            [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_VIEWED_FILE_NAME_ACTION label:fileName value:nil];
+            
             // remove file from items and reload table
             [self.items removeObjectAtIndex:indexPath.row];
             [tableView reloadData];

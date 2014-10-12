@@ -82,6 +82,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         NSString * filePath = [item objectForKey:PFFilePath];
         NSURL * fileURL = [NSURL fileURLWithPath:filePath];
         
+        // track the file name that was viewed
+        NSString * fileName = [fileURL lastPathComponent];
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_VIEWED_FILE_NAME_ACTION label:fileName value:nil];
+        
         // Fire up the document interaction controller
         if ( self->_documentInteractionController == nil ) {
             self->_documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
