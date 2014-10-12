@@ -40,6 +40,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.shareBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
     self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, nil];
     self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
+    
+    [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

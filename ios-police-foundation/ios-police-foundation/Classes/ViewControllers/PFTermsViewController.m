@@ -22,6 +22,8 @@
     self.title = @"Terms";
     
     [self fetchWordPressPost];
+    
+    [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
 }
 
 
