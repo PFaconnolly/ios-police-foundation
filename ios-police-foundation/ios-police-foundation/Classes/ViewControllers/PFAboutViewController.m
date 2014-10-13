@@ -28,13 +28,12 @@
         self.navigationItem.rightBarButtonItem = self.contactButton;
     }
     
-    [self fetchWordPressPost];
-    
     [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self fetchWordPressPost];
     self.screenName = @"About Screen";
 }
 

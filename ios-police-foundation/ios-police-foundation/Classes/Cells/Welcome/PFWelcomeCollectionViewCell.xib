@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
@@ -13,64 +14,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="500" height="616"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="Pzo-Xr-17i">
-                        <rect key="frame" x="127" y="343" width="246" height="113"/>
+                        <rect key="frame" x="127" y="343" width="246" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="246" id="n76-4N-oLe"/>
-                            <constraint firstAttribute="height" constant="113" id="uoU-NT-cBB"/>
+                            <constraint firstAttribute="height" constant="60" id="uoU-NT-cBB"/>
                         </constraints>
                         <attributedString key="attributedText">
-                            <fragment>
-                                <string key="content">The purpose of the Police Foundation is to help police be more effective in doing their job.
-
-Tap </string>
-                                <attributes>
-                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
-                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content="Research">
-                                <attributes>
-                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
-                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=", ">
-                                <attributes>
-                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
-                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content="News">
-                                <attributes>
-                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
-                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" or ">
-                                <attributes>
-                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
-                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content="About">
-                                <attributes>
-                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
-                                    <font key="NSFont" size="16" name="HelveticaNeue-Bold"/>
-                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" to get started.">
+                            <fragment content="The purpose of evidence-based policing is to help police be more effective in doing their job.">
                                 <attributes>
                                     <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
                                     <font key="NSFont" size="16" name="HelveticaNeue"/>
@@ -81,14 +31,7 @@ Tap </string>
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PF Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-3h-dAa">
-                        <rect key="frame" x="223" y="171" width="55" height="92"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="92" id="JNB-QF-0nm"/>
-                            <constraint firstAttribute="width" constant="55" id="aQG-Ls-0gq"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE POLICE FOUNDATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjD-WE-kY5">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVIDENCE BASED POLICING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjD-WE-kY5">
                         <rect key="frame" x="101" y="298" width="298" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="298" id="2sF-yP-ROZ"/>
@@ -98,6 +41,13 @@ Tap </string>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EBP Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-3h-dAa">
+                        <rect key="frame" x="191" y="165" width="119" height="98"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="98" id="JNB-QF-0nm"/>
+                            <constraint firstAttribute="width" constant="119" id="aQG-Ls-0gq"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
@@ -115,6 +65,6 @@ Tap </string>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="PF Logo" width="243" height="390"/>
+        <image name="EBP Logo" width="119" height="98"/>
     </resources>
 </document>
