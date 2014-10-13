@@ -124,7 +124,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     @weakify(self)
     
     NSString * fields = [@[WP_POST_ID_KEY, WP_POST_TITLE_KEY, WP_POST_EXCERPT_KEY, WP_POST_DATE_KEY, WP_POST_URL_KEY] componentsJoinedByString:@","];    // ID, title, date, URL
-    NSDictionary * parameters = [NSDictionary dictionaryWithObjects:@[fields, @(14), @"DESC"]
+    NSDictionary * parameters = [NSDictionary dictionaryWithObjects:@[fields, @(30), @"DESC"]
                                                             forKeys:@[WP_SEARCH_POSTS_API_FIELDS_KEY, WP_SEARCH_POSTS_API_NUMBER_OF_RESULTS_KEY, WP_SEARCH_POSTS_API_ORDER_KEY]];
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostsWithParameters:parameters

@@ -40,6 +40,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.screenName = @"Documents Screen";
     self.documents = [[PFFileDownloadManager sharedManager] files];
     [self toggleTableView];

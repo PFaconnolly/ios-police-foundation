@@ -21,6 +21,7 @@
 #pragma mark - View life cycle
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.barberPoleView = [[PFBarberPoleView alloc] initWithFrame:CGRectMake(0,
                                                                              0,
                                                                              CGRectGetWidth(self.view.frame),
