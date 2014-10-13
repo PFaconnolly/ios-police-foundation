@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "PFRefreshableViewController.h"
 #import "PFWordPressCategory.h"
+#import "PFWordPressTag.h"
 
 @interface PFPostsViewController : PFRefreshableViewController
 
 @property (strong, nonatomic) PFWordPressCategory * category;
-@property (strong, nonatomic) NSDictionary * tag;
+@property (strong, nonatomic) PFWordPressTag * tag;
 
 @end

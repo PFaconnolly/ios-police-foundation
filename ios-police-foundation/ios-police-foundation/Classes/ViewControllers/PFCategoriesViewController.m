@@ -54,7 +54,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
     NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
     PFWordPressCategory * category = [self.categories objectAtIndex:selectedIndexPath.row];
     

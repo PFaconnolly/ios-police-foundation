@@ -11,7 +11,7 @@
 #import "PFBarberPoleView.h"
 #import "PFFileDownloadManager.h"
 
-static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @interface PFPostDetailsViewController () <UIWebViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -20,10 +20,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
 @property (strong, nonatomic) NSMutableArray * rightBarButtonItems;
 
-// use with pad UI idiom
-@property (strong, nonatomic) UIPopoverController * popController;
-
-@property (strong, nonatomic) NSDictionary * wordPressPost;
+@property (strong, nonatomic) PFPost * wordPressPost;
 
 @end
 
@@ -31,7 +28,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Post";
 
     // set up right bar button items
     self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Paperclip Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
@@ -50,15 +46,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         [self refreshRssPost];
     } else if ( self.wordPressPostId ) {
         [self fetchWordPressPost];
-    } else {
-        // fetch the latest post
-        [[PFHTTPRequestOperationManager sharedManager] getLastestPostWithParameters:nil
-                                                                       successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                           [self processWordPressPost:responseObject];
-                                                                       } failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                           [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
-                                                                           [self hideBarberPole];
-                                                                       }];
     }
 }
 
@@ -105,7 +92,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     NSString * URLString = nil;
     
     if ( _wordPressPost ) {
-        URLString = [_wordPressPost objectForKey:WP_ATTACHMENT_URL_KEY];
+        URLString = _wordPressPost.link;
     } else if ( _rssPost ) {
         URLString = _rssPost.link;
     } else {
@@ -136,10 +123,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     
     NSURL * attachmentURL = nil;
     
-    NSDictionary * attachments = (NSDictionary *)[self.wordPressPost objectForKey:WP_POST_ATTACHMENTS_KEY];
-    if ( attachments && attachments.allKeys.count > 0 ) {
-        for( id key in attachments.allKeys ) {
-            NSDictionary * attachment = attachments[key];
+    if ( self.wordPressPost.attachments && self.wordPressPost.attachments.allKeys.count > 0 ) {
+        for( id key in self.wordPressPost.attachments.allKeys ) {
+            NSDictionary * attachment = self.wordPressPost.attachments[key];
             attachmentURL = [NSURL URLWithString:[attachment objectForKey:WP_ATTACHMENT_URL_KEY]];
             break;
         }
@@ -176,8 +162,20 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.wordPressPostId
                                                       parameters:nil
-                                                    successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                        [self processWordPressPost:responseObject];
+                                                    successBlock:^(AFHTTPRequestOperation *operation, PFPost * post) {
+                                                        self.wordPressPost = post;
+                                                        
+                                                        NSString * html = [NSString pfStyledHTMLDocumentWithTitle:self.wordPressPost.title date:[NSString pfMediumDateStringFromDate:self.wordPressPost.date] body:self.wordPressPost.content];
+                                                        NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
+                                                        [self.contentWebView loadHTMLString:html baseURL:baseURL];
+                                                        
+                                                        // check for attachments and hide/show attachments button
+                                                        if ( self.wordPressPost.attachments && self.wordPressPost.attachments.allKeys.count > 0 ) {
+                                                            self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, self.attachmentBarButtonItem, nil];
+                                                            self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
+                                                        }
+                                                        
+                                                        [self hideBarberPole];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                         [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
@@ -185,29 +183,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                     }];
 }
 
-- (void)processWordPressPost:(id)responseObject {
-    [self hideBarberPole];
-
-    if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
-        self.wordPressPost = (NSDictionary *)responseObject;
-        NSString * titleString = [[self.wordPressPost objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];        
-        NSDate * date = [NSDate pfDateFromIso8601String:[self.wordPressPost objectForKey:WP_POST_DATE_KEY]];
-        NSString * dateString = [NSString pfMediumDateStringFromDate:date];
-        
-        NSString * content = [self.wordPressPost objectForKey:WP_POST_CONTENT_KEY];
-        NSString * html = [NSString pfStyledHTMLDocumentWithTitle:titleString date:dateString body:content];
-        NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
-        
-        [self.contentWebView loadHTMLString:html baseURL:baseURL];
-        
-        // check for attachments and hide/show attachments button
-        NSDictionary * attachments = (NSDictionary *)[self.wordPressPost objectForKey:WP_POST_ATTACHMENTS_KEY];
-        if ( attachments && attachments.allKeys.count > 0 ) {
-            self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, self.attachmentBarButtonItem, nil];
-            self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
-        }
-    }
-}
 
 - (void)refreshRssPost {
     NSString * dateString = [NSString pfMediumDateStringFromDate:self.rssPost.date];

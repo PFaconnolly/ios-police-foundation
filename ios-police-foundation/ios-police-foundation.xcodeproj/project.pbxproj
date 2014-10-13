@@ -27,6 +27,9 @@
 		B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */; };
 		B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */; };
 		B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */; };
+		B032C1AE19EC340A00364C3A /* PFWordPressTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B032C1AD19EC340A00364C3A /* PFWordPressTag.m */; };
+		B032C1B219EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B032C1B019EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m */; };
+		B032C1B319EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B032C1B119EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib */; };
 		B038482919EB4B14007D2FA5 /* PFPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B038482819EB4B14007D2FA5 /* PFPost.m */; };
 		B038482C19EB4C56007D2FA5 /* PFRSSPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B038482B19EB4C56007D2FA5 /* PFRSSPost.m */; };
 		B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */; };
@@ -144,6 +147,11 @@
 		B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFNoDocumentsView~iPad.xib"; path = "XIBs/PFNoDocumentsView~iPad.xib"; sourceTree = "<group>"; };
 		B02C640C19E1E54800CD094C /* PFNoDocumentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNoDocumentsView.h; path = Classes/Views/PFNoDocumentsView.h; sourceTree = "<group>"; };
 		B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNoDocumentsView.m; path = Classes/Views/PFNoDocumentsView.m; sourceTree = "<group>"; };
+		B032C1AC19EC340A00364C3A /* PFWordPressTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWordPressTag.h; path = Classes/Model/PFWordPressTag.h; sourceTree = "<group>"; };
+		B032C1AD19EC340A00364C3A /* PFWordPressTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWordPressTag.m; path = Classes/Model/PFWordPressTag.m; sourceTree = "<group>"; };
+		B032C1AF19EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeTermsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeTermsCollectionViewCell.h; sourceTree = "<group>"; };
+		B032C1B019EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeTermsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeTermsCollectionViewCell.m; sourceTree = "<group>"; };
+		B032C1B119EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeTermsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeTermsCollectionViewCell.xib; sourceTree = "<group>"; };
 		B038482719EB4B14007D2FA5 /* PFPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPost.h; path = Classes/Model/PFPost.h; sourceTree = "<group>"; };
 		B038482819EB4B14007D2FA5 /* PFPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPost.m; path = Classes/Model/PFPost.m; sourceTree = "<group>"; };
 		B038482A19EB4C56007D2FA5 /* PFRSSPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRSSPost.h; path = Classes/Model/PFRSSPost.h; sourceTree = "<group>"; };
@@ -462,6 +470,9 @@
 				B063555C19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.h */,
 				B063555D19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m */,
 				B063555E19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib */,
+				B032C1AF19EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.h */,
+				B032C1B019EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m */,
+				B032C1B119EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -469,16 +480,18 @@
 		B0C9D46019B4D32A00E4B948 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B0C9D46119B4D34500E4B948 /* PFFileDownloadManager.h */,
-				B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */,
 				B0116C5519B4F458006904E8 /* PFAnalyticsManager.h */,
 				B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */,
-				B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */,
-				B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */,
+				B0C9D46119B4D34500E4B948 /* PFFileDownloadManager.h */,
+				B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */,
 				B038482719EB4B14007D2FA5 /* PFPost.h */,
 				B038482819EB4B14007D2FA5 /* PFPost.m */,
 				B038482A19EB4C56007D2FA5 /* PFRSSPost.h */,
 				B038482B19EB4C56007D2FA5 /* PFRSSPost.m */,
+				B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */,
+				B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */,
+				B032C1AC19EC340A00364C3A /* PFWordPressTag.h */,
+				B032C1AD19EC340A00364C3A /* PFWordPressTag.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -712,6 +725,7 @@
 				B063556519E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib in Resources */,
 				B005FDE119DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib in Resources */,
 				B05B6D3E19D117C5005981FF /* LaunchScreen.xib in Resources */,
+				B032C1B319EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib in Resources */,
 				B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */,
 				B0D8784319D109960008CE04 /* default.css in Resources */,
 			);
@@ -800,9 +814,11 @@
 				B063555F19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m in Sources */,
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
 				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
+				B032C1B219EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m in Sources */,
 				B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */,
 				B097263619E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m in Sources */,
 				B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */,
+				B032C1AE19EC340A00364C3A /* PFWordPressTag.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
 				B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */,
 				B0674F0D1971B5C80074C22E /* PFWelcomeViewController.m in Sources */,

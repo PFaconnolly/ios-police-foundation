@@ -32,10 +32,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [super viewDidLoad];
     [self setUpCollectionView];
     [self fetchPosts];
-    
-    //self.collectionView.layer.borderColor = [UIColor redColor].CGColor;
-    //self.collectionView.layer.borderWidth = 1.0f;
-    
+
     @weakify(self);
     self.refreshBlock = ^(){
         @strongify(self);
@@ -57,11 +54,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // track selected post and seque to post details
     NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
-    NSDictionary * post = [self.posts objectAtIndex:selectedIndexPath.row];
-    NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
+    PFPost * post = [self.posts objectAtIndex:selectedIndexPath.row];
+    NSString * postURL = post.link;
     [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
         
-    NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
+    NSString * postId = [NSString stringWithFormat:@"%lu", (unsigned long)post.postId];
     ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
 
@@ -96,12 +93,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     PFArticleCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
     
     // configure cell
-    NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
-    cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-    NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-    NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
-    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
-    cell.excerptLabel.text = excerpt;
+    PFPost * post = [self.posts objectAtIndex:indexPath.row];
+    cell.titleLabel.text = post.title;
+    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:post.date];
+    cell.excerptLabel.text = post.excerpt;
     
     return cell;
 }
@@ -120,9 +115,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     self.title =_category.name;
 }
 
-- (void)setTag:(NSDictionary *)tag {
+- (void)setTag:(PFWordPressTag *)tag {
     _tag = tag;
-    self.title = [_tag objectForKey:WP_TAG_NAME_KEY];
+    self.title = _tag.name;
 }
 
 
@@ -148,21 +143,17 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                  forKeys:@[WP_SEARCH_POSTS_API_CATEGORY_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
         
     } else if ( self.tag ) {
-        NSString * tagSlug = [self.tag objectForKey:WP_TAG_SLUG_KEY];
+        NSString * tagSlug = self.tag.slug;
         parameters = [NSDictionary dictionaryWithObjects:@[tagSlug, fields]
                                                  forKeys:@[WP_SEARCH_POSTS_API_TAG_KEY, WP_SEARCH_POSTS_API_FIELDS_KEY]];
     }
     
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostsWithParameters:parameters
-                                                             successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                             successBlock:^(AFHTTPRequestOperation *operation, NSArray * posts) {
                                                                  @strongify(self)
-                                                                 if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
-                                                                     NSDictionary * response = (NSDictionary *)responseObject;
-                                                                     self->_posts = [response objectForKey:WP_POSTS_API_RESPONSE_POSTS_KEY];
-                                                                     [self->_collectionView reloadData];
-                                                                 }
-
+                                                                 self->_posts = posts;
+                                                                 [self->_collectionView reloadData];
                                                                  [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
