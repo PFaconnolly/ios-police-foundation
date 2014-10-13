@@ -27,6 +27,8 @@
 		B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */; };
 		B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */; };
 		B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */; };
+		B038482919EB4B14007D2FA5 /* PFPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B038482819EB4B14007D2FA5 /* PFPost.m */; };
+		B038482C19EB4C56007D2FA5 /* PFRSSPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B038482B19EB4C56007D2FA5 /* PFRSSPost.m */; };
 		B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */; };
 		B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */; };
 		B0504FA419D10D86003C791D /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA319D10D86003C791D /* GTMNSString+HTML.m */; };
@@ -142,6 +144,10 @@
 		B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFNoDocumentsView~iPad.xib"; path = "XIBs/PFNoDocumentsView~iPad.xib"; sourceTree = "<group>"; };
 		B02C640C19E1E54800CD094C /* PFNoDocumentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNoDocumentsView.h; path = Classes/Views/PFNoDocumentsView.h; sourceTree = "<group>"; };
 		B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNoDocumentsView.m; path = Classes/Views/PFNoDocumentsView.m; sourceTree = "<group>"; };
+		B038482719EB4B14007D2FA5 /* PFPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPost.h; path = Classes/Model/PFPost.h; sourceTree = "<group>"; };
+		B038482819EB4B14007D2FA5 /* PFPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPost.m; path = Classes/Model/PFPost.m; sourceTree = "<group>"; };
+		B038482A19EB4C56007D2FA5 /* PFRSSPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRSSPost.h; path = Classes/Model/PFRSSPost.h; sourceTree = "<group>"; };
+		B038482B19EB4C56007D2FA5 /* PFRSSPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRSSPost.m; path = Classes/Model/PFRSSPost.m; sourceTree = "<group>"; };
 		B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+PFExtensions.h"; path = "Categories/UITableViewCell+PFExtensions.h"; sourceTree = "<group>"; };
 		B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+PFExtensions.m"; path = "Categories/UITableViewCell+PFExtensions.m"; sourceTree = "<group>"; };
 		B04C9E1019C51E5700477E1B /* NSBundle+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+PFExtensions.h"; path = "Categories/NSBundle+PFExtensions.h"; sourceTree = "<group>"; };
@@ -469,6 +475,10 @@
 				B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */,
 				B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */,
 				B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */,
+				B038482719EB4B14007D2FA5 /* PFPost.h */,
+				B038482819EB4B14007D2FA5 /* PFPost.m */,
+				B038482A19EB4C56007D2FA5 /* PFRSSPost.h */,
+				B038482B19EB4C56007D2FA5 /* PFRSSPost.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -774,6 +784,7 @@
 				B0ED2B7119E9EB5800741BE2 /* PFTermsViewController.m in Sources */,
 				B005FDE019DFAFDB00B361AD /* PFCategoryCollectionViewCell.m in Sources */,
 				B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */,
+				B038482919EB4B14007D2FA5 /* PFPost.m in Sources */,
 				B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */,
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
@@ -804,6 +815,7 @@
 				B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
 				B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */,
+				B038482C19EB4C56007D2FA5 /* PFRSSPost.m in Sources */,
 				B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */,
 				B05CF46319DCF29600344A98 /* PFResearchViewController.m in Sources */,
 				B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */,

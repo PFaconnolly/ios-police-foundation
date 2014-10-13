@@ -64,10 +64,11 @@
         }
         
         if ([MFMailComposeViewController canSendMail]) {
-            MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+            MFMailComposeViewController * composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
             [composeViewController setMailComposeDelegate:self];
             [composeViewController setToRecipients:@[kPFInfoContactEmailAddress]];
             [composeViewController setSubject:mailSubject];
+            composeViewController.navigationBar.tintColor = [UIColor whiteColor];
             [self presentViewController:composeViewController animated:YES completion:nil];
         }
     }

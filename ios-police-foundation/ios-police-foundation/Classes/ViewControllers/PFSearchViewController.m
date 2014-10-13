@@ -21,6 +21,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 @property (strong, nonatomic) IBOutlet UITextField * searchTextField;
 @property (strong, nonatomic) IBOutlet UIButton * searchButton;
 @property (strong, nonatomic) IBOutlet UICollectionView * collectionView;
+@property (strong, nonatomic) UILabel * noResultsLabel;
 
 @end
 
@@ -34,6 +35,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     UIBarButtonItem * doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(doneButtonTapped:)];
     self.navigationItem.leftBarButtonItem = doneButton;
     [self setUpCollectionView];
+    
+    self.searchButton.tintColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated { 
@@ -57,6 +60,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
     ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
 }
+
 
 #pragma mark - UICollectionViewDelegateFlowLayout methods
 
@@ -126,6 +130,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)setUpCollectionView {
     [self.collectionView registerNib:[PFArticleCollectionViewCell pfNib]
           forCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier]];
+    
+    self.noResultsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+    self.noResultsLabel.text = @"No results found.";
+    self.noResultsLabel.font = [UIFont fontWithName:@"Georgia-Bold" size:20.0];
+    [self.noResultsLabel sizeToFit];
+    self.noResultsLabel.center = CGPointMake(CGRectGetMidX(self.view.frame), CGRectGetMinY(self.collectionView.frame) + 30);
 }
 
 - (void)clearSearch {
@@ -162,6 +172,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                      NSDictionary * response = (NSDictionary *)responseObject;
                                                                      self->_posts = [response objectForKey:WP_POSTS_API_RESPONSE_POSTS_KEY];
                                                                      [self->_collectionView reloadData];
+                                                                     
+                                                                     // add no results label
+                                                                     if ( self->_posts == nil || self->_posts.count == 0 ) {
+                                                                         [self->_collectionView addSubview:self->_noResultsLabel];
+                                                                     } else {
+                                                                         [self->_noResultsLabel removeFromSuperview];
+                                                                     }
                                                                  }
                                                                  
                                                                  [self hideBarberPole];
