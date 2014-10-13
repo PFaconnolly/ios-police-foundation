@@ -14,13 +14,14 @@
 #import "PFAppDelegate.h"
 #import "PFArticleCollectionViewCell.h"
 #import "PFAnalyticsManager.h"
+#import "PFRSSPost.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @interface PFNewsViewController () <UITableViewDelegate, NSXMLParserDelegate>
 
 @property (strong, nonatomic) NSMutableArray * rssPosts;
-@property (strong, nonatomic) NSMutableDictionary * rssPost;
+@property (strong, nonatomic) PFRSSPost * rssPost;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 // nasty xml parsing
@@ -50,10 +51,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     // track selected post and seque to post details
     NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
-    NSDictionary * rssPost = [self.rssPosts objectAtIndex:selectedIndexPath.row];
-    NSString * postURL = [rssPost objectForKey:RSS_POST_LINK_KEY];
+    PFRSSPost * rssPost = [self.rssPosts objectAtIndex:selectedIndexPath.row];
+    NSString * postURL = rssPost.link;
     [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_RSS_POST_ACTION label:postURL value:nil];
     
     // segue to post details
@@ -91,15 +93,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     PFArticleCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
     
     // configure cell
-    NSDictionary * rssPost = [self.rssPosts objectAtIndex:indexPath.row];
-    cell.titleLabel.text = [rssPost objectForKey:RSS_POST_TITLE_KEY];
-    NSDate * date = [NSDate pfDateFromRfc822String:[rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
-    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
-    
-    // build the excerpt
-    NSString * content = [[rssPost objectForKey:RSS_POST_DESCRIPTION_KEY] pfStringByConvertingHTMLToPlainText];
-    NSString * excerpt = (content.length < 120) ? content : [content substringWithRange:NSMakeRange(0, 120)];
-    cell.excerptLabel.text = [NSString stringWithFormat:@"%@ ...", excerpt];
+    PFRSSPost * rssPost = [self.rssPosts objectAtIndex:indexPath.row];
+    cell.titleLabel.text = rssPost.title;
+    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:rssPost.date];
+    cell.excerptLabel.text = rssPost.excerpt;
     
     return cell;
 }
@@ -154,7 +151,7 @@ didStartElement:(NSString *)elementName
     self.currentElementName = elementName;
     
     if ( [elementName isEqualToString:RSS_POST_ITEM_KEY] ) {
-        self.rssPost = [NSMutableDictionary new];
+        self.rssPost = [PFRSSPost new];
         return;
     }
     
@@ -172,13 +169,25 @@ didStartElement:(NSString *)elementName
         [self.rssPosts addObject:self.rssPost];
         return;
     }
-
+    
     // set new 'found characters' strings on dictionary
-    if ( [elementName isEqualToString:RSS_POST_TITLE_KEY] ||
-        [elementName isEqualToString:RSS_POST_LINK_KEY] ||
-        [elementName isEqualToString:RSS_POST_DESCRIPTION_KEY] ||
-        [elementName isEqualToString:RSS_POST_PUBLISH_DATE_KEY]) {
-        [self.rssPost setObject:self.currentFoundCharacters forKey:elementName];
+    if ( [elementName isEqualToString:RSS_POST_TITLE_KEY]) {
+        self.rssPost.title = [self.currentFoundCharacters pfStringByConvertingHTMLToPlainText];
+        
+    } else if ( [elementName isEqualToString:RSS_POST_LINK_KEY] ) {
+        self.rssPost.link = self.currentFoundCharacters;
+        
+    } else if ( [elementName isEqualToString:RSS_POST_DESCRIPTION_KEY] ) {
+        NSString * htmlContent = self.currentFoundCharacters;
+        NSString * noHtmlContent = [self.currentFoundCharacters pfStringByConvertingHTMLToPlainText];
+        NSString * excerpt = (noHtmlContent.length < 120) ? noHtmlContent : [noHtmlContent substringWithRange:NSMakeRange(0, 120)];
+        self.rssPost.content = htmlContent;
+        self.rssPost.excerpt = [NSString stringWithFormat:@"%@ ...", excerpt];
+
+    } else if ( [elementName isEqualToString:RSS_POST_PUBLISH_DATE_KEY] ) {
+        NSString * dateString =  self.currentFoundCharacters;
+        NSDate * date = [NSDate pfDateFromRfc822String:dateString];
+        self.rssPost.date = date;
     }
 }
 

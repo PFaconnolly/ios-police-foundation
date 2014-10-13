@@ -230,7 +230,7 @@
             <objects>
                 <navigationController id="PQs-Kh-Qwl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Terms" image="Terms Tab Icon" id="feY-fp-ShY"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rmR-Cf-cwR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rmR-Cf-cwR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -251,7 +251,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sPi-gn-8iT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="K82-Ri-rqB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="buz-10-Rj5">

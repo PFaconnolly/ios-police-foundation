@@ -12,6 +12,7 @@
 @interface PFViewController()
 
 @property (strong, nonatomic) PFBarberPoleView * barberPoleView;
+@property (assign, nonatomic) BOOL didSetupConstraints;
 
 @end
 
@@ -33,10 +34,11 @@
     self.navigationItem.backBarButtonItem = backBarButtonItem;
 }
 
-- (void)updateViewConstraints {
-    [super updateViewConstraints];
-    // TO DO: Apply layout constraints to barber pole to position it right under the navigation bar
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.barberPoleView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 20);
 }
+
 
 #pragma mark - Public Methods
 

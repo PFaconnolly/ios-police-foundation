@@ -92,7 +92,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     [self fetchWordPressPost];
 }
 
-- (void)setRssPost:(NSDictionary *)rssPost {
+- (void)setRssPost:(PFRSSPost *)rssPost {
     _rssPost = rssPost;
     [self refreshRssPost];
 }
@@ -107,7 +107,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     if ( _wordPressPost ) {
         URLString = [_wordPressPost objectForKey:WP_ATTACHMENT_URL_KEY];
     } else if ( _rssPost ) {
-        URLString = [_rssPost objectForKey:RSS_POST_LINK_KEY];
+        URLString = _rssPost.link;
     } else {
         // fall back
         URLString = @"http://www.policefoundation.org";
@@ -210,13 +210,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)refreshRssPost {
-    NSString * titleString = [[self.rssPost objectForKey:RSS_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-
-    NSDate * date = [NSDate pfDateFromRfc822String:[self.rssPost objectForKey:RSS_POST_PUBLISH_DATE_KEY]];
-    NSString * dateString = [NSString pfMediumDateStringFromDate:date];
-    
-    NSString * content = [self.rssPost objectForKey:RSS_POST_DESCRIPTION_KEY];
-    NSString * html = [NSString pfStyledHTMLDocumentWithTitle:titleString date:dateString body:content];
+    NSString * dateString = [NSString pfMediumDateStringFromDate:self.rssPost.date];
+    NSString * html = [NSString pfStyledHTMLDocumentWithTitle:self.rssPost.title date:dateString body:self.rssPost.content];
     NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
     [self.contentWebView loadHTMLString:html baseURL:baseURL];
 }
