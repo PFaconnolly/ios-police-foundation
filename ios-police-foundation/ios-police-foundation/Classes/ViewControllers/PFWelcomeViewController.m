@@ -12,6 +12,7 @@
 #import "PFWelcomeCategoriesCollectionViewCell.h"
 #import "PFWelcomeTagsCollectionViewCell.h"
 #import "PFWelcomeNewsCollectionViewCell.h"
+#import "PFWelcomeTermsCollectionViewCell.h"
 #import "PFWelcomeDocumentsCollectionViewCell.h"
 
 static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
@@ -39,13 +40,14 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pageControl.numberOfPages = 6;
+    self.pageControl.numberOfPages = 7;
 
     [self.collectionView registerNib:[PFWelcomeCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeResearchCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeResearchCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeCategoriesCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeCategoriesCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeTagsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeTagsCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeNewsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeNewsCollectionViewCell pfCellReuseIdentifier]];
+    [self.collectionView registerNib:[PFWelcomeTermsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeTermsCollectionViewCell pfCellReuseIdentifier]];
     [self.collectionView registerNib:[PFWelcomeDocumentsCollectionViewCell pfNib] forCellWithReuseIdentifier:[PFWelcomeDocumentsCollectionViewCell pfCellReuseIdentifier]];
 }
 
@@ -83,13 +85,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return 7;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSString * cellReuseIdentifier = @"Cell";
-    
     NSString * analyticsActionName = GA_VIEWED_WELCOME_INSTRUCTIONS_ACTION;
     
     switch ( indexPath.row ) {
@@ -119,6 +119,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
             break;
         }
         case 5: {
+            cellReuseIdentifier = [PFWelcomeTermsCollectionViewCell pfCellReuseIdentifier];
+            analyticsActionName = GA_VIEWED_TERMS_INSTRUCTIONS_ACTION;
+            break;
+        }
+        case 6: {
             cellReuseIdentifier = [PFWelcomeDocumentsCollectionViewCell pfCellReuseIdentifier];
             analyticsActionName = GA_VIEWED_DOCUMENTS_INSTRUCTIONS_ACTION;
             break;
@@ -135,37 +140,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)tcUnused {
-    if ( self.isScrolling ) {
-        [self endScrolling];
-    }
+    CGFloat pageWidth = self.collectionView.frame.size.width;
+    self.pageControl.currentPage = self.collectionView.contentOffset.x / pageWidth;
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)tcUnused willDecelerate:(BOOL)decelerate {
-    //	ignore if we are going to decelerate; we will pick up the end of scrolling from -scrollViewDidEndDecelerating
-    if ( decelerate ) {
-        return;
-    }
-    [self endScrolling];
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)tcUnused {
-    [self endScrolling];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)tcUnused {
-    if ( ! self.isScrolling ) {
-        self.scrolling = YES;
-    }
-}
-
-#pragma mark Private methods
-
-- (void)endScrolling {
-    NSArray * indexPaths = self.collectionView.indexPathsForVisibleItems;
-    DDLogVerbose(@"visible items: %@", indexPaths);
-    NSIndexPath * visibleIndexPath = [indexPaths objectAtIndex:0];
-    self.pageControl.currentPage = visibleIndexPath.row;
-}
 
 #pragma mark - IBActions
 

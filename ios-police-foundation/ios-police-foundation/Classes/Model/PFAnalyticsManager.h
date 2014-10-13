@@ -26,6 +26,7 @@ static NSString * GA_VIEWED_RESEARCH_INSTRUCTIONS_ACTION = @"User viewed researc
 static NSString * GA_VIEWED_CATEGORIES_INSTRUCTIONS_ACTION = @"User viewed categories intro screen";
 static NSString * GA_VIEWED_TAGS_INSTRUCTIONS_ACTION = @"User viewed tags intro screen";
 static NSString * GA_VIEWED_NEWS_INSTRUCTIONS_ACTION = @"User viewed news intro screen";
+static NSString * GA_VIEWED_TERMS_INSTRUCTIONS_ACTION = @"User viewed terms intro screen";
 static NSString * GA_VIEWED_DOCUMENTS_INSTRUCTIONS_ACTION = @"User viewed documents intro screen";
 
 @interface PFAnalyticsManager : NSObject

@@ -11,12 +11,7 @@
 
 @interface PFAppDelegate : UIResponder <UIApplicationDelegate>
 
-// state
-@property (strong, nonatomic) NSString * selectedCategorySlug;
-@property (strong, nonatomic) NSString * selectedTagSlug;
-
 @property (strong, nonatomic) PFPostDetailsViewController * detailsViewController;
-
 @property (strong, nonatomic) UIWindow *window;
 
 - (NSURL *)applicationDocumentsDirectory;

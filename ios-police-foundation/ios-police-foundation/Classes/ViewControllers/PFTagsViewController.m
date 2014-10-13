@@ -14,8 +14,9 @@
 #import "PFAnalyticsManager.h"
 #import "PFPostsViewController.h"
 #import "PFTagCollectionViewCell.h"
+#import "PFWordPRessTag.h"
 
-static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @interface PFTagsViewController ()
 
@@ -49,8 +50,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // track selected tag
     NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
-    NSDictionary * tag = [self.tags objectAtIndex:selectedIndexPath.row];
-    NSString * selectedTagSlug = [tag objectForKey:WP_TAG_SLUG_KEY];
+    PFWordPressTag * tag = [self.tags objectAtIndex:selectedIndexPath.row];
+    NSString * selectedTagSlug = tag.slug;
     [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_TAG_ACTION label:selectedTagSlug value:nil];
     
     // segue to posts with the provided tag
@@ -87,10 +88,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     PFTagCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFTagCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
     
     // configure cell
-    NSDictionary * tag = [self.tags objectAtIndex:indexPath.row];
-    cell.nameLabel.text =  [tag valueForKey:WP_TAG_NAME_KEY];
-    cell.descriptionLabel.text = [tag valueForKey:WP_TAG_DESCRIPTION_KEY];
-    
+    PFWordPressTag * tag = [self.tags objectAtIndex:indexPath.row];
+    cell.nameLabel.text =  tag.name;
+    cell.descriptionLabel.text = tag.summary;
     return cell;
 }
 
@@ -118,10 +118,9 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     @weakify(self)
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getTagsWithParameters:nil
-                                                            successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                            successBlock:^(AFHTTPRequestOperation * operation, NSArray * tags) {
                                                                 @strongify(self)
-                                                                NSDictionary * response = (NSDictionary *)responseObject;
-                                                                self->_tags = [response objectForKey:WP_TAGS_KEY];
+                                                                self->_tags = tags;
                                                                 [self->_collectionView reloadData];                                                                
                                                                 [self hideBarberPole];
                                                             }

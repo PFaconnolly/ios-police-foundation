@@ -51,7 +51,7 @@ static NSString * WP_ABOUT_CONTENT_POST_ID = @"104";
 static NSString * WP_TERMS_CONTENT_POST_ID = @"106";
 
 // word press categories response keys
-static NSString * WP_CATEGORIES_KEY = @"categories";
+static NSString * WP_CATEGORIES_API_RESPONSE_CATEGORIES_KEY = @"categories";
 
 // word press category keys
 static NSString * WP_CATEGORY_ID_KEY = @"ID";
@@ -62,7 +62,7 @@ static NSString * WP_CATEGORY_POST_COUNT_KEY = @"post_count";
 static NSString * WP_CATEGORY_SLUG_KEY = @"slug";
 
 // word press tags response keys
-static NSString * WP_TAGS_KEY = @"tags";
+static NSString * WP_TAGS_API_RESPONSE_TAGS_KEY = @"tags";
 
 // word press tags keys
 static NSString * WP_TAG_NAME_KEY = @"name";

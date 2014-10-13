@@ -89,33 +89,22 @@
     [self showBarberPole];
     
     // Fetch posts from blog ...
+    @weakify(self);
     [[PFHTTPRequestOperationManager sharedManager] getPostWithId:WP_ABOUT_CONTENT_POST_ID
                                                       parameters:nil
-                                                    successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                        [self processWordPressPost:responseObject];
+                                                    successBlock:^(AFHTTPRequestOperation *operation, PFPost * post) {
+                                                        @strongify(self);
+                                                        NSString * html = [NSString pfStyledHTMLDocumentWithTitle:post.title
+                                                                                                             date:[NSString pfMediumDateStringFromDate:post.date]
+                                                                                                             body:post.content];
+                                                        NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
+                                                        [self->_contentWebView loadHTMLString:html baseURL:baseURL];
+                                                        [self hideBarberPole];
                                                     }
                                                     failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                         [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
                                                         [self hideBarberPole];
                                                     }];
 }
-
-- (void)processWordPressPost:(id)responseObject {
-    [self hideBarberPole];
-    
-    if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
-        NSDictionary * wordPressPost = (NSDictionary *)responseObject;
-        NSString * titleString = [[wordPressPost objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-        NSDate * date = [NSDate pfDateFromIso8601String:[wordPressPost objectForKey:WP_POST_DATE_KEY]];
-        NSString * dateString = [NSString pfMediumDateStringFromDate:date];
-        
-        NSString * content = [wordPressPost objectForKey:WP_POST_CONTENT_KEY];
-        NSString * html = [NSString pfStyledHTMLDocumentWithTitle:titleString date:dateString body:content];
-        NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
-        
-        [self.contentWebView loadHTMLString:html baseURL:baseURL];
-    }
-}
-
 
 @end

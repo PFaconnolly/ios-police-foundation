@@ -16,7 +16,7 @@
 typedef void (^TableViewCellConfigureBlock)(id cell, id indexPath);
 typedef void (^TableViewCellSelectBlock)(id indexPath);
 
-static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @interface PFResearchViewController ()
 
@@ -55,12 +55,13 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     if ( [segue.identifier isEqualToString:@"researchToPostDetailsSegue"] ) {
         // track selected post and seque to post details
         NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
-        NSDictionary * post = [self.posts objectAtIndex:selectedIndexPath.row];
-        NSString * postURL = [post objectForKey:WP_POST_URL_KEY];
+        PFPost * post = [self.posts objectAtIndex:selectedIndexPath.row];
+        NSString * postURL = post.link;
         [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_POST_ACTION label:postURL value:nil];
         
-        NSString * postId = [NSString stringWithFormat:@"%@", [post objectForKey:WP_POST_ID_KEY]];
+        NSString * postId = [NSString stringWithFormat:@"%lu", (unsigned long)post.postId];
         ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
+
     }
 }
 
@@ -95,13 +96,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     PFArticleCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFArticleCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
 
     // configure cell
-    NSDictionary * post = [self.posts objectAtIndex:indexPath.row];
-    cell.titleLabel.text = [[post objectForKey:WP_POST_TITLE_KEY] pfStringByConvertingHTMLToPlainText];
-    NSDate * date = [NSDate pfDateFromIso8601String:[post objectForKey:WP_POST_DATE_KEY]];
-    NSString * excerpt = [[post objectForKey:WP_POST_EXCERPT_KEY] pfStringByConvertingHTMLToPlainText];
-    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:date];
-    cell.excerptLabel.text = excerpt;
-
+    PFPost * post = [self.posts objectAtIndex:indexPath.row];
+    cell.titleLabel.text = post.title;
+    cell.dateLabel.text = [NSString pfMediumDateStringFromDate:post.date];
+    cell.excerptLabel.text = post.excerpt;
+    
     return cell;
 }
 
@@ -129,15 +128,10 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
                                                             forKeys:@[WP_SEARCH_POSTS_API_FIELDS_KEY, WP_SEARCH_POSTS_API_NUMBER_OF_RESULTS_KEY, WP_SEARCH_POSTS_API_ORDER_KEY]];
     // Fetch posts from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getPostsWithParameters:parameters
-                                                             successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                             successBlock:^(AFHTTPRequestOperation *operation, NSArray * posts) {
                                                                  @strongify(self)
-                                                                 if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
-                                                                     NSDictionary * response = (NSDictionary *)responseObject;
-                                                                     self->_posts = [response objectForKey:WP_POSTS_API_RESPONSE_POSTS_KEY];
-                                                                     
-                                                                     [self->_collectionView reloadData];
-                                                                 }
-                                                                 
+                                                                 self->_posts = posts;
+                                                                 [self->_collectionView reloadData];
                                                                  [self hideBarberPole];
                                                              }
                                                              failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {

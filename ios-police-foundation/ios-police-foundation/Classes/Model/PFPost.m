@@ -10,5 +10,18 @@
 
 @implementation PFPost
 
+- (id)initWithPostId:(NSUInteger)postId title:(NSString *)title date:(NSDate *)date content:(NSString *)content excerpt:(NSString *)excerpt link:(NSString *)link attachments:(NSDictionary *)attachments {
+    self = [super init];
+    if ( self ) {
+        self.postId = postId;
+        self.title = title;
+        self.date = date;
+        self.content = content;
+        self.excerpt = excerpt;
+        self.link = link;
+        self.attachments = attachments;
+    }
+    return self;
+}
 
 @end

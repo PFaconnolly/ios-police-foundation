@@ -7,6 +7,7 @@
 //
 
 #import "AFHTTPRequestOperationManager.h"
+#import "PFPost.h"
 
 @interface PFHTTPRequestOperationManager : AFHTTPRequestOperationManager
 
@@ -17,21 +18,16 @@
                             failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
 
 - (void)getTagsWithParameters:(NSDictionary *)parameters
-                 successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+                 successBlock:(void (^)(AFHTTPRequestOperation * operation, NSArray * tags))successBlock
                  failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
 
 - (void)getPostsWithParameters:(NSDictionary *)parameters
-                  successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+                  successBlock:(void (^)(AFHTTPRequestOperation * operation, NSArray * posts))successBlock
                   failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
 
 - (void)getPostWithId:(NSString*)postId
            parameters:(NSDictionary *)parameters
-         successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
+         successBlock:(void (^)(AFHTTPRequestOperation * operation, PFPost * post))successBlock
          failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
-
-- (void)getLastestPostWithParameters:(NSDictionary *)parameters
-                        successBlock:(void (^)(AFHTTPRequestOperation * operation, id responseObject))successBlock
-                        failureBlock:(void (^)(AFHTTPRequestOperation * operation, NSError * error))failureBlock;
-
 
 @end
