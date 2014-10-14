@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		13119462C3184FFC9CC9F111 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98428B0463124CB6AB2BC5C8 /* libPods.a */; };
+		B004A2B919ECA662005BA404 /* MainStoryboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A30B7F19EC880700ACD5D0 /* MainStoryboard~iPad.storyboard */; };
+		B004A2BB19ECA667005BA404 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A30B7E19EC880700ACD5D0 /* MainStoryboard.storyboard */; };
 		B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */; };
 		B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */; };
 		B005FDD519DF771A00B361AD /* PFArticleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDD319DF771A00B361AD /* PFArticleCollectionViewCell.m */; };
@@ -67,8 +69,6 @@
 		B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */; };
 		B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */; };
 		B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */; };
-		B0A30B8019EC880700ACD5D0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A30B7E19EC880700ACD5D0 /* MainStoryboard.storyboard */; };
-		B0A30B8219EC8A8B00ACD5D0 /* MainStoryboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A30B7F19EC880700ACD5D0 /* MainStoryboard~iPad.storyboard */; };
 		B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AB5F9F19D7A695004C7256 /* Social.framework */; };
 		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
 		B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */; };
@@ -711,16 +711,16 @@
 				B0E75E24190C3249003BE9EF /* InfoPlist.strings in Resources */,
 				B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */,
 				B063556019E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib in Resources */,
-				B0A30B8219EC8A8B00ACD5D0 /* MainStoryboard~iPad.storyboard in Resources */,
 				B005FDE619DFB9A200B361AD /* PFTagCollectionViewCell.xib in Resources */,
 				B097263C19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib in Resources */,
 				B0FC41CA19CFB39300EDE859 /* PFNoDocumentsView.xib in Resources */,
+				B004A2BB19ECA667005BA404 /* MainStoryboard.storyboard in Resources */,
 				B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */,
 				B097263719E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib in Resources */,
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
-				B0A30B8019EC880700ACD5D0 /* MainStoryboard.storyboard in Resources */,
 				B063555B19E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib in Resources */,
 				B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */,
+				B004A2B919ECA662005BA404 /* MainStoryboard~iPad.storyboard in Resources */,
 				B005FDD619DF771A00B361AD /* PFArticleCollectionViewCell.xib in Resources */,
 				B063556519E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib in Resources */,
 				B005FDE119DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib in Resources */,
