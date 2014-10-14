@@ -12,7 +12,7 @@
 #import "PFPost.h"
 
 static NSString * BASE_URL = @"https://public-api.wordpress.com/rest/v1/";
-static NSString * HOST_API_ID = @"pfaconnolly.wordpress.com";
+static NSString * HOST_API_ID = @"app.evidencebasedpolicing.org";
 
 static NSString * errorDomain = @"com.policefoundation.pfhttprequestoperationmanager";
 

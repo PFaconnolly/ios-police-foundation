@@ -118,7 +118,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
          same categories view controller onto the stack, but give it the sub categories
          to display which will disable the fetch from the server and override the view
          controller's title. */
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
         PFCategoriesViewController * subCategoriesViewController = [storyboard instantiateViewControllerWithIdentifier:@"PFCategoriesViewController"];
         subCategoriesViewController.categories = category.subCategories;
         subCategoriesViewController.title = category.name;

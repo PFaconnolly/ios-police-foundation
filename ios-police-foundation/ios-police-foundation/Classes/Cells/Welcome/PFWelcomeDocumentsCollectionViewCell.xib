@@ -20,18 +20,6 @@
                             <constraint firstAttribute="height" constant="88" id="h2X-b3-hLN"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiE-6d-zq1">
-                        <rect key="frame" x="54" y="338" width="394" height="41"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="41" id="ME0-wu-O2E"/>
-                            <constraint firstAttribute="width" constant="394" id="yBS-bt-OqV"/>
-                        </constraints>
-                        <string key="text">Download attachments from 
-Articles for offline reading.</string>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                        <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOCUMENTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUh-M7-KaL">
                         <rect key="frame" x="137" y="287" width="226" height="26"/>
                         <constraints>
@@ -40,6 +28,16 @@ Articles for offline reading.</string>
                         </constraints>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download full-text Articles for offline reading." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiE-6d-zq1">
+                        <rect key="frame" x="135" y="338" width="230" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41" id="ME0-wu-O2E"/>
+                            <constraint firstAttribute="width" constant="230" id="yBS-bt-OqV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" red="0.54901963470000004" green="0.70980393890000004" blue="0.89019608500000003" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -55,7 +53,7 @@ Articles for offline reading.</string>
                 <constraint firstAttribute="centerX" secondItem="V7D-ZF-3y4" secondAttribute="centerX" constant="-0.5" id="yWK-QO-xLg"/>
             </constraints>
             <size key="customSize" width="388" height="489"/>
-            <point key="canvasLocation" x="583" y="428"/>
+            <point key="canvasLocation" x="626" y="426"/>
         </collectionViewCell>
     </objects>
     <resources>

@@ -10,8 +10,4 @@
 
 @implementation PFWelcomeTermsCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
 @end

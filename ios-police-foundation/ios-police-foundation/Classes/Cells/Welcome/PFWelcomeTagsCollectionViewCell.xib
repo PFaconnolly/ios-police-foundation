@@ -30,10 +30,10 @@
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Police Foundation Articles are also tagged. Use Tags to broadly filter Articles by specific words or phrases." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbv-2z-2jw">
-                        <rect key="frame" x="127" y="287" width="261" height="78"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags can be used to broadly filter Articles by keywords or phrases." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbv-2z-2jw">
+                        <rect key="frame" x="127" y="287" width="261" height="42"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="78" id="2zg-mb-VOB"/>
+                            <constraint firstAttribute="height" constant="42" id="2zg-mb-VOB"/>
                             <constraint firstAttribute="width" constant="261" id="6ar-bJ-f71"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -53,7 +53,7 @@
                 <constraint firstItem="Jbv-2z-2jw" firstAttribute="top" secondItem="e5O-0Y-4lq" secondAttribute="bottom" constant="20" id="nKF-K3-aIc"/>
             </constraints>
             <size key="customSize" width="514" height="514"/>
-            <point key="canvasLocation" x="386" y="468"/>
+            <point key="canvasLocation" x="415" y="472"/>
         </collectionViewCell>
     </objects>
     <resources>
