@@ -10,10 +10,11 @@
 #import <MessageUI/MessageUI.h>
 #import "PFHTTPRequestOperationManager.h"
 
-@interface PFAboutViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
+@interface PFAboutViewController () <MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIBarButtonItem * contactButton;
 @property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
+@property (strong, nonatomic) UIAlertView * sendMailAlertView;
 
 @end
 
@@ -39,40 +40,47 @@
 
 - (void)contactButtonTapped:(id)sender {
     
-    UIActionSheet * actionSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a contact category:" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Cambridge Police Exec. Prog.", @"Crime Mapping M.S.S.", @"Fellowship Program", @"General Inquiry", @"Publication Requst", nil];
-    
-    [actionSheet showFromBarButtonItem:self.contactButton animated:YES];
-}
-
-#pragma mark - UIActionSheetDelegate
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    // cancel button index 5
-    if ( buttonIndex <= 4 ) {
+    if ( [MFMailComposeViewController canSendMail] ) {
+        MFMailComposeViewController * composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+        [composeViewController setMailComposeDelegate:self];
+        [composeViewController setToRecipients:@[kPFInfoContactEmailAddress]];
+        [composeViewController setSubject:kPFInfoContactSubject];
+        composeViewController.navigationBar.tintColor = [UIColor whiteColor];
+        [self presentViewController:composeViewController animated:YES completion:nil];
+    } else {
         
-        NSString * mailSubject = @"General Inquiry";
-        
-        switch (buttonIndex) {
-            case 0: mailSubject = @"Cambridge Police Executive Programme"; break;
-            case 1: mailSubject = @"Crime Mapping Manuscript"; break;
-            case 2: mailSubject = @"Fellowship Program"; break;
-            case 3: mailSubject = @"General Inquiry"; break;
-            case 4: mailSubject = @"Publication Request"; break;
-            default: break;
+        if ( ! self.sendMailAlertView ) {
+            self.sendMailAlertView = [[UIAlertView alloc] initWithTitle:@"Mail is not available"
+                                                                message:@"This app is not able to send email directly. Would you like to switch to the Mail app instead?"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"No thanks."
+                                                      otherButtonTitles:@"Yes, switch to mail.", nil];
         }
-        
-        if ([MFMailComposeViewController canSendMail]) {
-            MFMailComposeViewController * composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
-            [composeViewController setMailComposeDelegate:self];
-            [composeViewController setToRecipients:@[kPFInfoContactEmailAddress]];
-            [composeViewController setSubject:mailSubject];
-            composeViewController.navigationBar.tintColor = [UIColor whiteColor];
-            [self presentViewController:composeViewController animated:YES completion:nil];
-        }
+        [self.sendMailAlertView show];
     }
 }
 
+#pragma mark - UIAlertViewDelegate methods
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch( buttonIndex ) {
+        case 0: {
+            
+            // quit ...
+            
+            break;
+        }
+        case 1: {
+            
+            NSString * mailToString = [[NSString stringWithFormat:@"mailto:%@?subject=%@", kPFInfoContactEmailAddress, kPFInfoContactSubject] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL * URL = [NSURL URLWithString:mailToString];
+            [[UIApplication sharedApplication] openURL:URL];
+            
+            break;
+        }
+        default: break;
+    }
+}
 
 #pragma mark - MFMailComposeViewControllerDelegate methods
 
