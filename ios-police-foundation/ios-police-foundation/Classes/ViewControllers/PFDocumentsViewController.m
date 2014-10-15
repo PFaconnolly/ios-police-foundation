@@ -89,10 +89,11 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         
         // Fire up the document interaction controller
         if ( self->_documentInteractionController == nil ) {
-            self->_documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+            self->_documentInteractionController = [[UIDocumentInteractionController alloc] init];
             self->_documentInteractionController.delegate = self;
         }
         
+        self->_documentInteractionController.URL = fileURL;
         [self->_documentInteractionController presentPreviewAnimated:YES];
     };
     
