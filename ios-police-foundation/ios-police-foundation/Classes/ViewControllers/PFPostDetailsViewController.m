@@ -22,6 +22,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @property (strong, nonatomic) PFPost * wordPressPost;
 
+@property (strong, nonatomic) UIDocumentInteractionController * documentInteractionController;
+
 @end
 
 @implementation PFPostDetailsViewController
@@ -57,7 +59,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 #pragma mark UIDocumentInteractionControllerDelegate methods
 
 - (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
-    return self.navigationController;
+    return self;
 }
 
 
@@ -120,7 +122,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     
     // TO DO: (future)
     // detect if there are more than 1 attachments
-    
     NSURL * attachmentURL = nil;
     
     if ( self.wordPressPost.attachments && self.wordPressPost.attachments.allKeys.count > 0 ) {
@@ -150,9 +151,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
         [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_VIEWED_FILE_NAME_ACTION label:fileName value:nil];
         
         // Fire up the document interaction controller
-        UIDocumentInteractionController *interactionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-        interactionController.delegate = self;
-        [interactionController presentPreviewAnimated:YES];
+        [self previewDocumentWithURL:fileURL];
     }];
 }
 
@@ -183,12 +182,20 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                                                     }];
 }
 
-
 - (void)refreshRssPost {
     NSString * dateString = [NSString pfMediumDateStringFromDate:self.rssPost.date];
     NSString * html = [NSString pfStyledHTMLDocumentWithTitle:self.rssPost.title date:dateString body:self.rssPost.content];
     NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
     [self.contentWebView loadHTMLString:html baseURL:baseURL];
+}
+
+- (void)previewDocumentWithURL:(NSURL *)fileURL {
+    if ( ! self.documentInteractionController ) {
+        self.documentInteractionController = [[UIDocumentInteractionController alloc] init];
+        self.documentInteractionController.delegate = self;
+    }
+    self.documentInteractionController.URL = fileURL;
+    [self.documentInteractionController presentPreviewAnimated:YES];
 }
 
 @end
