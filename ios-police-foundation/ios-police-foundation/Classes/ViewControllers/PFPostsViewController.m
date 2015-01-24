@@ -47,8 +47,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    self.category = nil;
-    self.tag = nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
