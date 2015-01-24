@@ -9,6 +9,8 @@
 #import "PFViewController.h"
 #import "PFBarberPoleView.h"
 
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
+
 @interface PFViewController()
 
 @property (strong, nonatomic) PFBarberPoleView * barberPoleView;
@@ -35,6 +37,24 @@
     self.navigationItem.backBarButtonItem = backBarButtonItem;
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    if(self.view.bounds.size.width < self.view.bounds.size.height){
+        if ( self.orientation == PFViewControllerOrientationLandscape ) {
+            DDLogVerbose(@"view controller orientation changed from Landscape to Portrait");
+            self.orientation = PFViewControllerOrientationPortrait;
+            [self viewControllerWillChangeToOrientation:self.orientation];
+        }
+    } else {
+        if ( self.orientation == PFViewControllerOrientationPortrait ) {
+            DDLogVerbose(@"view controller orientation changed from Portrait to Landscape");
+            self.orientation = PFViewControllerOrientationLandscape;
+            [self viewControllerWillChangeToOrientation:self.orientation];
+        }
+    }
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.barberPoleView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 20);
@@ -49,6 +69,10 @@
 
 - (void)hideBarberPole {
     [self.barberPoleView removeFromSuperview];
+}
+
+- (void)viewControllerWillChangeToOrientation:(PFViewControllerOrientation)orientation {
+    // no-op base class implementation
 }
 
 @end

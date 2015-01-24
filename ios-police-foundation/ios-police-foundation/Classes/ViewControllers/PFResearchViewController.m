@@ -17,7 +17,7 @@
 typedef void (^TableViewCellConfigureBlock)(id cell, id indexPath);
 typedef void (^TableViewCellSelectBlock)(id indexPath);
 
-static const int __unused ddLogLevel = LOG_LEVEL_INFO;
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFResearchViewController ()
 
@@ -66,19 +66,31 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     }
 }
 
+
+- (void)viewControllerWillChangeToOrientation:(PFViewControllerOrientation)orientation {
+    [super viewControllerWillChangeToOrientation:orientation];
+    
+    UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
+    [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
+}
+
+
 #pragma mark - UICollectionViewDelegateFlowLayout methods
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    // width factor is how wide each cell should be
+    // by default it should be half the size of the screen
     CGFloat widthFactor = 0.5f;
     
     if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
         widthFactor = 0.25f;
     }
     
-    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 220.0f);
+    DDLogVerbose(@"calculating cell size: %f", size.width);
     return size;
 }
 
