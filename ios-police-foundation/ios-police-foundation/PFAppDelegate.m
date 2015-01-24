@@ -71,16 +71,15 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
     
-    // navigation bar
-    [[UINavigationBar appearance] setTintColor:tintColor];
-    [[UINavigationBar appearance] setBarTintColor:barBackgroundColor];
-    
+    [[UINavigationBar appearanceWhenContainedIn:[UITabBarController class], nil] setTintColor:tintColor];
+    [[UINavigationBar appearanceWhenContainedIn:[UITabBarController class], nil] setBarTintColor:barBackgroundColor];
+
     NSShadow *shadow = [NSShadow new];
     [shadow setShadowColor: darkBlueColor];
     [shadow setShadowOffset: CGSizeMake(0, 0)];
     
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                           NSShadowAttributeName: shadow}];
+    [[UINavigationBar appearanceWhenContainedIn:[UITabBarController class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                                          NSShadowAttributeName: shadow}];
     
     if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
         UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
@@ -101,6 +100,7 @@
             }
         }];
     }
+    
 }
 
 - (void)setLogger {
