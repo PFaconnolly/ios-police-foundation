@@ -48,6 +48,10 @@
 #define kPFInfoContactSubject @"General Inquiry"
 #define kPFUserDefaultsHasLaunchedAppKey @"PF_LAUNCHED_APP"
 
+static CGFloat COLLECTION_VIEW_CELL_HEIGHT = 220.0;
+static CGFloat IPHONE_COLLECTION_VIEW_CELL_WIDTH_FACTOR = 0.5;
+static CGFloat IPAD_COLLECTION_VIEW_CELL_WIDTH_FACTOR = 0.33333333;
+
 static NSString * WP_ABOUT_CONTENT_POST_ID = @"104";
 static NSString * WP_TERMS_CONTENT_POST_ID = @"106";
 
