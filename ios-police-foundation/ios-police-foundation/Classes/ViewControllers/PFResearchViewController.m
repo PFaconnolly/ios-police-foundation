@@ -12,6 +12,7 @@
 #import "PFHTTPRequestOperationManager.h"
 #import "PFPostDetailsViewController.h"
 #import "PFArticleCollectionViewCell.h"
+#import "PFResearchHeaderCollectionReusableView.h"
 
 typedef void (^TableViewCellConfigureBlock)(id cell, id indexPath);
 typedef void (^TableViewCellSelectBlock)(id indexPath);
@@ -79,6 +80,18 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
     
     CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
     return size;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        PFResearchHeaderCollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        headerView.headerLabel.text = ( self.posts.count > 0 ) ? [NSString stringWithFormat:@"%li MOST RECENT ARTICLES", (unsigned long)self.posts.count] : @"MOST RECENT ARTICLES";
+        reusableview = headerView;
+    }
+    
+    return reusableview;
 }
 
 
