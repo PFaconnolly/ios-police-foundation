@@ -62,18 +62,8 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         
         NSString * postId = [NSString stringWithFormat:@"%lu", (unsigned long)post.postId];
         ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
-
     }
 }
-
-
-- (void)viewControllerWillChangeToOrientation:(PFViewControllerOrientation)orientation {
-    [super viewControllerWillChangeToOrientation:orientation];
-    
-    UICollectionViewFlowLayout *flowLayout = (id)self.collectionView.collectionViewLayout;
-    [flowLayout invalidateLayout]; //force the elements to get laid out again with the new size
-}
-
 
 #pragma mark - UICollectionViewDelegateFlowLayout methods
 
@@ -90,7 +80,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
     }
     
     CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 220.0f);
-    DDLogVerbose(@"calculating cell size: %f", size.width);
     return size;
 }
 

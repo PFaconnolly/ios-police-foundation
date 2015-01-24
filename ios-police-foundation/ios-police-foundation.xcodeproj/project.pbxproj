@@ -70,6 +70,7 @@
 		B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */; };
 		B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */; };
 		B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */; };
+		B0A726F91A744D290002F6F2 /* PFRefreshableCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A726F81A744D290002F6F2 /* PFRefreshableCollectionViewController.m */; };
 		B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AB5F9F19D7A695004C7256 /* Social.framework */; };
 		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
 		B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */; };
@@ -226,6 +227,8 @@
 		B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBorderedCollectionViewCell.m; path = Classes/Cells/PFBorderedCollectionViewCell.m; sourceTree = "<group>"; };
 		B0A30B7E19EC880700ACD5D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboard/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		B0A30B7F19EC880700ACD5D0 /* MainStoryboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard~iPad.storyboard"; path = "Storyboard/MainStoryboard~iPad.storyboard"; sourceTree = "<group>"; };
+		B0A726F71A744D290002F6F2 /* PFRefreshableCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRefreshableCollectionViewController.h; path = Classes/ViewControllers/PFRefreshableCollectionViewController.h; sourceTree = "<group>"; };
+		B0A726F81A744D290002F6F2 /* PFRefreshableCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRefreshableCollectionViewController.m; path = Classes/ViewControllers/PFRefreshableCollectionViewController.m; sourceTree = "<group>"; };
 		B0AB5F9F19D7A695004C7256 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDocumentsViewController.h; path = Classes/ViewControllers/PFDocumentsViewController.h; sourceTree = "<group>"; };
 		B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDocumentsViewController.m; path = Classes/ViewControllers/PFDocumentsViewController.m; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 				B006F7551931694900374295 /* PFPostDetailsViewController.m */,
 				B006F74A19315B0900374295 /* PFPostsViewController.h */,
 				B006F74B19315B0900374295 /* PFPostsViewController.m */,
+				B0A726F71A744D290002F6F2 /* PFRefreshableCollectionViewController.h */,
+				B0A726F81A744D290002F6F2 /* PFRefreshableCollectionViewController.m */,
 				B0504FA519D1107B003C791D /* PFRefreshableViewController.h */,
 				B0504FA619D1107B003C791D /* PFRefreshableViewController.m */,
 				B05CF46119DCF29600344A98 /* PFResearchViewController.h */,
@@ -798,6 +803,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A726F91A744D290002F6F2 /* PFRefreshableCollectionViewController.m in Sources */,
 				B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */,
 				B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */,
 				B0ED2B7119E9EB5800741BE2 /* PFTermsViewController.m in Sources */,

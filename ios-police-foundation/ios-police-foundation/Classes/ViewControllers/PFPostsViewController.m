@@ -72,7 +72,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
         widthFactor = 0.25f;
     }
     
-    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 220.0f);
     return size;
 }
 

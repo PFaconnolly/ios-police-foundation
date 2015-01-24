@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Police Foundation. All rights reserved.
 //
 
-#import "PFRefreshableViewController.h"
+#import "PFRefreshableCollectionViewController.h"
 
-@interface PFResearchViewController : PFRefreshableViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface PFResearchViewController : PFRefreshableCollectionViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
