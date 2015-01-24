@@ -17,7 +17,7 @@
 typedef void (^TableViewCellConfigureBlock)(id cell, id indexPath);
 typedef void (^TableViewCellSelectBlock)(id indexPath);
 
-static const int __unused ddLogLevel = LOG_LEVEL_INFO;
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFResearchViewController ()
 
@@ -62,7 +62,6 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
         
         NSString * postId = [NSString stringWithFormat:@"%lu", (unsigned long)post.postId];
         ((PFPostDetailsViewController *)segue.destinationViewController).wordPressPostId = postId;
-
     }
 }
 
@@ -72,13 +71,15 @@ static const int __unused ddLogLevel = LOG_LEVEL_INFO;
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    CGFloat widthFactor = 0.5f;
+    // width factor is how wide each cell should be
+    // by default it should be half the size of the screen
+    CGFloat widthFactor = IPHONE_COLLECTION_VIEW_CELL_WIDTH_FACTOR;
     
     if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
-        widthFactor = 0.25f;
+        widthFactor = IPAD_COLLECTION_VIEW_CELL_WIDTH_FACTOR;
     }
     
-    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 200.0f);
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, COLLECTION_VIEW_CELL_HEIGHT);
     return size;
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFViewController.h"
+#import "PFRefreshableCollectionViewController.h"
 
-@interface PFSearchViewController : PFViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
+@interface PFSearchViewController : PFRefreshableCollectionViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UITextFieldDelegate>
 
 @end

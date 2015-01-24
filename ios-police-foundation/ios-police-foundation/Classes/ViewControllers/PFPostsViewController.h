@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFRefreshableViewController.h"
+#import "PFRefreshableCollectionViewController.h"
 #import "PFWordPressCategory.h"
 #import "PFWordPressTag.h"
 
-@interface PFPostsViewController : PFRefreshableViewController
+@interface PFPostsViewController : PFRefreshableCollectionViewController
 
 @property (strong, nonatomic) PFWordPressCategory * category;
 @property (strong, nonatomic) PFWordPressTag * tag;

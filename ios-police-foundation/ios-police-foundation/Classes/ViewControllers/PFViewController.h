@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "GAITrackedViewController.h"
 
+typedef NS_ENUM(NSInteger, PFViewControllerOrientation) {
+    PFViewControllerOrientationLandscape,
+    PFViewControllerOrientationPortrait
+};
+
 @interface PFViewController : GAITrackedViewController
+
+@property (nonatomic) PFViewControllerOrientation orientation;
 
 - (void)showBarberPole;
 - (void)hideBarberPole;
+
+- (void)viewControllerWillChangeToOrientation:(PFViewControllerOrientation)orientation;
 
 @end

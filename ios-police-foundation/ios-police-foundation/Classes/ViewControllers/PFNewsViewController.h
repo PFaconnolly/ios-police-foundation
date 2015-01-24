@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PFRefreshableViewController.h"
+#import "PFRefreshableCollectionViewController.h"
 
-@interface PFNewsViewController : PFRefreshableViewController
+@interface PFNewsViewController : PFRefreshableCollectionViewController
 
 @end
