@@ -33,7 +33,7 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Documents";
+    self.title = @"Downloads";
     [self setUpTableView];    
     self.editButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editButtonTapped:)];
     self.navigationItem.rightBarButtonItem = self.editButton;
@@ -41,18 +41,12 @@ static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.screenName = @"Documents Screen";
+    self.screenName = @"Downloads Screen";
     self.documents = [[PFFileDownloadManager sharedManager] files];
     [self toggleTableView];
     [self.documentsArrayDataSource reloadItems:self.documents];
     [self.tableView reloadData];
 }
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-}
-
 
 #pragma mark - UIDocumentInteractionControllerDelegate methods
 
