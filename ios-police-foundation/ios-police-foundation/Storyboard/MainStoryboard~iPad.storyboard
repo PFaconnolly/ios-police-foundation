@@ -30,11 +30,11 @@
             </objects>
             <point key="canvasLocation" x="-1418" y="-203"/>
         </scene>
-        <!--Documents-->
+        <!--Downloads-->
         <scene sceneID="DqS-lk-HmT">
             <objects>
                 <navigationController id="aiC-dj-ZuK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Documents" image="Document Tab Icon" id="Eev-tv-Xqv"/>
+                    <tabBarItem key="tabBarItem" title="Downloads" image="Document Tab Icon" id="Eev-tv-Xqv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ud6-mO-Zjn">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
