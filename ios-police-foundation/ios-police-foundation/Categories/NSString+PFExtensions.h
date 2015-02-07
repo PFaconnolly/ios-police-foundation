@@ -10,6 +10,13 @@
 
 @interface NSString (PFExtensions)
 
++ (NSString *) pfFullDateStringFromDate:(NSDate *)date;
++ (NSString *) pfMediumDateStringFromDate:(NSDate *)date;
++ (NSString *) pfShortDateStringFromDate:(NSDate *)date;
++ (NSString *) pfStyledHTMLDocumentWithTitle:(NSString *)title date:(NSString*)date body:(NSString *)body;
+
 - (NSString *) pfStringByAppendingQueryStringParameters:(NSDictionary *)parameters;
 - (NSString *) pfURLEncodedString;
+- (NSString *) pfStringByConvertingHTMLToPlainText;
+
 @end

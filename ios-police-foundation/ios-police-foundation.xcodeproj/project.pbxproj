@@ -8,60 +8,92 @@
 
 /* Begin PBXBuildFile section */
 		13119462C3184FFC9CC9F111 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 98428B0463124CB6AB2BC5C8 /* libPods.a */; };
+		B004A2B919ECA662005BA404 /* MainStoryboard~iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A30B7F19EC880700ACD5D0 /* MainStoryboard~iPad.storyboard */; };
+		B004A2BB19ECA667005BA404 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A30B7E19EC880700ACD5D0 /* MainStoryboard.storyboard */; };
 		B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */; };
 		B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */; };
+		B005FDD519DF771A00B361AD /* PFArticleCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDD319DF771A00B361AD /* PFArticleCollectionViewCell.m */; };
+		B005FDD619DF771A00B361AD /* PFArticleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B005FDD419DF771A00B361AD /* PFArticleCollectionViewCell.xib */; };
+		B005FDD919DF79BF00B361AD /* UICollectionViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDD819DF79BF00B361AD /* UICollectionViewCell+PFExtensions.m */; };
+		B005FDE019DFAFDB00B361AD /* PFCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDDE19DFAFDB00B361AD /* PFCategoryCollectionViewCell.m */; };
+		B005FDE119DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B005FDDF19DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib */; };
+		B005FDE519DFB9A200B361AD /* PFTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDE319DFB9A200B361AD /* PFTagCollectionViewCell.m */; };
+		B005FDE619DFB9A200B361AD /* PFTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */; };
+		B005FDE919DFBE3C00B361AD /* PFCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */; };
+		B005FDEC19E0531300B361AD /* UIColor+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */; };
 		B006F73F1931423500374295 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F73D1931423500374295 /* EXTScope.m */; };
 		B006F743193152E400374295 /* PFTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F741193152E400374295 /* PFTagsViewController.m */; };
-		B006F744193152E400374295 /* PFTagsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F742193152E400374295 /* PFTagsViewController.xib */; };
-		B006F7481931552E00374295 /* PFTagTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7461931552E00374295 /* PFTagTableViewCell.m */; };
-		B006F7491931552E00374295 /* PFTagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F7471931552E00374295 /* PFTagTableViewCell.xib */; };
 		B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F74B19315B0900374295 /* PFPostsViewController.m */; };
-		B006F74E19315B0900374295 /* PFPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F74C19315B0900374295 /* PFPostsViewController.xib */; };
-		B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F75019315B3000374295 /* PFPostTableViewCell.m */; };
-		B006F75319315B3000374295 /* PFPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F75119315B3000374295 /* PFPostTableViewCell.xib */; };
 		B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B006F7551931694900374295 /* PFPostDetailsViewController.m */; };
-		B006F7581931694900374295 /* PFPostDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B006F7561931694900374295 /* PFPostDetailsViewController.xib */; };
+		B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */; };
+		B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */; };
+		B02683C01A741650002596C8 /* PFResearchHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B02683BF1A741650002596C8 /* PFResearchHeaderCollectionReusableView.m */; };
+		B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */; };
+		B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */; };
+		B032C1AE19EC340A00364C3A /* PFWordPressTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B032C1AD19EC340A00364C3A /* PFWordPressTag.m */; };
+		B032C1B219EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B032C1B019EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m */; };
+		B032C1B319EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B032C1B119EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib */; };
+		B038482919EB4B14007D2FA5 /* PFPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B038482819EB4B14007D2FA5 /* PFPost.m */; };
+		B038482C19EB4C56007D2FA5 /* PFRSSPost.m in Sources */ = {isa = PBXBuildFile; fileRef = B038482B19EB4C56007D2FA5 /* PFRSSPost.m */; };
+		B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */; };
+		B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */; };
+		B0504FA419D10D86003C791D /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA319D10D86003C791D /* GTMNSString+HTML.m */; };
+		B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0504FA619D1107B003C791D /* PFRefreshableViewController.m */; };
+		B050601419E3818F001F933C /* UICollectionView+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B050601319E3818F001F933C /* UICollectionView+PFExtensions.m */; };
+		B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */; };
+		B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */; };
+		B05B6D3E19D117C5005981FF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B05B6D3D19D117C5005981FF /* LaunchScreen.xib */; };
+		B05CF46319DCF29600344A98 /* PFResearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B05CF46219DCF29600344A98 /* PFResearchViewController.m */; };
+		B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0961962748200EB9561 /* PFBarberPoleView.m */; };
+		B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B061B0991962783900EB9561 /* CGRectExtensions.m */; };
+		B063555A19E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B063555819E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.m */; };
+		B063555B19E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B063555919E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib */; };
+		B063555F19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B063555D19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m */; };
+		B063556019E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B063555E19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib */; };
+		B063556419E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B063556219E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.m */; };
+		B063556519E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B063556319E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib */; };
+		B0674F0D1971B5C80074C22E /* PFWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0674F0C1971B5C80074C22E /* PFWelcomeViewController.m */; };
+		B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */; };
+		B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */; };
+		B07880AF1971A02600EA1151 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07880AE1971A02600EA1151 /* MessageUI.framework */; };
 		B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */; };
-		B087DC75193CC95100BD2BB8 /* PFAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B087DC73193CC95100BD2BB8 /* PFAboutViewController.xib */; };
 		B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */; };
-		B087DC7A193CCA2200BD2BB8 /* PFNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B087DC78193CCA2200BD2BB8 /* PFNewsViewController.xib */; };
+		B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */; };
+		B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */; };
 		B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B095EF39192943AA008C3FF0 /* libGoogleAnalyticsServices.a */; };
 		B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */; };
 		B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */; };
-		B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B095EF49192949EC008C3FF0 /* PFCategoryTableViewCell.m */; };
-		B095EF4E19294D5C008C3FF0 /* PFCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B095EF4D19294D5C008C3FF0 /* PFCategoryTableViewCell.xib */; };
-		B095EF5019294D7B008C3FF0 /* PFCategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */; };
+		B097263619E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B097263419E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m */; };
+		B097263719E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B097263519E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib */; };
+		B097263B19E39E4E0025760C /* PFWelcomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B097263919E39E4E0025760C /* PFWelcomeCollectionViewCell.m */; };
+		B097263C19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */; };
+		B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */; };
+		B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */; };
+		B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */; };
+		B0A726F91A744D290002F6F2 /* PFRefreshableCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0A726F81A744D290002F6F2 /* PFRefreshableCollectionViewController.m */; };
+		B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0AB5F9F19D7A695004C7256 /* Social.framework */; };
+		B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */; };
+		B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */; };
+		B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */; };
+		B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */; };
+		B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */; };
 		B0D63A53190CC53400103C02 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A52190CC53400103C02 /* AdSupport.framework */; };
 		B0D63A55190CC54A00103C02 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A54190CC54A00103C02 /* SystemConfiguration.framework */; };
 		B0D63A57190CC55400103C02 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A56190CC55400103C02 /* libz.dylib */; };
 		B0D63A59190CC64100103C02 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D63A58190CC64100103C02 /* libsqlite3.dylib */; };
+		B0D8784319D109960008CE04 /* default.css in Resources */ = {isa = PBXBuildFile; fileRef = B0D8784119D109960008CE04 /* default.css */; };
 		B0E75E18190C3249003BE9EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E17190C3249003BE9EF /* Foundation.framework */; };
 		B0E75E1A190C3249003BE9EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E19190C3249003BE9EF /* CoreGraphics.framework */; };
 		B0E75E1C190C3249003BE9EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E1B190C3249003BE9EF /* UIKit.framework */; };
-		B0E75E1E190C3249003BE9EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E1D190C3249003BE9EF /* CoreData.framework */; };
 		B0E75E24190C3249003BE9EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E75E22190C3249003BE9EF /* InfoPlist.strings */; };
 		B0E75E26190C3249003BE9EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E25190C3249003BE9EF /* main.m */; };
 		B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E29190C3249003BE9EF /* PFAppDelegate.m */; };
-		B0E75E2D190C3249003BE9EF /* ios_police_foundation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E2B190C3249003BE9EF /* ios_police_foundation.xcdatamodeld */; };
 		B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E75E2E190C3249003BE9EF /* Images.xcassets */; };
-		B0E75E36190C3249003BE9EF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E35190C3249003BE9EF /* XCTest.framework */; };
-		B0E75E37190C3249003BE9EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E17190C3249003BE9EF /* Foundation.framework */; };
-		B0E75E38190C3249003BE9EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E1B190C3249003BE9EF /* UIKit.framework */; };
-		B0E75E39190C3249003BE9EF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E75E1D190C3249003BE9EF /* CoreData.framework */; };
-		B0E75E41190C3249003BE9EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E75E3F190C3249003BE9EF /* InfoPlist.strings */; };
-		B0E75E43190C3249003BE9EF /* ios_police_foundationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */; };
+		B0ED2B7119E9EB5800741BE2 /* PFTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0ED2B7019E9EB5800741BE2 /* PFTermsViewController.m */; };
 		B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F35E071927D01F00C05D03 /* Crashlytics.framework */; };
+		B0FC41C819CFAADC00EDE859 /* PFEditableArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B0FC41C719CFAADC00EDE859 /* PFEditableArrayDataSource.m */; };
+		B0FC41CA19CFB39300EDE859 /* PFNoDocumentsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B0E75E3A190C3249003BE9EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B0E75E0C190C3249003BE9EF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B0E75E13190C3249003BE9EF;
-			remoteInfo = "ios-police-foundation";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9037AC9D995241E78A19B879 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -70,30 +102,93 @@
 		B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		B0055A2B1928457A00FDFE1D /* NSString+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PFExtensions.h"; path = "Categories/NSString+PFExtensions.h"; sourceTree = "<group>"; };
 		B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PFExtensions.m"; path = "Categories/NSString+PFExtensions.m"; sourceTree = "<group>"; };
+		B005FDD219DF771A00B361AD /* PFArticleCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFArticleCollectionViewCell.h; path = Classes/Cells/PFArticleCollectionViewCell.h; sourceTree = "<group>"; };
+		B005FDD319DF771A00B361AD /* PFArticleCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFArticleCollectionViewCell.m; path = Classes/Cells/PFArticleCollectionViewCell.m; sourceTree = "<group>"; };
+		B005FDD419DF771A00B361AD /* PFArticleCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFArticleCollectionViewCell.xib; path = Classes/Cells/PFArticleCollectionViewCell.xib; sourceTree = "<group>"; };
+		B005FDD719DF79BF00B361AD /* UICollectionViewCell+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionViewCell+PFExtensions.h"; path = "Categories/UICollectionViewCell+PFExtensions.h"; sourceTree = "<group>"; };
+		B005FDD819DF79BF00B361AD /* UICollectionViewCell+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionViewCell+PFExtensions.m"; path = "Categories/UICollectionViewCell+PFExtensions.m"; sourceTree = "<group>"; };
+		B005FDDD19DFAFDB00B361AD /* PFCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategoryCollectionViewCell.h; path = Classes/Cells/PFCategoryCollectionViewCell.h; sourceTree = "<group>"; };
+		B005FDDE19DFAFDB00B361AD /* PFCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoryCollectionViewCell.m; path = Classes/Cells/PFCategoryCollectionViewCell.m; sourceTree = "<group>"; };
+		B005FDDF19DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFCategoryCollectionViewCell.xib; path = Classes/Cells/PFCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		B005FDE219DFB9A200B361AD /* PFTagCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTagCollectionViewCell.h; path = Classes/Cells/PFTagCollectionViewCell.h; sourceTree = "<group>"; };
+		B005FDE319DFB9A200B361AD /* PFTagCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTagCollectionViewCell.m; path = Classes/Cells/PFTagCollectionViewCell.m; sourceTree = "<group>"; };
+		B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFTagCollectionViewCell.xib; path = Classes/Cells/PFTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		B005FDE719DFBE3C00B361AD /* PFCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCollectionViewCell.h; path = Classes/Cells/PFCollectionViewCell.h; sourceTree = "<group>"; };
+		B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCollectionViewCell.m; path = Classes/Cells/PFCollectionViewCell.m; sourceTree = "<group>"; };
+		B005FDEA19E0531300B361AD /* UIColor+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+PFExtensions.h"; path = "Categories/UIColor+PFExtensions.h"; sourceTree = "<group>"; };
+		B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+PFExtensions.m"; path = "Categories/UIColor+PFExtensions.m"; sourceTree = "<group>"; };
 		B006F73C1931423500374295 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		B006F73D1931423500374295 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		B006F73E1931423500374295 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
 		B006F740193152E400374295 /* PFTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTagsViewController.h; path = Classes/ViewControllers/PFTagsViewController.h; sourceTree = "<group>"; };
 		B006F741193152E400374295 /* PFTagsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTagsViewController.m; path = Classes/ViewControllers/PFTagsViewController.m; sourceTree = "<group>"; };
-		B006F742193152E400374295 /* PFTagsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFTagsViewController.xib; path = Classes/ViewControllers/PFTagsViewController.xib; sourceTree = "<group>"; };
-		B006F7451931552E00374295 /* PFTagTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTagTableViewCell.h; path = Classes/Cells/PFTagTableViewCell.h; sourceTree = "<group>"; };
-		B006F7461931552E00374295 /* PFTagTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTagTableViewCell.m; path = Classes/Cells/PFTagTableViewCell.m; sourceTree = "<group>"; };
-		B006F7471931552E00374295 /* PFTagTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFTagTableViewCell.xib; path = Classes/Cells/PFTagTableViewCell.xib; sourceTree = "<group>"; };
 		B006F74A19315B0900374295 /* PFPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostsViewController.h; path = Classes/ViewControllers/PFPostsViewController.h; sourceTree = "<group>"; };
 		B006F74B19315B0900374295 /* PFPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostsViewController.m; path = Classes/ViewControllers/PFPostsViewController.m; sourceTree = "<group>"; };
-		B006F74C19315B0900374295 /* PFPostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostsViewController.xib; path = Classes/ViewControllers/PFPostsViewController.xib; sourceTree = "<group>"; };
-		B006F74F19315B3000374295 /* PFPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostTableViewCell.h; path = Classes/Cells/PFPostTableViewCell.h; sourceTree = "<group>"; };
-		B006F75019315B3000374295 /* PFPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostTableViewCell.m; path = Classes/Cells/PFPostTableViewCell.m; sourceTree = "<group>"; };
-		B006F75119315B3000374295 /* PFPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostTableViewCell.xib; path = Classes/Cells/PFPostTableViewCell.xib; sourceTree = "<group>"; };
 		B006F7541931694900374295 /* PFPostDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPostDetailsViewController.h; path = Classes/ViewControllers/PFPostDetailsViewController.h; sourceTree = "<group>"; };
 		B006F7551931694900374295 /* PFPostDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPostDetailsViewController.m; path = Classes/ViewControllers/PFPostDetailsViewController.m; sourceTree = "<group>"; };
-		B006F7561931694900374295 /* PFPostDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFPostDetailsViewController.xib; path = Classes/ViewControllers/PFPostDetailsViewController.xib; sourceTree = "<group>"; };
+		B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+PFExtensions.h"; path = "Categories/NSDate+PFExtensions.h"; sourceTree = "<group>"; };
+		B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+PFExtensions.m"; path = "Categories/NSDate+PFExtensions.m"; sourceTree = "<group>"; };
+		B0116C5519B4F458006904E8 /* PFAnalyticsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAnalyticsManager.h; path = Classes/Model/PFAnalyticsManager.h; sourceTree = "<group>"; };
+		B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAnalyticsManager.m; path = Classes/Model/PFAnalyticsManager.m; sourceTree = "<group>"; };
+		B02683BE1A741650002596C8 /* PFResearchHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFResearchHeaderCollectionReusableView.h; path = Classes/Views/PFResearchHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		B02683BF1A741650002596C8 /* PFResearchHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFResearchHeaderCollectionReusableView.m; path = Classes/Views/PFResearchHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		B0278E221A869EC00097ADAF /* libPods-CocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CocoaLumberjack.a"; path = "Pods/build/Debug-iphoneos/libPods-CocoaLumberjack.a"; sourceTree = "<group>"; };
+		B0278E231A869EC00097ADAF /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFNoDocumentsView~iPad.xib"; path = "XIBs/PFNoDocumentsView~iPad.xib"; sourceTree = "<group>"; };
+		B02C640C19E1E54800CD094C /* PFNoDocumentsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNoDocumentsView.h; path = Classes/Views/PFNoDocumentsView.h; sourceTree = "<group>"; };
+		B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNoDocumentsView.m; path = Classes/Views/PFNoDocumentsView.m; sourceTree = "<group>"; };
+		B032C1AC19EC340A00364C3A /* PFWordPressTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWordPressTag.h; path = Classes/Model/PFWordPressTag.h; sourceTree = "<group>"; };
+		B032C1AD19EC340A00364C3A /* PFWordPressTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWordPressTag.m; path = Classes/Model/PFWordPressTag.m; sourceTree = "<group>"; };
+		B032C1AF19EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeTermsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeTermsCollectionViewCell.h; sourceTree = "<group>"; };
+		B032C1B019EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeTermsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeTermsCollectionViewCell.m; sourceTree = "<group>"; };
+		B032C1B119EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeTermsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeTermsCollectionViewCell.xib; sourceTree = "<group>"; };
+		B038482719EB4B14007D2FA5 /* PFPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFPost.h; path = Classes/Model/PFPost.h; sourceTree = "<group>"; };
+		B038482819EB4B14007D2FA5 /* PFPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFPost.m; path = Classes/Model/PFPost.m; sourceTree = "<group>"; };
+		B038482A19EB4C56007D2FA5 /* PFRSSPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRSSPost.h; path = Classes/Model/PFRSSPost.h; sourceTree = "<group>"; };
+		B038482B19EB4C56007D2FA5 /* PFRSSPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRSSPost.m; path = Classes/Model/PFRSSPost.m; sourceTree = "<group>"; };
+		B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableViewCell+PFExtensions.h"; path = "Categories/UITableViewCell+PFExtensions.h"; sourceTree = "<group>"; };
+		B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableViewCell+PFExtensions.m"; path = "Categories/UITableViewCell+PFExtensions.m"; sourceTree = "<group>"; };
+		B04C9E1019C51E5700477E1B /* NSBundle+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+PFExtensions.h"; path = "Categories/NSBundle+PFExtensions.h"; sourceTree = "<group>"; };
+		B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+PFExtensions.m"; path = "Categories/NSBundle+PFExtensions.m"; sourceTree = "<group>"; };
+		B0504FA219D10D86003C791D /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+HTML.h"; path = "Categories/GTMNSString+HTML.h"; sourceTree = "<group>"; };
+		B0504FA319D10D86003C791D /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GTMNSString+HTML.m"; path = "Categories/GTMNSString+HTML.m"; sourceTree = "<group>"; };
+		B0504FA519D1107B003C791D /* PFRefreshableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRefreshableViewController.h; path = Classes/ViewControllers/PFRefreshableViewController.h; sourceTree = "<group>"; };
+		B0504FA619D1107B003C791D /* PFRefreshableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRefreshableViewController.m; path = Classes/ViewControllers/PFRefreshableViewController.m; sourceTree = "<group>"; };
+		B050601219E3818F001F933C /* UICollectionView+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+PFExtensions.h"; path = "Categories/UICollectionView+PFExtensions.h"; sourceTree = "<group>"; };
+		B050601319E3818F001F933C /* UICollectionView+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+PFExtensions.m"; path = "Categories/UICollectionView+PFExtensions.m"; sourceTree = "<group>"; };
+		B051268E19CF6F5800FB5FC7 /* PFCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCommonTableViewCell.h; path = Classes/Cells/PFCommonTableViewCell.h; sourceTree = "<group>"; };
+		B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCommonTableViewCell.m; path = Classes/Cells/PFCommonTableViewCell.m; sourceTree = "<group>"; };
+		B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRSSHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRSSHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		B05B6D3D19D117C5005981FF /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchScreen.xib; path = XIBs/LaunchScreen.xib; sourceTree = "<group>"; };
+		B05CF46119DCF29600344A98 /* PFResearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFResearchViewController.h; path = Classes/ViewControllers/PFResearchViewController.h; sourceTree = "<group>"; };
+		B05CF46219DCF29600344A98 /* PFResearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFResearchViewController.m; path = Classes/ViewControllers/PFResearchViewController.m; sourceTree = "<group>"; };
+		B061B0951962748200EB9561 /* PFBarberPoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBarberPoleView.h; path = Classes/Views/PFBarberPoleView.h; sourceTree = "<group>"; };
+		B061B0961962748200EB9561 /* PFBarberPoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBarberPoleView.m; path = Classes/Views/PFBarberPoleView.m; sourceTree = "<group>"; };
+		B061B0981962783900EB9561 /* CGRectExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGRectExtensions.h; path = Categories/CGRectExtensions.h; sourceTree = "<group>"; };
+		B061B0991962783900EB9561 /* CGRectExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGRectExtensions.m; path = Categories/CGRectExtensions.m; sourceTree = "<group>"; };
+		B063555719E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeCategoriesCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeCategoriesCollectionViewCell.h; sourceTree = "<group>"; };
+		B063555819E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeCategoriesCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeCategoriesCollectionViewCell.m; sourceTree = "<group>"; };
+		B063555919E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeCategoriesCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeCategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		B063555C19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeTagsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeTagsCollectionViewCell.h; sourceTree = "<group>"; };
+		B063555D19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeTagsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeTagsCollectionViewCell.m; sourceTree = "<group>"; };
+		B063555E19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeTagsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeTagsCollectionViewCell.xib; sourceTree = "<group>"; };
+		B063556119E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeNewsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeNewsCollectionViewCell.h; sourceTree = "<group>"; };
+		B063556219E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeNewsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeNewsCollectionViewCell.m; sourceTree = "<group>"; };
+		B063556319E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeNewsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeNewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		B0674F0B1971B5C80074C22E /* PFWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeViewController.h; path = Classes/ViewControllers/PFWelcomeViewController.h; sourceTree = "<group>"; };
+		B0674F0C1971B5C80074C22E /* PFWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeViewController.m; path = Classes/ViewControllers/PFWelcomeViewController.m; sourceTree = "<group>"; };
+		B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeViewController.xib; path = XIBs/PFWelcomeViewController.xib; sourceTree = "<group>"; };
+		B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "PFWelcomeViewController~iPad.xib"; path = "XIBs/PFWelcomeViewController~iPad.xib"; sourceTree = "<group>"; };
+		B07880AE1971A02600EA1151 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFAboutViewController.h; path = Classes/ViewControllers/PFAboutViewController.h; sourceTree = "<group>"; };
 		B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFAboutViewController.m; path = Classes/ViewControllers/PFAboutViewController.m; sourceTree = "<group>"; };
-		B087DC73193CC95100BD2BB8 /* PFAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFAboutViewController.xib; path = Classes/ViewControllers/PFAboutViewController.xib; sourceTree = "<group>"; };
 		B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFNewsViewController.h; path = Classes/ViewControllers/PFNewsViewController.h; sourceTree = "<group>"; };
 		B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFNewsViewController.m; path = Classes/ViewControllers/PFNewsViewController.m; sourceTree = "<group>"; };
-		B087DC78193CCA2200BD2BB8 /* PFNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFNewsViewController.xib; path = Classes/ViewControllers/PFNewsViewController.xib; sourceTree = "<group>"; };
+		B08ABC2419A90E4800B9B5BD /* PFTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTabBarController.h; path = Classes/ViewControllers/PFTabBarController.h; sourceTree = "<group>"; };
+		B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTabBarController.m; path = Classes/ViewControllers/PFTabBarController.m; sourceTree = "<group>"; };
+		B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+PFExtensions.h"; path = "Categories/UIAlertView+PFExtensions.h"; sourceTree = "<group>"; };
+		B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+PFExtensions.m"; path = "Categories/UIAlertView+PFExtensions.m"; sourceTree = "<group>"; };
 		B095EF33192943AA008C3FF0 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Resources/GoogleAnalytics/GAI.h; sourceTree = "<group>"; };
 		B095EF34192943AA008C3FF0 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Resources/GoogleAnalytics/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		B095EF35192943AA008C3FF0 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Resources/GoogleAnalytics/GAIFields.h; sourceTree = "<group>"; };
@@ -105,14 +200,37 @@
 		B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoriesViewController.m; path = Classes/ViewControllers/PFCategoriesViewController.m; sourceTree = "<group>"; };
 		B095EF44192946B6008C3FF0 /* PFArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFArrayDataSource.h; path = Classes/DataSources/PFArrayDataSource.h; sourceTree = "<group>"; };
 		B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFArrayDataSource.m; path = Classes/DataSources/PFArrayDataSource.m; sourceTree = "<group>"; };
-		B095EF48192949EC008C3FF0 /* PFCategoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFCategoryTableViewCell.h; path = Classes/Cells/PFCategoryTableViewCell.h; sourceTree = "<group>"; };
-		B095EF49192949EC008C3FF0 /* PFCategoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFCategoryTableViewCell.m; path = Classes/Cells/PFCategoryTableViewCell.m; sourceTree = "<group>"; };
-		B095EF4D19294D5C008C3FF0 /* PFCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFCategoryTableViewCell.xib; path = Classes/Cells/PFCategoryTableViewCell.xib; sourceTree = "<group>"; };
-		B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFCategoriesViewController.xib; path = Classes/ViewControllers/PFCategoriesViewController.xib; sourceTree = "<group>"; };
+		B097263319E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeResearchCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeResearchCollectionViewCell.h; sourceTree = "<group>"; };
+		B097263419E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeResearchCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeResearchCollectionViewCell.m; sourceTree = "<group>"; };
+		B097263519E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeResearchCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeResearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		B097263819E39E4E0025760C /* PFWelcomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeCollectionViewCell.h; sourceTree = "<group>"; };
+		B097263919E39E4E0025760C /* PFWelcomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeCollectionViewCell.m; sourceTree = "<group>"; };
+		B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		B09ABB2919E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWelcomeDocumentsCollectionViewCell.h; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.h; sourceTree = "<group>"; };
+		B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWelcomeDocumentsCollectionViewCell.m; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.m; sourceTree = "<group>"; };
+		B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFWelcomeDocumentsCollectionViewCell.xib; path = Classes/Cells/Welcome/PFWelcomeDocumentsCollectionViewCell.xib; sourceTree = "<group>"; };
+		B09ABB3119E4D2C300DC846A /* PFBorderedCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFBorderedCollectionViewCell.h; path = Classes/Cells/PFBorderedCollectionViewCell.h; sourceTree = "<group>"; };
+		B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFBorderedCollectionViewCell.m; path = Classes/Cells/PFBorderedCollectionViewCell.m; sourceTree = "<group>"; };
+		B0A30B7E19EC880700ACD5D0 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboard/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		B0A30B7F19EC880700ACD5D0 /* MainStoryboard~iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "MainStoryboard~iPad.storyboard"; path = "Storyboard/MainStoryboard~iPad.storyboard"; sourceTree = "<group>"; };
+		B0A726F71A744D290002F6F2 /* PFRefreshableCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFRefreshableCollectionViewController.h; path = Classes/ViewControllers/PFRefreshableCollectionViewController.h; sourceTree = "<group>"; };
+		B0A726F81A744D290002F6F2 /* PFRefreshableCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFRefreshableCollectionViewController.m; path = Classes/ViewControllers/PFRefreshableCollectionViewController.m; sourceTree = "<group>"; };
+		B0AB5F9F19D7A695004C7256 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFDocumentsViewController.h; path = Classes/ViewControllers/PFDocumentsViewController.h; sourceTree = "<group>"; };
+		B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFDocumentsViewController.m; path = Classes/ViewControllers/PFDocumentsViewController.m; sourceTree = "<group>"; };
+		B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFWordPressCategory.h; path = Classes/Model/PFWordPressCategory.h; sourceTree = "<group>"; };
+		B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFWordPressCategory.m; path = Classes/Model/PFWordPressCategory.m; sourceTree = "<group>"; };
+		B0BCE99C19C4B6EC008AB343 /* PFSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFSearchViewController.h; path = Classes/ViewControllers/PFSearchViewController.h; sourceTree = "<group>"; };
+		B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFSearchViewController.m; path = Classes/ViewControllers/PFSearchViewController.m; sourceTree = "<group>"; };
+		B0C1D0B4198F3E38008AB1B1 /* PFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFViewController.h; path = Classes/ViewControllers/PFViewController.h; sourceTree = "<group>"; };
+		B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFViewController.m; path = Classes/ViewControllers/PFViewController.m; sourceTree = "<group>"; };
+		B0C9D46119B4D34500E4B948 /* PFFileDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFFileDownloadManager.h; path = Classes/Model/PFFileDownloadManager.h; sourceTree = "<group>"; };
+		B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFFileDownloadManager.m; path = Classes/Model/PFFileDownloadManager.m; sourceTree = "<group>"; };
 		B0D63A52190CC53400103C02 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		B0D63A54190CC54A00103C02 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B0D63A56190CC55400103C02 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B0D63A58190CC64100103C02 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		B0D8784119D109960008CE04 /* default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = default.css; path = Resources/CSS/default.css; sourceTree = "<group>"; };
 		B0E75E14190C3249003BE9EF /* ios-police-foundation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-police-foundation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E75E17190C3249003BE9EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B0E75E19190C3249003BE9EF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,14 +242,17 @@
 		B0E75E27190C3249003BE9EF /* ios-police-foundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-police-foundation-Prefix.pch"; sourceTree = "<group>"; };
 		B0E75E28190C3249003BE9EF /* PFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PFAppDelegate.h; sourceTree = "<group>"; };
 		B0E75E29190C3249003BE9EF /* PFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PFAppDelegate.m; sourceTree = "<group>"; };
-		B0E75E2C190C3249003BE9EF /* ios_police_foundation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ios_police_foundation.xcdatamodel; sourceTree = "<group>"; };
 		B0E75E2E190C3249003BE9EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B0E75E34190C3249003BE9EF /* ios-police-foundationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-police-foundationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E75E35190C3249003BE9EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		B0E75E3E190C3249003BE9EF /* ios-police-foundationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-police-foundationTests-Info.plist"; sourceTree = "<group>"; };
 		B0E75E40190C3249003BE9EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0E75E42190C3249003BE9EF /* ios_police_foundationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_police_foundationTests.m; sourceTree = "<group>"; };
+		B0ED2B6F19E9EB5800741BE2 /* PFTermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFTermsViewController.h; path = Classes/ViewControllers/PFTermsViewController.h; sourceTree = "<group>"; };
+		B0ED2B7019E9EB5800741BE2 /* PFTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFTermsViewController.m; path = Classes/ViewControllers/PFTermsViewController.m; sourceTree = "<group>"; };
 		B0F35E071927D01F00C05D03 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		B0FC41C619CFAADC00EDE859 /* PFEditableArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFEditableArrayDataSource.h; path = Classes/DataSources/PFEditableArrayDataSource.h; sourceTree = "<group>"; };
+		B0FC41C719CFAADC00EDE859 /* PFEditableArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFEditableArrayDataSource.m; path = Classes/DataSources/PFEditableArrayDataSource.m; sourceTree = "<group>"; };
+		B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PFNoDocumentsView.xib; path = XIBs/PFNoDocumentsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +260,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0AB5FA019D7A695004C7256 /* Social.framework in Frameworks */,
+				B07880AF1971A02600EA1151 /* MessageUI.framework in Frameworks */,
 				B095EF3B1929449E008C3FF0 /* libGoogleAnalyticsServices.a in Frameworks */,
 				B0D63A59190CC64100103C02 /* libsqlite3.dylib in Frameworks */,
 				B0D63A57190CC55400103C02 /* libz.dylib in Frameworks */,
@@ -146,21 +269,9 @@
 				B0D63A55190CC54A00103C02 /* SystemConfiguration.framework in Frameworks */,
 				B0D63A53190CC53400103C02 /* AdSupport.framework in Frameworks */,
 				B0E75E1A190C3249003BE9EF /* CoreGraphics.framework in Frameworks */,
-				B0E75E1E190C3249003BE9EF /* CoreData.framework in Frameworks */,
 				B0E75E1C190C3249003BE9EF /* UIKit.framework in Frameworks */,
 				B0E75E18190C3249003BE9EF /* Foundation.framework in Frameworks */,
 				B0F35E081927D01F00C05D03 /* Crashlytics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0E75E31190C3249003BE9EF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0E75E36190C3249003BE9EF /* XCTest.framework in Frameworks */,
-				B0E75E39190C3249003BE9EF /* CoreData.framework in Frameworks */,
-				B0E75E38190C3249003BE9EF /* UIKit.framework in Frameworks */,
-				B0E75E37190C3249003BE9EF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +283,8 @@
 			children = (
 				B0055A1F192840D400FDFE1D /* PFHTTPRequestOperationManager.h */,
 				B0055A20192840D400FDFE1D /* PFHTTPRequestOperationManager.m */,
+				B05A08C319840F58000C0C14 /* PFRSSHTTPRequestOperationManager.h */,
+				B05A08C419840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m */,
 			);
 			name = API;
 			path = Classes/API;
@@ -180,8 +293,26 @@
 		B0055A2A1928455D00FDFE1D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				B061B0981962783900EB9561 /* CGRectExtensions.h */,
+				B061B0991962783900EB9561 /* CGRectExtensions.m */,
+				B0504FA219D10D86003C791D /* GTMNSString+HTML.h */,
+				B0504FA319D10D86003C791D /* GTMNSString+HTML.m */,
+				B04C9E1019C51E5700477E1B /* NSBundle+PFExtensions.h */,
+				B04C9E1119C51E5700477E1B /* NSBundle+PFExtensions.m */,
+				B00A7A65194D16C800590D37 /* NSDate+PFExtensions.h */,
+				B00A7A66194D16C800590D37 /* NSDate+PFExtensions.m */,
 				B0055A2B1928457A00FDFE1D /* NSString+PFExtensions.h */,
 				B0055A2C1928457A00FDFE1D /* NSString+PFExtensions.m */,
+				B08ABC2719A92D0500B9B5BD /* UIAlertView+PFExtensions.h */,
+				B08ABC2819A92D0500B9B5BD /* UIAlertView+PFExtensions.m */,
+				B005FDD719DF79BF00B361AD /* UICollectionViewCell+PFExtensions.h */,
+				B005FDD819DF79BF00B361AD /* UICollectionViewCell+PFExtensions.m */,
+				B005FDEA19E0531300B361AD /* UIColor+PFExtensions.h */,
+				B005FDEB19E0531300B361AD /* UIColor+PFExtensions.m */,
+				B04C9DFD19C4F2F600477E1B /* UITableViewCell+PFExtensions.h */,
+				B04C9DFE19C4F2F600477E1B /* UITableViewCell+PFExtensions.m */,
+				B050601219E3818F001F933C /* UICollectionView+PFExtensions.h */,
+				B050601319E3818F001F933C /* UICollectionView+PFExtensions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -197,27 +328,73 @@
 			path = Resources/extobjc;
 			sourceTree = "<group>";
 		};
+		B061B0941962746000EB9561 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B061B0951962748200EB9561 /* PFBarberPoleView.h */,
+				B061B0961962748200EB9561 /* PFBarberPoleView.m */,
+				B02C640C19E1E54800CD094C /* PFNoDocumentsView.h */,
+				B02C640D19E1E54800CD094C /* PFNoDocumentsView.m */,
+				B02683BE1A741650002596C8 /* PFResearchHeaderCollectionReusableView.h */,
+				B02683BF1A741650002596C8 /* PFResearchHeaderCollectionReusableView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B0674F0E1971B5D40074C22E /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				B05B6D3D19D117C5005981FF /* LaunchScreen.xib */,
+				B0FC41C919CFB39300EDE859 /* PFNoDocumentsView.xib */,
+				B02C640A19E1B85A00CD094C /* PFNoDocumentsView~iPad.xib */,
+				B0674F0F1971B5F40074C22E /* PFWelcomeViewController.xib */,
+				B0674F111971BA6A0074C22E /* PFWelcomeViewController~iPad.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
+		B085344B19439B2700735CB5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B0A30B7E19EC880700ACD5D0 /* MainStoryboard.storyboard */,
+				B0A30B7F19EC880700ACD5D0 /* MainStoryboard~iPad.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		B095EF3C192944E2008C3FF0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				B087DC71193CC95100BD2BB8 /* PFAboutViewController.h */,
 				B087DC72193CC95100BD2BB8 /* PFAboutViewController.m */,
-				B087DC73193CC95100BD2BB8 /* PFAboutViewController.xib */,
 				B095EF3D1929452F008C3FF0 /* PFCategoriesViewController.h */,
 				B095EF3E1929452F008C3FF0 /* PFCategoriesViewController.m */,
-				B095EF4F19294D7B008C3FF0 /* PFCategoriesViewController.xib */,
+				B0AE4AED19BD06650050D479 /* PFDocumentsViewController.h */,
+				B0AE4AEE19BD06650050D479 /* PFDocumentsViewController.m */,
 				B087DC76193CCA2200BD2BB8 /* PFNewsViewController.h */,
 				B087DC77193CCA2200BD2BB8 /* PFNewsViewController.m */,
-				B087DC78193CCA2200BD2BB8 /* PFNewsViewController.xib */,
 				B006F7541931694900374295 /* PFPostDetailsViewController.h */,
 				B006F7551931694900374295 /* PFPostDetailsViewController.m */,
-				B006F7561931694900374295 /* PFPostDetailsViewController.xib */,
 				B006F74A19315B0900374295 /* PFPostsViewController.h */,
 				B006F74B19315B0900374295 /* PFPostsViewController.m */,
-				B006F74C19315B0900374295 /* PFPostsViewController.xib */,
+				B0A726F71A744D290002F6F2 /* PFRefreshableCollectionViewController.h */,
+				B0A726F81A744D290002F6F2 /* PFRefreshableCollectionViewController.m */,
+				B0504FA519D1107B003C791D /* PFRefreshableViewController.h */,
+				B0504FA619D1107B003C791D /* PFRefreshableViewController.m */,
+				B05CF46119DCF29600344A98 /* PFResearchViewController.h */,
+				B05CF46219DCF29600344A98 /* PFResearchViewController.m */,
+				B0BCE99C19C4B6EC008AB343 /* PFSearchViewController.h */,
+				B0BCE99D19C4B6EC008AB343 /* PFSearchViewController.m */,
+				B08ABC2419A90E4800B9B5BD /* PFTabBarController.h */,
+				B08ABC2519A90E4800B9B5BD /* PFTabBarController.m */,
 				B006F740193152E400374295 /* PFTagsViewController.h */,
 				B006F741193152E400374295 /* PFTagsViewController.m */,
-				B006F742193152E400374295 /* PFTagsViewController.xib */,
+				B0ED2B6F19E9EB5800741BE2 /* PFTermsViewController.h */,
+				B0ED2B7019E9EB5800741BE2 /* PFTermsViewController.m */,
+				B0C1D0B4198F3E38008AB1B1 /* PFViewController.h */,
+				B0C1D0B5198F3E38008AB1B1 /* PFViewController.m */,
+				B0674F0B1971B5C80074C22E /* PFWelcomeViewController.h */,
+				B0674F0C1971B5C80074C22E /* PFWelcomeViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -227,6 +404,8 @@
 			children = (
 				B095EF44192946B6008C3FF0 /* PFArrayDataSource.h */,
 				B095EF45192946B6008C3FF0 /* PFArrayDataSource.m */,
+				B0FC41C619CFAADC00EDE859 /* PFEditableArrayDataSource.h */,
+				B0FC41C719CFAADC00EDE859 /* PFEditableArrayDataSource.m */,
 			);
 			name = DataSources;
 			sourceTree = "<group>";
@@ -234,22 +413,77 @@
 		B095EF47192949CD008C3FF0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				B095EF48192949EC008C3FF0 /* PFCategoryTableViewCell.h */,
-				B095EF49192949EC008C3FF0 /* PFCategoryTableViewCell.m */,
-				B095EF4D19294D5C008C3FF0 /* PFCategoryTableViewCell.xib */,
-				B006F74F19315B3000374295 /* PFPostTableViewCell.h */,
-				B006F75019315B3000374295 /* PFPostTableViewCell.m */,
-				B006F75119315B3000374295 /* PFPostTableViewCell.xib */,
-				B006F7451931552E00374295 /* PFTagTableViewCell.h */,
-				B006F7461931552E00374295 /* PFTagTableViewCell.m */,
-				B006F7471931552E00374295 /* PFTagTableViewCell.xib */,
+				B097262A19E39B510025760C /* Welcome */,
+				B005FDDD19DFAFDB00B361AD /* PFCategoryCollectionViewCell.h */,
+				B005FDDE19DFAFDB00B361AD /* PFCategoryCollectionViewCell.m */,
+				B005FDDF19DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib */,
+				B005FDD219DF771A00B361AD /* PFArticleCollectionViewCell.h */,
+				B005FDD319DF771A00B361AD /* PFArticleCollectionViewCell.m */,
+				B005FDD419DF771A00B361AD /* PFArticleCollectionViewCell.xib */,
+				B051268E19CF6F5800FB5FC7 /* PFCommonTableViewCell.h */,
+				B051268F19CF6F5800FB5FC7 /* PFCommonTableViewCell.m */,
+				B005FDE219DFB9A200B361AD /* PFTagCollectionViewCell.h */,
+				B005FDE319DFB9A200B361AD /* PFTagCollectionViewCell.m */,
+				B005FDE419DFB9A200B361AD /* PFTagCollectionViewCell.xib */,
+				B005FDE719DFBE3C00B361AD /* PFCollectionViewCell.h */,
+				B005FDE819DFBE3C00B361AD /* PFCollectionViewCell.m */,
+				B09ABB3119E4D2C300DC846A /* PFBorderedCollectionViewCell.h */,
+				B09ABB3219E4D2C300DC846A /* PFBorderedCollectionViewCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		B097262A19E39B510025760C /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B063555719E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.h */,
+				B063555819E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.m */,
+				B063555919E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib */,
+				B097263819E39E4E0025760C /* PFWelcomeCollectionViewCell.h */,
+				B097263919E39E4E0025760C /* PFWelcomeCollectionViewCell.m */,
+				B097263A19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib */,
+				B09ABB2919E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.h */,
+				B09ABB2A19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m */,
+				B09ABB2B19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib */,
+				B063556119E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.h */,
+				B063556219E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.m */,
+				B063556319E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib */,
+				B097263319E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.h */,
+				B097263419E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m */,
+				B097263519E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib */,
+				B063555C19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.h */,
+				B063555D19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m */,
+				B063555E19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib */,
+				B032C1AF19EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.h */,
+				B032C1B019EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m */,
+				B032C1B119EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
+		B0C9D46019B4D32A00E4B948 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0116C5519B4F458006904E8 /* PFAnalyticsManager.h */,
+				B0116C5619B4F458006904E8 /* PFAnalyticsManager.m */,
+				B0C9D46119B4D34500E4B948 /* PFFileDownloadManager.h */,
+				B0C9D46219B4D34500E4B948 /* PFFileDownloadManager.m */,
+				B038482719EB4B14007D2FA5 /* PFPost.h */,
+				B038482819EB4B14007D2FA5 /* PFPost.m */,
+				B038482A19EB4C56007D2FA5 /* PFRSSPost.h */,
+				B038482B19EB4C56007D2FA5 /* PFRSSPost.m */,
+				B0B6C78319E9C55600FDCE60 /* PFWordPressCategory.h */,
+				B0B6C78419E9C55600FDCE60 /* PFWordPressCategory.m */,
+				B032C1AC19EC340A00364C3A /* PFWordPressTag.h */,
+				B032C1AD19EC340A00364C3A /* PFWordPressTag.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		B0D63A48190CC47100103C02 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B0D8784019D109830008CE04 /* CSS */,
 				B006F73B1931423500374295 /* extobjc */,
 				B0D63A49190CC4B500103C02 /* GoogleAnalytics */,
 			);
@@ -270,23 +504,25 @@
 			name = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
+		B0D8784019D109830008CE04 /* CSS */ = {
+			isa = PBXGroup;
+			children = (
+				B0D8784119D109960008CE04 /* default.css */,
+			);
+			name = CSS;
+			sourceTree = "<group>";
+		};
 		B0DC38771928401D004D563C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				B0055A1E192840D400FDFE1D /* API */,
 				B095EF47192949CD008C3FF0 /* Cells */,
 				B095EF40192945B5008C3FF0 /* DataSources */,
+				B0C9D46019B4D32A00E4B948 /* Model */,
 				B095EF3C192944E2008C3FF0 /* ViewControllers */,
-				B0055A1E192840D400FDFE1D /* API */,
+				B061B0941962746000EB9561 /* Views */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		B0DC387819284027004D563C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B0E75E2B190C3249003BE9EF /* ios_police_foundation.xcdatamodeld */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		B0E75E0B190C3249003BE9EF = {
@@ -304,7 +540,6 @@
 			isa = PBXGroup;
 			children = (
 				B0E75E14190C3249003BE9EF /* ios-police-foundation.app */,
-				B0E75E34190C3249003BE9EF /* ios-police-foundationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,6 +547,10 @@
 		B0E75E16190C3249003BE9EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0278E221A869EC00097ADAF /* libPods-CocoaLumberjack.a */,
+				B0278E231A869EC00097ADAF /* libPods.a */,
+				B0AB5F9F19D7A695004C7256 /* Social.framework */,
+				B07880AE1971A02600EA1151 /* MessageUI.framework */,
 				B0D63A58190CC64100103C02 /* libsqlite3.dylib */,
 				B0D63A56190CC55400103C02 /* libz.dylib */,
 				B0F35E071927D01F00C05D03 /* Crashlytics.framework */,
@@ -335,7 +574,8 @@
 				B0E75E2E190C3249003BE9EF /* Images.xcassets */,
 				B0DC38771928401D004D563C /* Classes */,
 				B0055A2A1928455D00FDFE1D /* Categories */,
-				B0DC387819284027004D563C /* Model */,
+				B0674F0E1971B5D40074C22E /* XIBs */,
+				B085344B19439B2700735CB5 /* Storyboards */,
 				B0D63A48190CC47100103C02 /* Resources */,
 				B0E75E20190C3249003BE9EF /* Supporting Files */,
 			);
@@ -394,24 +634,6 @@
 			productReference = B0E75E14190C3249003BE9EF /* ios-police-foundation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0E75E33190C3249003BE9EF /* ios-police-foundationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B0E75E49190C3249003BE9EF /* Build configuration list for PBXNativeTarget "ios-police-foundationTests" */;
-			buildPhases = (
-				B0E75E30190C3249003BE9EF /* Sources */,
-				B0E75E31190C3249003BE9EF /* Frameworks */,
-				B0E75E32190C3249003BE9EF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B0E75E3B190C3249003BE9EF /* PBXTargetDependency */,
-			);
-			name = "ios-police-foundationTests";
-			productName = "ios-police-foundationTests";
-			productReference = B0E75E34190C3249003BE9EF /* ios-police-foundationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -419,11 +641,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PF;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Police Foundation";
 				TargetAttributes = {
-					B0E75E33190C3249003BE9EF = {
-						TestTargetID = B0E75E13190C3249003BE9EF;
+					B0E75E13190C3249003BE9EF = {
+						DevelopmentTeam = XJ493G3J38;
 					};
 				};
 			};
@@ -440,7 +662,6 @@
 			projectRoot = "";
 			targets = (
 				B0E75E13190C3249003BE9EF /* ios-police-foundation */,
-				B0E75E33190C3249003BE9EF /* ios-police-foundationTests */,
 			);
 		};
 /* End PBXProject section */
@@ -451,24 +672,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E75E24190C3249003BE9EF /* InfoPlist.strings in Resources */,
-				B087DC7A193CCA2200BD2BB8 /* PFNewsViewController.xib in Resources */,
+				B02C640F19E1E78000CD094C /* PFNoDocumentsView~iPad.xib in Resources */,
+				B063556019E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.xib in Resources */,
+				B005FDE619DFB9A200B361AD /* PFTagCollectionViewCell.xib in Resources */,
+				B097263C19E39E4E0025760C /* PFWelcomeCollectionViewCell.xib in Resources */,
+				B0FC41CA19CFB39300EDE859 /* PFNoDocumentsView.xib in Resources */,
+				B004A2BB19ECA667005BA404 /* MainStoryboard.storyboard in Resources */,
+				B0674F121971BA6A0074C22E /* PFWelcomeViewController~iPad.xib in Resources */,
+				B097263719E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.xib in Resources */,
 				B0E75E2F190C3249003BE9EF /* Images.xcassets in Resources */,
-				B095EF5019294D7B008C3FF0 /* PFCategoriesViewController.xib in Resources */,
-				B006F744193152E400374295 /* PFTagsViewController.xib in Resources */,
-				B087DC75193CC95100BD2BB8 /* PFAboutViewController.xib in Resources */,
-				B006F7581931694900374295 /* PFPostDetailsViewController.xib in Resources */,
-				B006F7491931552E00374295 /* PFTagTableViewCell.xib in Resources */,
-				B095EF4E19294D5C008C3FF0 /* PFCategoryTableViewCell.xib in Resources */,
-				B006F74E19315B0900374295 /* PFPostsViewController.xib in Resources */,
-				B006F75319315B3000374295 /* PFPostTableViewCell.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0E75E32190C3249003BE9EF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0E75E41190C3249003BE9EF /* InfoPlist.strings in Resources */,
+				B063555B19E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.xib in Resources */,
+				B0674F101971B5F40074C22E /* PFWelcomeViewController.xib in Resources */,
+				B004A2B919ECA662005BA404 /* MainStoryboard~iPad.storyboard in Resources */,
+				B005FDD619DF771A00B361AD /* PFArticleCollectionViewCell.xib in Resources */,
+				B063556519E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.xib in Resources */,
+				B005FDE119DFAFDB00B361AD /* PFCategoryCollectionViewCell.xib in Resources */,
+				B05B6D3E19D117C5005981FF /* LaunchScreen.xib in Resources */,
+				B032C1B319EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.xib in Resources */,
+				B09ABB2D19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.xib in Resources */,
+				B0D8784319D109960008CE04 /* default.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,42 +748,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A726F91A744D290002F6F2 /* PFRefreshableCollectionViewController.m in Sources */,
+				B0AE4AEF19BD06650050D479 /* PFDocumentsViewController.m in Sources */,
+				B09ABB3319E4D2C300DC846A /* PFBorderedCollectionViewCell.m in Sources */,
+				B0ED2B7119E9EB5800741BE2 /* PFTermsViewController.m in Sources */,
+				B005FDE019DFAFDB00B361AD /* PFCategoryCollectionViewCell.m in Sources */,
 				B006F74D19315B0900374295 /* PFPostsViewController.m in Sources */,
+				B038482919EB4B14007D2FA5 /* PFPost.m in Sources */,
+				B09ABB2C19E4CC8A00DC846A /* PFWelcomeDocumentsCollectionViewCell.m in Sources */,
 				B0055A2D1928457A00FDFE1D /* NSString+PFExtensions.m in Sources */,
 				B0E75E2A190C3249003BE9EF /* PFAppDelegate.m in Sources */,
+				B02C640E19E1E54800CD094C /* PFNoDocumentsView.m in Sources */,
 				B087DC79193CCA2200BD2BB8 /* PFNewsViewController.m in Sources */,
+				B0504FA719D1107B003C791D /* PFRefreshableViewController.m in Sources */,
+				B005FDEC19E0531300B361AD /* UIColor+PFExtensions.m in Sources */,
+				B05A08C519840F58000C0C14 /* PFRSSHTTPRequestOperationManager.m in Sources */,
+				B0C1D0B6198F3E38008AB1B1 /* PFViewController.m in Sources */,
 				B087DC74193CC95100BD2BB8 /* PFAboutViewController.m in Sources */,
+				B00A7A67194D16C800590D37 /* NSDate+PFExtensions.m in Sources */,
+				B063555A19E47CC40069EC89 /* PFWelcomeCategoriesCollectionViewCell.m in Sources */,
+				B063555F19E47E3A0069EC89 /* PFWelcomeTagsCollectionViewCell.m in Sources */,
 				B006F7571931694900374295 /* PFPostDetailsViewController.m in Sources */,
+				B061B0971962748200EB9561 /* PFBarberPoleView.m in Sources */,
+				B032C1B219EC46F600364C3A /* PFWelcomeTermsCollectionViewCell.m in Sources */,
+				B051269019CF6F5800FB5FC7 /* PFCommonTableViewCell.m in Sources */,
+				B097263619E39E3C0025760C /* PFWelcomeResearchCollectionViewCell.m in Sources */,
+				B04C9DFF19C4F2F600477E1B /* UITableViewCell+PFExtensions.m in Sources */,
+				B032C1AE19EC340A00364C3A /* PFWordPressTag.m in Sources */,
 				B0055A21192840D400FDFE1D /* PFHTTPRequestOperationManager.m in Sources */,
-				B006F75219315B3000374295 /* PFPostTableViewCell.m in Sources */,
+				B0116C5719B4F458006904E8 /* PFAnalyticsManager.m in Sources */,
+				B0674F0D1971B5C80074C22E /* PFWelcomeViewController.m in Sources */,
 				B006F73F1931423500374295 /* EXTScope.m in Sources */,
-				B095EF4A192949EC008C3FF0 /* PFCategoryTableViewCell.m in Sources */,
+				B0504FA419D10D86003C791D /* GTMNSString+HTML.m in Sources */,
 				B006F743193152E400374295 /* PFTagsViewController.m in Sources */,
+				B005FDE919DFBE3C00B361AD /* PFCollectionViewCell.m in Sources */,
+				B02683C01A741650002596C8 /* PFResearchHeaderCollectionReusableView.m in Sources */,
+				B097263B19E39E4E0025760C /* PFWelcomeCollectionViewCell.m in Sources */,
+				B005FDE519DFB9A200B361AD /* PFTagCollectionViewCell.m in Sources */,
+				B08ABC2919A92D0500B9B5BD /* UIAlertView+PFExtensions.m in Sources */,
 				B0E75E26190C3249003BE9EF /* main.m in Sources */,
-				B006F7481931552E00374295 /* PFTagTableViewCell.m in Sources */,
+				B0B6C78519E9C55600FDCE60 /* PFWordPressCategory.m in Sources */,
+				B038482C19EB4C56007D2FA5 /* PFRSSPost.m in Sources */,
+				B061B09A1962783900EB9561 /* CGRectExtensions.m in Sources */,
+				B05CF46319DCF29600344A98 /* PFResearchViewController.m in Sources */,
+				B0C9D46319B4D34500E4B948 /* PFFileDownloadManager.m in Sources */,
+				B08ABC2619A90E4800B9B5BD /* PFTabBarController.m in Sources */,
 				B095EF3F1929452F008C3FF0 /* PFCategoriesViewController.m in Sources */,
-				B0E75E2D190C3249003BE9EF /* ios_police_foundation.xcdatamodeld in Sources */,
+				B050601419E3818F001F933C /* UICollectionView+PFExtensions.m in Sources */,
 				B095EF46192946B6008C3FF0 /* PFArrayDataSource.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0E75E30190C3249003BE9EF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0E75E43190C3249003BE9EF /* ios_police_foundationTests.m in Sources */,
+				B063556419E47F760069EC89 /* PFWelcomeNewsCollectionViewCell.m in Sources */,
+				B0FC41C819CFAADC00EDE859 /* PFEditableArrayDataSource.m in Sources */,
+				B04C9E1219C51E5700477E1B /* NSBundle+PFExtensions.m in Sources */,
+				B0BCE99E19C4B6EC008AB343 /* PFSearchViewController.m in Sources */,
+				B005FDD919DF79BF00B361AD /* UICollectionViewCell+PFExtensions.m in Sources */,
+				B005FDD519DF771A00B361AD /* PFArticleCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B0E75E3B190C3249003BE9EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B0E75E13190C3249003BE9EF /* ios-police-foundation */;
-			targetProxy = B0E75E3A190C3249003BE9EF /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B0E75E22190C3249003BE9EF /* InfoPlist.strings */ = {
@@ -639,7 +883,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Police Foundation (XJ493G3J38)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -663,6 +907,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -670,12 +916,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
 				INFOPLIST_FILE = "ios-police-foundation/ios-police-foundation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios-police-foundation/Resources/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -686,6 +934,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: The Police Foundation (XJ493G3J38)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Police Foundation (XJ493G3J38)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -693,53 +943,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
 				INFOPLIST_FILE = "ios-police-foundation/ios-police-foundation-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios-police-foundation/Resources/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		B0E75E4A190C3249003BE9EF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ios-police-foundation.app/ios-police-foundation";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ios-police-foundationTests/ios-police-foundationTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		B0E75E4B190C3249003BE9EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ios-police-foundation.app/ios-police-foundation";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ios-police-foundation/ios-police-foundation-Prefix.pch";
-				INFOPLIST_FILE = "ios-police-foundationTests/ios-police-foundationTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -764,29 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0E75E49190C3249003BE9EF /* Build configuration list for PBXNativeTarget "ios-police-foundationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B0E75E4A190C3249003BE9EF /* Debug */,
-				B0E75E4B190C3249003BE9EF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		B0E75E2B190C3249003BE9EF /* ios_police_foundation.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				B0E75E2C190C3249003BE9EF /* ios_police_foundation.xcdatamodel */,
-			);
-			currentVersion = B0E75E2C190C3249003BE9EF /* ios_police_foundation.xcdatamodel */;
-			path = ios_police_foundation.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = B0E75E0C190C3249003BE9EF /* Project object */;
 }

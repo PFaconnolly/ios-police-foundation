@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFRefreshableCollectionViewController.h"
 
-@interface PFCategoriesViewController : UIViewController <UITableViewDelegate>
+@interface PFCategoriesViewController : PFRefreshableCollectionViewController <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (strong, nonatomic) NSArray * categories;
 
 @end

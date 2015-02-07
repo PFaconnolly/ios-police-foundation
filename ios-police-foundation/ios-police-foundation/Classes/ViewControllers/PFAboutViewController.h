@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFRefreshableViewController.h"
 
-@interface PFAboutViewController : UIViewController
+@interface PFAboutViewController : PFRefreshableViewController
+
 
 @end

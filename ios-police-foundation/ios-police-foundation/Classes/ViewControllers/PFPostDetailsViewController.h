@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFViewController.h"
+#import "PFRSSPost.h"
 
-@interface PFPostDetailsViewController : UIViewController
+@interface PFPostDetailsViewController : PFViewController
 
-@property (strong, nonatomic) NSString * postID;
+@property (strong, nonatomic) PFRSSPost * rssPost;
+@property (strong, nonatomic) NSString * wordPressPostId;
 
 @end

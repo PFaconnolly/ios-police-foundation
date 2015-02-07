@@ -18,14 +18,25 @@ PODS:
   - AFNetworking/UIKit (2.2.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - wpxmlrpc (0.4.1)
+  - CocoaLumberjack (1.9.1):
+    - CocoaLumberjack/CLI
+    - CocoaLumberjack/Core
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/CLI (1.9.1):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Core (1.9.1)
+  - CocoaLumberjack/Extensions (1.9.1):
+    - CocoaLumberjack/Core
+  - PureLayout (1.1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
-  - wpxmlrpc (~> 0.1)
+  - CocoaLumberjack
+  - PureLayout
 
 SPEC CHECKSUMS:
-  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
-  wpxmlrpc: 63b5b10d5925fb030f8266215bc955366354a2b8
+  AFNetworking: 47947303319594706f48a55185ea95a95159ab94
+  CocoaLumberjack: 94accd5749f5c5d15134c8d50f34a973aed8ef69
+  PureLayout: c8960fa0f3b40d849d5e177d699d0148faa63b63
 
 COCOAPODS: 0.32.1

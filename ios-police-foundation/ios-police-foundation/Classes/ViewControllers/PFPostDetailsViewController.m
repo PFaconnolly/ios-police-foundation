@@ -8,65 +8,194 @@
 
 #import "PFPostDetailsViewController.h"
 #import "PFHTTPRequestOperationManager.h"
+#import "PFBarberPoleView.h"
+#import "PFFileDownloadManager.h"
 
-@interface PFPostDetailsViewController ()
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-@property (strong, nonatomic) IBOutlet UITextView *contentTextView;
+@interface PFPostDetailsViewController () <UIWebViewDelegate, UIDocumentInteractionControllerDelegate>
+
+@property (strong, nonatomic) UIBarButtonItem * attachmentBarButtonItem;
+@property (strong, nonatomic) UIBarButtonItem * shareBarButtonItem;
+@property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
+@property (strong, nonatomic) NSMutableArray * rightBarButtonItems;
+
+@property (strong, nonatomic) PFPost * wordPressPost;
+
+@property (strong, nonatomic) UIDocumentInteractionController * documentInteractionController;
 
 @end
 
 @implementation PFPostDetailsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    // set up right bar button items
+    self.attachmentBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Paperclip Icon"] style:UIBarButtonItemStylePlain target:self action:@selector(attachmentButtonTapped:)];
+    self.shareBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareButtonTapped:)];
+    self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, nil];
+    self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
+    
+    [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"Post Details Screen";
+    
+    if ( self.rssPost ) {
+        [self refreshRssPost];
+    } else if ( self.wordPressPostId ) {
+        [self fetchWordPressPost];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
+
+#pragma mark UIDocumentInteractionControllerDelegate methods
+
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+#pragma mark UIWebView methods
+
+- (BOOL)webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest navigationType:(UIWebViewNavigationType)inType {
+    if ( inType == UIWebViewNavigationTypeLinkClicked ) {
+        [[UIApplication sharedApplication] openURL:[inRequest URL]];
+        return NO;
+    }
+    return YES;
+}
+
+
+#pragma mark - Setters
+
+- (void)setWordPressPostId:(NSString *)wordPressPostId {
+    _wordPressPostId = wordPressPostId;
+    [self fetchWordPressPost];
+}
+
+- (void)setRssPost:(PFRSSPost *)rssPost {
+    _rssPost = rssPost;
+    [self refreshRssPost];
+}
+
+
+#pragma mark Private methods
+
+- (void)shareButtonTapped:(id)sender {
+
+    NSString * URLString = nil;
     
-    if ( [self respondsToSelector:@selector(edgesForExtendedLayout)] ) { 
-        self.edgesForExtendedLayout = UIRectEdgeNone;
+    if ( _wordPressPost ) {
+        URLString = _wordPressPost.link;
+    } else if ( _rssPost ) {
+        URLString = _rssPost.link;
+    } else {
+        // fall back
+        URLString = @"http://www.policefoundation.org";
     }
     
-    self.title = @"Post";
-    [self fetchPost];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)fetchPost {
+    NSURL * URL = [NSURL URLWithString:URLString];
+    NSArray * sharingItems = [NSArray arrayWithObjects:URL, nil];
     
-    @weakify(self)
+    // track the file name that was shared
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SHARED_ITEM_WITH_URL_ACTION label:URLString value:nil];
+    
+    UIActivityViewController * activityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    
+    // iOS 8 requires that activity controllers be presented from a UIView
+    if ( [activityViewController respondsToSelector:@selector(popoverPresentationController)] ) {
+        activityViewController.popoverPresentationController.barButtonItem = self.shareBarButtonItem;
+    }
+    
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
 
+- (void)attachmentButtonTapped:(id)sender {
+    
+    // TO DO: (future)
+    // detect if there are more than 1 attachments
+    NSURL * attachmentURL = nil;
+    
+    if ( self.wordPressPost.attachments && self.wordPressPost.attachments.allKeys.count > 0 ) {
+        for( id key in self.wordPressPost.attachments.allKeys ) {
+            NSDictionary * attachment = self.wordPressPost.attachments[key];
+            attachmentURL = [NSURL URLWithString:[attachment objectForKey:WP_ATTACHMENT_URL_KEY]];
+            break;
+        }
+    }
+    
+    [self showBarberPole];
+    self.attachmentBarButtonItem.enabled = NO;
+    
+    @weakify(self);
+    [[PFFileDownloadManager sharedManager] downloadFileWithURL:attachmentURL withCompletion:^(NSURL * fileURL, NSError * error) {
+        @strongify(self);
+        [self hideBarberPole];
+        self->_attachmentBarButtonItem.enabled = YES;
+        
+        if ( error ) {
+            [UIAlertView pfShowWithTitle:@"File could not be downloaded" message:error.localizedDescription];
+            return;
+        }
+        
+        // track the file name that was viewed
+        NSString * fileName = [fileURL lastPathComponent];
+        [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_VIEWED_FILE_NAME_ACTION label:fileName value:nil];
+        
+        // Fire up the document interaction controller
+        [self previewDocumentWithURL:fileURL];
+    }];
+}
+
+- (void)fetchWordPressPost {
+    [self showBarberPole];
+    
     // Fetch posts from blog ...
-    [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.postID
+    [[PFHTTPRequestOperationManager sharedManager] getPostWithId:self.wordPressPostId
                                                       parameters:nil
-                                                    successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                 @strongify(self)
-                                                                 if ( [responseObject isKindOfClass:([NSDictionary class])] ) {
-                                                                     NSDictionary * response = (NSDictionary *)responseObject;
-                                                                     self.titleLabel.text = [response objectForKey:@"title"];
-                                                                     self.dateLabel.text = [response objectForKey:@"date"];
-                                                                     self.contentTextView.text = [response objectForKey:@"content"];
-                                                                 }
-                                                             }
-                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                 NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                 [exception raise];
-                                                             }];
+                                                    successBlock:^(AFHTTPRequestOperation *operation, PFPost * post) {
+                                                        self.wordPressPost = post;
+                                                        
+                                                        NSString * html = [NSString pfStyledHTMLDocumentWithTitle:self.wordPressPost.title date:[NSString pfMediumDateStringFromDate:self.wordPressPost.date] body:self.wordPressPost.content];
+                                                        NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
+                                                        [self.contentWebView loadHTMLString:html baseURL:baseURL];
+                                                        
+                                                        // check for attachments and hide/show attachments button
+                                                        if ( self.wordPressPost.attachments && self.wordPressPost.attachments.allKeys.count > 0 ) {
+                                                            self.rightBarButtonItems = [NSMutableArray arrayWithObjects:self.shareBarButtonItem, self.attachmentBarButtonItem, nil];
+                                                            self.navigationItem.rightBarButtonItems = self.rightBarButtonItems;
+                                                        }
+                                                        
+                                                        [self hideBarberPole];
+                                                    }
+                                                    failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                        [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                        [self hideBarberPole];
+                                                    }];
+}
+
+- (void)refreshRssPost {
+    NSString * dateString = [NSString pfMediumDateStringFromDate:self.rssPost.date];
+    NSString * html = [NSString pfStyledHTMLDocumentWithTitle:self.rssPost.title date:dateString body:self.rssPost.content];
+    NSURL * baseURL = [NSURL fileURLWithPath:[NSBundle mainBundle].bundlePath];
+    [self.contentWebView loadHTMLString:html baseURL:baseURL];
+}
+
+- (void)previewDocumentWithURL:(NSURL *)fileURL {
+    if ( ! self.documentInteractionController ) {
+        self.documentInteractionController = [[UIDocumentInteractionController alloc] init];
+        self.documentInteractionController.delegate = self;
+    }
+    self.documentInteractionController.URL = fileURL;
+    [self.documentInteractionController presentPreviewAnimated:YES];
 }
 
 @end

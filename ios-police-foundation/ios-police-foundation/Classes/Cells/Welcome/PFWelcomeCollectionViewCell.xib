@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PFWelcomeCollectionViewCell" id="gTV-IL-0wX" customClass="PFWelcomeCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="617"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="617"/>
+                <subviews>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="Pzo-Xr-17i">
+                        <rect key="frame" x="127" y="347" width="246" height="41"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="246" id="n76-4N-oLe"/>
+                            <constraint firstAttribute="height" constant="41" id="uoU-NT-cBB"/>
+                        </constraints>
+                        <attributedString key="attributedText">
+                            <fragment content="Advancing policing through innovation and science.">
+                                <attributes>
+                                    <color key="NSColor" red="0.54901963472366333" green="0.70980393886566162" blue="0.89019608497619629" alpha="1" colorSpace="deviceRGB"/>
+                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                    <font key="NSOriginalFont" size="14" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POLICE FOUNDATION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjD-WE-kY5">
+                        <rect key="frame" x="101" y="296" width="298" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="298" id="2sF-yP-ROZ"/>
+                            <constraint firstAttribute="height" constant="26" id="swW-1o-Cc6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PF Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-3h-dAa">
+                        <rect key="frame" x="216" y="152" width="68" height="109"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="109" id="JNB-QF-0nm"/>
+                            <constraint firstAttribute="width" constant="68" id="aQG-Ls-0gq"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.0078431377190000002" green="0.36078432199999999" blue="0.74509805439999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="RjD-WE-kY5" firstAttribute="top" secondItem="Sts-3h-dAa" secondAttribute="bottom" constant="35" id="7xX-Uv-5Fd"/>
+                <constraint firstItem="Pzo-Xr-17i" firstAttribute="top" secondItem="RjD-WE-kY5" secondAttribute="bottom" constant="25" id="HBD-aB-r9q"/>
+                <constraint firstAttribute="centerX" secondItem="Sts-3h-dAa" secondAttribute="centerX" id="Kq0-to-ZCU"/>
+                <constraint firstAttribute="centerX" secondItem="RjD-WE-kY5" secondAttribute="centerX" id="eVD-Qy-6aN"/>
+                <constraint firstAttribute="centerY" secondItem="RjD-WE-kY5" secondAttribute="centerY" id="hbX-lK-d60"/>
+                <constraint firstAttribute="centerX" secondItem="Pzo-Xr-17i" secondAttribute="centerX" id="pOr-2S-ZNN"/>
+            </constraints>
+            <size key="customSize" width="700" height="605"/>
+            <point key="canvasLocation" x="1206" y="752.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="PF Logo" width="243" height="390"/>
+    </resources>
+</document>

@@ -9,83 +9,160 @@
 #import "PFCategoriesViewController.h"
 #import "PFAppDelegate.h"
 #import "PFHTTPRequestOperationManager.h"
-#import "PFCategoryTableViewCell.h"
 #import "PFArrayDataSource.h"
-#import "PFTagsViewController.h"
+#import "PFBarberPoleView.h"
+#import "PFAnalyticsManager.h"
+#import "PFPostsViewController.h"
+#import "PFCategoryCollectionViewCell.h"
+#import "PFWordPressCategory.h"
+
+static const int __unused ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @interface PFCategoriesViewController ()
 
-@property (strong, nonatomic) NSArray * categories;
-@property (strong, nonatomic) PFArrayDataSource *categoriesArrayDataSource;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation PFCategoriesViewController
 
+#pragma mark - View life cycle methods
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setUpCollectionView];
     
-    self.title = @"Categories";
-    [self setupTableView];
-    [self fetchCategories];
+    // If categories are nil, fetch them from the server.
+    // Otherwise assume that we're displaying a provided
+    // set of categories.
+    if ( self.categories == nil ) {
+        self.title = @"Categories";
+
+        [self fetchCategories];
+        
+        @weakify(self);
+        self.refreshBlock = ^(){
+            @strongify(self);
+            [self fetchCategories];
+        };
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.screenName = @"WordPress Categories Screen";
 }
 
-- (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFCategoryTableViewCell * cell, NSDictionary * category) {
-        cell.textLabel.text = [category objectForKey:@"name"];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"(%@) %@", [category objectForKey:@"post_count"], [category objectForKey:@"description"]];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    };
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    self.categories = [NSArray array];
-    self.categoriesArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.categories
-                                                               cellIdentifier:@"Cell"
-                                                           configureCellBlock:configureCellBlock];
-    self.tableView.dataSource = self.categoriesArrayDataSource;
-    [self.tableView reloadData];
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    PFWordPressCategory * category = [self.categories objectAtIndex:selectedIndexPath.row];
     
-    [self.tableView registerNib:[PFCategoryTableViewCell nib] forCellReuseIdentifier:@"Cell"];
+    if ( [segue.identifier isEqualToString:@"categoriesToPostsSegue"] ) {
+        // set category on posts view controller
+        ((PFPostsViewController *)segue.destinationViewController).category = category;
+    }
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // width factor is how wide each cell should be
+    // by default it should be half the size of the screen
+    CGFloat widthFactor = IPHONE_COLLECTION_VIEW_CELL_WIDTH_FACTOR;
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = IPAD_COLLECTION_VIEW_CELL_WIDTH_FACTOR;
+    }
+    
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 150.0f);
+    return size;
+}
+
+
+#pragma mark - UICollectionViewDataSource methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.categories.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFCategoryCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFCategoryCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
+    
+    // configure cell
+    PFWordPressCategory * category = [self.categories objectAtIndex:indexPath.row];
+    cell.nameLabel.text =  category.name;
+    cell.descriptionLabel.text = category.summary;
+    
+    return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // track selected category
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    PFWordPressCategory * category = [self.categories objectAtIndex:selectedIndexPath.row];
+    NSString * selectedCategorySlug = category.slug;
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_CATEGORY_ACTION label:selectedCategorySlug value:nil];
+    
+    if ( category.subCategories != nil && category.subCategories.count > 0 ) {
+        /* The selected Category has sub categories so push another instance of this 
+         same categories view controller onto the stack, but give it the sub categories
+         to display which will disable the fetch from the server and override the view
+         controller's title. */
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        PFCategoriesViewController * subCategoriesViewController = [storyboard instantiateViewControllerWithIdentifier:@"PFCategoriesViewController"];
+        subCategoriesViewController.categories = category.subCategories;
+        subCategoriesViewController.title = category.name;
+        
+        [self.navigationController pushViewController:subCategoriesViewController animated:YES];
+        
+    } else {
+        [self performSegueWithIdentifier:@"categoriesToPostsSegue" sender:self];
+    }
+}
+
+
+#pragma mark - Private methods
+
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFCategoryCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFCategoryCollectionViewCell pfCellReuseIdentifier]];
 }
 
 - (void)fetchCategories {
+    [self showBarberPole];
     
     @weakify(self)
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getCategoriesWithParameters:nil
-                                                                  successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                                  successBlock:^(AFHTTPRequestOperation *operation, NSArray * categories) {
                                                                       @strongify(self)
-                                                                      NSDictionary * response = (NSDictionary *)responseObject;
-                                                                      self->_categories = [response objectForKey:@"categories"];
-                                                                      [self->_categoriesArrayDataSource reloadItems:self->_categories];
-                                                                      [self->_tableView reloadData];
+                                                                      self->_categories = categories;
+                                                                      [self->_collectionView reloadData];
+                                                                      [self hideBarberPole];
                                                                   }
                                                                   failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                      NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                      [exception raise];
+                                                                      [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                      [self hideBarberPole];
                                                                   }];
 }
 
-#pragma mark - UITableViewDelegate methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // set the selected category
-    NSDictionary * category = [self.categoriesArrayDataSource itemAtIndexPath:indexPath];
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedCategorySlug = [category objectForKey:@"slug"];
-    
-    PFTagsViewController * tagsViewController = [[PFTagsViewController alloc] initWithNibName:@"PFTagsViewController" bundle:nil];
-    [self.navigationController pushViewController:tagsViewController animated:YES];
-}
-
 @end
+
+
+
+
+
+
 

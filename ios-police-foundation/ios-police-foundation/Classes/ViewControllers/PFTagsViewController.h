@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PFRefreshableCollectionViewController.h"
 
-@interface PFTagsViewController : UIViewController <UITableViewDelegate>
+@interface PFTagsViewController : PFRefreshableCollectionViewController
 
 @end

@@ -9,94 +9,127 @@
 #import "PFTagsViewController.h"
 #import "PFAppDelegate.h"
 #import "PFArrayDataSource.h"
-#import "PFTagTableViewCell.h"
 #import "PFHTTPRequestOperationManager.h"
+#import "PFBarberPoleView.h"
+#import "PFAnalyticsManager.h"
 #import "PFPostsViewController.h"
+#import "PFTagCollectionViewCell.h"
+#import "PFWordPRessTag.h"
+
+static const int __unused ddLogLevel = LOG_LEVEL_INFO;
 
 @interface PFTagsViewController ()
 
 @property (strong, nonatomic) NSArray * tags;
-@property (strong, nonatomic) PFArrayDataSource *tagsArrayDataSource;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation PFTagsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
     self.title = @"Tags";
-    [self setupTableView];
-    [self fetchCategories];
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)setupTableView {
-    TableViewCellConfigureBlock configureCellBlock = ^(PFTagTableViewCell * cell, NSDictionary * category) {
-        cell.textLabel.text = [category objectForKey:@"name"];
-        cell.detailTextLabel.text = [category objectForKey:@"description"];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [self setUpCollectionView];
+    
+    [self fetchTags];
+    
+    @weakify(self);
+    self.refreshBlock = ^(){
+        @strongify(self);
+        [self fetchTags];
     };
-    
-    self.tags = [NSArray array];
-    self.tagsArrayDataSource = [[PFArrayDataSource alloc] initWithItems:self.tags
-                                                         cellIdentifier:@"Cell"
-                                                     configureCellBlock:configureCellBlock];
-    self.tableView.dataSource = self.tagsArrayDataSource;
-    [self.tableView reloadData];
-    
-    [self.tableView registerNib:[PFTagTableViewCell nib] forCellReuseIdentifier:@"Cell"];
 }
 
-- (void)fetchCategories {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];  
+    self.screenName = @"WordPress Tags Screen";
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // track selected tag
+    NSIndexPath * selectedIndexPath = self.collectionView.indexPathsForSelectedItems[0];
+    PFWordPressTag * tag = [self.tags objectAtIndex:selectedIndexPath.row];
+    NSString * selectedTagSlug = tag.slug;
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_USER_ACTION_CATEGORY action:GA_SELECTED_TAG_ACTION label:selectedTagSlug value:nil];
+    
+    // segue to posts with the provided tag
+    ((PFPostsViewController *)segue.destinationViewController).tag = tag;
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // width factor is how wide each cell should be
+    // by default it should be half the size of the screen
+    CGFloat widthFactor = IPHONE_COLLECTION_VIEW_CELL_WIDTH_FACTOR;
+    
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        widthFactor = IPAD_COLLECTION_VIEW_CELL_WIDTH_FACTOR;
+    }
+    
+    CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame) * widthFactor, 150.0f);
+    return size;
+}
+
+#pragma mark - UICollectionViewDataSource methods
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.tags.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    PFTagCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:[PFTagCollectionViewCell pfCellReuseIdentifier] forIndexPath:indexPath];
+    
+    // configure cell
+    PFWordPressTag * tag = [self.tags objectAtIndex:indexPath.row];
+    cell.nameLabel.text =  tag.name;
+    cell.descriptionLabel.text = tag.summary;
+    return cell;
+}
+
+
+#pragma mark - UICollectionViewDelegate methods
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+    // segue to posts
+    [self performSegueWithIdentifier:@"tagsToPostsSegue" sender:self];
+}
+
+
+
+#pragma mark - Private methods
+
+- (void)setUpCollectionView {
+    [self.collectionView registerNib:[PFTagCollectionViewCell pfNib]
+          forCellWithReuseIdentifier:[PFTagCollectionViewCell pfCellReuseIdentifier]];
+}
+
+- (void)fetchTags {
+    [self showBarberPole];
     
     @weakify(self)
     // Fetch categories from blog ...
     [[PFHTTPRequestOperationManager sharedManager] getTagsWithParameters:nil
-                                                            successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                            successBlock:^(AFHTTPRequestOperation * operation, NSArray * tags) {
                                                                 @strongify(self)
-                                                                NSDictionary * response = (NSDictionary *)responseObject;
-                                                                self->_tags = [response objectForKey:@"tags"];
-                                                                [self->_tagsArrayDataSource reloadItems:self->_tags];
-                                                                [self->_tableView reloadData];
+                                                                self->_tags = tags;
+                                                                [self->_collectionView reloadData];                                                                
+                                                                [self hideBarberPole];
                                                             }
                                                             failureBlock:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                NSException * exception = [[NSException alloc] initWithName:@"HTTP Operation Failed" reason:error.localizedDescription userInfo:nil];
-                                                                [exception raise];
+                                                                [UIAlertView pfShowWithTitle:@"Request Failed" message:error.localizedDescription];
+                                                                [self hideBarberPole];
                                                             }];
-}
-
-#pragma mark - UITableViewDelegate methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50.0f;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // set the selected tag
-    NSDictionary * tag = [self.tagsArrayDataSource itemAtIndexPath:indexPath];
-    ((PFAppDelegate *)[[UIApplication sharedApplication] delegate]).selectedTagSlug = [tag objectForKey:@"slug"];
-    
-    // push to posts view controller
-    PFPostsViewController * postsViewController = [[PFPostsViewController alloc] initWithNibName:@"PFPostsViewController" bundle:nil];
-    [self.navigationController pushViewController:postsViewController animated:YES];
 }
 
 @end

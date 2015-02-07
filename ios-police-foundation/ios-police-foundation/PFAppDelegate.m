@@ -7,12 +7,8 @@
 //
 
 #import "PFAppDelegate.h"
-#import "GAI.h"
-#import "GAIDictionaryBuilder.h"
+#import "PFAnalyticsManager.h"
 #import <Crashlytics/Crashlytics.h>
-#import "PFCategoriesViewController.h"
-#import "PFAboutViewController.h"
-#import "PFNewsViewController.h"
 
 @interface PFAppDelegate()
 
@@ -20,32 +16,12 @@
 
 @implementation PFAppDelegate
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // Google Analytics
+    [self setAppearance];
+    [self setLogger];
     
-    // Optional: automatically send uncaught exceptions to Google Analytics.
-    //[GAI sharedInstance].trackUncaughtExceptions = YES;
-    
-    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-    //[GAI sharedInstance].dispatchInterval = 20;
-    
-    // Optional: set Logger to VERBOSE for debug information.
-    /*[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
-    
-    // Initialize tracker. Replace with your tracking ID.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-34908763-4"];
-    
-
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"System Action"   // Event category (required)
-                                                          action:@"App Launched"    // Event action (required)
-                                                           label:nil                // Event label
-                                                           value:nil] build]];      // Event value*/
-
+    [[PFAnalyticsManager sharedManager] trackEventWithCategory:GA_SYSTEM_ACTION_CATEGORY action:GA_APPLICATION_LAUNCHED_ACTION label:nil value:nil];
     
     // Crashlytics
     [Crashlytics startWithAPIKey:@"4cc4ce965b769396e57af58ca8f2142491f099cd"];
@@ -53,28 +29,6 @@
     // Force crash:
     //NSString * test = @"12";
     //NSString * __unused subString = [test stringByReplacingCharactersInRange:NSMakeRange(0, 4) withString:@"1234"];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
-    // set up tab view controller
-    PFCategoriesViewController * categoriesViewController = [[PFCategoriesViewController alloc] initWithNibName:@"PFCategoriesViewController" bundle:nil];
-    UINavigationController * categoriesNavigationController = [[UINavigationController alloc] initWithRootViewController:categoriesViewController];
-    
-    // about
-    PFAboutViewController * aboutViewController = [[PFAboutViewController alloc] initWithNibName:@"PFAboutViewController" bundle:nil];
-    UINavigationController * aboutNavigationController = [[UINavigationController alloc] initWithRootViewController:aboutViewController];
-    
-    // news
-    PFNewsViewController * newsViewController = [[PFNewsViewController alloc] initWithNibName:@"PFNewsViewController" bundle:nil];
-    UINavigationController * newsNavigationController = [[UINavigationController alloc] initWithRootViewController:newsViewController];
-    
-    
-    UITabBarController * tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:@[categoriesNavigationController, newsNavigationController, aboutNavigationController]];
-
-    self.window.rootViewController = tabBarController;
     
     return YES;
 }
@@ -99,100 +53,65 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Saves changes in the application's managed object context before the application terminates.
-    [self saveContext];
 }
 
-- (void)saveContext {
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
-}
+- (void)setAppearance {
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    UIColor * tintColor = [UIColor colorWithRed:140/255.0 green:181/255.0 blue:227/255.0 alpha:1.0];
+    UIColor * barBackgroundColor = [UIColor colorWithRed:2/255.0 green:92/255.0 blue:190/255.0 alpha:1.0];
+    UIColor * darkBlueColor = [UIColor colorWithRed:0 green:11/255.0 blue:112/255.0 alpha:0.8];
+    
+    // tab bar tint color
+    [[UITabBar appearance] setTintColor:tintColor];
+    [[UITabBar appearance] setBarTintColor:barBackgroundColor];
 
-#pragma mark - Core Data stack
+    // tab bar items
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+    
+    [[UINavigationBar appearanceWhenContainedIn:[UITabBarController class], nil] setTintColor:tintColor];
+    [[UINavigationBar appearanceWhenContainedIn:[UITabBarController class], nil] setBarTintColor:barBackgroundColor];
 
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
+    NSShadow *shadow = [NSShadow new];
+    [shadow setShadowColor: darkBlueColor];
+    [shadow setShadowOffset: CGSizeMake(0, 0)];
+    
+    [[UINavigationBar appearanceWhenContainedIn:[UITabBarController class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                                                          NSShadowAttributeName: shadow}];
+    
+    if ( [self.window.rootViewController isKindOfClass:([UITabBarController class])] ) {
+        UITabBarController * tabBarController = (UITabBarController *)self.window.rootViewController;
+        
+        NSArray * array = @[@{ @"image" : @"Research Tab Icon", @"selectedImage" : @"Research Tab Icon Selected" },
+                            @{ @"image" : @"RSS Tab Icon", @"selectedImage" : @"RSS Tab Icon Selected" },
+                            @{ @"image" : @"About Tab Icon", @"selectedImage" : @"About Tab Icon Selected" },
+                            @{ @"image" : @"Terms Tab Icon", @"selectedImage" : @"Terms Tab Icon Selected" },
+                            @{ @"image" : @"Document Tab Icon", @"selectedImage" : @"Document Tab Icon Selected" }];
+        
+        [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * tabBarItem, NSUInteger __unused index, BOOL * __unused stop) {
+            if ( [tabBarItem respondsToSelector:@selector(setImage:)] &&
+                [tabBarItem respondsToSelector:@selector(setSelectedImage:)]) {
+                
+                NSDictionary * assetName = array[index];
+                tabBarItem.image = [UIImage imageNamed:assetName[@"image"]];
+                tabBarItem.selectedImage = [UIImage imageNamed:assetName[@"selectedImage"]];
+            }
+        }];
     }
     
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
 }
 
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"ios_police_foundation" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
+- (void)setLogger {
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 }
 
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"ios_police_foundation.sqlite"];
-    
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }    
-    
-    return _persistentStoreCoordinator;
-}
 
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory
-{
+- (NSURL *)applicationDocumentsDirectory {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
