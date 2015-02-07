@@ -9,10 +9,12 @@
 #import "PFAboutViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "PFHTTPRequestOperationManager.h"
+#import "PFWelcomeViewController.h"
 
 @interface PFAboutViewController () <MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) UIBarButtonItem * contactButton;
+@property (nonatomic, strong) UIBarButtonItem * helpButton;
 @property (strong, nonatomic) IBOutlet UIWebView * contentWebView;
 @property (strong, nonatomic) UIAlertView * sendMailAlertView;
 
@@ -24,9 +26,30 @@
     [super viewDidLoad];
     self.title = @"About";
     
+    // create help button
+    self.helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStylePlain target:self action:@selector(helpButtonTapped:)];
+    
+    // create contact button
     if ( [MFMailComposeViewController canSendMail] ) {
         self.contactButton = [[UIBarButtonItem alloc] initWithTitle:@"Contact Us" style:UIBarButtonItemStylePlain target:self action:@selector(contactButtonTapped:)];
-        self.navigationItem.rightBarButtonItem = self.contactButton;
+    }
+    
+    // set up bar button items
+    if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ) {
+        
+        if ( self.contactButton ) {
+            self.navigationItem.rightBarButtonItems = @[self.helpButton, self.contactButton];
+        } else {
+            self.navigationItem.rightBarButtonItem = self.helpButton;
+        }
+        
+    } else if ( [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ) {
+
+        self.navigationItem.leftBarButtonItem = self.helpButton;
+        
+        if ( self.contactButton ) {
+            self.navigationItem.rightBarButtonItem = self.contactButton;
+        }
     }
     
     [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
@@ -36,6 +59,13 @@
     [super viewWillAppear:animated];
     [self fetchWordPressPost];
     self.screenName = @"About Screen";
+}
+
+#pragma mark - Private methods
+
+- (void)helpButtonTapped:(id)sender {
+    PFWelcomeViewController * welcomeViewController = [[PFWelcomeViewController alloc] init];
+    [self presentViewController:welcomeViewController animated:YES completion:nil];
 }
 
 - (void)contactButtonTapped:(id)sender {

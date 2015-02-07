@@ -8,7 +8,6 @@
 
 #import "PFTermsViewController.h"
 #import "PFHTTPRequestOperationManager.h"
-#import "PFWelcomeViewController.h"
 
 @interface PFTermsViewController()
 
@@ -22,9 +21,6 @@
     [super viewDidLoad];
     self.title = @"Terms";
     [self.contentWebView setMediaPlaybackRequiresUserAction:NO];
-    
-    UIBarButtonItem * helpButton = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStylePlain target:self action:@selector(helpButtonTapped:)];
-    self.navigationItem.rightBarButtonItem = helpButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -34,11 +30,6 @@
 }
 
 #pragma mark - Private methods
-
-- (void)helpButtonTapped:(id)sender {
-    PFWelcomeViewController * welcomeViewController = [[PFWelcomeViewController alloc] init];
-    [self presentViewController:welcomeViewController animated:YES completion:nil];
-}
 
 - (void)fetchWordPressPost {
     [self showBarberPole];
